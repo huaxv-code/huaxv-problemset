@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玉子的导航栏</title>
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="shortcut icon" href="./img/hd.png" type="image/x-icon">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        :root {
+            --my-width: 50vw;
+            --my-height: calc(var(--my-width) / 12.5);
+        }
+
+        body {
+            background-color: #000000;
+        }
+
+        .nav {
+            width: var(--my-width);
+            height: var(--my-height);
+            background-color: gray;
+            /* margin: 0 auto; */
+            position: absolute;
+            left: 50%;
+            top: 20%;
+            margin-left: calc(var(--my-width) / -2);
+            border-radius: calc(var(--my-height) / 2);
+            border: 2px transparent solid;
+            transition: border 0.7s;
+        }
+
+        .nav:hover {
+            border: 2px whitesmoke solid;
+            transition: border 0.7s;
+        }
+
+        .bottom {
+            width: calc(var(--my-width) / 7);
+            height: 100%;
+            background-color: blueviolet;
+            /* background-color: rgb(167, 72, 255);  */
+            float: left;
+            border-top-left-radius: calc(var(--my-height) / 2);
+            border-bottom-left-radius: calc(var(--my-height) / 2);
+            position: relative;
+            z-index: 0;
+        }
+
+        .cin {
+            width: calc(var(--my-width) - var(--my-width) / 7);
+            height: 100%;
+            background-color: #1F2124;
+            float: left;
+            border-top-right-radius: calc(var(--my-height) / 2);
+            border-bottom-right-radius: calc(var(--my-height) / 2);
+            font-size: calc(var(--my-height) / 3.5);
+            line-height: calc(var(--my-height));
+        }
+
+        .cin input {
+            width: calc(var(--my-width) - var(--my-width) / 7 - 2 * var(--my-width) / 35);
+            height: 100%;
+            padding: 0 calc(var(--my-width) / 35);
+            background-color: transparent;
+            color: aliceblue;
+            font-size: calc(var(--my-height) / 3.5);
+            line-height: calc(var(--my-height));
+            outline: none;
+            border: none;
+            display: inline-block;
+        }
+
+        .going {
+            width: calc(var(--my-width) / 7);
+            height: 100%;
+            background-color: transparent;
+            border-top-left-radius: calc(var(--my-height) / 2);
+            border-bottom-left-radius: calc(var(--my-height) / 2);
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            transition: background-color 0.5s;
+            cursor: pointer;
+        }
+
+        .going:hover {
+            background-color: rgba(223, 38, 38, 0.871);
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="bottom"></div>
+        <div class="going" onclick="gosearch()"></div>
+        <div class="cin">
+            <input id="keywords" type="text" onkeydown="search(event)" autocomplete="off" autofocus>
+            <script>
+
+                function search(event) {
+                    if (event.keyCode == "13") {
+                        console.log('你输入的内容：' + $('#keywords').val());
+                        // location.href = "https://cn.bing.com/search?q=" + $('#keywords').val();
+                        window.open("https://cn.bing.com/search?q=" + $('#keywords').val());
+                        document.getElementById("keywords").value="";
+                    }
+                }
+
+                function gosearch() {
+                    window.open("https://cn.bing.com/search?q=" + $('#keywords').val());
+                    document.getElementById("keywords").value="";
+                }
+
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
