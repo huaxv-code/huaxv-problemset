@@ -66,7 +66,7 @@
         }
 
         .cin input {
-            width: calc(var(--my-width) - var(--my-width) / 7 - 2 * var(--my-width) / 35);
+            width: calc(var(--my-width) - var(--my-height) - var(--my-width) / 7 - 2 * var(--my-width) / 35);
             height: 100%;
             padding: 0 calc(var(--my-width) / 35);
             background-color: transparent;
@@ -97,6 +97,14 @@
             background-color: rgba(223, 38, 38, 0.871);
             transition: background-color 0.5s;
         }
+        div img.head {
+            position: absolute;
+            height: 100%;
+            right: 0;
+        }
+        div img.head:hover {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -122,8 +130,15 @@
                     document.getElementById("keywords").value="";
                 }
 
+                function gosite() {
+                    window.open("https://huaxv-code.github.io/huaxv-problemset/site/");
+                }
+
             </script>
+
+            
         </div>
+        <img class="head" src="./docs/img/头像.png" alt="北白川玉子" onclick="gosite()">
     </div>
 </body>
 
