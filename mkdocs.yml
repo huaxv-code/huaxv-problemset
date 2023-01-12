@@ -1,0 +1,128 @@
+site_name: 玉子爱做题
+
+repo_url: https://github.com/huaxv-code/huaxv-problemset
+repo_name: 花续情愫缘 / huaxv-note
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      alternate_style: true 
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - footnotes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+
+theme:
+  logo: 'img/头像.png'
+  favicon: 'img/头像.png'
+  icon:  
+    repo: fontawesome/brands/git
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  name: material
+  features:
+    - navigation.instant
+    # - navigation.tracking
+    - navigation.tabs 
+    # - navigation.tabs.sticky
+    # - navigation.sections
+    # - toc.integrate # 屏蔽右侧导航栏，合并到左边
+    # - navigation.expand
+    # - navigation.prune
+    # - navigation.prune 
+    # - toc.follow
+    - navigation.top
+    # - toc.integrate
+    # - content.code.annotate
+    # - content.tabs.link
+  palette:
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: white
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: black
+      # accent: deep orange
+    # - accent: green
+
+  font:
+    code: Roboto Mono
+  language: zh
+
+plugins:
+  - glightbox
+  # - search:
+  #     # lang:
+  #     #   - en
+  #     #   - ja
+  #     # separator: '[\s\-\.]+'
+  #     separator: '[\s\u200b\-]'
+  # #   separator: '[\s\u200b\-]'
+  # # - with-pdf
+  #   # verbose: true
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - 简介:
+    - index.md
+  - 双指针:
+    - 两数之和: problem/双指针/两数之和.md

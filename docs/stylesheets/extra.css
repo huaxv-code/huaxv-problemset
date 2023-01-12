@@ -1,0 +1,35 @@
+strong {
+    color: #e061cf;
+    font-weight: bolder;
+    font-size: .8rem;
+}
+
+h2 , h3, h4, h5, h6 {
+    color: #6c91d5 !important;
+}
+
+/* h1 {
+    color: #49576f !important;
+} */
+
+/* .md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left-width: 4px;
+} */
+
+em {
+    display: inline-block;
+    font-style: normal;
+    border-bottom: 1px solid whitesmoke;
+}
+
+mark.critic {
+    color: inherit;
+    background-color: inherit;
+    border: 3px solid blueviolet;
+    display: inline-block;
+    padding: 0 3px;
+    border-radius: 5px;
+    margin: 0 3px;
+}
