@@ -19,7 +19,7 @@ h2 , h3, h4, h5, h6 {
 } */
 
 em {
-    display: inline-block;
+    /* display: inline-block; */
     font-style: normal;
     border-bottom: 1px solid var(--md-typeset-color);
 }
@@ -28,7 +28,7 @@ mark.critic {
     color: inherit;
     background-color: inherit;
     border: 3px solid blueviolet;
-    display: inline-block;
+    /* display: inline-block; */
     padding: 0 3px;
     border-radius: 5px;
     margin: 0 3px;

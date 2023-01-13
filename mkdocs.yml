@@ -126,3 +126,4 @@ nav:
     - index.md
   - 双指针:
     - 两数之和: problem/双指针/两数之和.md
+    - 单词背诵: problem/双指针/单词背诵.md
