@@ -127,3 +127,7 @@ nav:
   - 双指针:
     - 两数之和: problem/双指针/两数之和.md
     - 单词背诵: problem/双指针/单词背诵.md
+    - 逛画展: problem/双指针/逛画展.md
+    - 三数之和: problem/双指针/三数之和.md
+    - 移除元素: problem/双指针/移除元素.md
+    - 升序数组去重: problem/双指针/升序数组去重.md
