@@ -452,9 +452,9 @@
 </details>
 <h2 id="_9">前缀差分</h2>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../img/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0.png"><img alt="" src="../img/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0.png"/></a></p>
-<p>如果按照一维的区间重叠来分析，我们得先固定好一个方向走，假设我们统一从区间每一行的左侧一直走到区间的右侧，如果遇到 <span class="arithmatex">\(1\)</span> 就说明进入了一个区域当中，如果遇到了 <span class="arithmatex">\(-1\)</span> 就说明出去了一个区域，这样做就可以使得每一行都可以用一维的区间重叠来分析情况：</p>
+<p>如果按照一维的区间重叠来分析，我们得 <strong>先固定好一个方向走</strong>，假设我们统一从区间每一行的左侧一直走到区间的右侧，如果遇到 <span class="arithmatex">\(1\)</span> 就说明进入了一个区域当中，如果遇到了 <span class="arithmatex">\(-1\)</span> 就说明出去了一个区域，这样做就可以使得每一行都可以用一维的区间重叠来分析情况：<strong>(差分从左边叠加过去)</strong></p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../img/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E4%BB%8E%E5%B7%A6%E5%BE%80%E5%8F%B3.png"><img alt="" src="../img/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E4%BB%8E%E5%B7%A6%E5%BE%80%E5%8F%B3.png"/></a></p>
-<p>我们再进一步优化上面那图，如果 <code>[(x1, y1), (x2, y1)]</code> 都是 <span class="arithmatex">\(1\)</span> 的情况下，我们也可以使用差分数组快速记录差分结果，及令 <code>(x1, y1) = 1, (x2 + 1, y1) = -1</code> 这样的结果就可以使得对于每一列从上往下遍历的过程走恢复成上面那图的形状；同样道理, 如果 <code>[(x1, y2 + 1), (x2, y2 + 1)]</code> 都是 <span class="arithmatex">\(-11\)</span> 的情况下，我们只需要令 <code>(x1, y2 + 1) = -1, (x2, y2 + 1) = 1</code> 的差分就可以恢复成上面那副图的形状；</p>
+<p>我们再进一步优化上面那图，如果 <code>[(x1, y1), (x2, y1)]</code> 都是 <span class="arithmatex">\(1\)</span> 的情况下，我们也可以使用差分数组快速记录差分结果，及令 <code>(x1, y1) = 1, (x2 + 1, y1) = -1</code> 这样的结果就可以使得对于每一列从上往下遍历的过程走恢复成上面那图的形状；同样道理, 如果 <code>[(x1, y2 + 1), (x2, y2 + 1)]</code> 都是 <span class="arithmatex">\(-11\)</span> 的情况下，我们只需要令 <code>(x1, y2 + 1) = -1, (x2, y2 + 1) = 1</code> 的差分就可以恢复成上面那副图的形状；<strong>(差分从上面叠加下去)</strong></p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../img/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E4%BB%8E%E4%B8%8A%E5%BE%80%E4%B8%8B.png"><img alt="" src="../img/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E4%BB%8E%E4%B8%8A%E5%BE%80%E4%B8%8B.png"/></a></p>
 <details class="success">
 <summary>代码参考</summary>
