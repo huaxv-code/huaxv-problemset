@@ -346,14 +346,14 @@
 <blockquote>
 <p><span class="arithmatex">\({&lt;x_1, y_1&gt;, &lt;x_2, y_2&gt;, \cdots , &lt;x_s, x_s&gt;}\)</span></p>
 </blockquote>
-<p>其中 <span class="arithmatex">\(x_i\)</span> 代表下标，<span class="arithmatex">\(y_i\)</span> 代表该盒子的值，因为计算结果与颜色无关，只起到分类的作用我就没有保持到该单链表中；</p>
+<p>其中 <span class="arithmatex">\(x_i\)</span> 代表下标，<span class="arithmatex">\(y_i\)</span> 代表该盒子的值，因为计算结果与颜色无关，只起到分类的作用我就没有保存到该单链表中；</p>
 <p>如何计算该链表的分数？</p>
 <p>先任意选取两个不同的元素下标：<span class="arithmatex">\(i, j\)</span>，则这两个下标构成的分数为：</p>
 <blockquote>
 <p><span class="arithmatex">\((x_i + x_j) * (y_i, y_j)\)</span></p>
 <p>化简后的结果：<span class="arithmatex">\(x_iy_i + x_jy_j + x_iy_j + x_jy_i\)</span></p>
 </blockquote>
-<p>由于该链表中的任意两个都能构成满足条件的三元组，总和就变成了求排列组合求总和的问题，但是有条件，<span class="arithmatex">\(i &lt; j\)</span> 必须成立：</p>
+<p>由于该链表中的任意两个都能构成满足条件的三元组，总和就变成了排列组合求总和的问题，但是有条件，<span class="arithmatex">\(i &lt; j\)</span> 必须成立：</p>
 <blockquote>
 <p><span class="arithmatex">\(\sum_{i = 1}^{s}\sum_{j = 1}^{s} x_iy_i + x_jy_j + x_iy_j + x_jy_i\)</span></p>
 <p>若我们将 <span class="arithmatex">\(i\)</span> 固定下来思考，就可以化简成：</p>
@@ -366,7 +366,7 @@
 <p><span class="arithmatex">\(\sum_{i = 1}^{s}s \times x_iy_i + A + x_i \times C + y_i \times B\)</span></p>
 <p>若轮到 <span class="arithmatex">\(i\)</span> 变动，则原公式可变为：</p>
 <p><span class="arithmatex">\(s \times (x_1y_1 + \cdots + x_sy_s) + s \times A + 2BC\)</span></p>
-<p>注意这条公式求的是在该单链表中任取两个的的总和，还需要排除掉 <span class="arithmatex">\(i = j\)</span> 和 <span class="arithmatex">\(i &gt; j\)</span> 的部分</p>
+<p>注意这条公式求的是在该单链表中任取两个元素的总和，还需要排除掉 <span class="arithmatex">\(i = j\)</span> 和 <span class="arithmatex">\(i &gt; j\)</span> 的部分</p>
 <p>若 <span class="arithmatex">\(i = j\)</span> 则值为 ：<span class="arithmatex">\(4A\)</span></p>
 <p>我们还能发现 <span class="arithmatex">\(i &gt; j\)</span> 部分与 <span class="arithmatex">\(i &lt; j\)</span> 部分出现的情况一致，所以 <span class="arithmatex">\(i &gt; j\)</span> 与 <span class="arithmatex">\(i &lt; j\)</span> 各占剩下的一半，所以：</p>
 <p>若 <span class="arithmatex">\(i &lt; j\)</span> 则推导出公式为 ：</p>
@@ -375,7 +375,7 @@
 <p>通过上述的推导过程我们得到每一条单链表的求和公式为 : <span class="arithmatex">\(s \times A + BC - 2A\)</span>;</p>
 <p>我们要如何分类呢？</p>
 <p>如果颜色相同且颜色为奇数，那么该下标就定义为：<strong>M - color</strong>;
-如果颜色相同且颜色为偶数，那么该小标就定义为：<strong>M + color</strong>;</p>
+如果颜色相同且颜色为偶数，那么该下标就定义为：<strong>M + color</strong>;</p>
 <p>其中 <span class="arithmatex">\(M = 2 * 10 ^ 5 + 10\)</span></p>
 <p>具体实现细节请看代码，时间复杂度为：<span class="arithmatex">\(O(n)\)</span>.</p>
 <details class="success">
