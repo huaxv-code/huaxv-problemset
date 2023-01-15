@@ -341,7 +341,7 @@
 <p>如果我求出了数组的前缀和数组，那么我只要不断地枚举宽度与高度的区间和即可：</p>
 <blockquote>
 <p>先固定高度为一个定值，然后遍历宽度从 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(n\)</span> 记录下最大区间和</p>
-<p>如果再来扩展高度，再记录下此时的最大值</p>
+<p>然后再来扩展高度，再记录下此时的最大值</p>
 <p>当然，对于每一个固定高度，高度的起点也是要一一枚举的</p>
 </blockquote>
 <p>时间复杂度约为 <span class="arithmatex">\(O(n ^ 3) \leq 10 ^ 8\)</span></p>
