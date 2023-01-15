@@ -334,7 +334,7 @@
 <p>对于 <span class="arithmatex">\(100\%\)</span> 的数据 <span class="arithmatex">\(M,N\leq 10^5，A_i,B_i,C_i\le10^5\)</span>。</p>
 </details>
 <h2 id="_8">前缀差分</h2>
-<p>若有 <span class="arithmatex">\(9\)</span> 个城市，它若想要依次到达城市 <span class="arithmatex">\(3\rightarrow1\rightarrow4\rightarrow1\rightarrow5\rightarrow9 2\rightarrow6\rightarrow5\rightarrow3\)</span>，则会有 <em>某些铁路段需要重复经过</em>；</p>
+<p>若有 <span class="arithmatex">\(9\)</span> 个城市，它若想要依次到达城市 <span class="arithmatex">\(3 \rightarrow 1 \rightarrow 4 \rightarrow 1 \rightarrow 5 \rightarrow 9\rightarrow 2 \rightarrow 6 \rightarrow 5 \rightarrow 3\)</span>，则会有 <em>某些铁路段需要重复经过</em>；</p>
 <p>如果某条铁路 <span class="arithmatex">\(i\)</span> 可能只经过一次，它的花费可能比买卡的花费要低，例如：<span class="arithmatex">\(A[i] &lt; B[i] + C[i]\)</span>，但由于 <span class="arithmatex">\(B[i] &lt; A[i]\)</span> 的，若该铁路经过了很多次，假设有 <span class="arithmatex">\(t\)</span> 次，那么不等式：<span class="arithmatex">\(A[i] * t &gt; B[i] * t + C[i]\)</span> 是很有可能成立的；</p>
 <p>所以我们需要求出各个铁路段需要搭乘的次数，这样就转换成了 <strong>区间重叠问题</strong>；</p>
 <p>若某铁路的入口出口分别为城市 <span class="arithmatex">\([x, y]\)</span> 那么标记入口个数 <span class="arithmatex">\(a[x] += 1\)</span> 标记出口个数 <span class="arithmatex">\(b[y + 1] += 1\)</span>，最终可以用差分思想的数据叠加方式，从左边依次叠加，看看到达该城市时，比之前多进入了多少个铁路，又出去了多少个铁路，所以需要达成该城市的铁路个数为：<span class="arithmatex">\(c[i] = c[i + 1] + a[i] - b[i + 1]\)</span>，对于每一段铁路的最小花费为：</p>
