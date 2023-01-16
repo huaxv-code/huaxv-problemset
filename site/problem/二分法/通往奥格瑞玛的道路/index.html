@@ -320,21 +320,6 @@
     dfs 遍历每一条可达路径
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-0-n-1">
-    - 如果经过 \(0\) 个顶点就可以到达 \(n\) 就需要 \(1\) 条路径；
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-1-n-n-2">
-    - 如果经过 \(1\) 个顶点就可以到达 \(n\) 就需要 \(n - 2\) 条路径；
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-2-n-a_n-2-2">
-    - 如果经过 \(2\) 个顶点就可以到达 \(n\) 就需要 \(A_{n - 2} ^ 2\)；
-  </a>
-</li>
 </ul>
 </nav>
 </div>
@@ -384,10 +369,10 @@
 <p>估测时间复杂度：</p>
 <p>如果给定一个 <span class="arithmatex">\(n\)</span> 个节点的完全无相图，从顶点 <span class="arithmatex">\(1\)</span> 到达顶点 <span class="arithmatex">\(n\)</span> 的路径条数有多少个？</p>
 <p>从经过中间点的个数来考虑：</p>
-<h2 id="-0-n-1">- 如果经过 <span class="arithmatex">\(0\)</span> 个顶点就可以到达 <span class="arithmatex">\(n\)</span> 就需要 <span class="arithmatex">\(1\)</span> 条路径；</h2>
-<h2 id="-1-n-n-2">- 如果经过 <span class="arithmatex">\(1\)</span> 个顶点就可以到达 <span class="arithmatex">\(n\)</span> 就需要 <span class="arithmatex">\(n - 2\)</span> 条路径；</h2>
-<h2 id="-2-n-a_n-2-2">- 如果经过 <span class="arithmatex">\(2\)</span> 个顶点就可以到达 <span class="arithmatex">\(n\)</span> 就需要 <span class="arithmatex">\(A_{n - 2} ^ 2\)</span>；</h2>
 <ul>
+<li>如果经过 <span class="arithmatex">\(0\)</span> 个顶点就可以到达 <span class="arithmatex">\(n\)</span> 就需要 <span class="arithmatex">\(1\)</span> 条路径；</li>
+<li>如果经过 <span class="arithmatex">\(1\)</span> 个顶点就可以到达 <span class="arithmatex">\(n\)</span> 就需要 <span class="arithmatex">\(n - 2\)</span> 条路径；</li>
+<li>如果经过 <span class="arithmatex">\(2\)</span> 个顶点就可以到达 <span class="arithmatex">\(n\)</span> 就需要 <span class="arithmatex">\(A_{n - 2} ^ 2\)</span>；</li>
 <li>如果经过 <span class="arithmatex">\(k\)</span> 个顶点就可以到达 <span class="arithmatex">\(n\)</span> 就需要 <span class="arithmatex">\(A_{n - 2} ^ k\)</span>；</li>
 </ul>
 <p>而 <span class="arithmatex">\(k\)</span> 的可能取值为：<span class="arithmatex">\(0, 1, 2, \cdots , n - 2\)</span>，所以总路径条数有：</p>
