@@ -352,9 +352,11 @@
 <h2 id="_2">二分枚举答案区间</h2>
 <p>由于该数组的每一个元素都是非负的，所以该答案一定分布在区间 <span class="arithmatex">\([max(nums), sum(nums)]\)</span> 中；</p>
 <p>我们可以用二分查找，不断枚举中点 <span class="arithmatex">\(mid\)</span>，并假设该值就是现在的最大值，那么就要将该数组分割成 <span class="arithmatex">\(x\)</span> 个小于或等于 <span class="arithmatex">\(mid\)</span> 的连续子序列；</p>
-<p>如果划分的数量 <span class="arithmatex">\(x &lt; m\)</span> 就说明 <span class="arithmatex">\(mid\)</span> 太大了；
-如果划分的数量 <span class="arithmatex">\(x &gt; m\)</span> 就说明 <span class="arithmatex">\(mid\)</span> 太小了；
-如果划分的数量 <span class="arithmatex">\(x = m\)</span> 那么 <span class="arithmatex">\(mid\)</span> 需要向下检索；</p>
+<ul>
+<li>如果划分的数量 <span class="arithmatex">\(x &lt; m\)</span> 就说明 <span class="arithmatex">\(mid\)</span> 太大了；</li>
+<li>如果划分的数量 <span class="arithmatex">\(x &gt; m\)</span> 就说明 <span class="arithmatex">\(mid\)</span> 太小了；</li>
+<li>如果划分的数量 <span class="arithmatex">\(x = m\)</span> 那么 <span class="arithmatex">\(mid\)</span> 需要向下检索；</li>
+</ul>
 <details class="success">
 <summary>代码参考</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">LL</span><span class="p">;</span><span class="w"></span>
