@@ -124,6 +124,8 @@ extra_javascript:
 nav:
   - 简介:
     - index.md
+  - 规律模拟:
+    - AB提前确定输赢: problem/规律模拟/AB提前确定输赢.md
   - 双指针:
     - 两数之和: problem/双指针/两数之和.md
     - 单词背诵: problem/双指针/单词背诵.md
