@@ -359,7 +359,7 @@
 </details>
 <h2 id="_2">二分法</h2>
 <p>将数组 <code>a[1 ~ n]</code> 从小到大排序，枚举每一个元素 <code>a[i]</code> 不断查找元素 <code>t - a[i]</code> 在数组中是否存在，如果存在就是答案。</p>
-<p>不同于双指针尺取法，双指针尺取法的时间复杂度为 <span class="arithmatex">\(O(n)\)</span>，而该二分做法的时间复杂度为 <span class="arithmatex">\(O(nlog(n))\)</span>.</p>
+<p>不同于双指针尺取法，双指针尺取法的时间复杂度为 <span class="arithmatex">\(O(n)\)</span>，如果算上排序的话，其实双指针尺取法的时间复杂度也是 <span class="arithmatex">\(O(nlog(n))\)</span>，该二分做法的时间复杂度也为 <span class="arithmatex">\(O(nlog(n))\)</span>.</p>
 <details class="success">
 <summary>代码参考</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
