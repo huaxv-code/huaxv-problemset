@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../../img/头像.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>猜中的期望次数 - 玉子爱做题</title>
+<title>最少坏区间 - 玉子爱做题</title>
 <link href="../../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              猜中的期望次数
+              最少坏区间
             
           </span>
 </div>
@@ -101,7 +101,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E8%B4%AA%E5%BF%83/H%E6%8C%87%E6%95%B0/">
+<a class="md-tabs__link md-tabs__link--active" href="../H%E6%8C%87%E6%95%B0/">
         贪心
       </a>
 </li>
@@ -121,8 +121,8 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
-        数学概率
+<a class="md-tabs__link" href="../../%E6%95%B0%E5%AD%A6/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0/">
+        数学
       </a>
 </li>
 </ul>
@@ -191,8 +191,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3">
           贪心
           <span class="md-nav__icon md-icon"></span>
@@ -204,9 +204,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E8%B4%AA%E5%BF%83/H%E6%8C%87%E6%95%B0/">
+<a class="md-nav__link" href="../H%E6%8C%87%E6%95%B0/">
         H指数
       </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          最少坏区间
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        最少坏区间
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    贪心
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -361,40 +384,27 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_7">
-          数学概率
+          数学
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="数学概率" class="md-nav" data-md-level="1">
+<nav aria-label="数学" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-          数学概率
+          数学
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          猜中的期望次数
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0/">
         猜中的期望次数
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    找分布规律
-  </a>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E9%87%8D%E5%8F%A0%E9%9D%A2%E7%A7%AF%E6%AF%94%E5%80%BC/">
+        重叠面积比值
+      </a>
 </li>
 </ul>
 </nav>
@@ -415,7 +425,7 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    找分布规律
+    贪心
   </a>
 </li>
 </ul>
@@ -425,55 +435,64 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/huaxv-code/huaxv-problemset/edit/master/docs/problem/数学概率/猜中的期望次数.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/huaxv-code/huaxv-problemset/edit/master/docs/problem/贪心/最少坏区间.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="_1">猜中的期望次数</h1>
+<h1 id="_1">最少坏区间</h1>
 <details class="question">
-<summary><a href="https://ac.nowcoder.com/acm/contest/46800/L">题目描述</a></summary>
-<p>在某个游戏中有 <span class="arithmatex">\(20\)</span> 个人物特性鲜明角色，分别属于不同的 <span class="arithmatex">\(5\)</span> 大阵营，对于每个阵营都只有 <span class="arithmatex">\(4\)</span> 位角色；</p>
-<p>已知小红很喜欢该游戏的某位角色，现在需要你来猜测该游戏角色是谁；</p>
-<p>你只可以像这样提问：</p>
-<ul>
-<li>你喜欢的角色在第 1 阵营吗？回答：是。</li>
-<li>你喜欢的角色是第 1 阵营的第 1 位角色吗？回答：不是。</li>
-<li>你喜欢的角色是第 1 阵营的第 2 位角色吗？回答：不是。</li>
-<li>你喜欢的角色是第 1 阵营的第 3 位角色吗？回答：是。</li>
-</ul>
-<p>像这样提问，你只用了 <span class="arithmatex">\(4\)</span> 次就能 <span class="arithmatex">\(100\%\)</span> 确定小红喜欢的游戏角色。</p>
-<p>你想知道，在动用最优策略的情况下，使得提问的次数最少并且还能 <span class="arithmatex">\(100\%\)</span> 确定小红喜欢的游戏角色，需要的平均提问的次数期望值是多少次？</p>
-<p>答案可能是小数。</p>
+<summary><a href="https://ac.nowcoder.com/acm/contest/46800/K">问题描述</a></summary>
+<p>你需要写出一个只能由 <span class="arithmatex">\(0\)</span> 或 <span class="arithmatex">\(1\)</span> 组成的长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(s\)</span>；</p>
+<p>坏区间定义：对于长度为 <span class="arithmatex">\(3\)</span> 的任意区间，如果该区间中 <span class="arithmatex">\(1\)</span> 的个数比 <span class="arithmatex">\(0\)</span> 的个数多，那么该区间就是坏区间；</p>
+<p>题目要求你写出的这个字符串的坏区间数要尽可能的少，并输出该坏区间的个数。</p>
+<p><strong>输入描述</strong></p>
+<p>输入只有一行，该行上只有两个整数，分别代表字符串的长度为 <span class="arithmatex">\(n\)</span>、<span class="arithmatex">\(1\)</span> 的个数为 <span class="arithmatex">\(m\)</span> 个；</p>
+<p><strong>输出描述</strong></p>
+<p>输出一个整数代表最少的坏区间个数；</p>
+<p><strong>数据范围</strong></p>
+<p><span class="arithmatex">\(1 \leq n、m \leq 1000\)</span></p>
+<p><strong>输入样例</strong></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>4 3
+</code></pre></div>
+<p><strong>输出样例</strong></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>2
+</code></pre></div>
 </details>
-<h2 id="_2">找分布规律</h2>
-<p>先猜测阵营，属于哪里：</p>
-<ul>
-<li>属于第 1 个阵营吗？如果回答是，就在第 1 个阵营里面找，否则接着问属于哪个阵营；</li>
-<li>属于第 2 个阵营吗？如果回答是，就在第 2 个阵营里面找，否则接着问属于哪个阵营；</li>
-<li>属于第 3 个阵营吗？如果回答是，就在第 3 个阵营里面找，否则接着问属于哪个阵营；</li>
-<li>属于第 4 个阵营吗？如果回答是，就在第 4 个阵营里面找，否则那就肯定属于第 5 个阵营；</li>
-</ul>
-<p>已知它属于第 <span class="arithmatex">\(x\)</span> 个阵营之后，就继续猜测他是第几位角色：</p>
-<ul>
-<li>是第 <span class="arithmatex">\(x\)</span> 个阵营的第 1 位角色吗？如果是，就求出此时的概率与次数；否则继续往下猜；</li>
-<li>是第 <span class="arithmatex">\(x\)</span> 个阵营的第 2 位角色吗？如果是，就求出此时的概率与次数；否则继续往下猜；</li>
-<li>是第 <span class="arithmatex">\(x\)</span> 个阵营的第 3 位角色吗？如果是，就求出此时的概率与次数；否则就一定是最后一位角色了；</li>
-</ul>
-<p>所以，概率分布可以用下面这副图来描述：</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../img/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0.png"><img alt="" src="../img/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0.png"/></a></p>
-<p>动手可以算出期望次数为：<span class="arithmatex">\(5.05\)</span> 次；</p>
+<h2 id="_2">贪心</h2>
+<p>如何排列才能使得坏区间个数最少？</p>
+<p>如果全部都是 <span class="arithmatex">\(0\)</span>，那么坏区间数一定是 <span class="arithmatex">\(0\)</span>；</p>
+<p>如果插入一个 <span class="arithmatex">\(1\)</span>，那么坏区间数还是 <span class="arithmatex">\(0\)</span>；</p>
+<p>如果有 <span class="arithmatex">\(2\)</span> 个 <span class="arithmatex">\(1\)</span> 呢？我们就得让这两个 <span class="arithmatex">\(1\)</span> 间隔的远一点，起码也得用 <span class="arithmatex">\(2\)</span> 个 <span class="arithmatex">\(0\)</span> 间隔开，例如：<span class="arithmatex">\(1001\)</span>；</p>
+<p>如果有 <span class="arithmatex">\(3\)</span> 个 <span class="arithmatex">\(1\)</span> 呢？比如 <span class="arithmatex">\(111\)</span>，我们要怎么样插入 <span class="arithmatex">\(0\)</span> 才能使得坏区间数尽可能的少？比如像这样插入：<span class="arithmatex">\(1001001\)</span> 给每个两个 <span class="arithmatex">\(1\)</span> 之间插入 <span class="arithmatex">\(2\)</span> 个 <span class="arithmatex">\(0\)</span> 就能使得坏区间数归 <span class="arithmatex">\(0\)</span>；</p>
+<p>所以我们有，设 <span class="arithmatex">\(x\)</span> 为 <span class="arithmatex">\(0\)</span> 的个数，<span class="arithmatex">\(y\)</span> 为 <span class="arithmatex">\(1\)</span> 的个数，如果 <span class="arithmatex">\((y - 1) * 2 &lt;= x\)</span> 就说明 <span class="arithmatex">\(0\)</span> 足够多，完全足够将这些 <span class="arithmatex">\(1\)</span> 用两个 <span class="arithmatex">\(0\)</span> 间隔开来，所以此时的坏区间数为 <span class="arithmatex">\(0\)</span>；</p>
+<hr/>
+<p>如果 <span class="arithmatex">\((y - 1) * 2 &gt; x\)</span> 就说明 <span class="arithmatex">\(0\)</span> 的个数不够多了，那么肯定会有某些 <span class="arithmatex">\(1\)</span> 挤在一堆；</p>
+<p>如果 <span class="arithmatex">\(x\)</span> 是偶数，那么 <span class="arithmatex">\(x\)</span> 可以将 <span class="arithmatex">\(\frac{x}{2}\)</span> 个 <span class="arithmatex">\(1\)</span> 用 <span class="arithmatex">\(00\)</span> 间隔开来，那么剩下的 <span class="arithmatex">\(1\)</span> 都会挤在尾部，此时的坏区间数为：</p>
+<blockquote>
+<p><span class="arithmatex">\(y - \frac{x}{2} - 1\)</span></p>
+</blockquote>
+<p>如果 <span class="arithmatex">\(x\)</span> 是奇数，那么 <span class="arithmatex">\(x\)</span> 可以将 <span class="arithmatex">\(\frac{x-1}{2}\)</span> 个 <span class="arithmatex">\(1\)</span> 用 <span class="arithmatex">\(00\)</span> 间隔开来，这样就会剩下 <span class="arithmatex">\(1\)</span> 个 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(y - \frac{x-1}{2}\)</span> 个 1，其尾部的大致形状：<span class="arithmatex">\(0010111···\)</span> 或者 <span class="arithmatex">\(0001111···\)</span>，我们发现最后那个多余的 <span class="arithmatex">\(0\)</span> 无论放在哪里，坏区间数都会固定为：</p>
+<blockquote>
+<p><span class="arithmatex">\(y - \frac{x-1}{2} - 1\)</span></p>
+</blockquote>
+<hr/>
+<p>所以，如果 <span class="arithmatex">\(n &lt; 3\)</span> 或者 <span class="arithmatex">\((y - 1) * 2 &lt;= x\)</span> 则坏区间数为 <span class="arithmatex">\(0\)</span>；</p>
+<p>否则就是 <span class="arithmatex">\(y - \frac{x}{2} - 1\)</span> 向下取整；</p>
+<p>前面的假设都是必定存在两个 <span class="arithmatex">\(0\)</span> 间隔开了几个 <span class="arithmatex">\(1\)</span> 的情况，还得特殊考虑如果只有 <span class="arithmatex">\(1\)</span> 个 0 或者只有 <span class="arithmatex">\(0\)</span> 个 <span class="arithmatex">\(0\)</span> 的情况；</p>
+<p>如果只有 <span class="arithmatex">\(1\)</span> 个 <span class="arithmatex">\(0\)</span>，答案就是 <span class="arithmatex">\(y - 1\)</span>;
+如果只有 <span class="arithmatex">\(0\)</span> 个 <span class="arithmatex">\(0\)</span>，答案就是 <span class="arithmatex">\(y - 2\)</span>；</p>
+<hr/>
 <details class="success">
-<summary>参考代码</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">()</span><span class="w"></span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">((</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.25</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.20</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.25</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="c1">// cout &lt;&lt; 5.05 &lt;&lt; endl;</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="p">}</span><span class="w"></span>
+<summary>代码参考</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </details>
 </article>
@@ -486,7 +505,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 光骓者的荣耀" class="md-footer__link md-footer__link--prev" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%85%89%E9%AA%93%E8%80%85%E7%9A%84%E8%8D%A3%E8%80%80/" rel="prev">
+<a aria-label="上一页: H指数" class="md-footer__link md-footer__link--prev" href="../H%E6%8C%87%E6%95%B0/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -495,8 +514,21 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              光骓者的荣耀
+              H指数
             </div>
+</div>
+</a>
+<a aria-label="下一页: 两数之和" class="md-footer__link md-footer__link--next" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                下一页
+              </span>
+              两数之和
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
 </div>
 </a>
 </nav>
