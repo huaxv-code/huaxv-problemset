@@ -126,6 +126,8 @@ nav:
     - index.md
   - 规律模拟:
     - AB提前确定输赢: problem/规律模拟/AB提前确定输赢.md
+  - 贪心:
+    - H指数: problem/贪心/H指数.md
   - 双指针:
     - 两数之和: problem/双指针/两数之和.md
     - 单词背诵: problem/双指针/单词背诵.md
@@ -139,6 +141,7 @@ nav:
     - 路标设置: problem/二分法/路标设置.md
     - 序列划分: problem/二分法/序列划分.md
     - 通往奥格瑞玛的道路: problem/二分法/通往奥格瑞玛的道路.md
+    - H指数: problem/二分法/H指数.md
   - 前缀差分:
     - 区间重叠问题: problem/前缀差分/区间重叠问题.md
     - 出行计划: problem/前缀差分/出行计划.md
