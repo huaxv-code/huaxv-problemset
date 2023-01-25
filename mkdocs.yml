@@ -146,6 +146,7 @@ nav:
     - 进击的奶牛 : problem/二分法/进击的奶牛.md
     - 过生日（实数二分）: problem/二分法/过生日.md
     - 砍原木 : problem/二分法/砍原木.md
+    - 寻找段落 : problem/二分法/寻找段落.md
   - 前缀差分:
     - 区间重叠问题: problem/前缀差分/区间重叠问题.md
     - 出行计划: problem/前缀差分/出行计划.md
