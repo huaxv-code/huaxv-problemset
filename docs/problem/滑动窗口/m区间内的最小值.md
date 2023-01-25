@@ -44,3 +44,24 @@
 
 ## 滑动窗口维护最小值
 
+??? success "代码参考（cin、cout 卡超时）"
+
+    ```c++
+    LL n, m, a[N];
+    LL v[N], p[N], l, r;
+
+    void solve(void)
+    {
+        cin >> n >> m;
+        for (LL i = 1; i <= n; i ++) scanf ("%lld", a + i);
+
+        printf ("0\n");
+        for (LL i = 1; i < n; i ++)
+        {
+            while (r - l && v[r - 1] >= a[i]) r --;
+            while (r - l && p[l] < i - m + 1) l ++;
+            v[r] = a[i]; p[r] = i; r ++;
+            printf ("%lld\n", v[l]);
+        }
+    }
+    ```
