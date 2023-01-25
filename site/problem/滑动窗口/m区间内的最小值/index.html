@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../../img/头像.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>跳石头 - 玉子爱做题</title>
+<title>m区间内的最小值 - 玉子爱做题</title>
 <link href="../../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
@@ -34,7 +34,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#m">
           跳转至
         </a>
 </div>
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              跳石头
+              m区间内的最小值
             
           </span>
 </div>
@@ -111,7 +111,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-tabs__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         二分法
       </a>
 </li>
@@ -136,7 +136,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+<a class="md-tabs__link md-tabs__link--active" href="../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
         滑动窗口
       </a>
 </li>
@@ -276,8 +276,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
           二分法
           <span class="md-nav__icon md-icon"></span>
@@ -289,118 +289,52 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         两数之和
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          跳石头
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%B3%E7%9F%B3%E5%A4%B4/">
         跳石头
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    输入格式
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    输出格式
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1">
-    样例 #1
-  </a>
-<nav aria-label="样例 #1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1_1">
-    样例输入 #1
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1_2">
-    样例输出 #1
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    提示
-  </a>
-<nav aria-label="提示" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1_3">
-    输入输出样例 1 说明
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    数据规模与约定
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    二分法
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE/">
         路标设置
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86/">
         序列划分
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E9%80%9A%E5%BE%80%E5%A5%A5%E6%A0%BC%E7%91%9E%E7%8E%9B%E7%9A%84%E9%81%93%E8%B7%AF/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E9%80%9A%E5%BE%80%E5%A5%A5%E6%A0%BC%E7%91%9E%E7%8E%9B%E7%9A%84%E9%81%93%E8%B7%AF/">
         通往奥格瑞玛的道路
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../H%E6%8C%87%E6%95%B0/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/H%E6%8C%87%E6%95%B0/">
         H指数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B/">
         进击的奶牛
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%BF%87%E7%94%9F%E6%97%A5/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%87%E7%94%9F%E6%97%A5/">
         过生日（实数二分）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E7%A0%8D%E5%8E%9F%E6%9C%A8/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A0%8D%E5%8E%9F%E6%9C%A8/">
         砍原木
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
         寻找段落
       </a>
 </li>
@@ -547,8 +481,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_10">
           滑动窗口
           <span class="md-nav__icon md-icon"></span>
@@ -560,12 +494,13 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+<a class="md-nav__link" href="../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
         滑动窗口
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/m%E5%8C%BA%E9%97%B4%E5%86%85%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         m区间内的最小值
       </a>
 </li>
@@ -581,143 +516,43 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    输入格式
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    输出格式
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1">
-    样例 #1
-  </a>
-<nav aria-label="样例 #1" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1_1">
-    样例输入 #1
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1_2">
-    样例输出 #1
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    提示
-  </a>
-<nav aria-label="提示" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1_3">
-    输入输出样例 1 说明
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    数据规模与约定
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    二分法
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/huaxv-code/huaxv-problemset/edit/master/docs/problem/二分法/跳石头.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/huaxv-code/huaxv-problemset/edit/master/docs/problem/滑动窗口/m区间内的最小值.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="_1">跳石头</h1>
+<h1 id="m">m 区间内的最小值</h1>
 <details class="question">
-<summary><a href="https://www.luogu.com.cn/problem/P2678">题目描述</a></summary>
-<p>这项比赛将在一条笔直的河道中进行，河道中分布着一些巨大岩石。组委会已经选择好了两块岩石作为比赛起点和终点。在起点和终点之间，有 <span class="arithmatex">\(N\)</span> 块岩石（不含起点和终点的岩石）。在比赛过程中，选手们将从起点出发，每一步跳向相邻的岩石，直至到达终点。</p>
-<p>为了提高比赛难度，组委会计划移走一些岩石，使得选手们在比赛过程中的最短跳跃距离尽可能长。由于预算限制，组委会至多从起点和终点之间移走 <span class="arithmatex">\(M\)</span> 块岩石（不能移走起点和终点的岩石）。</p>
+<summary><a href="https://www.luogu.com.cn/problem/P1440">问题描述</a></summary>
+<h1 id="m_1">求m区间内的最小值</h1>
+<h2 id="_1">题目描述</h2>
+<p>一个含有 <span class="arithmatex">\(n\)</span> 项的数列，求出每一项前的 <span class="arithmatex">\(m\)</span> 个数到它这个区间内的最小值。若前面的数不足 <span class="arithmatex">\(m\)</span> 项则从第 <span class="arithmatex">\(1\)</span> 个数开始，若前面没有数则输出 <span class="arithmatex">\(0\)</span>。</p>
 <h2 id="_2">输入格式</h2>
-<p>第一行包含三个整数 <span class="arithmatex">\(L,N,M\)</span>，分别表示起点到终点的距离，起点和终点之间的岩石数，以及组委会至多移走的岩石数。保证 <span class="arithmatex">\(L \geq 1\)</span> 且 <span class="arithmatex">\(N \geq M \geq 0\)</span>。</p>
-<p>接下来 <span class="arithmatex">\(N\)</span> 行，每行一个整数，第 <span class="arithmatex">\(i\)</span> 行的整数 <span class="arithmatex">\(D_i( 0 &lt; D_i &lt; L)\)</span>， 表示第 <span class="arithmatex">\(i\)</span> 块岩石与起点的距离。这些岩石按与起点距离从小到大的顺序给出，且不会有两个岩石出现在同一个位置。</p>
+<p>第一行两个整数，分别表示 <span class="arithmatex">\(n\)</span>，<span class="arithmatex">\(m\)</span>。</p>
+<p>第二行，<span class="arithmatex">\(n\)</span> 个正整数，为所给定的数列 <span class="arithmatex">\(a_i\)</span>。</p>
 <h2 id="_3">输出格式</h2>
-<p>一个整数，即最短跳跃距离的最大值。</p>
+<p><span class="arithmatex">\(n\)</span> 行，每行一个整数，第 <span class="arithmatex">\(i\)</span> 个数为序列中 <span class="arithmatex">\(a_i\)</span> 之前 <span class="arithmatex">\(m\)</span> 个数的最小值。</p>
 <h2 id="1">样例 #1</h2>
 <h3 id="1_1">样例输入 #1</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>25 5 2 
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>2
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>11
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>14
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>17 
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>21
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>6 2
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>7 8 1 4 3 2
 </code></pre></div>
 <h3 id="1_2">样例输出 #1</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>4
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>0
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>7
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>7
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>1
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>1
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>3
 </code></pre></div>
 <h2 id="_4">提示</h2>
-<h3 id="1_3">输入输出样例 1 说明</h3>
-<p>将与起点距离为 <span class="arithmatex">\(2\)</span>和 <span class="arithmatex">\(14\)</span> 的两个岩石移走后,最短的跳跃距离为 <span class="arithmatex">\(4\)</span>(从与起点距离 <span class="arithmatex">\(17\)</span> 的岩石跳到距离 <span class="arithmatex">\(21\)</span> 的岩石,或者从距离 <span class="arithmatex">\(21\)</span> 的岩石跳到终点)。</p>
-<h3 id="_5">数据规模与约定</h3>
-<p>对于 <span class="arithmatex">\(20\%\)</span>的数据，<span class="arithmatex">\(0 \le M \le N \le 10\)</span>。  <br/>
-对于 <span class="arithmatex">\(50\%\)</span> 的数据，<span class="arithmatex">\(0 \le M \le N \le 100\)</span>。<br/>
-对于 <span class="arithmatex">\(100\%\)</span>的数据，<span class="arithmatex">\(0 \le M \le N \le 50000,1 \le L 
-\le 10^9\)</span>。</p>
+<p>对于 <span class="arithmatex">\(100\%\)</span> 的数据，保证 <span class="arithmatex">\(1\le m\le n\le2\times10^6\)</span>，<span class="arithmatex">\(1\le a_i\le3\times10^7\)</span>。</p>
 </details>
-<h2 id="_6">二分法</h2>
-<p>答案一定分布在区间 <code>[0, d]</code> 之中，<code>d</code> 代表从起点到达终点的距离；</p>
-<p>我们不断地用二分枚举中间距离，不断假设最短的跳跃距离是 <code>mid</code>，并判断是否满足移除条件，即若最短的距离是 <code>mid</code>，就要将所有距离小于 <code>mid</code> 的石头移除，看一下需要移除多少个石头；</p>
-<p>如果移除的石头数量大于 <code>m</code>，就说明 <code>mid</code> 太大了；如果移除的石头数量小于 <code>m</code>，说明 <code>mid</code> 还不够大；如果刚好等于 <code>m</code>，就继续往上找看看有没有更大的 <code>mid</code>;</p>
-<p>如果 <code>mid</code> 上升到一定的临界值，使得移除的石头数量刚刚好等于 <code>m</code>，并且 <code>mid</code> 稍微递增 <span class="arithmatex">\(1\)</span> 使得移除的石头数量大于 <code>m</code> 时，说明此时的 <code>mid</code> 就是答案；</p>
-<p>你可以想象，当我拿出这 <code>m</code> 块石头后，最短的距离一定会是 <code>mid</code>，只有这样才能使得 <code>mid + 1</code> 后还要拿出多余的一个石头，此时的最短距离刚好小于 <code>mid + 1</code> 而等于 <code>mid</code>;</p>
-<p><strong>时间复杂度</strong>: <span class="arithmatex">\(O(nlogd)\)</span>.</p>
-<details class="success">
-<summary>代码参考</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">LL</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">ok</span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="n">LL</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">nb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">nb</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">nb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="n">LL</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">        </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ok</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</details>
+<h2 id="_5">滑动窗口维护最小值</h2>
 </article>
 </div>
 </div>
@@ -728,7 +563,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 两数之和" class="md-footer__link md-footer__link--prev" href="../%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" rel="prev">
+<a aria-label="上一页: 滑动窗口" class="md-footer__link md-footer__link--prev" href="../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -737,21 +572,8 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              两数之和
+              滑动窗口
             </div>
-</div>
-</a>
-<a aria-label="下一页: 路标设置" class="md-footer__link md-footer__link--next" href="../%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE/" rel="next">
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                下一页
-              </span>
-              路标设置
-            </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
 </div>
 </a>
 </nav>
