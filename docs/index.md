@@ -46,7 +46,7 @@
 
 ---
 
-## **vscode** 的配置文件内容：
+## **vscode** 配置文件内容：
 
 ??? note "settings.json"
 
