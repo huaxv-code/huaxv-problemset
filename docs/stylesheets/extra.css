@@ -1,7 +1,8 @@
 strong {
     color: #e061cf;
     font-weight: bolder;
-    font-size: .8rem;
+    /* font-size: .8rem; */
+    font-size: 1.17em;
 }
 
 h2 , h3, h4, h5, h6 {
