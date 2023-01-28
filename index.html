@@ -112,7 +112,7 @@
 
 <body>
     <div class="nav">
-        <div class="bottom"></div>
+        <div id="click_bottom_search" class="bottom"></div>
         <div class="going" onclick="gosearch()"></div>
         <div class="cin">
             <input id="keywords" type="text" onkeydown="search(event)" autocomplete="off" autofocus>
@@ -148,6 +148,15 @@
                             gosite(); // 左键
                         } else if (e.button == 1) {
                             gosite(); // 滚轮点击
+                        }
+                    };
+                    document.getElementById("click_bottom_search").onmousedown = function (e) {
+                        if (e.button == 2) {
+                            gosearch(); // 右键
+                        } else if (e.button == 0) {
+                            gosearch(); // 左键
+                        } else if (e.button == 1) {
+                            gosearch(); // 滚轮点击
                         }
                     }
                 }
