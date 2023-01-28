@@ -643,7 +643,7 @@
 <p>由于最优路径长度最大不超过 <span class="arithmatex">\(2 ^ {64}\)</span> 次方</p>
 <p>如果存在某个通路使得从 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(n\)</span> 的通路长度为 <span class="arithmatex">\(2 ^ k\)</span> 则只需 <span class="arithmatex">\(1\)</span> s 就可以跳转到公司.</p>
 <p>如果不存在就得找到某通路的长度，它的二进制表示中的 <span class="arithmatex">\(1\)</span> 的个数最少就是答案.</p>
-<p>满足条件的通路中必定存在某个点 <span class="arithmatex">\(a\)</span> 使得 <span class="arithmatex">\(1 \sim a\)</span> 的通路长度为 <span class="arithmatex">\(2 ^ {k_1}\)</span>，并且从 <span class="arithmatex">\(a\)</span> 开始也存在某个点 <span class="arithmatex">\(b\)</span> 使得 <span class="arithmatex">\(a \sim b\)</span> 的通路长度为 <span class="arithmatex">\(2 ^ {k _ 2}\)</span>，··· ··· ，知道最后某个到达 <span class="arithmatex">\(n\)</span> 的通路长度也是 <span class="arithmatex">\(2 ^ {k _ s}\)</span>，且答案正好是：<span class="arithmatex">\(k_1 + k_2 + \cdots + k_s\)</span>.</p>
+<p>满足条件的通路中必定存在某个点 <span class="arithmatex">\(a\)</span> 使得 <span class="arithmatex">\(1 \sim a\)</span> 的通路长度为 <span class="arithmatex">\(2 ^ {k_1}\)</span>，并且从 <span class="arithmatex">\(a\)</span> 开始也存在某个点 <span class="arithmatex">\(b\)</span> 使得 <span class="arithmatex">\(a \sim b\)</span> 的通路长度为 <span class="arithmatex">\(2 ^ {k _ 2}\)</span>，··· ··· ，直到最后某个到达 <span class="arithmatex">\(n\)</span> 的通路长度也是 <span class="arithmatex">\(2 ^ {k _ s}\)</span>，且答案正好是：<span class="arithmatex">\(k_1 + k_2 + \cdots + k_s\)</span>.</p>
 <p>为此我们要知道任意两点之间是否存在通路长度为 <span class="arithmatex">\(2 ^ k\)</span>：</p>
 <p>倍增思想：</p>
 <p>从通路长度为 1 的倍增到 2，再由 2 倍增到 4，一直倍增到 <span class="arithmatex">\(2 ^ {64}\)</span> 为止，找出所有通路长度为 <span class="arithmatex">\(2 ^ k\)</span> 的点.</p>
