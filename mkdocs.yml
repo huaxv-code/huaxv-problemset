@@ -156,6 +156,7 @@ nav:
   - 倍增法:
     - 快速幂: problem/倍增法/快速幂.md
     - 国旗计划: problem/倍增法/国旗计划.md
+    - 跑路: problem/倍增法/跑路.md
   - 前缀差分:
     - 区间重叠问题: problem/前缀差分/区间重叠问题.md
     - 出行计划: problem/前缀差分/出行计划.md

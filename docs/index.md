@@ -18,7 +18,14 @@
 
     using namespace std;
     typedef long long LL;
+    typedef long double DD;
+    typedef __int128_t HH;
+    inline HH ghh();
+    inline void phh(HH x);
+    inline LL gll();
     const LL N = (LL)(1e6 + 10);
+
+    /*────────────────────────────────────────────────────────────────────*/
 
 
 
@@ -26,6 +33,8 @@
     {
         
     }
+
+    /*────────────────────────────────────────────────────────────────────*/
 
     int main(void)
     {
@@ -41,6 +50,40 @@
         else solve();
 
         return 0;
+    }
+
+    inline HH ghh() 
+    {   
+        char s[200];
+        scanf ("%s", s);
+        HH x = 0, f = 1;
+        for (LL i = 0; s[i]; i ++) 
+        {
+            if (s[i] == '-') f = -1;
+            else if (s[i] >= '0' && s[i] <= '9') x = x * 10 + s[i] - '0';
+        }
+        return x * f;
+    }
+
+    inline void phh(HH x)
+    {
+        if (x < 0) { putchar('-'); x *= -1; }
+        if (x == 0) { putchar('0'); return; }
+        if (x / 10) phh(x / 10);
+        putchar((x % 10) + '0');
+    }
+
+    inline LL gll()
+    {
+        char s[200];
+        scanf ("%s", s);
+        LL x = 0, f = 1;
+        for (LL i = 0; s[i]; i ++)
+        {
+            if (s[i] == '-') f = -1;
+            else if (s[i] >= '0' && s[i] <= '9') x = x * 10 + s[i] - '0';
+        }
+        return x * f;
     }
     ```
 
