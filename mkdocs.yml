@@ -126,6 +126,7 @@ nav:
     - index.md
   - 规律模拟:
     - AB提前确定输赢: problem/规律模拟/AB提前确定输赢.md
+    - 小卡与质数2 : problem/规律模拟/小卡与质数2.md
   - 贪心:
     - H指数: problem/贪心/H指数.md
     - 最少坏区间: problem/贪心/最少坏区间.md
@@ -148,6 +149,7 @@ nav:
     - 砍原木 : problem/二分法/砍原木.md
     - 寻找段落 : problem/二分法/寻找段落.md
     - 称重: problem/二分法/称重.md
+    - 小卡与质数2 : problem/二分法/小卡与质数2.md
   - 三分法:
     - 【模板】三分法 : problem/三分法/实数三分法.md
     - 二次方程极小值 : problem/三分法/二次方程极小值.md
@@ -157,6 +159,7 @@ nav:
     - 快速幂: problem/倍增法/快速幂.md
     - 国旗计划: problem/倍增法/国旗计划.md
     - 跑路: problem/倍增法/跑路.md
+    - 区间最小值: problem/倍增法/区间最小值.md
   - 前缀差分:
     - 区间重叠问题: problem/前缀差分/区间重叠问题.md
     - 出行计划: problem/前缀差分/出行计划.md
