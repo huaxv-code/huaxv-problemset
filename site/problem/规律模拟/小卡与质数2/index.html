@@ -666,11 +666,11 @@
 </details>
 <h2 id="_5">找规律、特征</h2>
 <p>假设 <span class="arithmatex">\(x = (10011010)_2\)</span></p>
-<p>则比 <span class="arithmatex">\(10000000_2\)</span> 大但比 <span class="arithmatex">\(100000000_2\)</span> 小的素数 <span class="arithmatex">\(p\)</span> 一定能满足条件，一定存在 <span class="arithmatex">\(y &lt; 100000000_2\)</span> 使得 <span class="arithmatex">\(x ^ y = p\)</span> 成立;</p>
-<p>如果 <span class="arithmatex">\(y &gt; 10000000_2\)</span> 呢？</p>
-<p>如果 <span class="arithmatex">\(10010000_2 &lt; y &lt; x\)</span> 则这些 <span class="arithmatex">\(y\)</span> 一定能构造出比 <span class="arithmatex">\(00001000_2\)</span> 大但比 <span class="arithmatex">\(0001000_2\)</span> 小的素数出来，并且这些素数都满足条件；</p>
-<p>如果 <span class="arithmatex">\(10011000_2 &lt; y &lt; x\)</span> 则这些 <span class="arithmatex">\(y\)</span> 一定能构成出比 <span class="arithmatex">\(00000100_2\)</span> 大但比 <span class="arithmatex">\(2 * 00001000_2\)</span> 小的素数；</p>
-<p>直到 <span class="arithmatex">\(10011010_2 &lt; y &lt; x\)</span> 时，这些 <span class="arithmatex">\(y\)</span> 一定能构成出比 <span class="arithmatex">\(00000000_2\)</span> 大但比 <span class="arithmatex">\(2 * 00000000_2\)</span> 小的素数.</p>
+<p>如果 <span class="arithmatex">\(0000000 &lt; y &lt; 10000000\)</span> 则这些 <span class="arithmatex">\(y\)</span> 一定能构造出所有比 <span class="arithmatex">\(10000000\)</span> 大但比 <span class="arithmatex">\(2 * 10000000_2\)</span> 小的素数出来；</p>
+<p>如果 <span class="arithmatex">\(10000000_2 &lt; y &lt; 10010000\)</span> 则这些 <span class="arithmatex">\(y\)</span> 一定能构造出所有比 <span class="arithmatex">\(0001000_2\)</span> 大但比 <span class="arithmatex">\(2 * 0001000_2\)</span> 小的素数出来，并且这些素数都满足条件；</p>
+<p>如果 <span class="arithmatex">\(10010000_2 &lt; y &lt; 10011000\)</span> 则这些 <span class="arithmatex">\(y\)</span> 一定能构造出所有比 <span class="arithmatex">\(00001000_2\)</span> 大但比 <span class="arithmatex">\(2 * 00001000_2\)</span> 小的素数；</p>
+<p>如果 <span class="arithmatex">\(10011000_2 &lt; y &lt; 10011010\)</span> 时，这些 <span class="arithmatex">\(y\)</span> 一定能构造出所有比 <span class="arithmatex">\(00000010_2\)</span> 大但比 <span class="arithmatex">\(2 * 00000010_2\)</span> 小的素数；</p>
+<p>如果 <span class="arithmatex">\(10011010_2 &lt; y &lt; 10011010_2\)</span> 时，这些 <span class="arithmatex">\(y\)</span> 一定能构造出所有比 <span class="arithmatex">\(00000000_2\)</span> 大但比 <span class="arithmatex">\(2 * 00000000_2\)</span> 小的素数；</p>
 <details class="warning">
 <summary>超时代码，素数个数不是 logn 个，大概有 n/ln(n) 个</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
