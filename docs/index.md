@@ -95,10 +95,9 @@
 
     ```json title="settings.json"
     {
-        "workbench.colorTheme": "Visual Studio Dark - C++",
+        "workbench.colorTheme": "Sublime Material Theme - Dark",
         "workbench.startupEditor": "none",
-        "editor.fontSize": 20, // 字体大小
-        "files.autoSave": "afterDelay", // 自动保存
+        "editor.fontSize": 20, // 自动保存
         "explorer.compactFolders": false, 
         "security.workspace.trust.untrustedFiles": "open",
         "workbench.iconTheme": "material-icon-theme",
@@ -112,7 +111,7 @@
             "javascript": "node",
             "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
             "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && start cmd /k $dir$fileNameWithoutExt",
-            "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && start cmd /c $dir$fileNameWithoutExt",
+            "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && start cmd /k $dir$fileNameWithoutExt",
             "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
             "php": "php",
             "python": "python -u",
@@ -162,10 +161,15 @@
             "sml": "cd $dir && sml $fileName"
         },
         "C_Cpp.default.intelliSenseMode": "gcc-x64",
-        // gcc 的位置
         "C_Cpp.default.compilerPath": "C:/huaxv-home/CP-Editor/mingw64/bin/gcc",
         "C_Cpp.default.cppStandard": "c++20",
-        "C_Cpp.default.cStandard": "c17"
+        "C_Cpp.default.cStandard": "c17",
+        "editor.unicodeHighlight.allowedLocales": {
+            "ja": true,
+            "zh-hant": true
+        },
+        "files.autoSave": "onFocusChange",
+        "editor.stickyScroll.enabled": true
     }
     ```
 
