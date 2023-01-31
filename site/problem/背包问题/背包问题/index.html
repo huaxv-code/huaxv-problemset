@@ -1,0 +1,3297 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../img/头像.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>背包问题 - 玉子爱做题</title>
+<link href="../../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="玉子爱做题" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="玉子爱做题">
+<img alt="logo" src="../../../img/头像.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            玉子爱做题
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              背包问题
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="white" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/huaxv-code/huaxv-problemset" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M216.29 158.39H137C97 147.9 6.51 150.63 6.51 233.18c0 30.09 15 51.23 35 61-25.1 23-37 33.85-37 49.21 0 11 4.47 21.14 17.89 26.81C8.13 383.61 0 393.35 0 411.65c0 32.11 28.05 50.82 101.63 50.82 70.75 0 111.79-26.42 111.79-73.18 0-58.66-45.16-56.5-151.63-63l13.43-21.55c27.27 7.58 118.7 10 118.7-67.89 0-18.7-7.73-31.71-15-41.07l37.41-2.84zm-63.42 241.9c0 32.06-104.89 32.1-104.89 2.43 0-8.14 5.27-15 10.57-21.54 77.71 5.3 94.32 3.37 94.32 19.11zm-50.81-134.58c-52.8 0-50.46-71.16 1.2-71.16 49.54 0 50.82 71.16-1.2 71.16zm133.3 100.51v-32.1c26.75-3.66 27.24-2 27.24-11V203.61c0-8.5-2.05-7.38-27.24-16.26l4.47-32.92H324v168.71c0 6.51.4 7.32 6.51 8.14l20.73 2.84v32.1zm52.45-244.31c-23.17 0-36.59-13.43-36.59-36.61s13.42-35.77 36.59-35.77c23.58 0 37 12.62 37 35.77s-13.42 36.61-37 36.61zM512 350.46c-17.49 8.53-43.1 16.26-66.28 16.26-48.38 0-66.67-19.5-66.67-65.46V194.75c0-5.42 1.05-4.06-31.71-4.06V154.5c35.78-4.07 50-22 54.47-66.27h38.63c0 65.83-1.34 61.81 3.26 61.81H501v40.65h-60.56v97.15c0 6.92-4.92 51.41 60.57 26.84z"></path></svg>
+</div>
+<div class="md-source__repository">
+    花续情愫缘 / huaxv-note
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        简介
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/AB%E6%8F%90%E5%89%8D%E7%A1%AE%E5%AE%9A%E8%BE%93%E8%B5%A2/">
+        规律模拟
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E8%B4%AA%E5%BF%83/H%E6%8C%87%E6%95%B0/">
+        贪心
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E5%88%86%E6%B2%BB%E6%B3%95/%E9%80%86%E5%BA%8F%E5%AF%B9/">
+        分治法
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+        双指针
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+        二分法
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E5%AE%9E%E6%95%B0%E4%B8%89%E5%88%86%E6%B3%95/">
+        三分法
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+        倍增法
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E9%97%B4%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
+        前缀差分
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E6%95%B0%E5%AD%A6/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0/">
+        数学
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
+        递推
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E6%90%9C%E7%B4%A2/%E8%BF%B7%E5%AE%AB%E4%B9%8B%E8%B0%9C/">
+        搜索
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E5%B9%B6%E6%9F%A5%E9%9B%86/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
+        并查集
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+        滑动窗口
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="./">
+        背包问题
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="玉子爱做题" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="玉子爱做题">
+<img alt="logo" src="../../../img/头像.png"/>
+</a>
+    玉子爱做题
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/huaxv-code/huaxv-problemset" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M216.29 158.39H137C97 147.9 6.51 150.63 6.51 233.18c0 30.09 15 51.23 35 61-25.1 23-37 33.85-37 49.21 0 11 4.47 21.14 17.89 26.81C8.13 383.61 0 393.35 0 411.65c0 32.11 28.05 50.82 101.63 50.82 70.75 0 111.79-26.42 111.79-73.18 0-58.66-45.16-56.5-151.63-63l13.43-21.55c27.27 7.58 118.7 10 118.7-67.89 0-18.7-7.73-31.71-15-41.07l37.41-2.84zm-63.42 241.9c0 32.06-104.89 32.1-104.89 2.43 0-8.14 5.27-15 10.57-21.54 77.71 5.3 94.32 3.37 94.32 19.11zm-50.81-134.58c-52.8 0-50.46-71.16 1.2-71.16 49.54 0 50.82 71.16-1.2 71.16zm133.3 100.51v-32.1c26.75-3.66 27.24-2 27.24-11V203.61c0-8.5-2.05-7.38-27.24-16.26l4.47-32.92H324v168.71c0 6.51.4 7.32 6.51 8.14l20.73 2.84v32.1zm52.45-244.31c-23.17 0-36.59-13.43-36.59-36.61s13.42-35.77 36.59-35.77c23.58 0 37 12.62 37 35.77s-13.42 36.61-37 36.61zM512 350.46c-17.49 8.53-43.1 16.26-66.28 16.26-48.38 0-66.67-19.5-66.67-65.46V194.75c0-5.42 1.05-4.06-31.71-4.06V154.5c35.78-4.07 50-22 54.47-66.27h38.63c0 65.83-1.34 61.81 3.26 61.81H501v40.65h-60.56v97.15c0 6.92-4.92 51.41 60.57 26.84z"></path></svg>
+</div>
+<div class="md-source__repository">
+    花续情愫缘 / huaxv-note
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          简介
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="简介" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          简介
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        简介
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          规律模拟
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="规律模拟" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          规律模拟
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/AB%E6%8F%90%E5%89%8D%E7%A1%AE%E5%AE%9A%E8%BE%93%E8%B5%A2/">
+        AB提前确定输赢
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/">
+        小卡与质数2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0/">
+        剩下的数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/%E5%90%8C%E4%BD%99%E7%89%B9%E6%AE%8A%E9%99%A4%E6%B3%95/">
+        同余特殊除法
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          贪心
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="贪心" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          贪心
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%B4%AA%E5%BF%83/H%E6%8C%87%E6%95%B0/">
+        H指数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E8%B4%AA%E5%BF%83/%E6%9C%80%E5%B0%91%E5%9D%8F%E5%8C%BA%E9%97%B4/">
+        最少坏区间
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          分治法
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="分治法" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          分治法
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%88%86%E6%B2%BB%E6%B3%95/%E9%80%86%E5%BA%8F%E5%AF%B9/">
+        逆序对
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          双指针
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="双指针" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          双指针
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+        两数之和
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E5%8D%95%E8%AF%8D%E8%83%8C%E8%AF%B5/">
+        单词背诵
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E9%80%9B%E7%94%BB%E5%B1%95/">
+        逛画展
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
+        三数之和
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">
+        移除元素
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E5%8D%87%E5%BA%8F%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
+        升序数组去重
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          二分法
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="二分法" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          二分法
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+        两数之和
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%B3%E7%9F%B3%E5%A4%B4/">
+        跳石头
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE/">
+        路标设置
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86/">
+        序列划分
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E9%80%9A%E5%BE%80%E5%A5%A5%E6%A0%BC%E7%91%9E%E7%8E%9B%E7%9A%84%E9%81%93%E8%B7%AF/">
+        通往奥格瑞玛的道路
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/H%E6%8C%87%E6%95%B0/">
+        H指数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B/">
+        进击的奶牛
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%87%E7%94%9F%E6%97%A5/">
+        过生日（实数二分）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A0%8D%E5%8E%9F%E6%9C%A8/">
+        砍原木
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
+        寻找段落
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
+        称重
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/">
+        小卡与质数2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          三分法
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="三分法" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          三分法
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E5%AE%9E%E6%95%B0%E4%B8%89%E5%88%86%E6%B3%95/">
+        【模板】三分法
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%9E%81%E5%B0%8F%E5%80%BC/">
+        二次方程极小值
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
+        称重
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/">
+        期末考试
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          倍增法
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="倍增法" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          倍增法
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+        快速幂
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/">
+        国旗计划
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E8%B7%91%E8%B7%AF/">
+        跑路
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%8C%BA%E9%97%B4%E6%9C%80%E5%B0%8F%E5%80%BC/">
+        区间最小值
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+          前缀差分
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="前缀差分" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          前缀差分
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E9%97%B4%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
+        区间重叠问题
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%87%BA%E8%A1%8C%E8%AE%A1%E5%88%92/">
+        出行计划
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/">
+        最大子段和
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%B1%82%E5%92%8C/">
+        求和
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
+        区域重叠问题
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%B5%B7%E5%BA%95%E9%AB%98%E9%93%81/">
+        海底高铁
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%9C%80%E5%A4%A7%E5%8A%A0%E6%9D%83%E7%9F%A9%E5%BD%A2/">
+        最大加权矩形
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%8E%A8%E5%AF%BC%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E6%95%B0%E7%BB%84/">
+        推导二维前缀和数组
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%85%89%E9%AA%93%E8%80%85%E7%9A%84%E8%8D%A3%E8%80%80/">
+        光骓者的荣耀
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+          数学
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="数学" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          数学
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0/">
+        猜中的期望次数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E9%87%8D%E5%8F%A0%E9%9D%A2%E7%A7%AF%E6%AF%94%E5%80%BC/">
+        重叠面积比值
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E5%90%8C%E4%BD%99%E7%89%B9%E6%AE%8A%E9%99%A4%E6%B3%95/">
+        同余特殊除法
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+          递推
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="递推" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          递推
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
+        台阶问题（简单版）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%982/">
+        台阶问题（困难版）
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%BE%88%E5%A4%9A%E4%B8%AA1%E5%8F%96%E6%A8%A1/">
+        很多个 1 取模
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">
+        斐波那契数
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12">
+          搜索
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="搜索" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          搜索
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%90%9C%E7%B4%A2/%E8%BF%B7%E5%AE%AB%E4%B9%8B%E8%B0%9C/">
+        迷宫之谜
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%90%9C%E7%B4%A2/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
+        全球变暖
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13">
+          并查集
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="并查集" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+          并查集
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E5%B9%B6%E6%9F%A5%E9%9B%86/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
+        全球变暖
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14">
+          滑动窗口
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="滑动窗口" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+          滑动窗口
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+        滑动窗口
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/m%E5%8C%BA%E9%97%B4%E5%86%85%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">
+        m区间内的最小值
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
+        寻找段落
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15">
+          背包问题
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="背包问题" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+          背包问题
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        背包问题
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+        01 背包问题
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/huaxv-code/huaxv-problemset/edit/master/docs/problem/背包问题/背包问题.md" title="编辑此页">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="_1">背包问题</h1>
+<p>参考论文：</p>
+<p>【崔添翼背包问题九讲】https://github.com/tianyicui/pack</p>
+<p>不要忘记给作者的仓库点收藏星星！</p>
+<p>$$</p>
+<h1 id="lyx-20-created-this-file-for-more-info-see-httpwwwlyxorg">LyX 2.0 created this file. For more info see http://www.lyx.org/</h1>
+<p>\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrartcl
+\begin_preamble
+\usepackage{datetime}
+\renewcommand{\dateseparator}{-}</p>
+<p>\usepackage[BoldFont,SlantFont,CJKsetspaces,CJKchecksingle]{xeCJK}
+\setCJKmainfont[BoldFont=STSong,ItalicFont=STKaiti]{STSong}
+\setCJKsansfont[BoldFont=STHeiti]{STHeiti}
+\setCJKmonofont{STFangsong}
+\parindent 2em
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100</p>
+<p>\graphics none
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "背包问题九讲"
+\pdf_author "崔添翼"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header</p>
+<p>\begin_body</p>
+<p>\begin_layout Title
+背包问题九讲 2.0 beta1.2
+\end_layout</p>
+<p>\begin_layout Author
+崔添翼 (Tianyi Cui)
+\begin_inset Foot
+status open</p>
+<p>\begin_layout Plain Layout
+a.k.a.
+ dd_engi
+\end_layout</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Date
+\begin_inset ERT
+status open</p>
+<p>\begin_layout Plain Layout</p>
+<p>\backslash
+yyyymmdddate
+\backslash
+today
+\end_layout</p>
+<p>\end_inset</p>
+<p>\begin_inset Foot
+status open</p>
+<p>\begin_layout Plain Layout
+Build 
+\begin_inset ERT
+status open</p>
+<p>\begin_layout Plain Layout</p>
+<p>\backslash
+pdfdate
+\end_layout</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+本文题为《背包问题九讲》，从属于《动态规划的思考艺术》系列。
+\end_layout</p>
+<p>\begin_layout Standard
+这系列文章的
+\begin_inset CommandInset href
+LatexCommand href
+name "第一版"
+target "http://love-oriented.com/pack/"</p>
+<p>\end_inset</p>
+<p>于2007年下半年使用EmacsMuse制作，以HTML格式发布到网上，转载众多，有一定影响力。
+\end_layout</p>
+<p>\begin_layout Standard
+2011年9月，本系列文章由原作者用LaTeX重新制作并全面修订，您现在看到的是2.0 beta版本，修订历史及最新版本请访问 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://github.com/tianyicui/pack"</p>
+<p>\end_inset</p>
+<p>查阅。
+\end_layout</p>
+<p>\begin_layout Standard
+本文版权归原作者所有，采用 
+\begin_inset CommandInset href
+LatexCommand href
+name "CC BY-NC-SA"
+target "http://creativecommons.org/licenses/by-nc-sa/3.0/"</p>
+<p>\end_inset</p>
+<p>协议发布。
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:01背包问题"</p>
+<p>\end_inset</p>
+<p>01背包问题
+\end_layout</p>
+<p>\begin_layout Subsection
+题目
+\end_layout</p>
+<p>\begin_layout Standard
+有
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>件物品和一个容量为
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>的背包。放入第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品耗费的费用是
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>\begin_inset Foot
+status open</p>
+<p>\begin_layout Plain Layout
+也即占用背包的空间容量，后文统一称之为“费用(cost)”
+\end_layout</p>
+<p>\end_inset</p>
+<p>，得到的价值是
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>。求解将哪些物品装入背包可使价值总和最大。
+\end_layout</p>
+<p>\begin_layout Subsection
+基本思路
+\end_layout</p>
+<p>\begin_layout Standard
+这是最基础的背包问题，特点是：每种物品仅有一件，可以选择放或不放。
+\end_layout</p>
+<p>\begin_layout Standard
+用子问题定义状态：即
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>表示前
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品恰放入一个容量为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的背包可以获得的最大价值。则其状态转移方程便是：
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset Formula 
+[
+F[i,v]=\mathrm{max}{F[i-1,v],F[i-1,v-C_{i}]+W_{i}}
+]</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+这个方程非常重要，基本上所有跟背包相关的问题的方程都是由它衍生出来的。所以有必要将它详细解释一下：“将前
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品放入容量为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的背包中”这个子问题，若只考虑第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品的策略（放或不放），那么就可以转化为一个只和前
+\begin_inset Formula <span class="arithmatex">\(i-1\)</span>
+\end_inset</p>
+<p>件物品相关的问题。如果不放第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品，那么问题就转化为“前
+\begin_inset Formula <span class="arithmatex">\(i-1\)</span>
+\end_inset</p>
+<p>件物品放入容量为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的背包中”，价值为
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v]\)</span>
+\end_inset</p>
+<p>；如果放第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品，那么问题就转化为“前
+\begin_inset Formula <span class="arithmatex">\(i-1\)</span>
+\end_inset</p>
+<p>件物品放入剩下的容量为
+\begin_inset Formula <span class="arithmatex">\(v-C_{i}\)</span>
+\end_inset</p>
+<p>的背包中”，此时能获得的最大价值就是
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v-C_{i}]\)</span>
+\end_inset</p>
+<p>再加上通过放入第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品获得的价值
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+伪代码如下：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(F[0,0..V]\,\leftarrow0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow C_{i}\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[i,v]\,\leftarrow\mathrm{max}\{F[i-1,v],F[i-1,v-C_{i}]+W_{i}\}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Subsection
+优化空间复杂度 
+\end_layout</p>
+<p>\begin_layout Standard
+以上方法的时间和空间复杂度均为
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>，其中时间复杂度应该已经不能再优化了，但空间复杂度却可以优化到
+\begin_inset Formula <span class="arithmatex">\(O(V)\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+先考虑上面讲的基本思路如何实现，肯定是有一个主循环
+\begin_inset Formula <span class="arithmatex">\(i\text{\,}\leftarrow1\ldots N\)</span>
+\end_inset</p>
+<p>，每次算出来二维数组
+\begin_inset Formula <span class="arithmatex">\(F[i,0\ldots V]\)</span>
+\end_inset</p>
+<p>的所有值。那么，如果只用一个数组
+\begin_inset Formula <span class="arithmatex">\(F[0\ldots V]\)</span>
+\end_inset</p>
+<p>，能不能保证第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>次循环结束后
+\begin_inset Formula <span class="arithmatex">\(F[v]\)</span>
+\end_inset</p>
+<p>中表示的就是我们定义的状态
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>呢？
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>是由
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v]\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v-C_{i}]\)</span>
+\end_inset</p>
+<p>两个子问题递推而来，能否保证在推
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>时（也即在第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>次主循环中推
+\begin_inset Formula <span class="arithmatex">\(F[v]\)</span>
+\end_inset</p>
+<p>时）能够取用
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v]\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v-C_{i}]\)</span>
+\end_inset</p>
+<p>的值呢？
+\end_layout</p>
+<p>\begin_layout Standard
+事实上，这要求在每次主循环中我们以
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow V\ldots0\)</span>
+\end_inset</p>
+<p>的递减顺序计算
+\begin_inset Formula <span class="arithmatex">\(F[v]\)</span>
+\end_inset</p>
+<p>，这样才能保证计算
+\begin_inset Formula <span class="arithmatex">\(F[v]\)</span>
+\end_inset</p>
+<p>时
+\begin_inset Formula <span class="arithmatex">\(F[v-C_{i}]\)</span>
+\end_inset</p>
+<p>保存的是状态
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v-C_{i]}\)</span>
+\end_inset</p>
+<p>的值。伪代码如下：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(F[0..V]\text{\,\leftarrow}0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow V\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[v]\,\leftarrow\mathrm{max}\{F[v],F[v-C_{i}]+W_{i}\}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+其中的
+\begin_inset Formula <span class="arithmatex">\(F[v]\,\leftarrow\mathrm{max}\{F[v],F[v-C_{i}]+W_{i}\}\)</span>
+\end_inset</p>
+<p>一句，恰就对应于我们原来的转移方程，因为现在的
+\begin_inset Formula <span class="arithmatex">\(F[v-C_{i}]\)</span>
+\end_inset</p>
+<p>就相当于原来的
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v-C_{i}]\)</span>
+\end_inset</p>
+<p>。如果将
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的循环顺序从上面的逆序改成顺序的话，那么则成了
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>由
+\begin_inset Formula <span class="arithmatex">\(F[i,v-C_{i}]\)</span>
+\end_inset</p>
+<p>推导得到，与本题意不符。
+\end_layout</p>
+<p>\begin_layout Standard
+事实上，使用一维数组解01背包的程序在后面会被多次用到，所以这里抽象出一个处理一件01背包中的物品过程，以后的代码中直接调用不加说明。
+\end_layout</p>
+<p>\begin_layout LyX-Code
+def 
+\begin_inset Formula <span class="arithmatex">\(\mathsf{ZeroOnePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(F,C,W\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow V\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(C\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula $ $
+\end_inset</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[v]\,\leftarrow\mathrm{max}(F[v],F[v-C]+W)\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+有了这个过程以后，01背包问题的伪代码就可以这样写：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(F[0..V]\text{\,\leftarrow}0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(\mathsf{ZeroOnePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(F,C_{i},W_{i}\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout Subsection
+初始化的细节问题
+\end_layout</p>
+<p>\begin_layout Standard
+我们看到的求最优解的背包问题题目中，事实上有两种不太相同的问法。有的题目要求“恰好装满背包”时的最优解，有的题目则并没有要求必须把背包装满。一种区别这两种问法的
+实现方法是在初始化的时候有所不同。
+\end_layout</p>
+<p>\begin_layout Standard
+如果是第一种问法，要求恰好装满背包，那么在初始化时除了
+\begin_inset Formula <span class="arithmatex">\(F[0]\)</span>
+\end_inset</p>
+<p>为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>，其它
+\begin_inset Formula <span class="arithmatex">\(F[1..V]\)</span>
+\end_inset</p>
+<p>均设为
+\begin_inset Formula <span class="arithmatex">\(-\infty\)</span>
+\end_inset</p>
+<p>，这样就可以保证最终得到的
+\begin_inset Formula <span class="arithmatex">\(F[V]\)</span>
+\end_inset</p>
+<p>是一种恰好装满背包的最优解。
+\end_layout</p>
+<p>\begin_layout Standard
+如果并没有要求必须把背包装满，而是只希望价格尽量大，初始化时应该将
+\begin_inset Formula <span class="arithmatex">\(F[0..V]\)</span>
+\end_inset</p>
+<p>全部设为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+这是为什么呢？可以这样理解：初始化的
+\begin_inset Formula <span class="arithmatex">\(F\)</span>
+\end_inset</p>
+<p>数组事实上就是在没有任何物品可以放入背包时的合法状态。如果要求背包恰好装满，那么此时只有容量为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>的背包可以在什么也不装且价值为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>的情况下被“恰好装满”，其它容量的背包均没有合法的解，属于未定义的状态，应该被赋值为-∞了。如果背包并非必须被装满，那么任何容量的背包都有一个合法解“什么都不装
+”，这个解的价值为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>，所以初始时状态的值也就全部为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>了。
+\end_layout</p>
+<p>\begin_layout Standard
+这个小技巧完全可以推广到其它类型的背包问题，后面不再对进行状态转移之前的初始化进行讲解。
+\end_layout</p>
+<p>\begin_layout Subsection
+一个常数优化
+\end_layout</p>
+<p>\begin_layout Standard
+上面伪代码中的
+\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow V\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+中第二重循环的下限可以改进。它可以被优化为
+\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow V\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(\mathrm{max}(V-\Sigma_{i}^{N}W_{i},C_{i})\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+这个优化之所以成立的原因请读者自己思考。（提示：使用二维的转移方程思考较易。）
+\end_layout</p>
+<p>\begin_layout Subsection
+小结
+\end_layout</p>
+<p>\begin_layout Standard
+01背包问题是最基本的背包问题，它包含了背包问题中设计状态、方程的最基本思想。另外，别的类型的背包问题往往也可以转换成01背包问题求解。故一定要仔细体会上面基本
+思路的得出方法，状态转移方程的意义，以及空间复杂度怎样被优化。
+\end_layout</p>
+<p>\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:完全背包问题"</p>
+<p>\end_inset</p>
+<p>完全背包问题
+\end_layout</p>
+<p>\begin_layout Subsection
+题目
+\end_layout</p>
+<p>\begin_layout Standard
+有
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>种物品和一个容量为
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>的背包，每种物品都有无限件可用。放入第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品的费用是
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>，价值是
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>。求解：将哪些物品装入背包，可使这些物品的耗费的费用总和不超过背包容量，且价值总和最大。
+\end_layout</p>
+<p>\begin_layout Subsection
+基本思路 
+\end_layout</p>
+<p>\begin_layout Standard
+这个问题非常类似于01背包问题，所不同的是每种物品有无限件。也就是从每种物品的角度考虑，与它相关的策略已并非取或不取两种，而是有取
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>件、取
+\begin_inset Formula <span class="arithmatex">\(1\)</span>
+\end_inset</p>
+<p>件、取
+\begin_inset Formula <span class="arithmatex">\(2\)</span>
+\end_inset</p>
+<p>件……直至取
+\begin_inset Formula $\left\lfloor V/C_{i}\right\rfloor $
+\end_inset</p>
+<p>件等许多种。
+\end_layout</p>
+<p>\begin_layout Standard
+如果仍然按照解01背包时的思路，令
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>表示前
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品恰放入一个容量为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的背包的最大权值。仍然可以按照每种物品不同的策略写出状态转移方程，像这样：
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset Formula 
+[
+F[i,v]=\mathrm{max}{F[i-1,v-kC_{i}]+kW_{i}\:|\:0\leq kC_{i}\leq v}
+]</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+这跟01背包问题一样有
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>个状态需要求解，但求解每个状态的时间已经不是常数了，求解状态
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>的时间是
+\begin_inset Formula <span class="arithmatex">\(O(\frac{v}{C_{i}})\)</span>
+\end_inset</p>
+<p>，总的复杂度可以认为是
+\begin_inset Formula <span class="arithmatex">\(O(NV\Sigma{\frac{{V}}{C_{i}}})\)</span>
+\end_inset</p>
+<p>，是比较大的。
+\end_layout</p>
+<p>\begin_layout Standard
+将01背包问题的基本思路加以改进，得到了这样一个清晰的方法。这说明01背包问题的方程的确是很重要，可以推及其它类型的背包问题。但我们还是要试图改进这个复杂度。
+\end_layout</p>
+<p>\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:一个简单有效的优化"</p>
+<p>\end_inset</p>
+<p>一个简单有效的优化 
+\end_layout</p>
+<p>\begin_layout Standard
+完全背包问题有一个很简单有效的优化，是这样的：若两件物品
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>、
+\begin_inset Formula <span class="arithmatex">\(j\)</span>
+\end_inset</p>
+<p>满足
+\begin_inset Formula <span class="arithmatex">\(C_{i}\leq C_{j}\)</span>
+\end_inset</p>
+<p>且
+\begin_inset Formula <span class="arithmatex">\(W_{i}\geq W_{j}\)</span>
+\end_inset</p>
+<p>，则将可以将物品
+\begin_inset Formula <span class="arithmatex">\(j\)</span>
+\end_inset</p>
+<p>直接去掉，不用考虑。
+\end_layout</p>
+<p>\begin_layout Standard
+这个优化的正确性是显然的：任何情况下都可将价值小费用高的
+\begin_inset Formula <span class="arithmatex">\(j\)</span>
+\end_inset</p>
+<p>换成物美价廉的
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>，得到的方案至少不会更差。对于随机生成的数据，这个方法往往会大大减少物品的件数，从而加快速度。然而这个并不能改善最坏情况的复杂度，因为有可能特别设计的数据可以一
+件物品也去不掉。
+\end_layout</p>
+<p>\begin_layout Standard
+这个优化可以简单的
+\begin_inset Formula <span class="arithmatex">\(O(N^{2})\)</span>
+\end_inset</p>
+<p>地实现，一般都可以承受。另外，针对背包问题而言，比较不错的一种方法是：首先将费用大于
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>的物品去掉，然后使用类似计数排序的做法，计算出费用相同的物品中价值最高的是哪个，可以
+\begin_inset Formula <span class="arithmatex">\(O(V+N)\)</span>
+\end_inset</p>
+<p>地完成这个优化。这个不太重要的过程就不给出伪代码了，希望你能独立思考写出伪代码或程序。
+\end_layout</p>
+<p>\begin_layout Subsection
+转化为01背包问题求解
+\end_layout</p>
+<p>\begin_layout Standard
+01背包问题是最基本的背包问题，我们可以考虑把完全背包问题转化为01背包问题来解。
+\end_layout</p>
+<p>\begin_layout Standard
+最简单的想法是，考虑到第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品最多选
+\begin_inset Formula $\left\lfloor V/C_{i}\right\rfloor $
+\end_inset</p>
+<p>件，于是可以把第i种物品转化为
+\begin_inset Formula $\left\lfloor V/C_{i}\right\rfloor $
+\end_inset</p>
+<p>件费用及价值均不变的物品，然后求解这个01背包问题。这样的做法完全没有改进时间复杂度，但这种方法也指明了将完全背包问题转化为01背包问题的思路：将一种物品拆成多
+件只能选
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>件或
+\begin_inset Formula <span class="arithmatex">\(1\)</span>
+\end_inset</p>
+<p>件的01背包中的物品。
+\end_layout</p>
+<p>\begin_layout Standard
+更高效的转化方法是：把第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品拆成费用为
+\begin_inset Formula <span class="arithmatex">\(C_{i}2^{k}\)</span>
+\end_inset</p>
+<p>、价值为
+\begin_inset Formula <span class="arithmatex">\(W_{i}2^{k}\)</span>
+\end_inset</p>
+<p>的若干件物品，其中
+\begin_inset Formula <span class="arithmatex">\(k\)</span>
+\end_inset</p>
+<p>取遍满足
+\begin_inset Formula <span class="arithmatex">\(C_{i}2^{k}\leq V\)</span>
+\end_inset</p>
+<p>的非负整数。
+\end_layout</p>
+<p>\begin_layout Standard
+这是二进制的思想。因为，不管最优策略选几件第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品，其件数写成二进制后，总可以表示成若干个
+\begin_inset Formula <span class="arithmatex">\(2^{k}\)</span>
+\end_inset</p>
+<p>件物品的和。这样一来就把每种物品拆成
+\begin_inset Formula <span class="arithmatex">\(O(\mathrm{log}\left\lfloor V/C_{i}\right\rfloor )\)</span>
+\end_inset</p>
+<p>件物品，是一个很大的改进。
+\end_layout</p>
+<p>\begin_layout Subsection
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>的算法
+\end_layout</p>
+<p>\begin_layout Standard
+这个算法使用一维数组，先看伪代码：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(F[0..V]\text{\,\leftarrow}0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow C_{i}\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula $ $
+\end_inset</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[v]\,\leftarrow\mathrm{max}(F[v],F[v-C_{i}]+W_{i})\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+你会发现，这个伪代码与01背包问题的伪代码只有
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的循环次序不同而已。
+\end_layout</p>
+<p>\begin_layout Standard
+为什么这个算法就可行呢？首先想想为什么01背包中要按照
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>递减的次序来循环。让
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>递减是为了保证第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>次循环中的状态
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>是由状态
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v-C_{i}]\)</span>
+\end_inset</p>
+<p>递推而来。换句话说，这正是为了保证每件物品只选一次，保证在考虑“选入第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品”这件策略时，依据的是一个绝无已经选入第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品的子结果
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v-C_{i}]\)</span>
+\end_inset</p>
+<p>。而现在完全背包的特点恰是每种物品可选无限件，所以在考虑“加选一件第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品”这种策略时，却正需要一个可能已选入第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品的子结果
+\begin_inset Formula <span class="arithmatex">\(F[i,v-C_{i}]\)</span>
+\end_inset</p>
+<p>，所以就可以并且必须采用
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>递增的顺序循环。这就是这个简单的程序为何成立的道理。
+\end_layout</p>
+<p>\begin_layout Standard
+值得一提的是，上面的伪代码中两层for循环的次序可以颠倒。这个结论有可能会带来算法时间常数上的优化。
+\end_layout</p>
+<p>\begin_layout Standard
+这个算法也可以由另外的思路得出。例如，将基本思路中求解
+\begin_inset Formula <span class="arithmatex">\(F[i,v-C_{i}]\)</span>
+\end_inset</p>
+<p>的状态转移方程显式地写出来，代入原方程中，会发现该方程可以等价地变形成这种形式：
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset Formula 
+[
+F[i,v]=\mathrm{max(}{F[i-1,v],F[i,v-C_{i}]+W_{i}})
+]</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+将这个方程用一维数组实现，便得到了上面的伪代码。
+\end_layout</p>
+<p>\begin_layout Standard
+最后抽象出处理一件完全背包类物品的过程伪代码：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+def 
+\begin_inset Formula <span class="arithmatex">\(\mathsf{CompletePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(F,C,W\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow C\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[v]\,\leftarrow\mathrm{max}\{F[v],f[v-C]+W\}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Subsection
+小结
+\end_layout</p>
+<p>\begin_layout Standard
+完全背包问题也是一个相当基础的背包问题，它有两个状态转移方程。希望读者能够对这两个状态转移方程都仔细地体会，不仅记住，也要弄明白它们是怎么得出来的，最好能够自己
+想一种得到这些方程的方法。
+\end_layout</p>
+<p>\begin_layout Standard
+事实上，对每一道动态规划题目都思考其方程的意义以及如何得来，是加深对动态规划的理解、提高动态规划功力的好方法。
+\end_layout</p>
+<p>\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:多重背包问题"</p>
+<p>\end_inset</p>
+<p>多重背包问题
+\end_layout</p>
+<p>\begin_layout Subsection
+题目
+\end_layout</p>
+<p>\begin_layout Standard
+有
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>种物品和一个容量为
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>的背包。第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品最多有
+\begin_inset Formula <span class="arithmatex">\(M_{i}\)</span>
+\end_inset</p>
+<p>件可用，每件耗费的空间是
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>，价值是
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>。求解将哪些物品装入背包可使这些物品的耗费的空间总和不超过背包容量，且价值总和最大。
+\end_layout</p>
+<p>\begin_layout Subsection
+基本算法
+\end_layout</p>
+<p>\begin_layout Standard
+这题目和完全背包问题很类似。基本的方程只需将完全背包问题的方程略微一改即可。
+\end_layout</p>
+<p>\begin_layout Standard
+因为对于第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品有
+\begin_inset Formula <span class="arithmatex">\(M_{i}+1\)</span>
+\end_inset</p>
+<p>种策略：取
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>件，取
+\begin_inset Formula <span class="arithmatex">\(1\)</span>
+\end_inset</p>
+<p>件……取
+\begin_inset Formula <span class="arithmatex">\(M_{i}\)</span>
+\end_inset</p>
+<p>件。令
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>表示前
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品恰放入一个容量为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的背包的最大价值，则有状态转移方程：
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset Formula 
+[
+F[i\text{，}v]=\mathrm{max}{F[i-1,v-k<em>C_{i}]+k</em>W_{i}\:|\:0\leq k\leq M_{i}}
+]</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+复杂度是
+\begin_inset Formula <span class="arithmatex">\(O(V\Sigma M_{i})\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Subsection
+转化为01背包问题
+\end_layout</p>
+<p>\begin_layout Standard
+另一种好想好写的基本方法是转化为01背包求解：把第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品换成
+\begin_inset Formula <span class="arithmatex">\(M_{i}\)</span>
+\end_inset</p>
+<p>件01背包中的物品，则得到了物品数为
+\begin_inset Formula <span class="arithmatex">\(\Sigma M_{i}\)</span>
+\end_inset</p>
+<p>的01背包问题。直接求解之，复杂度仍然是
+\begin_inset Formula <span class="arithmatex">\(O(V\Sigma M_{i})\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+但是我们期望将它转化为01背包问题之后，能够像完全背包一样降低复杂度。
+\end_layout</p>
+<p>\begin_layout Standard
+仍然考虑二进制的思想，我们考虑把第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品换成若干件物品，使得原问题中第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品可取的每种策略——取
+\begin_inset Formula <span class="arithmatex">\(0\ldots M_{i}\)</span>
+\end_inset</p>
+<p>件——均能等价于取若干件代换以后的物品。另外，取超过
+\begin_inset Formula <span class="arithmatex">\(M_{i}\)</span>
+\end_inset</p>
+<p>件的策略必不能出现。
+\end_layout</p>
+<p>\begin_layout Standard
+方法是：将第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品分成若干件01背包中的物品，其中每件物品有一个系数。这件物品的费用和价值均是原来的费用和价值乘以这个系数。令这些系数分别为
+\begin_inset Formula <span class="arithmatex">\(1,2,2^{2}\ldots2^{k-1},M_{i}-2^{k}+1\)</span>
+\end_inset</p>
+<p>，且
+\begin_inset Formula <span class="arithmatex">\(k\)</span>
+\end_inset</p>
+<p>是满足
+\begin_inset Formula <span class="arithmatex">\(M_{i}-2^{k}+1&gt;0\)</span>
+\end_inset</p>
+<p>的最大整数。例如，如果
+\begin_inset Formula <span class="arithmatex">\(M_{i}\)</span>
+\end_inset</p>
+<p>为
+\begin_inset Formula <span class="arithmatex">\(13\)</span>
+\end_inset</p>
+<p>，则相应的
+\begin_inset Formula <span class="arithmatex">\(k=3\)</span>
+\end_inset</p>
+<p>，这种最多取
+\begin_inset Formula <span class="arithmatex">\(13\)</span>
+\end_inset</p>
+<p>件的物品应被分成系数分别为
+\begin_inset Formula <span class="arithmatex">\(1,2,4,6\)</span>
+\end_inset</p>
+<p>的四件物品。
+\end_layout</p>
+<p>\begin_layout Standard
+分成的这几件物品的系数和为
+\begin_inset Formula <span class="arithmatex">\(M_{i}\)</span>
+\end_inset</p>
+<p>，表明不可能取多于
+\begin_inset Formula <span class="arithmatex">\(M_{i}\)</span>
+\end_inset</p>
+<p>件的第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品。另外这种方法也能保证对于
+\begin_inset Formula <span class="arithmatex">\(0\ldots M_{i}\)</span>
+\end_inset</p>
+<p>间的每一个整数，均可以用若干个系数的和表示。这里算法正确性的证明可以分
+\begin_inset Formula <span class="arithmatex">\(0\ldots2^{k-1}\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(2^{k}\ldots M_{i}\)</span>
+\end_inset</p>
+<p>两段来分别讨论得出，希望读者自己思考尝试一下。
+\end_layout</p>
+<p>\begin_layout Standard
+这样就将第i种物品分成了
+\begin_inset Formula <span class="arithmatex">\(O(\mathrm{log}M_{i})\)</span>
+\end_inset</p>
+<p>种物品，将原问题转化为了复杂度为
+\begin_inset Formula <span class="arithmatex">\(O(V\Sigma\mathrm{{log}M_{i})}\)</span>
+\end_inset</p>
+<p>的01背包问题，是很大的改进。
+\end_layout</p>
+<p>\begin_layout Standard
+下面给出
+\begin_inset Formula <span class="arithmatex">\(O(\mathrm{log}M)\)</span>
+\end_inset</p>
+<p>时间处理一件多重背包中物品的过程：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+def 
+\begin_inset Formula <span class="arithmatex">\(\mathsf{MultiplePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(F\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(C\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(W\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(M\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout LyX-Code
+    if 
+\begin_inset Formula <span class="arithmatex">\(C\cdot M\geq V\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(\mathsf{CompletePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(F\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(C\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(W\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout LyX-Code
+        return
+\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(k\,\leftarrow1\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    while 
+\begin_inset Formula <span class="arithmatex">\(k&lt;M\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(\mathsf{ZeroOnePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(kC\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(kW\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(M\text{\,\leftarrow}M-k\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(k\,\leftarrow2k\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(\mathsf{ZeroOnePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(C\cdot M\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(W\cdot M\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout Standard
+希望你仔细体会这个伪代码，如果不太理解的话，不妨翻译成程序代码以后，单步执行几次，或者头脑加纸笔模拟一下，以加深理解。
+\end_layout</p>
+<p>\begin_layout Subsection
+可行性问题
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>的算法
+\end_layout</p>
+<p>\begin_layout Standard
+当问题是“每种有若干件的物品能否填满给定容量的背包”，只须考虑填满背包的可行性，不需考虑每件物品的价值时，多重背包问题同样有
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>复杂度的算法。
+\end_layout</p>
+<p>\begin_layout Standard
+例如，可以使用单调队列的数据结构，优化基本算法的状态转移方程，使每个状态的值可以以均摊
+\begin_inset Formula <span class="arithmatex">\(O(1)\)</span>
+\end_inset</p>
+<p>的时间求解。
+\begin_inset Foot
+status open</p>
+<p>\begin_layout Plain Layout
+我最初了解到这个方法是在楼天成的“男人八题”幻灯片上。
+\end_layout</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+下面介绍一种实现较为简单的
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>复杂度解多重背包问题的算法。它的基本思想是这样的：设
+\begin_inset Formula <span class="arithmatex">\(F[i,j]\)</span>
+\end_inset</p>
+<p>表示“用了前
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品填满容量为
+\begin_inset Formula <span class="arithmatex">\(j\)</span>
+\end_inset</p>
+<p>的背包后，最多还剩下几个第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>种物品可用”，如果
+\begin_inset Formula <span class="arithmatex">\(F[i,j]=-1\)</span>
+\end_inset</p>
+<p>则说明这种状态不可行，若可行应满足
+\begin_inset Formula <span class="arithmatex">\(0\leq F[i,j]\leq M_{i}\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+递推求
+\begin_inset Formula <span class="arithmatex">\(F[i,j]\)</span>
+\end_inset</p>
+<p>的伪代码如下：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(F[0,1\ldots V]\,\leftarrow-1\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(F[0,0]\,\leftarrow0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula $ $
+\end_inset</p>
+<p>for 
+\begin_inset Formula <span class="arithmatex">\(j\,\leftarrow0\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+        if 
+\begin_inset Formula <span class="arithmatex">\(F[i-1][j]\geq0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[i][j]=M_{i}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+        else
+\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[i][j]=-1\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(j\,\leftarrow0\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(V-C_{i}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+        if 
+\begin_inset Formula <span class="arithmatex">\(F[i][j]&gt;0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[i][j+C_{i}]\,\leftarrow\mathrm{max}\{F[i][j+C_{i}],F[i][j]-1\}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+最终
+\begin_inset Formula <span class="arithmatex">\(F[N][0\ldots V]\)</span>
+\end_inset</p>
+<p>便是多重背包可行性问题的答案。
+\end_layout</p>
+<p>\begin_layout Subsection
+小结 
+\end_layout</p>
+<p>\begin_layout Standard
+在这一讲中，我们看到了将一个算法的复杂度由
+\begin_inset Formula <span class="arithmatex">\(O(V\Sigma M_{i})\)</span>
+\end_inset</p>
+<p>改进到
+\begin_inset Formula <span class="arithmatex">\(O(V\Sigma\mathrm{{log}M_{i})}\)</span>
+\end_inset</p>
+<p>的过程，还知道了存在复杂度为
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>的算法。
+\end_layout</p>
+<p>\begin_layout Standard
+希望你特别注意“拆分物品”的思想和方法，自己证明一下它的正确性，并将完整的程序代码写出来。
+\end_layout</p>
+<p>\begin_layout Section
+混合三种背包问题
+\end_layout</p>
+<p>\begin_layout Subsection
+问题
+\end_layout</p>
+<p>\begin_layout Standard
+如果将前面
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:01背包问题"</p>
+<p>\end_inset</p>
+<p>、
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:完全背包问题"</p>
+<p>\end_inset</p>
+<p>、
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:多重背包问题"</p>
+<p>\end_inset</p>
+<p>中的三种背包问题混合起来。也就是说，有的物品只可以取一次（01背包），有的物品可以取无限次（完全背包），有的物品可以取的次数有一个上限（多重背包）。应该怎么求解
+呢？
+\end_layout</p>
+<p>\begin_layout Subsection
+01背包与完全背包的混合
+\end_layout</p>
+<p>\begin_layout Standard
+考虑到01背包和完全背包中给出的伪代码只有一处不同，故如果只有两类物品：一类物品只能取一次，另一类物品可以取无限次，那么只需在对每个物品应用转移方程时，根据物品
+的类别选用顺序或逆序的循环即可，复杂度是
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>。伪代码如下：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    if 第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品属于01背包
+\end_layout</p>
+<p>\begin_layout LyX-Code
+        for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow V\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[v]\,\leftarrow\mathrm{max}(F[v],F[v-C_{i}]+W_{i})\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    else if 第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品属于完全背包
+\end_layout</p>
+<p>\begin_layout LyX-Code
+        for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow C_{i}\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[v]\,\leftarrow\mathrm{max}(F[v],F[v-C_{i}]+W_{i})\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Subsection
+再加上多重背包 
+\end_layout</p>
+<p>\begin_layout Standard
+如果再加上最多可以取有限次的多重背包式的物品，那么利用单调队列，也可以给出均摊
+\begin_inset Formula <span class="arithmatex">\(O(VN)\)</span>
+\end_inset</p>
+<p>的解法。
+\end_layout</p>
+<p>\begin_layout Standard
+但如果不考虑单调队列算法的话，用将每个这类物品分成
+\begin_inset Formula <span class="arithmatex">\(\text{O(\mathrm{log}}M_{i})\)</span>
+\end_inset</p>
+<p>个01背包的物品的方法也已经很优了。
+\end_layout</p>
+<p>\begin_layout Standard
+最清晰的写法是调用我们前面给出的三个过程。
+\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    if 第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品属于01背包
+\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(\mathsf{ZeroOnePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(F\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout LyX-Code
+    else if 第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品属于完全背包
+\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(\mathsf{CompletePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(F\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout LyX-Code
+    else if 第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品属于多重背包
+\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(\mathsf{MultiplePack}\)</span>
+\end_inset</p>
+<p>(
+\begin_inset Formula <span class="arithmatex">\(F\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>,
+\begin_inset Formula <span class="arithmatex">\(N_{i}\)</span>
+\end_inset</p>
+<p>)
+\end_layout</p>
+<p>\begin_layout Standard
+在最初写出这三个过程的时候，可能完全没有想到它们会在这里混合应用。我想这体现了编程中抽象的威力。如果你一直就是以这种“抽象出过程”的方式写每一类背包问题的，也非
+常清楚它们的实现中细微的不同，那么在遇到混合三种背包问题的题目时，一定能很快想到上面简洁的解法，对吗？
+\end_layout</p>
+<p>\begin_layout Subsection
+小结
+\end_layout</p>
+<p>\begin_layout Standard
+有人说，困难的题目都是由简单的题目叠加而来的。这句话是否公理暂且存之不论，但它在本讲中已经得到了充分的体现。本来01背包、完全背包、多重背包都不是什么难题，但将
+它们简单地组合起来以后就得到了这样一道一定能吓倒不少人的题目。但只要基础扎实，领会三种基本背包问题的思想，就可以做到把困难的题目拆分成简单的题目来解决。
+\end_layout</p>
+<p>\begin_layout Section
+二维费用的背包问题
+\end_layout</p>
+<p>\begin_layout Subsection
+问题
+\end_layout</p>
+<p>\begin_layout Standard
+二维费用的背包问题是指：对于每件物品，具有两种不同的费用，选择这件物品必须同时付出这两种费用。对于每种费用都有一个可付出的最大值（背包容量）。问怎样选择物品可以
+得到最大的价值。
+\end_layout</p>
+<p>\begin_layout Standard
+设第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品所需的两种费用分别为
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(D_{i}\)</span>
+\end_inset</p>
+<p>。两种费用可付出的最大值（也即两种背包容量）分别为
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(U\)</span>
+\end_inset</p>
+<p>。物品的价值为
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Subsection
+算法
+\end_layout</p>
+<p>\begin_layout Standard
+费用加了一维，只需状态也加一维即可。设
+\begin_inset Formula <span class="arithmatex">\(F[i,v,u]\)</span>
+\end_inset</p>
+<p>表示前
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品付出两种费用分别为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(u\)</span>
+\end_inset</p>
+<p>时可获得的最大价值。状态转移方程就是：
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset Formula 
+[
+F[i,v,u]=\mathrm{max{F[i-1,v,u],F[i-1,v-C_{i},u-D_{i}]+W_{i}}}
+]</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+如前述优化空间复杂度的方法，可以只使用二维的数组：当每件物品只可以取一次时变量
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(u\)</span>
+\end_inset</p>
+<p>采用逆序的循环，当物品有如完全背包问题时采用顺序的循环，当物品有如多重背包问题时拆分物品。
+\end_layout</p>
+<p>\begin_layout Standard
+这里就不再给出伪代码了，相信有了前面的基础，读者应该能够自己实现出这个问题的程序。
+\end_layout</p>
+<p>\begin_layout Subsection
+物品总个数的限制
+\end_layout</p>
+<p>\begin_layout Standard
+有时，“二维费用”的条件是以这样一种隐含的方式给出的：最多只能取
+\begin_inset Formula <span class="arithmatex">\(U\)</span>
+\end_inset</p>
+<p>件物品。这事实上相当于每件物品多了一种“件数”的费用，每个物品的件数费用均为
+\begin_inset Formula <span class="arithmatex">\(1\)</span>
+\end_inset</p>
+<p>，可以付出的最大件数费用为
+\begin_inset Formula <span class="arithmatex">\(U\)</span>
+\end_inset</p>
+<p>。换句话说，设
+\begin_inset Formula <span class="arithmatex">\(F[v,u]\)</span>
+\end_inset</p>
+<p>表示付出费用
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>、最多选
+\begin_inset Formula <span class="arithmatex">\(u\)</span>
+\end_inset</p>
+<p>件时可得到的最大价值，则根据物品的类型（01、完全、多重）用不同的方法循环更新，最后在
+\begin_inset Formula <span class="arithmatex">\(f[0\ldots V,0\ldots U]\)</span>
+\end_inset</p>
+<p>范围内寻找答案。
+\end_layout</p>
+<p>\begin_layout Subsection
+复整数域上的背包问题
+\end_layout</p>
+<p>\begin_layout Standard
+另一种看待二维背包问题的思路是：将它看待成复整数域上的背包问题。也就是说，背包的容量以及每件物品的费用都是一个复整数。而常见的一维背包问题则是自然数域上的背包问
+题。所以说，一维背包的种种思想方法，往往可以应用于二位背包问题的求解中，因为只是数域扩大了而已。
+\end_layout</p>
+<p>\begin_layout Standard
+作为这种思想的练习，你可以尝试将后文中提到的“子集和问题”扩展到二维，并试图用同样的复杂度解决。
+\end_layout</p>
+<p>\begin_layout Subsection
+小结
+\end_layout</p>
+<p>\begin_layout Standard
+当发现由熟悉的动态规划题目变形得来的题目时，在原来的状态中加一维以满足新的限制是一种比较通用的方法。希望你能从本讲中初步体会到这种方法。
+\end_layout</p>
+<p>\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:分组的背包问题"</p>
+<p>\end_inset</p>
+<p>分组的背包问题
+\end_layout</p>
+<p>\begin_layout Subsection
+问题
+\end_layout</p>
+<p>\begin_layout Standard
+有
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>件物品和一个容量为
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>的背包。第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>件物品的费用是
+\begin_inset Formula <span class="arithmatex">\(C_{i}\)</span>
+\end_inset</p>
+<p>，价值是
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>。这些物品被划分为
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>组，每组中的物品互相冲突，最多选一件。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。
+\end_layout</p>
+<p>\begin_layout Subsection
+算法
+\end_layout</p>
+<p>\begin_layout Standard
+这个问题变成了每组物品有若干种策略：是选择本组的某一件，还是一件都不选。也就是说设
+\begin_inset Formula <span class="arithmatex">\(F[k,v]\)</span>
+\end_inset</p>
+<p>表示前
+\begin_inset Formula <span class="arithmatex">\(k\)</span>
+\end_inset</p>
+<p>组物品花费费用
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>能取得的最大权值，则有：
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset Formula 
+[
+F[k,v]=\mathrm{max}{F[k-1,v],F[k-1,v-C_{i}]+W_{i}\:|\:\mathrm{item}\: i\in\mathrm{group}\: k}
+]</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+使用一维数组的伪代码如下：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(k\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow V\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+        for all item 
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>in group 
+\begin_inset Formula <span class="arithmatex">\(k\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[v]\,\leftarrow\mathrm{max}\{F[v],F[v-C_{i}]+W_{i}\}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+这里三层循环的顺序保证了每一组内的物品最多只有一个会被添加到背包中。
+\end_layout</p>
+<p>\begin_layout Standard
+另外，显然可以对每组内的物品应用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:一个简单有效的优化"</p>
+<p>\end_inset</p>
+<p>中的优化。
+\end_layout</p>
+<p>\begin_layout Subsection
+小结 
+\end_layout</p>
+<p>\begin_layout Standard
+分组的背包问题将彼此互斥的若干物品称为一个组，这建立了一个很好的模型。不少背包问题的变形都可以转化为分组的背包问题（例如
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:有依赖的背包问题"</p>
+<p>\end_inset</p>
+<p>），由分组的背包问题进一步可定义“泛化物品”的概念，十分有利于解题。
+\end_layout</p>
+<p>\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:有依赖的背包问题"</p>
+<p>\end_inset</p>
+<p>有依赖的背包问题
+\end_layout</p>
+<p>\begin_layout Subsection
+简化的问题 
+\end_layout</p>
+<p>\begin_layout Standard
+这种背包问题的物品间存在某种“依赖”的关系。也就是说，物品
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>依赖于物品
+\begin_inset Formula <span class="arithmatex">\(j\)</span>
+\end_inset</p>
+<p>，表示若选物品
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>，则必须选物品
+\begin_inset Formula <span class="arithmatex">\(j\)</span>
+\end_inset</p>
+<p>。为了简化起见，我们先设没有某个物品既依赖于别的物品，又被别的物品所依赖；另外，没有某件物品同时依赖多件物品。
+\end_layout</p>
+<p>\begin_layout Subsection
+算法 
+\end_layout</p>
+<p>\begin_layout Standard
+这个问题由NOIP2006中“金明的预算方案”一题扩展而来。遵从该题的提法，将不依赖于别的物品的物品称为“主件”，依赖于某主件的物品称为“附件”。由这个问题的简
+化条件可知所有的物品由若干主件和依赖于每个主件的一个附件集合组成。
+\end_layout</p>
+<p>\begin_layout Standard
+按照背包问题的一般思路，仅考虑一个主件和它的附件集合。可是，可用的策略非常多，包括：一个也不选，仅选择主件，选择主件后再选择一个附件，选择主件后再选择两个附件…
+…无法用状态转移方程来表示如此多的策略。事实上，设有
+\begin_inset Formula <span class="arithmatex">\(n\)</span>
+\end_inset</p>
+<p>个附件，则策略有
+\begin_inset Formula <span class="arithmatex">\(2^{n}+1\)</span>
+\end_inset</p>
+<p>个，为指数级。
+\end_layout</p>
+<p>\begin_layout Standard
+考虑到所有这些策略都是互斥的（也就是说，你只能选择一种策略），所以一个主件和它的附件集合实际上对应于
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:分组的背包问题"</p>
+<p>\end_inset</p>
+<p>中的一个物品组，每个选择了主件又选择了若干个附件的策略对应于这个物品组中的一个物品，其费用和价值都是这个策略中的物品的值的和。但仅仅是这一步转化并不能给出一个好
+的算法，因为物品组中的物品还是像原问题的策略一样多。
+\end_layout</p>
+<p>\begin_layout Standard
+再考虑对每组内的物品应用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:一个简单有效的优化"</p>
+<p>\end_inset</p>
+<p>中的优化。我们可以想到，对于第
+\begin_inset Formula <span class="arithmatex">\(k\)</span>
+\end_inset</p>
+<p>个物品组中的物品，所有费用相同的物品只留一个价值最大的，不影响结果。所以，可以对主件
+\begin_inset Formula <span class="arithmatex">\(k\)</span>
+\end_inset</p>
+<p>的“附件集合”先进行一次01背包，得到费用依次为
+\begin_inset Formula <span class="arithmatex">\(0\text{\ldots}V-C_{k}\)</span>
+\end_inset</p>
+<p>所有这些值时相应的最大价值
+\begin_inset Formula <span class="arithmatex">\(F_{k}[0\ldots V-C_{k}]\)</span>
+\end_inset</p>
+<p>。那么，这个主件及它的附件集合相当于
+\begin_inset Formula <span class="arithmatex">\(V-C_{k}+1\)</span>
+\end_inset</p>
+<p>个物品的物品组，其中费用为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的物品的价值为
+\begin_inset Formula <span class="arithmatex">\(F_{k}[v-C_{k}]+W_{k}\)</span>
+\end_inset</p>
+<p>，
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的取值范围是
+\begin_inset Formula <span class="arithmatex">\(C_{k}\leq v\leq V\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+也就是说，原来指数级的策略中，有很多策略都是冗余的，通过一次01背包后，将主件
+\begin_inset Formula <span class="arithmatex">\(k\)</span>
+\end_inset</p>
+<p>及其附件转化为
+\begin_inset Formula <span class="arithmatex">\(V-C_{k}+1\)</span>
+\end_inset</p>
+<p>个物品的物品组，就可以直接应用
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:分组的背包问题"</p>
+<p>\end_inset</p>
+<p>的算法解决问题了。
+\end_layout</p>
+<p>\begin_layout Subsection
+较一般的问题
+\end_layout</p>
+<p>\begin_layout Standard
+更一般的问题是：依赖关系以图论中“森林”
+\begin_inset Foot
+status open</p>
+<p>\begin_layout Plain Layout
+即多叉树的集合
+\end_layout</p>
+<p>\end_inset</p>
+<p>的形式给出。也就是说，主件的附件仍然可以具有自己的附件集合。限制只是每个物品最多只依赖于一个物品（只有一个主件）且不出现循环依赖。
+\end_layout</p>
+<p>\begin_layout Standard
+解决这个问题仍然可以用将每个主件及其附件集合转化为物品组的方式。唯一不同的是，由于附件可能还有附件，就不能将每个附件都看作一个一般的01背包中的物品了。若这个附
+件也有附件集合，则它必定要被先转化为物品组，然后用分组的背包问题解出主件及其附件集合所对应的附件组中各个费用的附件所对应的价值。
+\end_layout</p>
+<p>\begin_layout Standard
+事实上，这是一种树形动态规划，其特点是，在用动态规划求每个父节点的属性之前，需要对它的各个儿子的属性进行一次动态规划式的求值。这已经触及到了“泛化物品”的思想。
+看完
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:泛化物品"</p>
+<p>\end_inset</p>
+<p>后，你会发现这个“依赖关系树”每一个子树都等价于一件泛化物品，求某节点为根的子树对应的泛化物品相当于求其所有儿子的对应的泛化物品之和。
+\end_layout</p>
+<p>\begin_layout Subsection
+小结
+\end_layout</p>
+<p>\begin_layout Standard
+NOIP2006的那道背包问题我做得很失败，写了上百行的代码，却一分未得。后来我通过思考发现通过引入“物品组”和“依赖”的概念可以加深对这题的理解，还可以解决它
+的推广问题。用物品组的思想考虑那题中极其特殊的依赖关系：物品不能既作主件又作附件，每个主件最多有两个附件，可以发现一个主件和它的两个附件等价于一个由四个物品组成
+的物品组，这便揭示了问题的某种本质。
+\end_layout</p>
+<p>\begin_layout Standard
+后来，我在《背包问题九讲》第一版中总结此事时说：“失败不是什么丢人的事情，从失败中全无收获才是。”之后的NOIP2007的比赛中，我得了满分。
+\end_layout</p>
+<p>\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:泛化物品"</p>
+<p>\end_inset</p>
+<p>泛化物品
+\end_layout</p>
+<p>\begin_layout Subsection
+定义
+\end_layout</p>
+<p>\begin_layout Standard
+考虑这样一种物品，它并没有固定的费用和价值，而是它的价值随着你分配给它的费用而变化。这就是泛化物品的概念。
+\end_layout</p>
+<p>\begin_layout Standard
+更严格的定义之。在背包容量为
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>的背包问题中，泛化物品是一个定义域为
+\begin_inset Formula <span class="arithmatex">\(0\ldots V\)</span>
+\end_inset</p>
+<p>中的整数的函数
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>，当分配给它的费用为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>时，能得到的价值就是
+\begin_inset Formula <span class="arithmatex">\(h(v)\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+这个定义有一点点抽象，另一种理解是一个泛化物品就是一个数组
+\begin_inset Formula <span class="arithmatex">\(h[0\ldots V]\)</span>
+\end_inset</p>
+<p>，给它费用
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>，可得到价值
+\begin_inset Formula <span class="arithmatex">\(h[v]\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+一个费用为
+\begin_inset Formula <span class="arithmatex">\(c\)</span>
+\end_inset</p>
+<p>价值为
+\begin_inset Formula <span class="arithmatex">\(w\)</span>
+\end_inset</p>
+<p>的物品，如果它是01背包中的物品，那么把它看成泛化物品，它就是除了
+\begin_inset Formula <span class="arithmatex">\(h(c)=w\)</span>
+\end_inset</p>
+<p>外，其它函数值都为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>的一个函数。如果它是完全背包中的物品，那么它可以看成这样一个函数，仅当
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>被
+\begin_inset Formula <span class="arithmatex">\(c\)</span>
+\end_inset</p>
+<p>整除时有
+\begin_inset Formula <span class="arithmatex">\(h(v)=w\cdot\frac{v}{c}\)</span>
+\end_inset</p>
+<p>，其它函数值均为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>。如果它是多重背包中重复次数最多为
+\begin_inset Formula <span class="arithmatex">\(m\)</span>
+\end_inset</p>
+<p>的物品，那么它对应的泛化物品的函数有
+\begin_inset Formula <span class="arithmatex">\(h(v)=w\cdot\frac{v}{c}\)</span>
+\end_inset</p>
+<p>仅当
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>被
+\begin_inset Formula <span class="arithmatex">\(c\)</span>
+\end_inset</p>
+<p>整除且
+\begin_inset Formula <span class="arithmatex">\(\frac{v}{c}\leq n\)</span>
+\end_inset</p>
+<p>，其它情况函数值均为
+\begin_inset Formula <span class="arithmatex">\(0\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+一个物品组可以看作一个泛化物品
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>。对于一个
+\begin_inset Formula <span class="arithmatex">\(0\ldots V\)</span>
+\end_inset</p>
+<p>中的
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>，若物品组中不存在费用为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的物品，则
+\begin_inset Formula <span class="arithmatex">\(h(v)=0\)</span>
+\end_inset</p>
+<p>，否则
+\begin_inset Formula <span class="arithmatex">\(h(v)\)</span>
+\end_inset</p>
+<p>取值为所有费用为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>的物品的最大价值。
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:分组的背包问题"</p>
+<p>\end_inset</p>
+<p>中每个主件及其附件集合等价于一个物品组，自然也可看作一个泛化物品。
+\end_layout</p>
+<p>\begin_layout Subsection
+泛化物品的和
+\end_layout</p>
+<p>\begin_layout Standard
+如果给定了两个泛化物品
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(l\)</span>
+\end_inset</p>
+<p>，要用一定的费用从这两个泛化物品中得到最大的价值，这个问题怎么求呢？事实上，对于一个给定的费用
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>，只需枚举将这个费用如何分配给两个泛化物品就可以了。同样的，对于
+\begin_inset Formula <span class="arithmatex">\(0\text{\ldots}V\)</span>
+\end_inset</p>
+<p>中的每一个整数
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>，可以求得费用
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>分配到
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(l\)</span>
+\end_inset</p>
+<p>中的最大价值
+\begin_inset Formula <span class="arithmatex">\(f(v)\)</span>
+\end_inset</p>
+<p>。也即
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset Formula 
+[
+f(v)=\mathrm{max}{h(k)+l(v-k)\:|\:0\leq k\leq v}
+]</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+可以看到，这里的
+\begin_inset Formula <span class="arithmatex">\(f\)</span>
+\end_inset</p>
+<p>是一个由泛化物品
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(l\)</span>
+\end_inset</p>
+<p>决定的定义域为
+\begin_inset Formula <span class="arithmatex">\(0\text{\ldots V}\)</span>
+\end_inset</p>
+<p>的函数，也就是说，
+\begin_inset Formula <span class="arithmatex">\(f\)</span>
+\end_inset</p>
+<p>是一个由泛化物品
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(l\)</span>
+\end_inset</p>
+<p>决定的泛化物品。
+\end_layout</p>
+<p>\begin_layout Standard
+我们将
+\begin_inset Formula <span class="arithmatex">\(f\)</span>
+\end_inset</p>
+<p>定义为泛化物品
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(l\)</span>
+\end_inset</p>
+<p>的和：
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>、
+\begin_inset Formula <span class="arithmatex">\(l\)</span>
+\end_inset</p>
+<p>都是泛化物品，若函数
+\begin_inset Formula <span class="arithmatex">\(f\)</span>
+\end_inset</p>
+<p>满足以上关系式，则称
+\begin_inset Formula <span class="arithmatex">\(f\)</span>
+\end_inset</p>
+<p>是
+\begin_inset Formula <span class="arithmatex">\(h\)</span>
+\end_inset</p>
+<p>与
+\begin_inset Formula <span class="arithmatex">\(l\)</span>
+\end_inset</p>
+<p>的和。泛化物品和运算的时间复杂度取决于背包的容量，是
+\begin_inset Formula <span class="arithmatex">\(O(V^{2})\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+由泛化物品的定义可知：在一个背包问题中，若将两个泛化物品代以它们的和，不影响问题的答案。事实上，对于其中的物品都是泛化物品的背包问题，求它的答案的过程也就是求所
+有这些泛化物品之和的过程。若问题的和为
+\begin_inset Formula <span class="arithmatex">\(s\)</span>
+\end_inset</p>
+<p>，则答案就是
+\begin_inset Formula <span class="arithmatex">\(s\text{(}0\ldots V)\)</span>
+\end_inset</p>
+<p>中的最大值。
+\end_layout</p>
+<p>\begin_layout Subsection
+背包问题的泛化物品 
+\end_layout</p>
+<p>\begin_layout Standard
+一个背包问题中，可能会给出很多条件，包括每种物品的费用、价值等属性，物品之间的分组、依赖等关系等。但肯定能将问题对应于某个泛化物品。也就是说，给定了所有条件以后
+，就可以对每个非负整数
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>求得：若背包容量为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>，将物品装入背包可得到的最大价值是多少，这可以认为是定义在非负整数集上的一件泛化物品。这个泛化物品——或者说问题所对应的一个定义域为非负整数的函数——包含了关于
+问题本身的高度浓缩的信息。一般而言，求得这个泛化物品的一个子定义域（例如
+\begin_inset Formula <span class="arithmatex">\(0\text{\ldots}V\)</span>
+\end_inset</p>
+<p>）的值之后，就可以根据这个函数的取值得到背包问题的最终答案。
+\end_layout</p>
+<p>\begin_layout Standard
+综上所述，一般而言，求解背包问题，即求解这个问题所对应的一个函数，即该问题的泛化物品。而求解某个泛化物品的一种常用方法就是将它表示为若干泛化物品的和然后求之。
+\end_layout</p>
+<p>\begin_layout Subsection
+小结
+\end_layout</p>
+<p>\begin_layout Standard
+本讲是我在学习函数式编程的Scheme语言时，用函数编程的眼光审视各类背包问题得出的理论。
+\end_layout</p>
+<p>\begin_layout Standard
+我想说：“思考”是一个程序员最重要的品质。简单的问题，深入思考以后，也能发现更多。
+\end_layout</p>
+<p>\begin_layout Section
+背包问题问法的变化
+\end_layout</p>
+<p>\begin_layout Standard
+以上涉及的各种背包问题都是要求在背包容量（费用）的限制下求可以取到的最大价值，但背包问题还有很多种灵活的问法，在这里值得提一下。但是我认为，只要深入理解了求背包
+问题最大价值的方法，即使问法变化了，也是不难想出算法的。
+\end_layout</p>
+<p>\begin_layout Standard
+例如，求解最多可以放多少件物品或者最多可以装满多少背包的空间。这都可以根据具体问题利用前面的方程求出所有状态的值（
+\begin_inset Formula <span class="arithmatex">\(F\)</span>
+\end_inset</p>
+<p>数组）之后得到。
+\end_layout</p>
+<p>\begin_layout Standard
+还有，如果要求的是“总价值最小”“总件数最小”，只需将状态转移方程中的
+\begin_inset Formula <span class="arithmatex">\(\mathrm{max}\)</span>
+\end_inset</p>
+<p>改成
+\begin_inset Formula <span class="arithmatex">\(\mathrm{min}\)</span>
+\end_inset</p>
+<p>即可。
+\end_layout</p>
+<p>\begin_layout Standard
+下面说一些变化更大的问法。
+\end_layout</p>
+<p>\begin_layout Subsection
+输出方案
+\end_layout</p>
+<p>\begin_layout Standard
+一般而言，背包问题是要求一个最优值，如果要求输出这个最优值的方案，可以参照一般动态规划问题输出方案的方法：记录下每个状态的最优值是由状态转移方程的哪一项推出来的
+，换句话说，记录下它是由哪一个策略推出来的。便可根据这条策略找到上一个状态，从上一个状态接着向前推即可。
+\end_layout</p>
+<p>\begin_layout Standard
+还是以01背包为例，方程为
+\begin_inset Formula <span class="arithmatex">\(F[i,v]=\mathrm{max}\{F[i-1,v],F[i-1,v-C_{i}]+W_{i}\}\)</span>
+\end_inset</p>
+<p>。再用一个数组
+\begin_inset Formula <span class="arithmatex">\(G[i,v]\)</span>
+\end_inset</p>
+<p>，设
+\begin_inset Formula <span class="arithmatex">\(G[i,v]=0\)</span>
+\end_inset</p>
+<p>表示推出
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>的值时是采用了方程的前一项（也即
+\begin_inset Formula <span class="arithmatex">\(F[i,v]=F[i-1,v]\)</span>
+\end_inset</p>
+<p>），
+\begin_inset Formula <span class="arithmatex">\(G[i,v]=1\)</span>
+\end_inset</p>
+<p>表示采用了方程的后一项。注意这两项分别表示了两种策略：未选第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>个物品及选了第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>个物品。那么输出方案的伪代码可以这样写（设最终状态为
+\begin_inset Formula <span class="arithmatex">\(F[N,V]\)</span>
+\end_inset</p>
+<p>）：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(i\text{\,\leftarrow}N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow V\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+while 
+\begin_inset Formula <span class="arithmatex">\(i&gt;0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+    if 
+\begin_inset Formula <span class="arithmatex">\(G[i,v]=0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+        print 未选第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>项物品
+\end_layout</p>
+<p>\begin_layout LyX-Code
+    else if 
+\begin_inset Formula <span class="arithmatex">\(G[i,v]=1\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+        print 
+\begin_inset Formula $ $
+\end_inset</p>
+<p>选了第
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>项物品
+\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow sv-C_{i}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow i-1\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+另外，采用方程的前一项或后一项也可以在输出方案的过程中根据
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>的值实时地求出来。也即，不须纪录
+\begin_inset Formula <span class="arithmatex">\(G\)</span>
+\end_inset</p>
+<p>数组，将上述代码中的
+\begin_inset Formula <span class="arithmatex">\(G[i,v]=0\)</span>
+\end_inset</p>
+<p>改成
+\begin_inset Formula <span class="arithmatex">\(F[i,v]=F[i-1,v]\)</span>
+\end_inset</p>
+<p>，
+\begin_inset Formula <span class="arithmatex">\(G[i,v]=1\)</span>
+\end_inset</p>
+<p>改成
+\begin_inset Formula <span class="arithmatex">\(F[i,v]=F[i-1][v-C_{i}]+W_{i}\)</span>
+\end_inset</p>
+<p>也可。
+\end_layout</p>
+<p>\begin_layout Subsection
+输出字典序最小的最优方案 
+\end_layout</p>
+<p>\begin_layout Standard
+这里“字典序最小”的意思是
+\begin_inset Formula <span class="arithmatex">\(1\ldots N\)</span>
+\end_inset</p>
+<p>号物品的选择方案排列出来以后字典序最小。以输出01背包最小字典序的方案为例。
+\end_layout</p>
+<p>\begin_layout Standard
+一般而言，求一个字典序最小的最优方案，只需要在转移时注意策略。
+\end_layout</p>
+<p>\begin_layout Standard
+首先，子问题的定义要略改一些。我们注意到，如果存在一个选了物品
+\begin_inset Formula <span class="arithmatex">\(1\)</span>
+\end_inset</p>
+<p>的最优方案，那么答案一定包含物品
+\begin_inset Formula <span class="arithmatex">\(1\)</span>
+\end_inset</p>
+<p>，原问题转化为一个背包容量为
+\begin_inset Formula <span class="arithmatex">\(V-C_{1}\)</span>
+\end_inset</p>
+<p>，物品为
+\begin_inset Formula <span class="arithmatex">\(2\ldots N\)</span>
+\end_inset</p>
+<p>的子问题。反之，如果答案不包含物品
+\begin_inset Formula <span class="arithmatex">\(1\)</span>
+\end_inset</p>
+<p>，则转化成背包容量仍为
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>，物品为
+\begin_inset Formula <span class="arithmatex">\(2\ldots N\)</span>
+\end_inset</p>
+<p>的子问题。
+\end_layout</p>
+<p>\begin_layout Standard
+不管答案怎样，子问题的物品都是以
+\begin_inset Formula <span class="arithmatex">\(i\ldots N\)</span>
+\end_inset</p>
+<p>而非前所述的
+\begin_inset Formula <span class="arithmatex">\(1\ldots i\)</span>
+\end_inset</p>
+<p>的形式来定义的，所以状态的定义和转移方程都需要改一下。
+\end_layout</p>
+<p>\begin_layout Standard
+但也许更简易的方法是，先把物品编号做
+\begin_inset Formula <span class="arithmatex">\(x\,\leftarrow N+1-x\)</span>
+\end_inset</p>
+<p>的变换，在输出方案时再变换回来。在做完物品编号的变换后，可以按照前面经典的转移方程来求值。只是在输出方案时要注意，如果
+\begin_inset Formula <span class="arithmatex">\(F[i,v]=F[i-1,v]\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(F[i,v]=F[i-1][v-C_{i}]+W_{i}\)</span>
+\end_inset</p>
+<p>都成立，应该按照后者来输出方案，即选择了物品
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>，输出其原来的编号
+\begin_inset Formula <span class="arithmatex">\(N-1-i\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Subsection
+求方案总数 
+\end_layout</p>
+<p>\begin_layout Standard
+对于一个给定了背包容量、物品费用、物品间相互关系（分组、依赖等）的背包问题，除了再给定每个物品的价值后求可得到的最大价值外，还可以得到装满背包或将背包装至某一指
+定容量的方案总数。
+\end_layout</p>
+<p>\begin_layout Standard
+对于这类改变问法的问题，一般只需将状态转移方程中的
+\begin_inset Formula <span class="arithmatex">\(\mathrm{max}\)</span>
+\end_inset</p>
+<p>改成
+\begin_inset Formula <span class="arithmatex">\(\mathrm{sum}\)</span>
+\end_inset</p>
+<p>即可。例如若每件物品均是完全背包中的物品，转移方程即为
+\end_layout</p>
+<p>\begin_layout Standard
+\begin_inset Formula 
+[
+F[i,v]=\mathrm{sum}{{F[i-1,v],F[i,v-C_{i}]}}
+]</p>
+<p>\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+初始条件是
+\begin_inset Formula <span class="arithmatex">\(F[0,0]=1\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+事实上，这样做可行的原因在于状态转移方程已经考察了所有可能的背包组成方案。
+\end_layout</p>
+<p>\begin_layout Subsection
+最优方案的总数
+\end_layout</p>
+<p>\begin_layout Standard
+这里的最优方案是指物品总价值最大的方案。以01背包为例。
+\end_layout</p>
+<p>\begin_layout Standard
+结合求最大总价值和方案总数两个问题的思路，最优方案的总数可以这样求：
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>代表该状态的最大价值，
+\begin_inset Formula <span class="arithmatex">\(G[i,v]\)</span>
+\end_inset</p>
+<p>表示这个子问题的最优方案的总数，则在求
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>的同时求
+\begin_inset Formula <span class="arithmatex">\(G[i,v]\)</span>
+\end_inset</p>
+<p>的伪代码如下：
+\end_layout</p>
+<p>\begin_layout LyX-Code
+\begin_inset Formula <span class="arithmatex">\(G[0,0]\,\leftarrow1\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+for 
+\begin_inset Formula <span class="arithmatex">\(i\,\leftarrow1\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(N\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+   for 
+\begin_inset Formula <span class="arithmatex">\(v\,\leftarrow0\)</span>
+\end_inset</p>
+<p>to 
+\begin_inset Formula <span class="arithmatex">\(V\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[i,v]\,\leftarrow\mathrm{max}\{F[i-1,v],F[i-1,v-C_{i}]+W_{i}\}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(G[i,v]\,\leftarrow0\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+        if 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english</p>
+<p>\begin_inset Formula <span class="arithmatex">\(F[i,v]=F[i-1,v]\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(G[i,v]\,\leftarrow G[i,v]+G[i-1][v]\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code
+        if 
+\begin_inset Formula <span class="arithmatex">\(F[i,v]=F[i-1,v-C_{i}]+W_{i}\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout LyX-Code</p>
+<p>\begin_inset Formula <span class="arithmatex">\(G[i,v]\,\leftarrow G[i,v]+G[i-1][v-C_{i}]\)</span>
+\end_inset</p>
+<p>\end_layout</p>
+<p>\begin_layout Standard
+如果你是第一次看到这样的问题，请仔细体会上面的伪代码。
+\end_layout</p>
+<p>\begin_layout Subsection
+求次优解、第
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>优解 
+\end_layout</p>
+<p>\begin_layout Standard
+对于求次优解、第
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>优解类的问题，如果相应的最优解问题能写出状态转移方程、用动态规划解决，那么求次优解往往可以相同的复杂度解决，第
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>优解则比求最优解的复杂度上多一个系数
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+其基本思想是，将每个状态都表示成有序队列，将状态转移方程中的
+\begin_inset Formula <span class="arithmatex">\(\mathrm{max/min}\)</span>
+\end_inset</p>
+<p>转化成有序队列的合并。
+\end_layout</p>
+<p>\begin_layout Standard
+这里仍然以01背包为例讲解一下。
+\end_layout</p>
+<p>\begin_layout Standard
+首先看01背包求最优解的状态转移方程：
+\begin_inset Formula <span class="arithmatex">\(F[i,v]=\mathrm{max}\{F[i-1,v],F[i-1,v-C_{i}]+W_{i}\}\)</span>
+\end_inset</p>
+<p>。如果要求第
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>优解，那么状态
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>就应该是一个大小为
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>的队列
+\begin_inset Formula <span class="arithmatex">\(F[i,v,1\ldots K]\)</span>
+\end_inset</p>
+<p>。其中
+\begin_inset Formula <span class="arithmatex">\(F[i,v,k]\)</span>
+\end_inset</p>
+<p>表示前
+\begin_inset Formula <span class="arithmatex">\(i\)</span>
+\end_inset</p>
+<p>个物品中，背包大小为
+\begin_inset Formula <span class="arithmatex">\(v\)</span>
+\end_inset</p>
+<p>时，第
+\begin_inset Formula <span class="arithmatex">\(k\)</span>
+\end_inset</p>
+<p>优解的值。这里也可以简单地理解为在原来的方程中加了一维来表示结果的优先次序。显然
+\begin_inset Formula <span class="arithmatex">\(f[i,v,1\ldots K]\)</span>
+\end_inset</p>
+<p>这
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>个数是由大到小排列的，所以它可看作是一个有序队列。
+\end_layout</p>
+<p>\begin_layout Standard
+然后原方程就可以解释为：
+\begin_inset Formula <span class="arithmatex">\(F[i,v]\)</span>
+\end_inset</p>
+<p>这个有序队列是由
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v]\)</span>
+\end_inset</p>
+<p>和
+\begin_inset Formula <span class="arithmatex">\(F[i-1\text{,}v-C_{i}]+W_{i}\)</span>
+\end_inset</p>
+<p>这两个有序队列合并得到的。前者
+\begin_inset Formula <span class="arithmatex">\(F[i-1][V]\)</span>
+\end_inset</p>
+<p>即
+\begin_inset Formula <span class="arithmatex">\(F[i-1,v,1\ldots K]\)</span>
+\end_inset</p>
+<p>，后者
+\begin_inset Formula <span class="arithmatex">\(F[i-1\text{,}v-C_{i}]+W_{i}\)</span>
+\end_inset</p>
+<p>则理解为在
+\begin_inset Formula <span class="arithmatex">\(F[i-1\text{,}v-C_{i},1\ldots K]\)</span>
+\end_inset</p>
+<p>的每个数上加上
+\begin_inset Formula <span class="arithmatex">\(W_{i}\)</span>
+\end_inset</p>
+<p>后得到的有序队列。合并这两个有序队列并将结果的前
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>项储存到
+\begin_inset Formula <span class="arithmatex">\(f[i,v,1\ldots K]\)</span>
+\end_inset</p>
+<p>中的复杂度是
+\begin_inset Formula <span class="arithmatex">\(O(K)\)</span>
+\end_inset</p>
+<p>。最后的第
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>优解的答案是
+\begin_inset Formula <span class="arithmatex">\(F[N,V,K]\)</span>
+\end_inset</p>
+<p>。总的时间复杂度是
+\begin_inset Formula <span class="arithmatex">\(O(VNK)\)</span>
+\end_inset</p>
+<p>。
+\end_layout</p>
+<p>\begin_layout Standard
+为什么这个方法正确呢？实际上，一个正确的状态转移方程的求解过程遍历了所有可用的策略，也就覆盖了问题的所有方案。只不过由于是求最优解，所以其它在任何一个策略上达不
+到最优的方案都被忽略了。如果把每个状态表示成一个大小为
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>的数组，并在这个数组中有序地保存该状态可取到的前
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>个最优值。那么，对于任两个状态的
+\begin_inset Formula <span class="arithmatex">\(\mathrm{max}\)</span>
+\end_inset</p>
+<p>运算等价于两个由大到小的有序队列的合并。
+\end_layout</p>
+<p>\begin_layout Standard
+另外还要注意题目对于“第
+\begin_inset Formula <span class="arithmatex">\(K\)</span>
+\end_inset</p>
+<p>优解”的定义，是要求将策略不同但权值相同的两个方案是看作同一个解还是不同的解。如果是前者，则维护有序队列时要保证队列里的数没有重复的。
+\end_layout</p>
+<p>\begin_layout Subsection
+小结
+\end_layout</p>
+<p>\begin_layout Standard
+显然，这里不可能穷尽背包类动态规划问题所有的问法。甚至还存在一类将背包类动态规划问题与其它领域（例如数论、图论）结合起来的问题，在这篇论背包问题的专文中也不会论
+及。但只要深刻领会前述所有类别的背包问题的思路和状态转移方程，遇到其它的变形问题，应该也不难想出算法。
+\end_layout</p>
+<p>\begin_layout Standard
+触类旁通、举一反三，应该也是一个程序员应有的品质吧。
+\end_layout</p>
+<p>\end_body
+\end_document
+$$</p>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            回到页面顶部
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: 寻找段落" class="md-footer__link md-footer__link--prev" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                上一页
+              </span>
+              寻找段落
+            </div>
+</div>
+</a>
+<a aria-label="下一页: 01 背包问题" class="md-footer__link md-footer__link--next" href="../01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                下一页
+              </span>
+              01 背包问题
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
