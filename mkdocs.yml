@@ -127,6 +127,7 @@ nav:
   - 规律模拟:
     - AB提前确定输赢: problem/规律模拟/AB提前确定输赢.md
     - 小卡与质数2 : problem/规律模拟/小卡与质数2.md
+    - 剩下的数 : problem/规律模拟/剩下的数.md
   - 贪心:
     - H指数: problem/贪心/H指数.md
     - 最少坏区间: problem/贪心/最少坏区间.md

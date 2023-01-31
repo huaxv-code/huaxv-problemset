@@ -13,19 +13,19 @@
 ??? note "代码片段"
 
     ```c++ title="c++ 代码片段"
-    #include <iostream>
-    #include <fstream>
+    #include <bits/stdc++.h>
 
     using namespace std;
     typedef long long LL;
     typedef long double DD;
     typedef __int128_t HH;
     inline HH ghh();
-    inline void phh(HH x);
+    inline void phh(HH x, const char *s = "\n");
+    inline void pll(LL x, const char *s = "\n");
     inline LL gll();
     const LL N = (LL)(1e6 + 10);
 
-    /*————————————————————————————————————————————————————————————————————*/
+    /*────────────────────────────────────────────────────────────────────*/
 
 
 
@@ -34,22 +34,11 @@
         
     }
 
-    /*————————————————————————————————————————————————————————————————————*/
+    /*────────────────────────────────────────────────────────────────────*/
 
     int main(void)
     {
-        ifstream fi; ofstream fo;
-        fi.open("./lrq.in"); fo.open("./lrq.out");
-        if (fi.is_open() && fo.is_open())
-        {
-            fo.close(); fi.close();
-            FILE *fin = freopen("./lrq.in", "r", stdin);
-            FILE *fout = freopen("./lrq.out", "w", stdout);
-            solve(); fclose(fin); fclose(fout);
-        }
-        else solve();
-
-        return 0;
+        solve(); return 0;
     }
 
     inline HH ghh() 
@@ -65,12 +54,18 @@
         return x * f;
     }
 
-    inline void phh(HH x)
+    inline void phh(HH x, const char *s)
     {
-        if (x < 0) { putchar('-'); x *= -1; }
-        if (x == 0) { putchar('0'); return; }
-        if (x / 10) phh(x / 10);
-        putchar((x % 10) + '0');
+        if (x == 0) { putchar('0'); printf (s); return; }
+        if (x < 0) putchar('-');
+        char tmp[200];
+        LL cr = 0;
+        while (x)
+        {
+            tmp[++ cr] = char ((x % 10) + '0'); x /= 10;
+        }
+        for (LL i = cr; i; i --) putchar(tmp[i]);
+        printf (s);
     }
 
     inline LL gll()
@@ -84,6 +79,20 @@
             else if (s[i] >= '0' && s[i] <= '9') x = x * 10 + s[i] - '0';
         }
         return x * f;
+    }
+
+    inline void pll(LL x, const char *s)
+    {
+        if (x == 0) { putchar('0'); printf (s); return; }
+        if (x < 0) putchar('-');
+        char tmp[200];
+        LL cr = 0;
+        while (x)
+        {
+            tmp[++ cr] = char ((x % 10) + '0'); x /= 10;
+        }
+        for (LL i = cr; i; i --) putchar(tmp[i]);
+        printf ("%s", s);
     }
     ```
 
@@ -161,7 +170,7 @@
             "sml": "cd $dir && sml $fileName"
         },
         "C_Cpp.default.intelliSenseMode": "gcc-x64",
-        "C_Cpp.default.compilerPath": "C:/huaxv-home/CP-Editor/mingw64/bin/gcc",
+        "C_Cpp.default.compilerPath": "C:/huaxv-home/Tools/Sublime/mingw64/bin/gcc",
         "C_Cpp.default.cppStandard": "c++20",
         "C_Cpp.default.cStandard": "c17",
         "editor.unicodeHighlight.allowedLocales": {
@@ -182,28 +191,28 @@
         "file": {
             "prefix": "file",
             "body": [
-                "#include <iostream>",
-                "#include <fstream>",
+                "#include <bits/stdc++.h>",
                 "",
                 "using namespace std;",
                 "typedef long long LL;",
                 "typedef long double DD;",
                 "typedef __int128_t HH;",
                 "inline HH ghh();",
-                "inline void phh(HH x);",
+                "inline void phh(HH x, const char *s = \"\\n\");",
+                "inline void pll(LL x, const char *s = \"\\n\");",
                 "inline LL gll();",
                 "const LL N = (LL)(1e6 + 10);",
                 "",
-                "/*————————————————————————————————————————————————————————————————————*/",
+                "/*────────────────────────────────────────────────────────────────────*/",
                 "",
-                "$1",
+                "",
                 "",
                 "void solve(void)",
                 "{",
-                "\t",
+                "    ",
                 "}",
                 "",
-                "/*————————————————————————————————————————————————————————————————————*/",
+                "/*────────────────────────────────────────────────────────────────────*/",
                 "",
                 "int main(void)",
                 "{",
@@ -234,12 +243,18 @@
                 "    return x * f;",
                 "}",
                 "",
-                "inline void phh(HH x)",
+                "inline void phh(HH x, const char *s)",
                 "{",
-                "    if (x < 0) { putchar('-'); x *= -1; }",
-                "    if (x == 0) { putchar('0'); return; }",
-                "    if (x / 10) phh(x / 10);",
-                "    putchar((x % 10) + '0');",
+                "    if (x == 0) { putchar('0'); printf (s); return; }",
+                "    if (x < 0) putchar('-');",
+                "    char tmp[200];",
+                "    LL cr = 0;",
+                "    while (x)",
+                "    {",
+                "        tmp[++ cr] = char ((x % 10) + '0'); x /= 10;",
+                "    }",
+                "    for (LL i = cr; i; i --) putchar(tmp[i]);",
+                "    printf (s);",
                 "}",
                 "",
                 "inline LL gll()",
@@ -254,6 +269,20 @@
                 "    }",
                 "    return x * f;",
                 "}",
+                "",
+                "inline void pll(LL x, const char *s)",
+                "{",
+                "    if (x == 0) { putchar('0'); printf (s); return; }",
+                "    if (x < 0) putchar('-');",
+                "    char tmp[200];",
+                "    LL cr = 0;",
+                "    while (x)",
+                "    {",
+                "        tmp[++ cr] = char ((x % 10) + '0'); x /= 10;",
+                "    }",
+                "    for (LL i = cr; i; i --) putchar(tmp[i]);",
+                "    printf (s);",
+                "}",
             ],
             "description": "init file"
         },
@@ -261,27 +290,28 @@
             "prefix": "code",
             "description": "init file",
             "body": [
-                "#include <iostream>",
+                "#include <bits/stdc++.h>",
                 "",
                 "using namespace std;",
                 "typedef long long LL;",
                 "typedef long double DD;",
                 "typedef __int128_t HH;",
                 "inline HH ghh();",
-                "inline void phh(HH x);",
+                "inline void phh(HH x, const char *s = \"\\n\");",
+                "inline void pll(LL x, const char *s = \"\\n\");",
                 "inline LL gll();",
                 "const LL N = (LL)(1e6 + 10);",
                 "",
-                "/*————————————————————————————————————————————————————————————————————*/",
+                "/*────────────────────────────────────────────────────────────────────*/",
                 "",
-                "$1",
+                "",
                 "",
                 "void solve(void)",
                 "{",
-                "\t",
+                "    ",
                 "}",
                 "",
-                "/*————————————————————————————————————————————————————————————————————*/",
+                "/*────────────────────────────────────────────────────────────────────*/",
                 "",
                 "int main(void)",
                 "{",
@@ -301,12 +331,18 @@
                 "    return x * f;",
                 "}",
                 "",
-                "inline void phh(HH x)",
+                "inline void phh(HH x, const char *s)",
                 "{",
-                "    if (x < 0) { putchar('-'); x *= -1; }",
-                "    if (x == 0) { putchar('0'); return; }",
-                "    if (x / 10) phh(x / 10);",
-                "    putchar((x % 10) + '0');",
+                "    if (x == 0) { putchar('0'); printf (s); return; }",
+                "    if (x < 0) putchar('-');",
+                "    char tmp[200];",
+                "    LL cr = 0;",
+                "    while (x)",
+                "    {",
+                "        tmp[++ cr] = char ((x % 10) + '0'); x /= 10;",
+                "    }",
+                "    for (LL i = cr; i; i --) putchar(tmp[i]);",
+                "    printf (s);",
                 "}",
                 "",
                 "inline LL gll()",
@@ -321,9 +357,165 @@
                 "    }",
                 "    return x * f;",
                 "}",
+                "",
+                "inline void pll(LL x, const char *s)",
+                "{",
+                "    if (x == 0) { putchar('0'); printf (s); return; }",
+                "    if (x < 0) putchar('-');",
+                "    char tmp[200];",
+                "    LL cr = 0;",
+                "    while (x)",
+                "    {",
+                "        tmp[++ cr] = char ((x % 10) + '0'); x /= 10;",
+                "    }",
+                "    for (LL i = cr; i; i --) putchar(tmp[i]);",
+                "    printf (s);",
+                "}",
             ]
         }
     }
+    ```
+
+## **sublime** 用户代码片段
+
+??? note "Sublime\sublime\Data\Packages\User\snippet\code.sublime-snippet"
+
+    ```html title"Sublime\sublime\Data\Packages\User\snippet\code.sublime-snippet"
+<snippet>
+	<content><![CDATA[
+    #include <bits/stdc++.h>
+
+    using namespace std;
+    typedef long long LL;
+    typedef long double DD;
+    typedef __int128_t HH;
+    inline HH ghh();
+    inline void phh(HH x, const char *s = "\n");
+    inline void pll(LL x, const char *s = "\n");
+    inline LL gll();
+    const LL N = (LL)(1e6 + 10);
+
+    /*────────────────────────────────────────────────────────────────────*/
+
+    ${0}
+
+    void solve(void)
+    {
+        
+    }
+
+    /*────────────────────────────────────────────────────────────────────*/
+
+    int main(void)
+    {
+        solve(); return 0;
+    }
+
+    inline HH ghh() 
+    {   
+        char s[200];
+        scanf ("%s", s);
+        HH x = 0, f = 1;
+        for (LL i = 0; s[i]; i ++) 
+        {
+            if (s[i] == '-') f = -1;
+            else if (s[i] >= '0' && s[i] <= '9') x = x * 10 + s[i] - '0';
+        }
+        return x * f;
+    }
+
+    inline void phh(HH x, const char *s)
+    {
+        if (x == 0) { putchar('0'); printf (s); return; }
+        if (x < 0) putchar('-');
+        char tmp[200];
+        LL cr = 0;
+        while (x)
+        {
+            tmp[++ cr] = char ((x % 10) + '0'); x /= 10;
+        }
+        for (LL i = cr; i; i --) putchar(tmp[i]);
+        printf (s);
+    }
+
+    inline LL gll()
+    {
+        char s[200];
+        scanf ("%s", s);
+        LL x = 0, f = 1;
+        for (LL i = 0; s[i]; i ++)
+        {
+            if (s[i] == '-') f = -1;
+            else if (s[i] >= '0' && s[i] <= '9') x = x * 10 + s[i] - '0';
+        }
+        return x * f;
+    }
+
+    inline void pll(LL x, const char *s)
+    {
+        if (x == 0) { putchar('0'); printf (s); return; }
+        if (x < 0) putchar('-');
+        char tmp[200];
+        LL cr = 0;
+        while (x)
+        {
+            tmp[++ cr] = char ((x % 10) + '0'); x /= 10;
+        }
+        for (LL i = cr; i; i --) putchar(tmp[i]);
+        printf ("%s", s);
+    }
+    ]]></content>
+        <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+        <!-- <tabTrigger>hello</tabTrigger> -->
+        <!-- Optional: Set a scope to limit where the snippet will trigger -->
+        <!-- <scope>source.python</scope> -->
+        <tabTrigger>code</tabTrigger>
+    </snippet>
+    ```
+
+## **sublime** g++ 配置
+
+??? note "Sublime\sublime\Data\Packages\User\g++.sublime-build"
+
+    ```json
+    {
+        "cmd": ["cmd", "/c", "g++", "-Wall", "${file}","-std=c++17", "-fexec-charset=gbk", "-o", "${file_path}/${file_base_name}", "&&", "cmd", "/c", "${file_path}/${file_base_name}"],
+        "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+        "working_dir": "${file_path}",
+        "selector": "source.c, source.c++",
+
+        "variants":
+        [
+            {
+                "name": "run in sublime",
+                "cmd": ["cmd", "/c", "g++", "-Wall", "${file}","-std=c++17", "-fexec-charset=gbk", "-o", "${file_path}/${file_base_name}", "&&", "cmd", "/c", "${file_path}/${file_base_name}"]
+            },
+            {
+                "name": "run in cmd",
+                "cmd": ["cmd", "/c", "g++", "-Wall", "${file}","-std=c++17", "-fexec-charset=gbk", "-o", "${file_path}/${file_base_name}", "&&", "start", "cmd", "/c", "${file_path}/${file_base_name} & pause"]
+            }
+        ]
+    }
+    ```
+
+## **sublime** 配置文件
+
+??? note "Sublime\sublime\Data\Packages\User\Preferences.sublime-settings"
+
+    ```json
+    {
+        "ignored_packages":
+        [
+            "Vintage",
+        ],
+        "font_size": 15,
+        "save_on_focus_lost": true,
+        "update_check":false,
+        "auto_complete": false,
+        "theme": "Material-Theme-Darker.sublime-theme",
+        "color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
+    }
+
     ```
 
 ## 祝君万事顺意
