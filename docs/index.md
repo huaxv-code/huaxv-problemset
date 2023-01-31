@@ -20,10 +20,11 @@
     typedef long double DD;
     typedef __int128_t HH;
     inline HH ghh();
-    inline void phh(HH x, const char *s = "\n");
-    inline void pll(LL x, const char *s = "\n");
+    inline bool phh(HH x, const char *s = "\n");
+    inline bool pll(LL x, const char *s = "\n");
     inline LL gll();
-    const LL N = (LL)(1e6 + 10);
+    inline HH qpow(HH x, HH y, HH m);
+    const LL N = (LL)(2e7 + 10);
 
     /*────────────────────────────────────────────────────────────────────*/
 
@@ -54,9 +55,9 @@
         return x * f;
     }
 
-    inline void phh(HH x, const char *s)
+    inline bool phh(HH x, const char *s)
     {
-        if (x == 0) { putchar('0'); printf (s); return; }
+        if (x == 0) { putchar('0'); printf (s); return true; }
         if (x < 0) putchar('-');
         char tmp[200];
         LL cr = 0;
@@ -66,6 +67,7 @@
         }
         for (LL i = cr; i; i --) putchar(tmp[i]);
         printf (s);
+        return true;
     }
 
     inline LL gll()
@@ -81,9 +83,9 @@
         return x * f;
     }
 
-    inline void pll(LL x, const char *s)
+    inline bool pll(LL x, const char *s)
     {
-        if (x == 0) { putchar('0'); printf (s); return; }
+        if (x == 0) { putchar('0'); printf (s); return true; }
         if (x < 0) putchar('-');
         char tmp[200];
         LL cr = 0;
@@ -93,6 +95,16 @@
         }
         for (LL i = cr; i; i --) putchar(tmp[i]);
         printf ("%s", s);
+        return true;
+    }
+
+    inline HH qpow(HH x, HH y, HH m)
+    {
+        if (y == 0) return 1;
+        HH res = qpow(x, y / 2, m);
+        res *= res; res %= m;
+        if (y & 1) { res *= x; res %= m; }
+        return res;
     }
     ```
 
@@ -381,8 +393,8 @@
 ??? note "Sublime\sublime\Data\Packages\User\snippet\code.sublime-snippet"
 
     ```html title"Sublime\sublime\Data\Packages\User\snippet\code.sublime-snippet"
-<snippet>
-	<content><![CDATA[
+    <snippet>
+        <content><![CDATA[
     #include <bits/stdc++.h>
 
     using namespace std;
@@ -390,10 +402,11 @@
     typedef long double DD;
     typedef __int128_t HH;
     inline HH ghh();
-    inline void phh(HH x, const char *s = "\n");
-    inline void pll(LL x, const char *s = "\n");
+    inline bool phh(HH x, const char *s = "\n");
+    inline bool pll(LL x, const char *s = "\n");
     inline LL gll();
-    const LL N = (LL)(1e6 + 10);
+    inline HH qpow(HH x, HH y, HH m);
+    const LL N = (LL)(2e7 + 10);
 
     /*────────────────────────────────────────────────────────────────────*/
 
@@ -424,9 +437,9 @@
         return x * f;
     }
 
-    inline void phh(HH x, const char *s)
+    inline bool phh(HH x, const char *s)
     {
-        if (x == 0) { putchar('0'); printf (s); return; }
+        if (x == 0) { putchar('0'); printf (s); return true; }
         if (x < 0) putchar('-');
         char tmp[200];
         LL cr = 0;
@@ -436,6 +449,7 @@
         }
         for (LL i = cr; i; i --) putchar(tmp[i]);
         printf (s);
+        return true;
     }
 
     inline LL gll()
@@ -451,9 +465,9 @@
         return x * f;
     }
 
-    inline void pll(LL x, const char *s)
+    inline bool pll(LL x, const char *s)
     {
-        if (x == 0) { putchar('0'); printf (s); return; }
+        if (x == 0) { putchar('0'); printf (s); return true; }
         if (x < 0) putchar('-');
         char tmp[200];
         LL cr = 0;
@@ -463,6 +477,16 @@
         }
         for (LL i = cr; i; i --) putchar(tmp[i]);
         printf ("%s", s);
+        return true;
+    }
+
+    inline HH qpow(HH x, HH y, HH m)
+    {
+        if (y == 0) return 1;
+        HH res = qpow(x, y / 2, m);
+        res *= res; res %= m;
+        if (y & 1) { res *= x; res %= m; }
+        return res;
     }
     ]]></content>
         <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
