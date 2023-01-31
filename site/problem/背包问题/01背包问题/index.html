@@ -161,7 +161,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+<a class="md-tabs__link md-tabs__link--active" href="./">
         背包问题
       </a>
 </li>
@@ -693,11 +693,6 @@
           背包问题
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
-        背包问题
-      </a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -720,6 +715,11 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98/">
+        装箱问题
+      </a>
 </li>
 </ul>
 </nav>
@@ -754,14 +754,15 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="01">01 背包问题</h1>
+<p><a href="https://github.com/tianyicui/pack">崔添翼背包问题九讲</a></p>
 <details class="question">
 <summary><a href="https://www.luogu.com.cn/problem/P1048">问题描述</a></summary>
-<p>小花需要在限定时间 <span class="arithmatex">\(t\)</span> 之内采取尽可能多价值的草药，</p>
-<p>总共有 <span class="arithmatex">\(n\)</span> 株草药，</p>
-<p>但是每一株草药都有对应的采药花费时间 <span class="arithmatex">\(v_i\)</span> 与价值 <span class="arithmatex">\(w_i\)</span>，</p>
-<p>请你求出小花在限定时间 <span class="arithmatex">\(t\)</span> 之内所能采取的草药最高价值总和是多少？</p>
+<p>小花需要将 <span class="arithmatex">\(n\)</span> 件物品装入背包中，但是每件物品都会占用一定的空间 <span class="arithmatex">\(v_i\)</span>，具有一定的价值 <span class="arithmatex">\(w_i\)</span></p>
+<p>背包的容量只有 <span class="arithmatex">\(m\)</span> ，所以有可能无法将所有物品都转入背包当中</p>
+<p>小花只能对这些物品精挑细选，使得背包价值经可能的大</p>
+<p>请你求出小花背包的最高价值是多少？</p>
 <p><strong>数据范围</strong></p>
-<p><span class="arithmatex">\(1 \leq t \leq 1000\)</span></p>
+<p><span class="arithmatex">\(1 \leq m \leq 1000\)</span></p>
 <p><span class="arithmatex">\(1 \leq n \leq 100\)</span></p>
 <p><span class="arithmatex">\(1 \leq v_i , w_i \leq 100\)</span></p>
 <p><strong>输入输出</strong></p>
@@ -769,7 +770,7 @@
 <p>第一行输入两个整数分别代表 <span class="arithmatex">\(t\)</span> 和 <span class="arithmatex">\(n\)</span></p>
 <p>接下来的 <span class="arithmatex">\(n\)</span> 行，每行两个整数分别代表 <span class="arithmatex">\(v_i\)</span> 和 <span class="arithmatex">\(w_i\)</span>.</p>
 <p>【输出格式】</p>
-<p>输出一行，代表在规定时间内所能获得的最高价值总和.</p>
+<p>输出一行，代表小花背包的最高价值.</p>
 <p><strong>样例一</strong></p>
 <p>输入：</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>70 3
@@ -783,12 +784,12 @@
 </details>
 <h2 id="01_1">01 背包问题</h2>
 <p>如果用暴力你会怎么做？</p>
-<p>无非就是不断枚举当前草药拿了之后的最优值与该草药不拿的最优值，比较哪个更优就选哪个.</p>
+<p>无非就是不断枚举当前物品拿了之后的最优值与该物品不拿的最优值，比较哪个更优就选哪个.</p>
 <p>就这样暴力枚举，总共就有 <span class="arithmatex">\(2 ^ n\)</span> 个分支，代表所有拿与不拿的组合情况.</p>
 <p>用记忆化递归枚举所有可能很容易实现：</p>
 <details class="success">
 <summary>记忆化递归</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">LL</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="mi">1010</span><span class="p">][</span><span class="mi">1010</span><span class="p">],</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="mi">1010</span><span class="p">][</span><span class="mi">1010</span><span class="p">];</span><span class="w"></span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">LL</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">LL</span><span class="w"> </span><span class="n">sp</span><span class="p">)</span><span class="w"></span>
@@ -797,13 +798,13 @@
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">st</span><span class="p">[</span><span class="n">id</span><span class="p">][</span><span class="n">sp</span><span class="p">])</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">id</span><span class="p">][</span><span class="n">sp</span><span class="p">];</span><span class="w"></span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="n">st</span><span class="p">[</span><span class="n">id</span><span class="p">][</span><span class="n">sp</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="n">LL</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="p">);</span><span class="w"></span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">id</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">id</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">id</span><span class="p">]);</span><span class="w"></span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">id</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">id</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">id</span><span class="p">]);</span><span class="w"></span>
 <a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">id</span><span class="p">][</span><span class="n">sp</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="p">;</span><span class="w"></span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="p">}</span><span class="w"></span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>
 <a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
 <a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">(),</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"></span>
+<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">(),</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"></span>
 <a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"></span>
 <a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">        </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">(),</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"></span>
 <a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>
@@ -812,11 +813,64 @@
 </code></pre></div>
 </details>
 <p>如果用循环如何实现呢？</p>
-<p>定义编号为 <span class="arithmatex">\(i\)</span> 的草药的选取状态为 <span class="arithmatex">\(x_i\)</span> 且 <span class="arithmatex">\(x_i = 0\)</span> 时代表当前草药没有被选上，<span class="arithmatex">\(x_i = 1\)</span> 代表当前草药被选上，那么答案可以表示成：</p>
-<ul>
-<li>约束条件：<span class="arithmatex">\(\sum_{i = 1}^{n}v_ix_i \leq t, x_i = \{0, 1\}\)</span></li>
-<li>目标函数：<span class="arithmatex">\(\max(\sum_{i = 1}^{n}w_ix_i)\)</span></li>
-</ul>
+<p>令 <span class="arithmatex">\(dp[i][j]\)</span> 表示成将前 <span class="arithmatex">\(i\)</span> 件物品放入容量为 <span class="arithmatex">\(j\)</span> 的背包当中，状态转移方程为：</p>
+<blockquote>
+<p><span class="arithmatex">\(dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - v[i]] + w[i])\)</span></p>
+</blockquote>
+<p>将前 <span class="arithmatex">\(i\)</span> 件物品放入容量为 <span class="arithmatex">\(j\)</span> 的背包当中，最关键的就是 <span class="arithmatex">\(i\)</span> 放与不放的问题，</p>
+<p>如果当前第 <span class="arithmatex">\(i\)</span> 个物品不放入容量为 <span class="arithmatex">\(j\)</span> 的背包当中，那么 <span class="arithmatex">\(dp[i][j]\)</span> 的最优值就是将前 <span class="arithmatex">\(i - 1\)</span> 个物品放入背包容量为 <span class="arithmatex">\(j\)</span> 的最优值，也就是 <span class="arithmatex">\(dp[i - 1][j]\)</span></p>
+<p>如果要将当前第 <span class="arithmatex">\(i\)</span> 个物品放入容量为 <span class="arithmatex">\(j\)</span> 的背包当中，那么当前背包的价值为 <span class="arithmatex">\(w[i]\)</span> 且剩余容量为 <span class="arithmatex">\(j - v[i]\)</span>，那么从剩下的 <span class="arithmatex">\(i-1\)</span> 件物品装入容量为 <span class="arithmatex">\(j - v[i]\)</span> 的最优值就是 <span class="arithmatex">\(dp[i - 1][j - v[i]]\)</span></p>
+<p>所以要将前 <span class="arithmatex">\(i\)</span> 件物品装入容量为 <span class="arithmatex">\(j\)</span> 的背包当中的最优值就是上面两种情况的值的最优值：</p>
+<blockquote>
+<p><span class="arithmatex">\(dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - v[i]] + w[i])\)</span></p>
+</blockquote>
+<details class="note">
+<summary>代码参考</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">LL</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="mi">1010</span><span class="p">][</span><span class="mi">1010</span><span class="p">];</span><span class="w"></span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"></span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">(),</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"></span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">            </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
+<p>由于当前状态是由前面状态确定的，为了节省空间可以使用滚动数组：</p>
+<details class="note">
+<summary>滚动数组代替二维数组</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">];</span><span class="w"></span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">LL</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="mi">1010</span><span class="p">];</span><span class="w"></span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"></span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">(),</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gll</span><span class="p">();</span><span class="w"></span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">--</span><span class="p">)</span><span class="w"></span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</details>
 </article>
 </div>
 </div>
@@ -827,7 +881,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 背包问题" class="md-footer__link md-footer__link--prev" href="../%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" rel="prev">
+<a aria-label="上一页: 寻找段落" class="md-footer__link md-footer__link--prev" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -836,8 +890,21 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              背包问题
+              寻找段落
             </div>
+</div>
+</a>
+<a aria-label="下一页: 装箱问题" class="md-footer__link md-footer__link--next" href="../%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                下一页
+              </span>
+              装箱问题
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
 </div>
 </a>
 </nav>
