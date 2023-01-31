@@ -731,7 +731,7 @@
 <ul>
 <li>第一行都有两个整数分别代表 <span class="arithmatex">\(l\)</span> 和 <span class="arithmatex">\(r\)</span></li>
 <li>第二行只有一个整数代表 <span class="arithmatex">\(n\)</span></li>
-<li>接下来的 <span class="arithmatex">\(m\)</span> 行，每行都有一次询问，每次询问都输入一个整数 <span class="arithmatex">\(x\)</span></li>
+<li>接下来的 <span class="arithmatex">\(n\)</span> 行，每行都有一次询问，每次询问都输入一个整数 <span class="arithmatex">\(x\)</span></li>
 </ul>
 <p>【输出格式】</p>
 <p>对于每一个测试样例都输出 <span class="arithmatex">\(n\)</span> 行，代表每次询问的结果.</p>
@@ -749,7 +749,7 @@
 </code></pre></div>
 </details>
 <h2 id="_2">找规律、特征</h2>
-<p>因为区间 <span class="arithmatex">\([l, r]\)</span> 的数量不低于 <span class="arithmatex">\(x\)</span> 个，所有若对该区间取模 <span class="arithmatex">\(x\)</span> 得到新的区间 <span class="arithmatex">\(Q\)</span> 时，区间 <span class="arithmatex">\(Q\)</span> 的元素种类一定都包含 <span class="arithmatex">\(0 \sim x - 1\)</span>.</p>
+<p>因为区间 <span class="arithmatex">\([l, r]\)</span> 的数量不低于 <span class="arithmatex">\(x\)</span> 个，所以若对该区间取模 <span class="arithmatex">\(x\)</span> 得到新的区间 <span class="arithmatex">\(Q\)</span> 时，区间 <span class="arithmatex">\(Q\)</span> 的元素种类一定都包含 <span class="arithmatex">\(0 \sim x - 1\)</span>.</p>
 <p>先对区间 <span class="arithmatex">\([l, r]\)</span> 求和，求出结果为 <span class="arithmatex">\(sum\)</span>，</p>
 <p>若 <span class="arithmatex">\(sum \bmod x = 0\)</span> 说明该环的和是 <span class="arithmatex">\(x\)</span> 的倍数，可以整个环都删掉最后只剩 <span class="arithmatex">\(0\)</span> 个元素;</p>
 <p>若 <span class="arithmatex">\(sum \bmod x = k\)</span> 首先明确 <span class="arithmatex">\(k &lt; x\)</span> 且 <span class="arithmatex">\(k\)</span> 一定存在于区间 <span class="arithmatex">\(Q\)</span> 中，可以说 <span class="arithmatex">\([l, r]\)</span> 上必有一个数 <span class="arithmatex">\(y\)</span> 使得 <span class="arithmatex">\(y \bmod x = k\)</span> 一定成立！若我们将 <span class="arithmatex">\(y\)</span> 从环中提取出来，对剩下的数求和的结果：<span class="arithmatex">\(sum_2 = (sum - y) \bmod x = sum \bmod x - y \bmod x = sum \bmod x - k = k - k = 0\)</span>，说明排除 <span class="arithmatex">\(y\)</span> 后剩下的数求和是 <span class="arithmatex">\(x\)</span> 的倍数且在环上连续，可以直接删掉，最后只剩下一个数 <span class="arithmatex">\(y\)</span>.</p>
