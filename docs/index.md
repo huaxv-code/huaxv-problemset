@@ -24,7 +24,7 @@
     inline bool pll(LL x, const char *s = "\n");
     inline LL gll();
     inline HH qpow(HH x, HH y, HH m);
-    const LL N = (LL)(2e7 + 10);
+    const LL N = (LL)(5e6 + 10);
 
     /*────────────────────────────────────────────────────────────────────*/
 
@@ -58,7 +58,7 @@
     inline bool phh(HH x, const char *s)
     {
         if (x == 0) { putchar('0'); printf (s); return true; }
-        if (x < 0) putchar('-');
+        if (x < 0) { putchar('-'); x *= -1; }
         char tmp[200];
         LL cr = 0;
         while (x)
@@ -86,7 +86,7 @@
     inline bool pll(LL x, const char *s)
     {
         if (x == 0) { putchar('0'); printf (s); return true; }
-        if (x < 0) putchar('-');
+        if (x < 0) { putchar('-'); x *= -1; }
         char tmp[200];
         LL cr = 0;
         while (x)
@@ -210,10 +210,11 @@
                 "typedef long double DD;",
                 "typedef __int128_t HH;",
                 "inline HH ghh();",
-                "inline void phh(HH x, const char *s = \"\\n\");",
-                "inline void pll(LL x, const char *s = \"\\n\");",
+                "inline bool phh(HH x, const char *s = \"\\n\");",
+                "inline bool pll(LL x, const char *s = \"\\n\");",
                 "inline LL gll();",
-                "const LL N = (LL)(1e6 + 10);",
+                "inline HH qpow(HH x, HH y, HH m);",
+                "const LL N = (LL)(5e6 + 10);",
                 "",
                 "/*────────────────────────────────────────────────────────────────────*/",
                 "",
@@ -255,10 +256,10 @@
                 "    return x * f;",
                 "}",
                 "",
-                "inline void phh(HH x, const char *s)",
+                "inline bool phh(HH x, const char *s)",
                 "{",
-                "    if (x == 0) { putchar('0'); printf (s); return; }",
-                "    if (x < 0) putchar('-');",
+                "    if (x == 0) { putchar('0'); printf (\"%s\", s); return true; }",
+                "    if (x < 0) { putchar('-'); x *= -1; }",
                 "    char tmp[200];",
                 "    LL cr = 0;",
                 "    while (x)",
@@ -266,7 +267,8 @@
                 "        tmp[++ cr] = char ((x % 10) + '0'); x /= 10;",
                 "    }",
                 "    for (LL i = cr; i; i --) putchar(tmp[i]);",
-                "    printf (s);",
+                "    printf (\"%s\", s);",
+                "    return true;",
                 "}",
                 "",
                 "inline LL gll()",
@@ -282,10 +284,10 @@
                 "    return x * f;",
                 "}",
                 "",
-                "inline void pll(LL x, const char *s)",
+                "inline bool pll(LL x, const char *s)",
                 "{",
-                "    if (x == 0) { putchar('0'); printf (s); return; }",
-                "    if (x < 0) putchar('-');",
+                "    if (x == 0) { putchar('0'); printf (s); return true; }",
+                "    if (x < 0) { putchar('-'); x *= -1; }",
                 "    char tmp[200];",
                 "    LL cr = 0;",
                 "    while (x)",
@@ -293,8 +295,18 @@
                 "        tmp[++ cr] = char ((x % 10) + '0'); x /= 10;",
                 "    }",
                 "    for (LL i = cr; i; i --) putchar(tmp[i]);",
-                "    printf (s);",
+                "    printf (\"%s\", s);",
+                "    return true;",
                 "}",
+                "",
+                "inline HH qpow(HH x, HH y, HH m)",
+                "{",
+                "    if (y == 0) return 1;",
+                "    HH res = qpow(x, y / 2, m);",
+                "    res *= res; res %= m;",
+                "    if (y & 1) { res *= x; res %= m; }",
+                "    return res;",
+                "}"
             ],
             "description": "init file"
         },
@@ -309,10 +321,11 @@
                 "typedef long double DD;",
                 "typedef __int128_t HH;",
                 "inline HH ghh();",
-                "inline void phh(HH x, const char *s = \"\\n\");",
-                "inline void pll(LL x, const char *s = \"\\n\");",
+                "inline bool phh(HH x, const char *s = \"\\n\");",
+                "inline bool pll(LL x, const char *s = \"\\n\");",
                 "inline LL gll();",
-                "const LL N = (LL)(1e6 + 10);",
+                "inline HH qpow(HH x, HH y, HH m);",
+                "const LL N = (LL)(5e6 + 10);",
                 "",
                 "/*────────────────────────────────────────────────────────────────────*/",
                 "",
@@ -343,10 +356,10 @@
                 "    return x * f;",
                 "}",
                 "",
-                "inline void phh(HH x, const char *s)",
+                "inline bool phh(HH x, const char *s)",
                 "{",
-                "    if (x == 0) { putchar('0'); printf (s); return; }",
-                "    if (x < 0) putchar('-');",
+                "    if (x == 0) { putchar('0'); printf (\"%s\", s); return true; }",
+                "    if (x < 0) { putchar('-'); x *= -1; }",
                 "    char tmp[200];",
                 "    LL cr = 0;",
                 "    while (x)",
@@ -354,7 +367,8 @@
                 "        tmp[++ cr] = char ((x % 10) + '0'); x /= 10;",
                 "    }",
                 "    for (LL i = cr; i; i --) putchar(tmp[i]);",
-                "    printf (s);",
+                "    printf (\"%s\", s);",
+                "    return true;",
                 "}",
                 "",
                 "inline LL gll()",
@@ -370,10 +384,10 @@
                 "    return x * f;",
                 "}",
                 "",
-                "inline void pll(LL x, const char *s)",
+                "inline bool pll(LL x, const char *s)",
                 "{",
-                "    if (x == 0) { putchar('0'); printf (s); return; }",
-                "    if (x < 0) putchar('-');",
+                "    if (x == 0) { putchar('0'); printf (s); return true; }",
+                "    if (x < 0) { putchar('-'); x *= -1; }",
                 "    char tmp[200];",
                 "    LL cr = 0;",
                 "    while (x)",
@@ -381,8 +395,18 @@
                 "        tmp[++ cr] = char ((x % 10) + '0'); x /= 10;",
                 "    }",
                 "    for (LL i = cr; i; i --) putchar(tmp[i]);",
-                "    printf (s);",
+                "    printf (\"%s\", s);",
+                "    return true;",
                 "}",
+                "",
+                "inline HH qpow(HH x, HH y, HH m)",
+                "{",
+                "    if (y == 0) return 1;",
+                "    HH res = qpow(x, y / 2, m);",
+                "    res *= res; res %= m;",
+                "    if (y & 1) { res *= x; res %= m; }",
+                "    return res;",
+                "}"
             ]
         }
     }
@@ -406,7 +430,7 @@
     inline bool pll(LL x, const char *s = "\n");
     inline LL gll();
     inline HH qpow(HH x, HH y, HH m);
-    const LL N = (LL)(2e7 + 10);
+    const LL N = (LL)(5e6 + 10);
 
     /*────────────────────────────────────────────────────────────────────*/
 
@@ -440,7 +464,7 @@
     inline bool phh(HH x, const char *s)
     {
         if (x == 0) { putchar('0'); printf (s); return true; }
-        if (x < 0) putchar('-');
+        if (x < 0) { putchar('-'); x *= -1; }
         char tmp[200];
         LL cr = 0;
         while (x)
@@ -468,7 +492,7 @@
     inline bool pll(LL x, const char *s)
     {
         if (x == 0) { putchar('0'); printf (s); return true; }
-        if (x < 0) putchar('-');
+        if (x < 0) { putchar('-'); x *= -1; }
         char tmp[200];
         LL cr = 0;
         while (x)
