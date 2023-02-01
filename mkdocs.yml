@@ -64,6 +64,7 @@ theme:
   name: material
   features:
     - navigation.instant
+    # - navigation.indexes
     # - navigation.tracking
     - navigation.tabs 
     # - navigation.tabs.sticky
@@ -122,87 +123,137 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
+
   - 简介:
+
     - index.md
+
+
   - 规律模拟:
+
     - AB提前确定输赢: problem/规律模拟/AB提前确定输赢.md
     - 小卡与质数2 : problem/规律模拟/小卡与质数2.md
     - 剩下的数 : problem/规律模拟/剩下的数.md
     - 同余特殊除法 : problem/规律模拟/同余特殊除法.md
+
+
   - 贪心:
+
     - H指数: problem/贪心/H指数.md
     - 最少坏区间: problem/贪心/最少坏区间.md
+
+
   - 分治法:
+
     - 逆序对: problem/分治法/逆序对.md
+
+
   - 双指针:
+
     - 两数之和: problem/双指针/两数之和.md
     - 单词背诵: problem/双指针/单词背诵.md
     - 逛画展: problem/双指针/逛画展.md
     - 三数之和: problem/双指针/三数之和.md
     - 移除元素: problem/双指针/移除元素.md
     - 升序数组去重: problem/双指针/升序数组去重.md
-  - 二分法:
-    - 两数之和: problem/二分法/两数之和.md
-    - 跳石头: problem/二分法/跳石头.md
-    - 路标设置: problem/二分法/路标设置.md
-    - 序列划分: problem/二分法/序列划分.md
-    - 通往奥格瑞玛的道路: problem/二分法/通往奥格瑞玛的道路.md
-    - H指数: problem/二分法/H指数.md
-    - 进击的奶牛 : problem/二分法/进击的奶牛.md
-    - 过生日（实数二分）: problem/二分法/过生日.md
-    - 砍原木 : problem/二分法/砍原木.md
-    - 寻找段落 : problem/二分法/寻找段落.md
-    - 称重: problem/二分法/称重.md
-    - 小卡与质数2 : problem/二分法/小卡与质数2.md
-  - 三分法:
-    - 【模板】三分法 : problem/三分法/实数三分法.md
-    - 二次方程极小值 : problem/三分法/二次方程极小值.md
-    - 称重: problem/三分法/称重.md
-    - 期末考试: problem/三分法/期末考试.md
+
+
+  - 区间信息处理:
+
+    - 二分法:
+
+      - 两数之和: problem/区间信息处理/二分法/两数之和.md
+      - 跳石头: problem/区间信息处理/二分法/跳石头.md
+      - 路标设置: problem/区间信息处理/二分法/路标设置.md
+      - 序列划分: problem/区间信息处理/二分法/序列划分.md
+      - 通往奥格瑞玛的道路: problem/区间信息处理/二分法/通往奥格瑞玛的道路.md
+      - H指数: problem/区间信息处理/二分法/H指数.md
+      - 进击的奶牛 : problem/区间信息处理/二分法/进击的奶牛.md
+      - 过生日（实数二分）: problem/区间信息处理/二分法/过生日.md
+      - 砍原木 : problem/区间信息处理/二分法/砍原木.md
+      - 寻找段落 : problem/区间信息处理/二分法/寻找段落.md
+      - 称重: problem/区间信息处理/二分法/称重.md
+      - 小卡与质数2 : problem/区间信息处理/二分法/小卡与质数2.md
+
+    - 三分法:
+
+      - 【模板】三分法 : problem/区间信息处理/三分法/实数三分法.md
+      - 二次方程极小值 : problem/区间信息处理/三分法/二次方程极小值.md
+      - 称重: problem/区间信息处理/三分法/称重.md
+      - 期末考试: problem/区间信息处理/三分法/期末考试.md
+
+    - 前缀差分:
+
+      - 区间重叠问题: problem/区间信息处理/前缀差分/区间重叠问题.md
+      - 出行计划: problem/区间信息处理/前缀差分/出行计划.md
+      - 最大子段和: problem/区间信息处理/前缀差分/最大子段和.md
+      - 求和: problem/区间信息处理/前缀差分/求和.md
+      - 区域重叠问题: problem/区间信息处理/前缀差分/区域重叠问题.md
+      - 海底高铁: problem/区间信息处理/前缀差分/海底高铁.md
+      - 最大加权矩形: problem/区间信息处理/前缀差分/最大加权矩形.md
+      - 推导二维前缀和数组: problem/区间信息处理/前缀差分/推导二维前缀和数组.md
+      - 光骓者的荣耀: problem/区间信息处理/前缀差分/光骓者的荣耀.md
+
+    - 滑动窗口:
+
+      - 滑动窗口 : problem/区间信息处理/滑动窗口/滑动窗口.md
+      - m区间内的最小值 : problem/区间信息处理/滑动窗口/m区间内的最小值.md
+      - 寻找段落 : problem/区间信息处理/滑动窗口/寻找段落.md
+
+    - 并查集:
+
+      - 全球变暖 : problem/区间信息处理/并查集/全球变暖.md
+
+
   - 倍增法:
+
     - 快速幂: problem/倍增法/快速幂.md
     - 国旗计划: problem/倍增法/国旗计划.md
     - 跑路: problem/倍增法/跑路.md
     - 区间最小值: problem/倍增法/区间最小值.md
-  - 前缀差分:
-    - 区间重叠问题: problem/前缀差分/区间重叠问题.md
-    - 出行计划: problem/前缀差分/出行计划.md
-    - 最大子段和: problem/前缀差分/最大子段和.md
-    - 求和: problem/前缀差分/求和.md
-    - 区域重叠问题: problem/前缀差分/区域重叠问题.md
-    - 海底高铁: problem/前缀差分/海底高铁.md
-    - 最大加权矩形: problem/前缀差分/最大加权矩形.md
-    - 推导二维前缀和数组: problem/前缀差分/推导二维前缀和数组.md
-    - 光骓者的荣耀: problem/前缀差分/光骓者的荣耀.md
+
+
   - 数学:
-    - 猜中的期望次数: problem/数学/猜中的期望次数.md
-    - 重叠面积比值: problem/数学/重叠面积比值.md
-    - 同余特殊除法 : problem/数学/同余特殊除法.md
-    - 分扑克牌 : problem/数学/分扑克牌.md
-  - 递推:
-    - 台阶问题（简单版）: problem/递推/台阶问题1.md
-    - 台阶问题（困难版）: problem/递推/台阶问题2.md
-    - 很多个 1 取模 : problem/递推/很多个1取模.md
-    - 斐波那契数 : problem/递推/斐波那契数.md
+
+    - 数学:
+
+      - 猜中的期望次数: problem/数学/数学/猜中的期望次数.md
+      - 重叠面积比值: problem/数学/数学/重叠面积比值.md
+      - 同余特殊除法 : problem/数学/数学/同余特殊除法.md
+      - 分扑克牌 : problem/数学/数学/分扑克牌.md
+    
+    - 素数:
+
+      - 素性探测: problem/数学/素数/素性探测.md
+      - 线性筛素数表: problem/数学/素数/线性筛素数表.md
+
+
   - 搜索:
+
     - 迷宫之谜 : problem/搜索/迷宫之谜.md
     - 全球变暖 : problem/搜索/全球变暖.md
-  - 并查集:
-    - 全球变暖 : problem/并查集/全球变暖.md
-  - 滑动窗口:
-    - 滑动窗口 : problem/滑动窗口/滑动窗口.md
-    - m区间内的最小值 : problem/滑动窗口/m区间内的最小值.md
-    - 寻找段落 : problem/滑动窗口/寻找段落.md
-  - 01 背包:
-    - 01 背包问题: problem/01 背包/01背包问题.md
-    - 装箱问题 : problem/01 背包/装箱问题.md
-    - 开心的金明 : problem/01 背包/开学的金明.md
-    - 精卫填海: problem/01 背包/精卫填海.md
-  - 分组背包:
-    - 分组背包: problem/分组背包/分组背包.md
-  - 多重背包:
-    - 多重背包: problem/多重背包/多重背包.md
-  - 素数:
-    - 素性探测: problem/素数/素性探测.md
-    - 线性筛素数表: problem/素数/线性筛素数表.md
+
+
+  - 动态规划:
+
+    - 递推:
+      - 台阶问题（简单版）: problem/动态规划/递推/台阶问题1.md
+      - 台阶问题（困难版）: problem/动态规划/递推/台阶问题2.md
+      - 很多个 1 取模 : problem/动态规划/递推/很多个1取模.md
+      - 斐波那契数 : problem/动态规划/递推/斐波那契数.md
+
+    - 01 背包:
+      - 01 背包问题: problem/动态规划/01 背包/01背包问题.md
+      - 装箱问题 : problem/动态规划/01 背包/装箱问题.md
+      - 开心的金明 : problem/动态规划/01 背包/开学的金明.md
+      - 精卫填海: problem/动态规划/01 背包/精卫填海.md
+
+    - 分组背包:
+      - 分组背包: problem/动态规划/分组背包/分组背包.md
+      
+    - 多重背包:
+      - 多重背包: problem/动态规划/多重背包/多重背包.md
+
+
+
 
