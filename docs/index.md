@@ -24,11 +24,14 @@
     inline bool pll(LL x, const char *s = "\n");
     inline LL gll();
     inline HH qpow(HH x, HH y, HH m);
+    const LL lnf = 0x3f3f3f3f3f3f3f3f;
+    const int inf = 0x3f3f3f3f;
+    const char cnf = 0x3f;
     const LL N = (LL)(5e6 + 10);
 
     /*────────────────────────────────────────────────────────────────────*/
 
-
+    ${0}
 
     void solve(void)
     {
@@ -418,7 +421,7 @@
 
     ```html title="Sublime\sublime\Data\Packages\User\snippet\code.sublime-snippet"
     <snippet>
-        <content><![CDATA[
+	<content><![CDATA[
     #include <bits/stdc++.h>
 
     using namespace std;
@@ -430,6 +433,9 @@
     inline bool pll(LL x, const char *s = "\n");
     inline LL gll();
     inline HH qpow(HH x, HH y, HH m);
+    const LL lnf = 0x3f3f3f3f3f3f3f3f;
+    const int inf = 0x3f3f3f3f;
+    const char cnf = 0x3f;
     const LL N = (LL)(5e6 + 10);
 
     /*────────────────────────────────────────────────────────────────────*/

@@ -5,18 +5,18 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../../img/头像.png" rel="icon"/>
+<link href="../../../../img/头像.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>AB提前确定输赢 - 玉子爱做题</title>
-<link href="../../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<title>最长递增子序列 - 玉子爱做题</title>
+<link href="../../../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 7.775V2.75a.25.25 0 0 1 .25-.25h5.025a.25.25 0 0 1 .177.073l6.25 6.25a.25.25 0 0 1 0 .354l-5.025 5.025a.25.25 0 0 1-.354 0l-6.25-6.25a.25.25 0 0 1-.073-.177zm-1.5 0V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.75 1.75 0 0 1 1 7.775zM6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v7.736a.75.75 0 1 0 1.5 0V1.75A1.75 1.75 0 0 0 11.25 0h-8.5A1.75 1.75 0 0 0 1 1.75v11.5c0 .966.784 1.75 1.75 1.75h3.17a.75.75 0 0 0 0-1.5H2.75a.25.25 0 0 1-.25-.25V1.75zM4.75 4a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5zM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75zm11.774 3.537a.75.75 0 0 0-1.048-1.074L10.7 14.145 9.281 12.72a.75.75 0 0 0-1.062 1.058l1.943 1.95a.75.75 0 0 0 1.055.008l4.557-4.45z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm6.5-.25A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75zM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.489 4.489 0 0 1-.563-1.191 3.833 3.833 0 0 1-.05-2.063 4.636 4.636 0 0 1-2.025-.293.75.75 0 1 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.748.748 0 0 1 1.06 0 .75.75 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.404 2.404 0 0 1-.507-.441 3.063 3.063 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.753.753 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768a85.08 85.08 0 0 0-.317-.265c-.814-.68-1.75-1.462-2.692-2.619a3.74 3.74 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575L6.457 1.047zM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-.25-5.25a.75.75 0 0 0-1.5 0v2.5a.75.75 0 0 0 1.5 0v-2.5z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10.561 1.5a.016.016 0 0 0-.01.004L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.02.02 0 0 0-.004-.009.02.02 0 0 0-.006-.006L10.56 1.5zM9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.25 1.25 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.492 3.492 0 0 1 2.441 0l.999-1a.75.75 0 1 1 1.06 1.061l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.013 5.013 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.684 1.684 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06zM6.173 5h3.654A.173.173 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173zM5.25 6.5a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75h-5.5z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458L5 5.782zM9.5 2.5h-3V6a.75.75 0 0 1-.117.403L4.73 9h6.54L9.617 6.403A.75.75 0 0 1 9.5 6V2.5zm-6.9 9.847L3.775 10.5h8.45l1.175 1.847a.75.75 0 0 1-.633 1.153H3.233a.75.75 0 0 1-.633-1.153z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.75 2.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H1.75zm4 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zm0 5a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5zM2.5 7.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6z"/></svg>');}</style>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<link href="../../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -27,14 +27,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="" data-md-color-primary="white" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ab">
+<a class="md-skip" href="#_1">
           跳转至
         </a>
 </div>
@@ -42,8 +42,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="玉子爱做题" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="玉子爱做题">
-<img alt="logo" src="../../../img/头像.png"/>
+<a aria-label="玉子爱做题" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="玉子爱做题">
+<img alt="logo" src="../../../../img/头像.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              AB提前确定输赢
+              最长递增子序列
             
           </span>
 </div>
@@ -91,52 +91,52 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<a class="md-tabs__link" href="../../../..">
         简介
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link" href="../../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/AB%E6%8F%90%E5%89%8D%E7%A1%AE%E5%AE%9A%E8%BE%93%E8%B5%A2/">
         规律模拟
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E8%B4%AA%E5%BF%83/H%E6%8C%87%E6%95%B0/">
+<a class="md-tabs__link" href="../../../%E8%B4%AA%E5%BF%83/H%E6%8C%87%E6%95%B0/">
         贪心
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E5%88%86%E6%B2%BB%E6%B3%95/%E9%80%86%E5%BA%8F%E5%AF%B9/">
+<a class="md-tabs__link" href="../../../%E5%88%86%E6%B2%BB%E6%B3%95/%E9%80%86%E5%BA%8F%E5%AF%B9/">
         分治法
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-tabs__link" href="../../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         双指针
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-tabs__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         区间信息处理
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+<a class="md-tabs__link" href="../../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%BF%AB%E9%80%9F%E5%B9%82/">
         倍增法
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0/">
+<a class="md-tabs__link" href="../../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0/">
         数学
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E6%90%9C%E7%B4%A2/%E8%BF%B7%E5%AE%AB%E4%B9%8B%E8%B0%9C/">
+<a class="md-tabs__link" href="../../../%E6%90%9C%E7%B4%A2/%E8%BF%B7%E5%AE%AB%E4%B9%8B%E8%B0%9C/">
         搜索
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
+<a class="md-tabs__link md-tabs__link--active" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
         动态规划
       </a>
 </li>
@@ -150,8 +150,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="玉子爱做题" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="玉子爱做题">
-<img alt="logo" src="../../../img/头像.png"/>
+<a aria-label="玉子爱做题" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="玉子爱做题">
+<img alt="logo" src="../../../../img/头像.png"/>
 </a>
     玉子爱做题
   </label>
@@ -179,15 +179,15 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../../../..">
         简介
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
           规律模拟
           <span class="md-nav__icon md-icon"></span>
@@ -198,41 +198,23 @@
           规律模拟
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          AB提前确定输赢
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/AB%E6%8F%90%E5%89%8D%E7%A1%AE%E5%AE%9A%E8%BE%93%E8%B5%A2/">
         AB提前确定输赢
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-    分类讨论
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/">
+<a class="md-nav__link" href="../../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/">
         小卡与质数2
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0/">
+<a class="md-nav__link" href="../../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0/">
         剩下的数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E5%90%8C%E4%BD%99%E7%89%B9%E6%AE%8A%E9%99%A4%E6%B3%95/">
+<a class="md-nav__link" href="../../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/%E5%90%8C%E4%BD%99%E7%89%B9%E6%AE%8A%E9%99%A4%E6%B3%95/">
         同余特殊除法
       </a>
 </li>
@@ -252,12 +234,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E8%B4%AA%E5%BF%83/H%E6%8C%87%E6%95%B0/">
+<a class="md-nav__link" href="../../../%E8%B4%AA%E5%BF%83/H%E6%8C%87%E6%95%B0/">
         H指数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E8%B4%AA%E5%BF%83/%E6%9C%80%E5%B0%91%E5%9D%8F%E5%8C%BA%E9%97%B4/">
+<a class="md-nav__link" href="../../../%E8%B4%AA%E5%BF%83/%E6%9C%80%E5%B0%91%E5%9D%8F%E5%8C%BA%E9%97%B4/">
         最少坏区间
       </a>
 </li>
@@ -277,7 +259,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%88%86%E6%B2%BB%E6%B3%95/%E9%80%86%E5%BA%8F%E5%AF%B9/">
+<a class="md-nav__link" href="../../../%E5%88%86%E6%B2%BB%E6%B3%95/%E9%80%86%E5%BA%8F%E5%AF%B9/">
         逆序对
       </a>
 </li>
@@ -297,32 +279,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         两数之和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E5%8D%95%E8%AF%8D%E8%83%8C%E8%AF%B5/">
+<a class="md-nav__link" href="../../../%E5%8F%8C%E6%8C%87%E9%92%88/%E5%8D%95%E8%AF%8D%E8%83%8C%E8%AF%B5/">
         单词背诵
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E9%80%9B%E7%94%BB%E5%B1%95/">
+<a class="md-nav__link" href="../../../%E5%8F%8C%E6%8C%87%E9%92%88/%E9%80%9B%E7%94%BB%E5%B1%95/">
         逛画展
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8F%8C%E6%8C%87%E9%92%88/%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/">
         三数之和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">
+<a class="md-nav__link" href="../../../%E5%8F%8C%E6%8C%87%E9%92%88/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/">
         移除元素
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8F%8C%E6%8C%87%E9%92%88/%E5%8D%87%E5%BA%8F%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
+<a class="md-nav__link" href="../../../%E5%8F%8C%E6%8C%87%E9%92%88/%E5%8D%87%E5%BA%8F%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
         升序数组去重
       </a>
 </li>
@@ -354,62 +336,62 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         两数之和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%B3%E7%9F%B3%E5%A4%B4/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%B3%E7%9F%B3%E5%A4%B4/">
         跳石头
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE/">
         路标设置
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86/">
         序列划分
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E9%80%9A%E5%BE%80%E5%A5%A5%E6%A0%BC%E7%91%9E%E7%8E%9B%E7%9A%84%E9%81%93%E8%B7%AF/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E9%80%9A%E5%BE%80%E5%A5%A5%E6%A0%BC%E7%91%9E%E7%8E%9B%E7%9A%84%E9%81%93%E8%B7%AF/">
         通往奥格瑞玛的道路
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/H%E6%8C%87%E6%95%B0/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/H%E6%8C%87%E6%95%B0/">
         H指数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B/">
         进击的奶牛
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%87%E7%94%9F%E6%97%A5/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%87%E7%94%9F%E6%97%A5/">
         过生日（实数二分）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A0%8D%E5%8E%9F%E6%9C%A8/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A0%8D%E5%8E%9F%E6%9C%A8/">
         砍原木
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
         寻找段落
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
         称重
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/">
         小卡与质数2
       </a>
 </li>
@@ -429,22 +411,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E5%AE%9E%E6%95%B0%E4%B8%89%E5%88%86%E6%B3%95/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E5%AE%9E%E6%95%B0%E4%B8%89%E5%88%86%E6%B3%95/">
         【模板】三分法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%9E%81%E5%B0%8F%E5%80%BC/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%9E%81%E5%B0%8F%E5%80%BC/">
         二次方程极小值
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
         称重
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/">
         期末考试
       </a>
 </li>
@@ -464,47 +446,47 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E9%97%B4%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E9%97%B4%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
         区间重叠问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%87%BA%E8%A1%8C%E8%AE%A1%E5%88%92/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%87%BA%E8%A1%8C%E8%AE%A1%E5%88%92/">
         出行计划
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/">
         最大子段和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%B1%82%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%B1%82%E5%92%8C/">
         求和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
         区域重叠问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%B5%B7%E5%BA%95%E9%AB%98%E9%93%81/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%B5%B7%E5%BA%95%E9%AB%98%E9%93%81/">
         海底高铁
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%9C%80%E5%A4%A7%E5%8A%A0%E6%9D%83%E7%9F%A9%E5%BD%A2/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%9C%80%E5%A4%A7%E5%8A%A0%E6%9D%83%E7%9F%A9%E5%BD%A2/">
         最大加权矩形
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%8E%A8%E5%AF%BC%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E6%95%B0%E7%BB%84/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%8E%A8%E5%AF%BC%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E6%95%B0%E7%BB%84/">
         推导二维前缀和数组
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%85%89%E9%AA%93%E8%80%85%E7%9A%84%E8%8D%A3%E8%80%80/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%85%89%E9%AA%93%E8%80%85%E7%9A%84%E8%8D%A3%E8%80%80/">
         光骓者的荣耀
       </a>
 </li>
@@ -524,17 +506,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
         滑动窗口
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/m%E5%8C%BA%E9%97%B4%E5%86%85%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/m%E5%8C%BA%E9%97%B4%E5%86%85%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">
         m区间内的最小值
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
         寻找段落
       </a>
 </li>
@@ -554,7 +536,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%B9%B6%E6%9F%A5%E9%9B%86/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
+<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%B9%B6%E6%9F%A5%E9%9B%86/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
         全球变暖
       </a>
 </li>
@@ -577,22 +559,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+<a class="md-nav__link" href="../../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%BF%AB%E9%80%9F%E5%B9%82/">
         快速幂
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/">
+<a class="md-nav__link" href="../../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/">
         国旗计划
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E8%B7%91%E8%B7%AF/">
+<a class="md-nav__link" href="../../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E8%B7%91%E8%B7%AF/">
         跑路
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%8C%BA%E9%97%B4%E6%9C%80%E5%B0%8F%E5%80%BC/">
+<a class="md-nav__link" href="../../../%E5%80%8D%E5%A2%9E%E6%B3%95/%E5%8C%BA%E9%97%B4%E6%9C%80%E5%B0%8F%E5%80%BC/">
         区间最小值
       </a>
 </li>
@@ -624,22 +606,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0/">
+<a class="md-nav__link" href="../../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E7%8C%9C%E4%B8%AD%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%AC%A1%E6%95%B0/">
         猜中的期望次数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E9%87%8D%E5%8F%A0%E9%9D%A2%E7%A7%AF%E6%AF%94%E5%80%BC/">
+<a class="md-nav__link" href="../../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E9%87%8D%E5%8F%A0%E9%9D%A2%E7%A7%AF%E6%AF%94%E5%80%BC/">
         重叠面积比值
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E5%90%8C%E4%BD%99%E7%89%B9%E6%AE%8A%E9%99%A4%E6%B3%95/">
+<a class="md-nav__link" href="../../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E5%90%8C%E4%BD%99%E7%89%B9%E6%AE%8A%E9%99%A4%E6%B3%95/">
         同余特殊除法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E5%88%86%E6%89%91%E5%85%8B%E7%89%8C/">
+<a class="md-nav__link" href="../../../%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6/%E5%88%86%E6%89%91%E5%85%8B%E7%89%8C/">
         分扑克牌
       </a>
 </li>
@@ -659,12 +641,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E7%B4%A0%E6%95%B0/%E7%B4%A0%E6%80%A7%E6%8E%A2%E6%B5%8B/">
+<a class="md-nav__link" href="../../../%E6%95%B0%E5%AD%A6/%E7%B4%A0%E6%95%B0/%E7%B4%A0%E6%80%A7%E6%8E%A2%E6%B5%8B/">
         素性探测
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%95%B0%E5%AD%A6/%E7%B4%A0%E6%95%B0/%E7%BA%BF%E6%80%A7%E7%AD%9B%E7%B4%A0%E6%95%B0%E8%A1%A8/">
+<a class="md-nav__link" href="../../../%E6%95%B0%E5%AD%A6/%E7%B4%A0%E6%95%B0/%E7%BA%BF%E6%80%A7%E7%AD%9B%E7%B4%A0%E6%95%B0%E8%A1%A8/">
         线性筛素数表
       </a>
 </li>
@@ -687,20 +669,20 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%90%9C%E7%B4%A2/%E8%BF%B7%E5%AE%AB%E4%B9%8B%E8%B0%9C/">
+<a class="md-nav__link" href="../../../%E6%90%9C%E7%B4%A2/%E8%BF%B7%E5%AE%AB%E4%B9%8B%E8%B0%9C/">
         迷宫之谜
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%90%9C%E7%B4%A2/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
+<a class="md-nav__link" href="../../../%E6%90%9C%E7%B4%A2/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
         全球变暖
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_10">
           动态规划
           <span class="md-nav__icon md-icon"></span>
@@ -724,22 +706,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
+<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
         台阶问题（简单版）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%982/">
+<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%982/">
         台阶问题（困难版）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E5%BE%88%E5%A4%9A%E4%B8%AA1%E5%8F%96%E6%A8%A1/">
+<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%BE%88%E5%A4%9A%E4%B8%AA1%E5%8F%96%E6%A8%A1/">
         很多个 1 取模
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">
+<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">
         斐波那契数
       </a>
 </li>
@@ -759,22 +741,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/01%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/01%E8%83%8C%E5%8C%85/">
         01 背包
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98/">
+<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98/">
         装箱问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%BC%80%E5%AD%A6%E7%9A%84%E9%87%91%E6%98%8E/">
+<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%BC%80%E5%AD%A6%E7%9A%84%E9%87%91%E6%98%8E/">
         开心的金明
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E7%B2%BE%E5%8D%AB%E5%A1%AB%E6%B5%B7/">
+<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E7%B2%BE%E5%8D%AB%E5%A1%AB%E6%B5%B7/">
         精卫填海
       </a>
 </li>
@@ -794,7 +776,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/">
         分组背包
       </a>
 </li>
@@ -814,7 +796,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/">
         多重背包
       </a>
 </li>
@@ -834,7 +816,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/">
         完全背包
       </a>
 </li>
@@ -854,7 +836,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E4%B9%A6%E6%9C%AC%E6%95%B4%E7%90%86%E9%97%AE%E9%A2%98/%E4%B9%A6%E6%9C%AC%E6%95%B4%E7%90%86/">
+<a class="md-nav__link" href="../../%E4%B9%A6%E6%9C%AC%E6%95%B4%E7%90%86%E9%97%AE%E9%A2%98/%E4%B9%A6%E6%9C%AC%E6%95%B4%E7%90%86/">
         书本整理
       </a>
 </li>
@@ -874,15 +856,15 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">
+<a class="md-nav__link" href="../../%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">
         最长公共子序列
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8" id="__nav_10_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_8" id="__nav_10_8" type="checkbox"/>
 <label class="md-nav__link" for="__nav_10_8">
           最长递增子序列
           <span class="md-nav__icon md-icon"></span>
@@ -893,8 +875,9 @@
           最长递增子序列
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         最长递增子序列
       </a>
 </li>
@@ -913,101 +896,16 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-    分类讨论
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/huaxv-code/huaxv-problemset/edit/master/docs/problem/规律模拟/AB提前确定输赢.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/huaxv-code/huaxv-problemset/edit/master/docs/problem/动态规划/最长递增子序列/最长递增子序列.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="ab">AB提前确定输赢</h1>
-<details class="question">
-<summary><a href="https://ac.nowcoder.com/acm/contest/46800/A">问题描述</a></summary>
-<p>设对战双方为 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 两支球队，比赛方式采用互相罚球的形式；</p>
-<ul>
-<li>如果轮到 <span class="arithmatex">\(A\)</span> 罚球时，进就记录得分 <span class="arithmatex">\(1\)</span>，不进就记录得分 <span class="arithmatex">\(0\)</span>；</li>
-<li>如果轮到 <span class="arithmatex">\(B\)</span> 罚球时，进就记录得分 <span class="arithmatex">\(1\)</span>，不进就记录得分 <span class="arithmatex">\(0\)</span>；</li>
-</ul>
-<p>每场比赛都是从 <span class="arithmatex">\(A\)</span> 队先开始罚球，然后才能轮到 <span class="arithmatex">\(B\)</span> 队，交替罚球 <span class="arithmatex">\(5\)</span> 次，并记录得分；</p>
-<p>例如下图的得分显示栏：</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../img/AB%E6%AF%94%E8%B5%9B%E6%8F%90%E5%89%8D%E7%A1%AE%E5%AE%9A%E8%BE%93%E8%B5%A2.png"><img alt="" src="../img/AB%E6%AF%94%E8%B5%9B%E6%8F%90%E5%89%8D%E7%A1%AE%E5%AE%9A%E8%BE%93%E8%B5%A2.png"/></a></p>
-<p>若某队在罚完某一球后发现，剩下的那队在接下来的罚球中无论罚中多少次都追不平我的得分时，就提前判断胜负，并说明在第几场就可以确定胜负。</p>
-<p>如果比赛完全场都未能确定胜负，就输出 <span class="arithmatex">\(-1\)</span>.</p>
-<p><strong>输入格式</strong></p>
-<p>第一行一个整数 <span class="arithmatex">\(T\)</span> 代表测试样例的数量；</p>
-<p>接下来的 <span class="arithmatex">\(t\)</span> 行，每行一个字符串，代表的是得分栏，元素由 <span class="arithmatex">\(0\)</span> 和 <span class="arithmatex">\(1\)</span> 构成，长度固定位 <span class="arithmatex">\(10\)</span>；</p>
-<p><strong>输出格式</strong></p>
-<p>输出 <span class="arithmatex">\(T\)</span> 行，每一行代表对应的比赛能在第几场中提前判断胜负；如果平局输出 <span class="arithmatex">\(-1\)</span>；</p>
-<p><strong>输入样例</strong></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>3
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>1111111111
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>1111111110
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>0101011010
-</code></pre></div>
-<p><strong>输出样例</strong></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>-1
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>10
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>6
-</code></pre></div>
-</details>
-<h2 id="_1">分类讨论</h2>
-<p>如果在第 <span class="arithmatex">\(i\)</span> 场比赛中：</p>
-<p>如果 <span class="arithmatex">\(i\)</span> 是奇数，就代表轮到 <span class="arithmatex">\(A\)</span> 队罚球：</p>
-<p>记录此时 <span class="arithmatex">\(A\)</span> 队的累计得分为：<span class="arithmatex">\(x\)</span>，那么 <span class="arithmatex">\(A\)</span> 队还有可能可以获得的得分数为：<span class="arithmatex">\(a = 5 - (i + 1) / 2\)</span>（向下取整）;</p>
-<p>记录此时 <span class="arithmatex">\(B\)</span> 队的累计得分为：<span class="arithmatex">\(y\)</span>，那么 <span class="arithmatex">\(B\)</span> 队还有可能可以获得的得分数位：<span class="arithmatex">\(b = 5 - i / 2\)</span> （向下取整）;</p>
-<p>如果发现 <span class="arithmatex">\(x + a &lt; y\)</span> 或者 <span class="arithmatex">\(y + b &lt; x\)</span> 成立时，就能在第 <span class="arithmatex">\(i\)</span> 场比赛中确定胜负；</p>
-<p>同样道理分析 <span class="arithmatex">\(i\)</span> 是偶数的情况，此时是轮到 <span class="arithmatex">\(B\)</span> 队罚球：</p>
-<p>记录此时 <span class="arithmatex">\(B\)</span> 队的累计得分为：<span class="arithmatex">\(y\)</span>，那么 <span class="arithmatex">\(B\)</span> 队还有可能可以获得的得分数为：<span class="arithmatex">\(b = 5 - i / 2\)</span>（向下取整）;</p>
-<p>记录此时 <span class="arithmatex">\(A\)</span> 队的累计得分为：<span class="arithmatex">\(x\)</span>，那么 <span class="arithmatex">\(A\)</span> 队还有可能可以获得的得分数位：<span class="arithmatex">\(a = 5 - i / 2\)</span> （向下取整）;</p>
-<p>如果发现 <span class="arithmatex">\(x + a &lt; y\)</span> 或者 <span class="arithmatex">\(y + b &lt; x\)</span> 成立时，就能在第 <span class="arithmatex">\(i\)</span> 场比赛中确定胜负；</p>
-<p>如果遍历完都没能分出胜负就说明平局.</p>
-<details class="success">
-<summary>代码参考</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"> </span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">solve</span><span class="p">()</span><span class="w"></span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">--</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="n">LL</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="n">on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">            </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">                </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'0'</span><span class="p">;</span><span class="w"> </span>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">                </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">                </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">            </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">            </span><span class="k">else</span><span class="w"></span>
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">            </span><span class="p">{</span><span class="w"></span>
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">                </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'0'</span><span class="p">;</span><span class="w"> </span>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">                </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">            </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">on</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div>
-</details>
+<h1 id="_1">最长递增子序列</h1>
 </article>
 </div>
 </div>
@@ -1018,7 +916,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: 简介" class="md-footer__link md-footer__link--prev" href="../../.." rel="prev">
+<a aria-label="上一页: 最长公共子序列" class="md-footer__link md-footer__link--prev" href="../../%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1027,21 +925,8 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              简介
+              最长公共子序列
             </div>
-</div>
-</a>
-<a aria-label="下一页: 小卡与质数2" class="md-footer__link md-footer__link--next" href="../%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/" rel="next">
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                下一页
-              </span>
-              小卡与质数2
-            </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
 </div>
 </a>
 </nav>
@@ -1062,9 +947,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
-<script src="../../../javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script src="../../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
