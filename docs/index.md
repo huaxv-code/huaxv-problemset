@@ -416,7 +416,7 @@
 
 ??? note "Sublime\sublime\Data\Packages\User\snippet\code.sublime-snippet"
 
-    ```html title"Sublime\sublime\Data\Packages\User\snippet\code.sublime-snippet"
+    ```html title="Sublime\sublime\Data\Packages\User\snippet\code.sublime-snippet"
     <snippet>
         <content><![CDATA[
     #include <bits/stdc++.h>
