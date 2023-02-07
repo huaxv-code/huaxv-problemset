@@ -126,8 +126,10 @@ nav:
 
   - 简介:
 
-    - problem/简介/index.md
-    - problem/简介/代码片段.md
+    - index.md
+  
+  - 准备:
+    - problem/准备/代码片段.md
 
 
   - 规律模拟:
