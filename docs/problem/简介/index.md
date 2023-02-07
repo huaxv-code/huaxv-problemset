@@ -24,6 +24,8 @@
     inline bool pll(LL x, const char *s = "\n");
     inline LL gll();
     inline HH qpow(HH x, HH y, HH m);
+    template <typename T> T min(vector<T> tmp);
+    template <typename T> T max(vector<T> tmp);
     const LL lnf = 0x3f3f3f3f3f3f3f3f;
     const int inf = 0x3f3f3f3f;
     const char cnf = 0x3f;
@@ -31,7 +33,7 @@
 
     /*────────────────────────────────────────────────────────────────────*/
 
-    ${0}
+
 
     void solve(void)
     {
@@ -108,6 +110,22 @@
         res *= res; res %= m;
         if (y & 1) { res *= x; res %= m; }
         return res;
+    }
+
+    template <typename T>
+    T min(vector<T> tmp)
+    {
+        if (!tmp.size()) exit(1);
+        sort(tmp.begin(), tmp.end());
+        return tmp[0];
+    }
+
+    template <typename T>
+    T max(vector<T> tmp)
+    {
+        if (!tmp.size()) exit(1);
+        sort(tmp.begin(), tmp.end());
+        return tmp.back();
     }
     ```
 
