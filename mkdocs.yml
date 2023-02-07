@@ -129,8 +129,9 @@ nav:
     - index.md
   
   - 准备:
-  
+
     - problem/准备/代码片段.md
+    - problem/准备/配置sublime.md
 
 
   - 规律模拟:
