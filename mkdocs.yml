@@ -126,9 +126,10 @@ nav:
 
   - 简介:
 
-    - problem/index.md
+    - index.md
   
   - 准备:
+  
     - problem/准备/代码片段.md
 
 
