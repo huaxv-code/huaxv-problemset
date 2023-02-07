@@ -52,7 +52,7 @@
     const LL lnf = 0x3f3f3f3f3f3f3f3f;
     const int inf = 0x3f3f3f3f;
     const char cnf = 0x3f;
-    const LL N = (LL)(5e6 + 10);
+    const LL N = (LL)(1e7 + 10);
 
     /*────────────────────────────────────────────────────────────────────*/
 
