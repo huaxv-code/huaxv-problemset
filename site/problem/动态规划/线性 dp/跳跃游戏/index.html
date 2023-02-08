@@ -1166,7 +1166,7 @@
 </details>
 <h2 id="dp_1">线性 dp + 贪心</h2>
 <p>假设当前位置 <span class="arithmatex">\(i\)</span> 是最优路径上的一点，那么我们要寻找区间 <span class="arithmatex">\([i + 1, i + nums[i]]\)</span> 中的所有的点，看一下哪个点跳跃的终点距离 <span class="arithmatex">\(i\)</span> 最远，这个最远的点就是下一个最优路径上的点.</p>
-<p>如果是同样远，或者都超过了 <span class="arithmatex">\(n - 1\)</span> 这个终点时，选取位置最远的点，不仅可以少遍历一下节点寻找最优点，还能避免死循环.</p>
+<p>如果是同样远，或者都超过了 <span class="arithmatex">\(n - 1\)</span> 这个终点时，选取位置最远的点，不仅可以少遍历一些节点寻找最优点，还能避免死循环.</p>
 <p>时间复杂度：<span class="arithmatex">\(O(n)\)</span></p>
 <details class="success">
 <summary>代码参考</summary>
