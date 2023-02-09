@@ -69,7 +69,7 @@ theme:
     - navigation.tabs 
     # - navigation.tabs.sticky
     # - navigation.sections
-    # - toc.integrate # 屏蔽右侧导航栏，合并到左边
+    - toc.integrate # 屏蔽右侧导航栏，合并到左边
     # - navigation.expand
     # - navigation.prune
     # - navigation.prune 
@@ -300,5 +300,6 @@ nav:
       - 不同路径 2: problem/动态规划/线性 dp/不同路径 2.md
       - 最小路径和: problem/动态规划/线性 dp/最小路径和.md
       - 解码方法: problem/动态规划/线性 dp/解码方法.md
-
+      - 不同的二叉搜索数 1: problem/动态规划/线性 dp/不同的二叉搜索数 1.md
+      - 不同的二叉搜索树 2: problem/动态规划/线性 dp/不同的二叉搜索数 2.md
 
