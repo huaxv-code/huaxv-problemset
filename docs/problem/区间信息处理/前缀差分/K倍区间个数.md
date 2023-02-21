@@ -14,7 +14,7 @@
 
 利用前缀和数组 $sum[l, r] = sum[r] - sum[l - 1]$ 所以：
 
-> $sum[l, r] \bmod k = sum[r] \bmod k - sum[l - r] \bmod k$
+> $sum[l, r] \bmod k = sum[r] \bmod k - sum[l - 1] \bmod k$
 >
 > 即 $sum[r] \bmod k = sum[l - 1] \bmod k$
 

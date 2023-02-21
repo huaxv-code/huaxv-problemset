@@ -1169,7 +1169,7 @@
 <p>如果存在一个连续子区间 <span class="arithmatex">\([l, r]\)</span> 使得 <span class="arithmatex">\(sum[l, r]\)</span> 的和是 <span class="arithmatex">\(k\)</span> 的倍数，那么 <span class="arithmatex">\(sum[l, r] \bmod k = 0\)</span></p>
 <p>利用前缀和数组 <span class="arithmatex">\(sum[l, r] = sum[r] - sum[l - 1]\)</span> 所以：</p>
 <blockquote>
-<p><span class="arithmatex">\(sum[l, r] \bmod k = sum[r] \bmod k - sum[l - r] \bmod k\)</span></p>
+<p><span class="arithmatex">\(sum[l, r] \bmod k = sum[r] \bmod k - sum[l - 1] \bmod k\)</span></p>
 <p>即 <span class="arithmatex">\(sum[r] \bmod k = sum[l - 1] \bmod k\)</span></p>
 </blockquote>
 <p>对于每一个 <span class="arithmatex">\(r\)</span> 寻找 <span class="arithmatex">\(1 \sim r - 1\)</span> 中存在多少个 <span class="arithmatex">\(l\)</span> 使得 <span class="arithmatex">\(sum[r] = sum[l] (\bmod k)\)</span> 成立，累加这些结果就是答案.</p>
