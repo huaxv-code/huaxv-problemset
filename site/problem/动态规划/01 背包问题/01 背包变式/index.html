@@ -1305,7 +1305,7 @@
 <h2 id="_1">分组背包</h2>
 <p>因为物品的重量很均匀，按照重量划分可以分成 <span class="arithmatex">\(4\)</span> 种，对于每一种重量，需要选取多少件呢？选取的这些件数的价值又具有什么样的规律呢？</p>
 <p>对于重量一定的情况下，价值越高的就更应该比价值低的更容易选上才行，由于对于每一种重量的物品，到底要选取多少件是未知的，我们不妨假定选取 <span class="arithmatex">\(x\)</span> 件，那么这 <span class="arithmatex">\(x\)</span> 件一定是这种重量下的物品的前 <span class="arithmatex">\(x\)</span> 件具有最大价值的物件.</p>
-<p>由于每一种重量的物品数是未知的，我们可以用 <span class="arithmatex">\(4\)</span> 层循环，自由组合，看一下那种组合的价值最高，且还不超过背包总承重的前提下.</p>
+<p>由于每一种重量需要选取的物品数量是未知的，我们可以用 <span class="arithmatex">\(4\)</span> 层循环，自由组合，看一下哪种组合的价值最高，且还不超过背包总承重的前提下.</p>
 <details class="success">
 <summary>代码参考</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">LL</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">rs</span><span class="p">;</span>
