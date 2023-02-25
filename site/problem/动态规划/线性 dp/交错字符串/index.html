@@ -1261,7 +1261,7 @@
 <h2 id="dp">线性 dp</h2>
 <p>先假设 <span class="arithmatex">\(dp[i][j]\)</span> 表示对于字符串 <span class="arithmatex">\(s\)</span> 的前 <span class="arithmatex">\(i\)</span> 个字符以及字符串 <span class="arithmatex">\(t\)</span> 的前 <span class="arithmatex">\(j\)</span> 个字符能成功地与字符串 <span class="arithmatex">\(c\)</span> 的前 <span class="arithmatex">\(i + j\)</span> 个字符匹配，</p>
 <p>那么对于字符串 <span class="arithmatex">\(c\)</span> 的第 <span class="arithmatex">\(i + j + 1\)</span> 个字符来说，到底是匹配字符串 <span class="arithmatex">\(s\)</span> 的第 <span class="arithmatex">\(i + 1\)</span> 号字符，还是匹配字符串 <span class="arithmatex">\(t\)</span> 的第 <span class="arithmatex">\(j + 1\)</span> 号字符，需要独立讨论.</p>
-<p>时间复杂度：<span class="arithmatex">\(O(n * 2)\)</span></p>
+<p>时间复杂度：<span class="arithmatex">\(O(n ^ 2)\)</span></p>
 <details class="success">
 <summary>代码参考</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
