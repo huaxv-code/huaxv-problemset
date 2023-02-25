@@ -1270,7 +1270,8 @@
 </details>
 <h2 id="dp">线性 dp</h2>
 <p>先处理出以 <span class="arithmatex">\(i\)</span> 为起点的回文串有哪些，再处理出 <span class="arithmatex">\(i\)</span> 前面可以分割成多少种回文子串，再一一组合.</p>
-<p>时间复杂度和空间复杂度可能远大于 <span class="arithmatex">\(n ^ 3\)</span></p>
+<p>用了两次线性 dp，一次用来求以 <span class="arithmatex">\(i\)</span> 为起点的回文串有哪些，令一次用来求前 <span class="arithmatex">\(i\)</span> 个字符所能组成的分割回文串的分割可能方案.</p>
+<p>时间复杂度和空间复杂度可能远大于 <span class="arithmatex">\(n ^ 3\)</span>，可能和 <span class="arithmatex">\(n * 2 ^ n\)</span> 不相上下！</p>
 <details class="success">
 <summary>代码参考</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
