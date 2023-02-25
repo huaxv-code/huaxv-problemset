@@ -316,6 +316,8 @@ nav:
       - 交错字符串: problem/动态规划/线性 dp/交错字符串.md
       - 三角形最小路径和: problem/动态规划/线性 dp/三角形最小路径和.md
       - 买卖股票的最佳时机 2: problem/动态规划/线性 dp/买卖股票的最佳时机2.md
+      - 分割回文串: problem/动态规划/线性 dp/分割回文串.md
+
   - 字符串:
     - KMP:
       - KMP: problem/字符串/KMP/KMP.md
