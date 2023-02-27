@@ -1359,7 +1359,7 @@
 <p>为了处理这个问题，我们就需要将祖宗的标记 <span class="arithmatex">\(tag[4, 5]\)</span> 拆开，传递到它的左右孩子 <span class="arithmatex">\([4, 4]\)</span> 和 <span class="arithmatex">\([5, 5]\)</span>，我们不必对所有的后代都传递一遍，那样效率太低了，只需要用的时候再传递下去就行.</p>
 <p>每更新、查询一次的时间复杂度都接近 <span class="arithmatex">\(O(log(n))\)</span>.</p>
 <hr/>
-<p>定义函数 <span class="arithmatex">\(push_back\)</span> 的含义为：将当前节点的 <span class="arithmatex">\(tag\)</span> 信息传达给左右孩子</p>
+<p>定义函数 <span class="arithmatex">\(push\_back\)</span> 的含义为：将当前节点的 <span class="arithmatex">\(tag\)</span> 信息传达给左右孩子</p>
 <div class="highlight"><span class="filename">push_back</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">push_down</span><span class="p">(</span><span class="n">LL</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">LL</span><span class="w"> </span><span class="n">pl</span><span class="p">,</span><span class="w"> </span><span class="n">LL</span><span class="w"> </span><span class="n">pr</span><span class="p">)</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="p">{</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tag</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
