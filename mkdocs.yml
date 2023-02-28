@@ -137,6 +137,7 @@ nav:
   - 语言:
     - Java:
       - 输入: problem/语言/Java/输入.md
+      - 输出: problem/语言/Java/输出.md
 
 
   - 规律模拟:

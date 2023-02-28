@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../../%E5%87%86%E5%A4%87/%E6%89%B9%E5%A4%84%E7%90%86%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4/" rel="prev"/>
-<link href="../../../%E8%A7%84%E5%BE%8B%E6%A8%A1%E6%8B%9F/AB%E6%8F%90%E5%89%8D%E7%A1%AE%E5%AE%9A%E8%BE%93%E8%B5%A2/" rel="next"/>
+<link href="../%E8%BE%93%E5%87%BA/" rel="next"/>
 <link href="../../../../img/头像.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.13" name="generator"/>
 <title>输入 - 玉子爱做题</title>
@@ -282,8 +282,18 @@
     BufferedReader
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#streamtokenizer">
+    StreamTokenizer
+  </a>
+</li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%E8%BE%93%E5%87%BA/">
+        输出
+      </a>
 </li>
 </ul>
 </nav>
@@ -1360,6 +1370,8 @@
 <article class="md-content__inner md-typeset">
 <h1 id="_1">输入</h1>
 <h2 id="scanner">Scanner</h2>
+<p><strong>输入量非常少时勉强推荐.</strong></p>
+<hr/>
 <p>头文件：</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
 </code></pre></div>
@@ -1402,6 +1414,8 @@
 </code></pre></div>
 <hr/>
 <h2 id="bufferedreader">BufferedReader</h2>
+<p><strong>读取字符串时推荐.</strong></p>
+<hr/>
 <p>头文件：</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.*</span><span class="w"> </span><span class="p">;</span>
 </code></pre></div>
@@ -1431,6 +1445,38 @@
 <hr/>
 <p>读取一行字符串：</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cin</span><span class="p">.</span><span class="na">readLine</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="streamtokenizer">StreamTokenizer</h2>
+<p><strong>读取整数、小数时推荐.</strong></p>
+<hr/>
+<p>头文件：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.*</span><span class="w"> </span><span class="p">;</span>
+</code></pre></div>
+<hr/>
+<p>给方法添加异常处理：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">        </span><span class="n">StreamTokenizer</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamTokenizer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">InputStreamReader</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">)));</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="p">}</span>
+</code></pre></div>
+<hr/>
+<p>定义 <code>StreamTokenizer</code> 对象：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">StreamTokenizer</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StreamTokenizer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">BufferedReader</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">InputStreamReader</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">)));</span>
+</code></pre></div>
+<hr/>
+<p>读取一个整数：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">cin</span><span class="p">.</span><span class="na">nextToken</span><span class="p">();</span><span class="w"> </span><span class="c1">// 每读一次之前，必须 nextToken()</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">cin</span><span class="p">.</span><span class="na">nval</span><span class="p">;</span>
+</code></pre></div>
+<hr/>
+<p>读取一个小数：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">cin</span><span class="p">.</span><span class="na">nextToken</span><span class="p">();</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">cin</span><span class="p">.</span><span class="na">nval</span><span class="p">;</span>
 </code></pre></div>
 </article>
 </div>
