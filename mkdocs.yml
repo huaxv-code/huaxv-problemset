@@ -133,6 +133,10 @@ nav:
     - problem/准备/代码片段.md
     - problem/准备/配置sublime.md
     - problem/准备/批处理运行命令.md
+  
+  - 语言:
+    - Java:
+      - 输入: problem/语言/Java/输入.md
 
 
   - 规律模拟:
