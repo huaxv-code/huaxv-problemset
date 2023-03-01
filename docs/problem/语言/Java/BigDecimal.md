@@ -137,8 +137,8 @@ cout.flush();
 BigDecimal a = new BigDecimal("2");
 BigDecimal b = new BigDecimal("3");
 
-// 精度到 30 位左右
-cout.println(a.divide(b, 30, BigDecimal.ROUND_HALF_UP));
+// 精度到 30 位左右，后面是取反后又绝对值，举个例子，确定能跑就行
+cout.println(a.divide(b, 30, BigDecimal.ROUND_HALF_UP).negate().abs());
 
 cout.flush();
 ```
