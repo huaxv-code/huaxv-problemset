@@ -140,6 +140,7 @@ nav:
       - 输出: problem/语言/Java/输出.md
       - BigInteger: problem/语言/Java/BigInteger.md
       - BigDecimal: problem/语言/Java/BigDecimal.md
+      - 排序: problem/语言/Java/排序.md
 
 
   - 规律模拟:
