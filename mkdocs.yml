@@ -141,6 +141,7 @@ nav:
       - BigInteger: problem/语言/Java/BigInteger.md
       - BigDecimal: problem/语言/Java/BigDecimal.md
       - 排序: problem/语言/Java/排序.md
+      - String: problem/语言/Java/String.md
 
 
   - 规律模拟:
