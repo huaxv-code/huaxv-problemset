@@ -143,6 +143,7 @@ nav:
       - 排序: problem/语言/Java/排序.md
       - String: problem/语言/Java/String.md
       - Integer: problem/语言/Java/Integer.md
+      - Double: problem/语言/Java/Double.md
       - 模拟队列: problem/语言/Java/模拟队列.md
 
 

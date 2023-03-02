@@ -10,6 +10,8 @@ Integer a = new Integer(100);
 Integer b = new Integer("100");
 
 Integer c = Integer.valueOf("100");
+
+Integer d = 100;
 ```
 
 ---
