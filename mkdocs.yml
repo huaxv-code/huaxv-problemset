@@ -146,6 +146,7 @@ nav:
       - Double: problem/语言/Java/Double.md
       - List: problem/语言/Java/List.md
       - Queue: problem/语言/Java/Queue.md
+      - Deque: problem/语言/Java/Deque.md
       - 模拟队列: problem/语言/Java/模拟队列.md
 
 
