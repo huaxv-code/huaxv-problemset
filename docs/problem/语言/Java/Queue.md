@@ -9,7 +9,8 @@
 创建：
 
 ```java
-Queue<Integer> qu = new ArrayDeque<>();
+java.util.Queue<Integer> qu = new ArrayDeque<>();
+java.util.Queue<Integer> qu = new LinkedList<>();
 ```
 
 ---
@@ -18,6 +19,7 @@ Queue<Integer> qu = new ArrayDeque<>();
 
 ```java
 java.util.Queue<Integer> qu = new ArrayDeque<>();
+java.util.Queue<Integer> qu = new LinkedList<>();
 
 for (int i = 0; i <= 10; i ++) {
     qu.offer(i);
@@ -34,6 +36,7 @@ cout.println(t);
 
 ```java
 java.util.Queue<Integer> qu = new ArrayDeque<>();
+java.util.Queue<Integer> qu = new LinkedList<>();
 
 cout.println(qu.isEmpty()); // true
 ```
@@ -44,6 +47,7 @@ cout.println(qu.isEmpty()); // true
 
 ```java
 java.util.Queue<Integer> qu = new ArrayDeque<>();
+java.util.Queue<Integer> qu = new LinkedList<>();
 
 for (int i = 0; i <= 10; i ++) {
     qu.offer(i);
@@ -60,6 +64,7 @@ for (int i = 0; i <= 10; i ++) {
 
 ```java
 java.util.Queue<Integer> qu = new ArrayDeque<>();
+java.util.Queue<Integer> qu = new LinkedList<>();
 
 for (int i = 0; i <= 10; i ++) {
     qu.offer(i);
