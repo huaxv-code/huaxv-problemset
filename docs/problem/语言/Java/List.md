@@ -83,3 +83,79 @@ Collections.sort(as, new Comparator<Integer>() {
     }
 });
 ```
+
+## LinkedList
+
+初始化：
+
+```java
+List<Integer> as = new LinkedList<>();
+```
+
+---
+
+尾部添加：
+
+```java
+List<Integer> as = new LinkedList<>();
+
+for (int i = 0; i <= 10; i ++) {
+    as.add(i);
+}
+
+for (int i = 0; i <= 10; i ++) {
+    cout.println(as.get(i)); // 时间复杂度：O(n) 慢
+}
+```
+
+---
+
+在第 $i$ 个位置插入，剩下元素右移：
+
+```java
+List<Integer> as = new LinkedList<>();
+
+for (int i = 0; i <= 10; i ++) {
+    as.add(i);
+}
+
+as.add(0, 114514);
+
+for (int i = 0; i <= 11; i ++) {
+    cout.println(as.get(i)); // 114514 0 1 2 3 4 5 6 7 8 9 10 
+}
+```
+
+---
+
+修改第 $i$ 位置的值：
+
+```java
+List<Integer> as = new LinkedList<>();
+
+for (int i = 0; i <= 10; i ++) {
+    as.add(i);
+}
+
+as.set(0, 114514);
+
+for (int i = 0; i <= 10; i ++) {
+    cout.println(as.get(i)); // 114514 1 2 3 4 5 6 7 8 9 10 
+}
+```
+
+---
+
+获取元素数量：
+
+```java
+List<Integer> as = new LinkedList<>();
+
+for (int i = 0; i <= 10; i ++) {
+    as.add(i);
+}
+
+int t = as.size(); // 11
+
+cout.println(t);
+```
