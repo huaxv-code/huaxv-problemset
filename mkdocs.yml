@@ -148,6 +148,7 @@ nav:
       - Queue: problem/语言/Java/Queue.md
       - Deque: problem/语言/Java/Deque.md
       - 栈: problem/语言/Java/栈.md
+      - 优先队列: problem/语言/Java/优先队列.md
       - 模拟队列: problem/语言/Java/模拟队列.md
 
 
