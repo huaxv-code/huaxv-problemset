@@ -149,6 +149,8 @@ nav:
       - Deque: problem/语言/Java/Deque.md
       - 栈: problem/语言/Java/栈.md
       - 优先队列: problem/语言/Java/优先队列.md
+      - Set: problem/语言/Java/Set.md
+      - Map: problem/语言/Java/Map.md
       - 模拟队列: problem/语言/Java/模拟队列.md
 
 
