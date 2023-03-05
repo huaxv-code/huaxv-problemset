@@ -76,8 +76,10 @@ theme:
     # - toc.follow
     - navigation.top
     # - toc.integrate
-    # - content.code.annotate
-    # - content.tabs.link
+    - content.code.annotate
+    - content.tabs.link
+    - content.code.copy
+    
   palette:
 
     # Palette toggle for light mode
