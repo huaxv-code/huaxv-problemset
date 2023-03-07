@@ -154,6 +154,7 @@ nav:
       - Set: problem/语言/Java/Set.md
       - Map: problem/语言/Java/Map.md
       - 模拟队列: problem/语言/Java/模拟队列.md
+      - Java 数据结构: problem/语言/Java/Java 数据结构.md
 
 
 
@@ -256,7 +257,8 @@ nav:
       - 最长递增子序列的个数: problem/区间信息处理/线段树/最长递增子序列的个数.md
       - 统计作战单位数: problem/区间信息处理/线段树/统计作战单位数.md
       - 我的日程安排表 I: problem/区间信息处理/线段树/我的日程安排表 I.md
-      - Java 数据结构: problem/区间信息处理/线段树/Java 数据结构.md
+      - 查询带键的排列: problem/区间信息处理/线段树/查询带键的排列.md
+  
 
   - 倍增法:
 
