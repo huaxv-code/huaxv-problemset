@@ -156,6 +156,9 @@ nav:
       - 模拟队列: problem/语言/Java/模拟队列.md
       - Java 数据结构: problem/语言/Java/Java 数据结构.md
 
+    - MySQL:
+      - 入门命令: problem/语言/MySQL/入门命令.md
+
 
 
   - 规律模拟:
