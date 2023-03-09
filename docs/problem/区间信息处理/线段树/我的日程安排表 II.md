@@ -1,6 +1,4 @@
-# 我的日程安排表 II
-
-https://leetcode.cn/problems/my-calendar-ii/description/
+# [我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/description/)
 
 ??? success "代码参考"
 
