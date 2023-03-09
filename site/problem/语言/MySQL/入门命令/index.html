@@ -462,6 +462,11 @@
     联接多个 select 语句
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#null">
+    空值 null 查询
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1670,6 +1675,9 @@
 <a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span><span class="p">;</span>
 </code></pre></div>
 <p>会将重复的数据都输出，如果不希望重复，可以删掉 <code>all</code>.</p>
+<h2 id="null">空值 null 查询</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">列名</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+</code></pre></div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
