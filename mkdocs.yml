@@ -156,6 +156,10 @@ nav:
       - 模拟队列: problem/语言/Java/模拟队列.md
       - Java 数据结构: problem/语言/Java/Java 数据结构.md
 
+    - Java 小界面:
+      - 显示小窗口: problem/语言/Java 小界面/显示小窗口.md
+      - 登录窗体: problem/语言/Java 小界面/登录窗体.md
+
     - MySQL:
       - 入门命令: problem/语言/MySQL/入门命令.md
 
