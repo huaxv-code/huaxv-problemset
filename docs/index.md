@@ -137,26 +137,46 @@
 
     ```json title="settings.json"
     {
-        "workbench.colorTheme": "Sublime Material Theme - Dark",
         "workbench.startupEditor": "none",
-        "editor.fontSize": 20, // 自动保存
-        "explorer.compactFolders": false, 
+        "editor.fontSize": 18, // 自动保存
+        "explorer.compactFolders": false,
         "security.workspace.trust.untrustedFiles": "open",
-        "workbench.iconTheme": "material-icon-theme",
         "explorer.confirmDelete": false,
         "git.autofetch": true,
         "files.exclude": {
-            "*.exe": true// 隐藏 .exe 文件
+            "*.exe": true // 隐藏 .exe 文件
         },
+        // code-runner:
+        // $workspaceRoot: The path of the folder opened in VS Code
+        // $dir: The directory of the code file being run
+        // $dirWithoutTrailingSlash: The directory of the code file being run without a trailing slash
+        // $fullFileName: The full name of the code file being run
+        // $fileName: The base name of the code file being run, that is the file without the directory
+        // $fileNameWithoutExt: The base name of the code file being run without its extension
+        // $driveLetter: The drive letter of the code file being run (Windows only)
+        // $pythonPath: The path of Python interpreter (set by Python: Select Interpreter command)
         "explorer.confirmDragAndDrop": false,
+        "code-runner.executorMapByGlob": {
+            "*.md": "cd $workspaceRoot && push $fileName",
+            "mkdocs.yml": "cd $workspaceRoot && push $fileName"
+        },
+        // C:\Program Files\Java\jdk1.6.0_45
+        // C:\Huaxv-Home\Tools\Jdk-19\jdk-19.0.2
         "code-runner.executorMap": {
             "javascript": "node",
-            "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-            "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && start cmd /k $dir$fileNameWithoutExt",
-            "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && start cmd /k $dir$fileNameWithoutExt",
+            // "java": "fsutil file setCaseSensitiveInfo $workspaceRoot  disable && cd $dir && javac $fileName && java $fileNameWithoutExt",
+            // "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+            // "java": "cd $dir && javac -encoding utf8 $fileName && java $fileName < task_cin_cout_files\\in.txt > task_cin_cout_files\\out.txt",
+            // "java": "cd $dir && javac -encoding utf8 $fileName && java $fileName",
+            "java": "cd $workspaceRoot && create_files && cd $dir && copy-item $fileName $workspaceRoot\\.task_cin_cout_files\\Main.java && cd $workspaceRoot\\.task_cin_cout_files && javac -encoding utf8 Main.java && Get-Content in.txt  | java Main | Out-File -Filepath out.txt",
+            // "c": "cls && cd $dir && gcc $fileName -o $fileNameWithoutExt && start cmd.exe \"/c runcode $dir$fileNameWithoutExt\"",
+            // "cpp": "cls && cd $dir && g++ -std=c++20 $fileName -o $fileNameWithoutExt && start cmd.exe \"/c runcode $dir$fileNameWithoutExt\"",
+            "c": "cd $workspaceRoot && create_files && cd $dir && copy-item $fileName $workspaceRoot\\.task_cin_cout_files\\a.c && cd $workspaceRoot\\.task_cin_cout_files && gcc -std=c17 a.c -o a && Get-Content in.txt  | .\\a | Out-File -Filepath out.txt",
+            "cpp": "cd $workspaceRoot && create_files && cd $dir && copy-item $fileName $workspaceRoot\\.task_cin_cout_files\\a.cpp && cd $workspaceRoot\\.task_cin_cout_files && g++ -std=c++20 -static a.cpp -o a -O3 -Wall -Wextra \"-Wl,--stack=536870912\" && Get-Content in.txt  | .\\a | Out-File -Filepath out.txt",
             "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
             "php": "php",
-            "python": "python -u",
+            // "python": "python -u",
+            "python": "cd $workspaceRoot && create_files && cd $dir && copy-item $fileName $workspaceRoot\\.task_cin_cout_files\\a.py && cd $workspaceRoot\\.task_cin_cout_files && Get-Content in.txt  | python -u a.py | Out-File -Filepath out.txt",
             "perl": "perl",
             "perl6": "perl6",
             "ruby": "ruby",
@@ -203,7 +223,7 @@
             "sml": "cd $dir && sml $fileName"
         },
         "C_Cpp.default.intelliSenseMode": "gcc-x64",
-        "C_Cpp.default.compilerPath": "C:/huaxv-home/Tools/Sublime/mingw64/bin/gcc",
+        "C_Cpp.default.compilerPath": "C:\\Huaxv-Home\\Tools\\Mingw64\\mingw64\\bin\\gcc",
         "C_Cpp.default.cppStandard": "c++20",
         "C_Cpp.default.cStandard": "c17",
         "editor.unicodeHighlight.allowedLocales": {
@@ -211,7 +231,50 @@
             "zh-hant": true
         },
         "files.autoSave": "onFocusChange",
-        "editor.stickyScroll.enabled": true
+        "editor.stickyScroll.enabled": true,
+        "code-runner.runInTerminal": true,
+        "editor.linkedEditing": true,
+        "terminal.integrated.defaultProfile.windows": "PowerShell",
+        "[python]": {
+            "editor.formatOnType": true
+        },
+        "java.errors.incompleteClasspath.severity": "ignore",
+        "java.configuration.maven.notCoveredPluginExecutionSeverity": "ignore",
+        "leetcode.endpoint": "leetcode-cn",
+        "leetcode.workspaceFolder": "C:\\Users\\huaxv\\Desktop\\Code\\LC",
+        "leetcode.showLocked": true,
+        "leetcode.defaultLanguage": "java",
+        "leetcode.hint.configWebviewMarkdown": false,
+        "leetcode.hint.commentDescription": false,
+        "json.schemaDownload.enable": false,
+        
+        //background 的相关配置
+        "update.enableWindowsBackgroundUpdates": false,
+        "workbench.iconTheme": "eq-material-theme-icons-light",
+        "extensions.ignoreRecommendations": true,
+        // "background.customImages": [
+        //     "file:///C:/Huaxv-Home/Image/vscbgc.png"//图片地址
+        // ],
+        // "background.style": {
+        //     "content":"''",
+        //     "pointer-events":"none",
+        //     "position":"fixed",//图片位置居中
+        //     "width":"100%",
+        //     "height":"100%",
+        //     "z-index":"99999",
+        //     "top":"0px",
+        //     "left":"0px",
+        //     "background.repeat":"no-repeat",
+        //     "background-size":"cover",//图片大小为全屏
+        //     "opacity":0.2 //透明度
+        // },
+        // "background.useFront": true,
+        // "background.useDefault": false,
+        "workbench.colorTheme": "onehalf-light",
+        "C_Cpp.errorSquiggles": "disabled",
+        "java.compile.nullAnalysis.mode": "disabled",
+        "vsintellicode.java.completionsEnabled": false,
+        "maven.dependency.enableConflictDiagnostics": false //是否使用默认图片
     }
     ```
 
