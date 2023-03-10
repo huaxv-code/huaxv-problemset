@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2/" rel="prev"/>
-<link href="../%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/" rel="next"/>
+<link href="../%E5%92%8C%E6%9C%89%E9%99%90%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%BA%8F%E5%88%97/" rel="prev"/>
+<link href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="next"/>
 <link href="../../../../img/头像.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.0.13" name="generator"/>
-<title>分割回文串 - 玉子爱做题</title>
+<title>长度最小的子数组 - 玉子爱做题</title>
 <link href="../../../../assets/stylesheets/main.ffa9267a.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -60,7 +60,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              分割回文串
+              长度最小的子数组
             
           </span>
 </div>
@@ -128,7 +128,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-tabs__link md-tabs__link--active" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         区间信息处理
       </a>
 </li>
@@ -148,7 +148,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
+<a class="md-tabs__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
         动态规划
       </a>
 </li>
@@ -543,13 +543,13 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
           区间信息处理
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
           区间信息处理
@@ -568,67 +568,67 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
         两数之和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%B3%E7%9F%B3%E5%A4%B4/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%B3%E7%9F%B3%E5%A4%B4/">
         跳石头
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE/">
         路标设置
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E5%BA%8F%E5%88%97%E5%88%92%E5%88%86/">
         序列划分
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E9%80%9A%E5%BE%80%E5%A5%A5%E6%A0%BC%E7%91%9E%E7%8E%9B%E7%9A%84%E9%81%93%E8%B7%AF/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E9%80%9A%E5%BE%80%E5%A5%A5%E6%A0%BC%E7%91%9E%E7%8E%9B%E7%9A%84%E9%81%93%E8%B7%AF/">
         通往奥格瑞玛的道路
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/H%E6%8C%87%E6%95%B0/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/H%E6%8C%87%E6%95%B0/">
         H指数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B/">
         进击的奶牛
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%87%E7%94%9F%E6%97%A5/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E8%BF%87%E7%94%9F%E6%97%A5/">
         过生日（实数二分）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A0%8D%E5%8E%9F%E6%9C%A8/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A0%8D%E5%8E%9F%E6%9C%A8/">
         砍原木
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
         寻找段落
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
         称重
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E5%B0%8F%E5%8D%A1%E4%B8%8E%E8%B4%A8%E6%95%B02/">
         小卡与质数2
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%BA%8C%E5%88%86%E6%B3%95/%E6%88%91%E5%9C%A8%E5%93%AA/">
+<a class="md-nav__link" href="../../%E4%BA%8C%E5%88%86%E6%B3%95/%E6%88%91%E5%9C%A8%E5%93%AA/">
         我在哪
       </a>
 </li>
@@ -648,22 +648,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E5%AE%9E%E6%95%B0%E4%B8%89%E5%88%86%E6%B3%95/">
+<a class="md-nav__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E5%AE%9E%E6%95%B0%E4%B8%89%E5%88%86%E6%B3%95/">
         【模板】三分法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%9E%81%E5%B0%8F%E5%80%BC/">
+<a class="md-nav__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%9E%81%E5%B0%8F%E5%80%BC/">
         二次方程极小值
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
+<a class="md-nav__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E7%A7%B0%E9%87%8D/">
         称重
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E4%B8%89%E5%88%86%E6%B3%95/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/">
+<a class="md-nav__link" href="../../%E4%B8%89%E5%88%86%E6%B3%95/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/">
         期末考试
       </a>
 </li>
@@ -683,97 +683,98 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E9%98%9F%E5%88%97/%E4%B8%AD%E4%BD%8D%E6%95%B0/">
+<a class="md-nav__link" href="../../%E9%98%9F%E5%88%97/%E4%B8%AD%E4%BD%8D%E6%95%B0/">
         中位数
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
           前缀差分
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_8_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_8_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_4">
 <span class="md-nav__icon md-icon"></span>
           前缀差分
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E9%97%B4%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
+<a class="md-nav__link" href="../%E5%8C%BA%E9%97%B4%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
         区间重叠问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%87%BA%E8%A1%8C%E8%AE%A1%E5%88%92/">
+<a class="md-nav__link" href="../%E5%87%BA%E8%A1%8C%E8%AE%A1%E5%88%92/">
         出行计划
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/">
+<a class="md-nav__link" href="../%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/">
         最大子段和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%B1%82%E5%92%8C/">
+<a class="md-nav__link" href="../%E6%B1%82%E5%92%8C/">
         求和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
+<a class="md-nav__link" href="../%E5%8C%BA%E5%9F%9F%E9%87%8D%E5%8F%A0%E9%97%AE%E9%A2%98/">
         区域重叠问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%B5%B7%E5%BA%95%E9%AB%98%E9%93%81/">
+<a class="md-nav__link" href="../%E6%B5%B7%E5%BA%95%E9%AB%98%E9%93%81/">
         海底高铁
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%9C%80%E5%A4%A7%E5%8A%A0%E6%9D%83%E7%9F%A9%E5%BD%A2/">
+<a class="md-nav__link" href="../%E6%9C%80%E5%A4%A7%E5%8A%A0%E6%9D%83%E7%9F%A9%E5%BD%A2/">
         最大加权矩形
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%8E%A8%E5%AF%BC%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E6%95%B0%E7%BB%84/">
+<a class="md-nav__link" href="../%E6%8E%A8%E5%AF%BC%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C%E6%95%B0%E7%BB%84/">
         推导二维前缀和数组
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%85%89%E9%AA%93%E8%80%85%E7%9A%84%E8%8D%A3%E8%80%80/">
+<a class="md-nav__link" href="../%E5%85%89%E9%AA%93%E8%80%85%E7%9A%84%E8%8D%A3%E8%80%80/">
         光骓者的荣耀
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/K%E5%80%8D%E5%8C%BA%E9%97%B4%E4%B8%AA%E6%95%B0/">
+<a class="md-nav__link" href="../K%E5%80%8D%E5%8C%BA%E9%97%B4%E4%B8%AA%E6%95%B0/">
         K 倍区间个数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%88%AA%E6%96%AD%E6%95%B0%E7%BB%84/">
+<a class="md-nav__link" href="../%E6%88%AA%E6%96%AD%E6%95%B0%E7%BB%84/">
         截断数组
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E4%BD%BF%E6%95%B0%E7%BB%84%E5%92%8C%E8%83%BD%E8%A2%AB%20P%20%E6%95%B4%E9%99%A4/">
+<a class="md-nav__link" href="../%E4%BD%BF%E6%95%B0%E7%BB%84%E5%92%8C%E8%83%BD%E8%A2%AB%20P%20%E6%95%B4%E9%99%A4/">
         使数组和能被 P 整除
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E6%89%80%E6%9C%89%E5%A5%87%E6%95%B0%E9%95%BF%E5%BA%A6%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E5%92%8C/">
+<a class="md-nav__link" href="../%E6%89%80%E6%9C%89%E5%A5%87%E6%95%B0%E9%95%BF%E5%BA%A6%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E5%92%8C/">
         所有奇数长度子数组的和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E5%92%8C%E6%9C%89%E9%99%90%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%BA%8F%E5%88%97/">
+<a class="md-nav__link" href="../%E5%92%8C%E6%9C%89%E9%99%90%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E5%BA%8F%E5%88%97/">
         和有限的最长子序列
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%89%8D%E7%BC%80%E5%B7%AE%E5%88%86/%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         长度最小的子数组
       </a>
 </li>
@@ -793,17 +794,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+<a class="md-nav__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
         滑动窗口
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/m%E5%8C%BA%E9%97%B4%E5%86%85%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">
+<a class="md-nav__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/m%E5%8C%BA%E9%97%B4%E5%86%85%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC/">
         m区间内的最小值
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
+<a class="md-nav__link" href="../../%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/%E5%AF%BB%E6%89%BE%E6%AE%B5%E8%90%BD/">
         寻找段落
       </a>
 </li>
@@ -823,7 +824,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E5%B9%B6%E6%9F%A5%E9%9B%86/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
+<a class="md-nav__link" href="../../%E5%B9%B6%E6%9F%A5%E9%9B%86/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96/">
         全球变暖
       </a>
 </li>
@@ -843,107 +844,107 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%8C%BA%E9%97%B4%E5%92%8C/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%8C%BA%E9%97%B4%E5%92%8C/">
         区间和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9%E4%B8%8E%E6%9F%A5%E8%AF%A2/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%8C%BA%E9%97%B4%E4%BF%AE%E6%94%B9%E4%B8%8E%E6%9F%A5%E8%AF%A2/">
         区间修改与查询
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%8F%88%E4%B9%98%E5%8F%88%E5%8A%A0%E7%9A%84%E5%8C%BA%E9%97%B4%E5%A4%84%E7%90%86/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%8F%88%E4%B9%98%E5%8F%88%E5%8A%A0%E7%9A%84%E5%8C%BA%E9%97%B4%E5%A4%84%E7%90%86/">
         又乘又加的区间处理
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E9%80%86%E5%BA%8F%E5%AF%B9/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E9%80%86%E5%BA%8F%E5%AF%B9/">
         逆序对
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E7%AC%AC%20k%20%E4%BD%8D%E6%95%B0/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E7%AC%AC%20k%20%E4%BD%8D%E6%95%B0/">
         第 k 位数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/XOR%E7%9A%84%E8%89%BA%E6%9C%AF/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/XOR%E7%9A%84%E8%89%BA%E6%9C%AF/">
         XOR的艺术
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E7%81%AB%E6%9F%B4%E6%8E%92%E9%98%9F/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E7%81%AB%E6%9F%B4%E6%8E%92%E9%98%9F/">
         火柴排队
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
         滑动窗口
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/">
         根据身高重建队列
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
         最长递增子序列
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%AF%BC%E5%BC%B9%E6%8B%A6%E6%88%AA/">
         导弹拦截
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E4%B8%AA%E6%95%B0/">
         最长递增子序列的个数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E7%BB%9F%E8%AE%A1%E4%BD%9C%E6%88%98%E5%8D%95%E4%BD%8D%E6%95%B0/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E7%BB%9F%E8%AE%A1%E4%BD%9C%E6%88%98%E5%8D%95%E4%BD%8D%E6%95%B0/">
         统计作战单位数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%88%91%E7%9A%84%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%E8%A1%A8%20I/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%88%91%E7%9A%84%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%E8%A1%A8%20I/">
         我的日程安排表 I
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9F%A5%E8%AF%A2%E5%B8%A6%E9%94%AE%E7%9A%84%E6%8E%92%E5%88%97/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9F%A5%E8%AF%A2%E5%B8%A6%E9%94%AE%E7%9A%84%E6%8E%92%E5%88%97/">
         查询带键的排列
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9C%80%E9%95%BF%E4%B8%8A%E4%BC%A0%E5%89%8D%E7%BC%80/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9C%80%E9%95%BF%E4%B8%8A%E4%BC%A0%E5%89%8D%E7%BC%80/">
         最长上传前缀
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%95%B0%E5%AD%97%E6%B5%81%E7%9A%84%E7%A7%A9/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%95%B0%E5%AD%97%E6%B5%81%E7%9A%84%E7%A7%A9/">
         数字流的秩
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%88%91%E7%9A%84%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%E8%A1%A8%20II/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%88%91%E7%9A%84%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%E8%A1%A8%20II/">
         我的日程安排表 II
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%8C%BA%E9%97%B4%E5%86%85%E6%9F%A5%E8%AF%A2%E6%95%B0%E5%AD%97%E7%9A%84%E9%A2%91%E7%8E%87/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E5%8C%BA%E9%97%B4%E5%86%85%E6%9F%A5%E8%AF%A2%E6%95%B0%E5%AD%97%E7%9A%84%E9%A2%91%E7%8E%87/">
         区间内查询数字的频率
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E6%9F%93%E8%89%B2/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E6%9F%93%E8%89%B2/">
         二叉搜索树染色
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../%E5%8C%BA%E9%97%B4%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86/%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9C%80%E5%A4%A7%E8%BF%9E%E7%BB%AD%201%20%E7%9A%84%E4%B8%AA%E6%95%B0/">
+<a class="md-nav__link" href="../../%E7%BA%BF%E6%AE%B5%E6%A0%91/%E6%9C%80%E5%A4%A7%E8%BF%9E%E7%BB%AD%201%20%E7%9A%84%E4%B8%AA%E6%95%B0/">
         最大连续 1 的个数
       </a>
 </li>
@@ -1098,13 +1099,13 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
           动态规划
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_12">
 <span class="md-nav__icon md-icon"></span>
           动态规划
@@ -1123,22 +1124,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%981/">
         台阶问题（简单版）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%982/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E5%8F%B0%E9%98%B6%E9%97%AE%E9%A2%982/">
         台阶问题（困难版）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E5%BE%88%E5%A4%9A%E4%B8%AA1%E5%8F%96%E6%A8%A1/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E5%BE%88%E5%A4%9A%E4%B8%AA1%E5%8F%96%E6%A8%A1/">
         很多个 1 取模
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E9%80%92%E6%8E%A8/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E9%80%92%E6%8E%A8/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0/">
         斐波那契数
       </a>
 </li>
@@ -1158,32 +1159,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/01%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/01%E8%83%8C%E5%8C%85/">
         01 背包
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/01%20%E8%83%8C%E5%8C%85%E5%8F%98%E6%8D%A2%E8%A7%A3%E6%B3%95/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/01%20%E8%83%8C%E5%8C%85%E5%8F%98%E6%8D%A2%E8%A7%A3%E6%B3%95/">
         01 背包变换解法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/01%20%E8%83%8C%E5%8C%85%E5%8F%98%E5%BC%8F/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/01%20%E8%83%8C%E5%8C%85%E5%8F%98%E5%BC%8F/">
         01 背包变式
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98/">
         装箱问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%BC%80%E5%AD%A6%E7%9A%84%E9%87%91%E6%98%8E/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%BC%80%E5%AD%A6%E7%9A%84%E9%87%91%E6%98%8E/">
         开心的金明
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E7%B2%BE%E5%8D%AB%E5%A1%AB%E6%B5%B7/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/01%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E7%B2%BE%E5%8D%AB%E5%A1%AB%E6%B5%B7/">
         精卫填海
       </a>
 </li>
@@ -1203,7 +1204,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85/">
         分组背包
       </a>
 </li>
@@ -1223,7 +1224,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/">
         多重背包
       </a>
 </li>
@@ -1243,12 +1244,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/">
         完全背包
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E6%9C%80%E5%B0%91%E5%9B%9B%E6%AC%A1%E6%96%B9%E6%95%B0%E4%B9%8B%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/%E6%9C%80%E5%B0%91%E5%9B%9B%E6%AC%A1%E6%96%B9%E6%95%B0%E4%B9%8B%E5%92%8C/">
         最少四次方数之和
       </a>
 </li>
@@ -1268,7 +1269,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E4%BA%8C%E7%BB%B4%E8%B4%B9%E7%94%A8%E8%83%8C%E5%8C%85/%E4%BA%8C%E7%BB%B4%E8%B4%B9%E7%94%A8%E8%83%8C%E5%8C%85/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E4%BA%8C%E7%BB%B4%E8%B4%B9%E7%94%A8%E8%83%8C%E5%8C%85/%E4%BA%8C%E7%BB%B4%E8%B4%B9%E7%94%A8%E8%83%8C%E5%8C%85/">
         二维费用背包
       </a>
 </li>
@@ -1288,7 +1289,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E4%B9%A6%E6%9C%AC%E6%95%B4%E7%90%86%E9%97%AE%E9%A2%98/%E4%B9%A6%E6%9C%AC%E6%95%B4%E7%90%86/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E4%B9%A6%E6%9C%AC%E6%95%B4%E7%90%86%E9%97%AE%E9%A2%98/%E4%B9%A6%E6%9C%AC%E6%95%B4%E7%90%86/">
         书本整理
       </a>
 </li>
@@ -1308,7 +1309,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97/">
         最长公共子序列
       </a>
 </li>
@@ -1328,7 +1329,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/">
         最长递增子序列
       </a>
 </li>
@@ -1348,7 +1349,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
         编辑距离
       </a>
 </li>
@@ -1368,7 +1369,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">
         正则表达式匹配
       </a>
 </li>
@@ -1388,160 +1389,142 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">
         最长回文子串
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_12_13" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_12_13" type="checkbox"/>
 <label class="md-nav__link" for="__nav_12_13" id="__nav_12_13_label" tabindex="0">
           线性 dp
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_12_13_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_12_13_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_12_13">
 <span class="md-nav__icon md-icon"></span>
           线性 dp
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E6%9C%80%E9%95%BF%E7%9A%84%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E6%9C%80%E9%95%BF%E7%9A%84%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">
         最长的有效括号
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E7%88%AC%E6%A5%BC%E6%A2%AF%E7%9A%84%E6%9C%80%E5%B0%91%E8%8A%B1%E8%B4%B9/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E7%88%AC%E6%A5%BC%E6%A2%AF%E7%9A%84%E6%9C%80%E5%B0%91%E8%8A%B1%E8%B4%B9/">
         爬楼梯的最少花费
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E9%99%A4%E6%95%B0%E5%8D%9A%E5%BC%88/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E9%99%A4%E6%95%B0%E5%8D%9A%E5%BC%88/">
         除数博弈
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF/">
         传递信息
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E6%9C%80%E5%A4%A7%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E6%9C%80%E5%A4%A7%E5%92%8C/">
         连续子数组最大和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD%201%20%E7%9A%84%E4%B8%AA%E6%95%B0/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD%201%20%E7%9A%84%E4%B8%AA%E6%95%B0/">
         二进制中 1 的个数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E5%90%9E%E5%B9%B6%E6%95%B0%E5%AD%97/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E5%90%9E%E5%B9%B6%E6%95%B0%E5%AD%97/">
         吞并数字
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F/">
         跳跃游戏 1
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F%202/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E8%B7%B3%E8%B7%83%E6%B8%B8%E6%88%8F%202/">
         跳跃游戏 2
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/">
         不同路径 1
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84%202/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84%202/">
         不同路径 2
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/">
         最小路径和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95/">
         解码方法
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%201/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%201/">
         不同的二叉搜索树 1
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%202/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%202/">
         不同的二叉搜索树 2
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E9%BB%91%E7%99%BD%E6%A3%8B/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E9%BB%91%E7%99%BD%E6%A3%8B/">
         黑白棋
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E8%B0%83%E9%85%8D%E5%8C%96%E5%AD%A6%E8%8D%AF%E5%89%82/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E8%B0%83%E9%85%8D%E5%8C%96%E5%AD%A6%E8%8D%AF%E5%89%82/">
         调配化学药剂
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/">
         交错字符串
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/">
         三角形最小路径和
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA2/">
         买卖股票的最佳时机 2
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          分割回文串
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E5%88%86%E5%89%B2%E5%9B%9E%E6%96%87%E4%B8%B2/">
         分割回文串
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dp">
-    线性 dp
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/">
         单词拆分
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84/">
         乘积最大子数组
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%202/">
+<a class="md-nav__link" href="../../../%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7%20dp/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%202/">
         打家劫舍 2
       </a>
 </li>
@@ -1593,86 +1576,68 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="_1">分割回文串</h1>
-<details class="question">
-<summary><a href="https://leetcode.cn/problems/palindrome-partitioning/description/">问题描述</a></summary>
-<p>给你一个字符串 <span class="arithmatex">\(s\)</span>，请你将字符串 <span class="arithmatex">\(s\)</span> 分割成一些回文子串，使每个子串都是回文串，返回 <span class="arithmatex">\(s\)</span> 的所有可能的方案.</p>
-<p><strong>样例一</strong></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>输入：s = "aab"
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>输出：[["a","a","b"],["aa","b"]]
-</code></pre></div>
-<p><strong>样例二</strong></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>输入：s = "a"
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>输出：[["a"]]
-</code></pre></div>
-<p><strong>数据大小</strong></p>
-<p><span class="arithmatex">\(1 \leq n \leq 16\)</span></p>
-</details>
-<h2 id="dp">线性 dp</h2>
-<p>先处理出以 <span class="arithmatex">\(i\)</span> 为起点的回文串有哪些，再处理出 <span class="arithmatex">\(i\)</span> 前面可以分割成多少种回文子串，再一一组合.</p>
-<p>用了两次线性 dp，一次用来求以 <span class="arithmatex">\(i\)</span> 为起点的回文串有哪些，令一次用来求前 <span class="arithmatex">\(i\)</span> 个字符所能组成的分割回文串的分割可能方案.</p>
-<p>时间复杂度和空间复杂度可能远大于 <span class="arithmatex">\(n ^ 3\)</span>，可能和 <span class="arithmatex">\(n * 2 ^ n\)</span> 不相上下！</p>
+<h1 id="_1">长度最小的子数组</h1>
 <details class="success">
 <summary>代码参考</summary>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">public</span><span class="o">:</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">dp</span><span class="p">;</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">rs</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">cscs</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">cs</span><span class="p">)</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">            </span><span class="n">cs</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="n">cs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">;</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="nf">gs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="p">{</span>
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">        </span><span class="n">string</span><span class="w"> </span><span class="n">rs</span><span class="p">;</span>
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">            </span><span class="n">rs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">l</span><span class="w"> </span><span class="o">++</span><span class="p">]);</span>
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">rs</span><span class="p">;</span>
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">partition</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">        </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
-<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">        </span><span class="n">cscs</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
-<a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a>
-<a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span>
-<a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">            </span><span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-2-31" id="__codelineno-2-31" name="__codelineno-2-31"></a>
-<a href="#__codelineno-2-32" id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span>
-<a href="#__codelineno-2-33" id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">        </span><span class="p">{</span>
-<a href="#__codelineno-2-34" id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">++</span><span class="p">)</span>
-<a href="#__codelineno-2-35" id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">            </span><span class="p">{</span>
-<a href="#__codelineno-2-36" id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span>
-<a href="#__codelineno-2-37" id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="w">                    </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a href="#__codelineno-2-38" id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="w">            </span><span class="p">}</span>
-<a href="#__codelineno-2-39" id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-2-40" id="__codelineno-2-40" name="__codelineno-2-40"></a>
-<a href="#__codelineno-2-41" id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="w">        </span><span class="n">rs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">());</span>
-<a href="#__codelineno-2-42" id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span>
-<a href="#__codelineno-2-43" id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="w">        </span><span class="p">{</span>
-<a href="#__codelineno-2-44" id="__codelineno-2-44" name="__codelineno-2-44"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">--</span><span class="p">)</span>
-<a href="#__codelineno-2-45" id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="w">            </span><span class="p">{</span>
-<a href="#__codelineno-2-46" id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
-<a href="#__codelineno-2-47" id="__codelineno-2-47" name="__codelineno-2-47"></a><span class="w">                </span><span class="n">string</span><span class="w"> </span><span class="n">ist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gs</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
-<a href="#__codelineno-2-48" id="__codelineno-2-48" name="__codelineno-2-48"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">rs</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span>
-<a href="#__codelineno-2-49" id="__codelineno-2-49" name="__codelineno-2-49"></a><span class="w">                </span><span class="p">{</span>
-<a href="#__codelineno-2-50" id="__codelineno-2-50" name="__codelineno-2-50"></a><span class="w">                    </span><span class="k">auto</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a href="#__codelineno-2-51" id="__codelineno-2-51" name="__codelineno-2-51"></a><span class="w">                    </span><span class="n">y</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">ist</span><span class="p">);</span>
-<a href="#__codelineno-2-52" id="__codelineno-2-52" name="__codelineno-2-52"></a><span class="w">                    </span><span class="n">rs</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
-<a href="#__codelineno-2-53" id="__codelineno-2-53" name="__codelineno-2-53"></a><span class="w">                </span><span class="p">}</span>
-<a href="#__codelineno-2-54" id="__codelineno-2-54" name="__codelineno-2-54"></a><span class="w">            </span><span class="p">}</span>
-<a href="#__codelineno-2-55" id="__codelineno-2-55" name="__codelineno-2-55"></a><span class="w">        </span><span class="p">}</span>
-<a href="#__codelineno-2-56" id="__codelineno-2-56" name="__codelineno-2-56"></a>
-<a href="#__codelineno-2-57" id="__codelineno-2-57" name="__codelineno-2-57"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">rs</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-<a href="#__codelineno-2-58" id="__codelineno-2-58" name="__codelineno-2-58"></a><span class="w">    </span><span class="p">}</span>
-<a href="#__codelineno-2-59" id="__codelineno-2-59" name="__codelineno-2-59"></a><span class="p">};</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">long</span><span class="o">[]</span><span class="w"> </span><span class="n">st</span><span class="p">;</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="kt">long</span><span class="o">[]</span><span class="w"> </span><span class="n">as</span><span class="p">;</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">fd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">            </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">st</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">st</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">minSubArrayLen</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nums</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">        </span><span class="n">as</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">long</span><span class="o">[</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="o">]</span><span class="p">;</span>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">        </span><span class="n">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">long</span><span class="o">[</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="o">]</span><span class="p">;</span>
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">st</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">            </span><span class="n">st</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="n">L</span><span class="p">;</span>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">            </span><span class="n">as</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">            </span><span class="n">st</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">st</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">as</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">        </span><span class="c1">// Arrays.sort(st, 1, n + 1, (long x, long y) -&gt; {</span>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">        </span><span class="c1">//     return (int)(x - y);</span>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">        </span><span class="c1">// }); // 常量不能自定义排序，报错</span>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">        </span><span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">st</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">Long</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">        </span><span class="p">});</span><span class="w"> </span><span class="c1">// 返回值必须是 int，一定要注意强制转换.</span>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">        </span><span class="c1">// Arrays.sort(st, 1, n + 1, new Comparator&lt;Long&gt;(){</span>
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">        </span><span class="c1">//     public int compare(Long x, Long y) {</span>
+<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">        </span><span class="c1">//         return (int)(x - y);</span>
+<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">        </span><span class="c1">//     }</span>
+<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">        </span><span class="c1">// }); // 返回值必须是 int，一定要注意强制转换.</span>
+<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">st</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">fd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">st</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">target</span><span class="p">));</span>
+<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="p">}</span>
 </code></pre></div>
 </details>
 </article>
