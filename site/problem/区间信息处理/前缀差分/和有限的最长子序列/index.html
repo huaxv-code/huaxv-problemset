@@ -1572,6 +1572,12 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="_1"><a href="https://leetcode.cn/problems/longest-subsequence-with-limited-sum/description/">和有限的最长子序列</a></h1>
+<p>取从小到大的最大前缀和不超过目标值的长度就是所求的答案.</p>
+<p>为什么一定是从小到大排列的呢？是否会存在剔除几个较小的，插入更多个较大的，使得其总和满足不超过目标值的前提下使得个数更多呢？</p>
+<p>先假设其成立，那么剔除的几个较小的，与在更多个较大的中取出同样个数的较大值的和是大于剔除的几个较小的值的，所以剔除的那几个较小的仍然可以融入剩下的更多较大的，所以选小的准没错.</p>
+<p>举例：</p>
+<p>需要剔除掉的较小的有：[a, b, c, d]，需要插入的更多个较大的有：[e, f, g, h, i, j, k]，</p>
+<p>由于 [e, f, g, h, i, j, k] 每一个数都比 [a, b, c, d] 大，所以在较大数种取相同个数的和 [e, f, g, h] &gt; [a, b, c, d] 的，如果 [e, f, g, h, i, j, k] 满足，那么 [a, b, c, d, i, j, k] 也照样满足，所以较小的一定是满足条件的，选小的准没错.</p>
 <details class="success">
 <summary>代码参考</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
