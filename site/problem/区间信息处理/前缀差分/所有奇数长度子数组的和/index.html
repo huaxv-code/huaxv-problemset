@@ -1567,6 +1567,11 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="_1"><a href="https://leetcode.cn/problems/sum-of-all-odd-length-subarrays/description/">所有奇数长度子数组的和</a></h1>
+<p>第一个数总共可以进入多少个区间内呢？</p>
+<p>第二个数可以进入多少个区间内？</p>
+<p>假设第 <span class="arithmatex">\(x\)</span> 个数可以进入 <span class="arithmatex">\(a\)</span> 个区间内，并且假设第 <span class="arithmatex">\(x\)</span> 个数都可以进入前面第 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(\cdots\)</span> 、<span class="arithmatex">\(x - 1\)</span> 个数组成的所有区间里面，又有哪些区间是进不去的呢？</p>
+<p>上面这些问题都可以发现明显的规律，通过此规律去推导次数方程求解.</p>
+<p>时间复杂度：<span class="arithmatex">\(O(n)\)</span>.</p>
 <details class="success">
 <summary>代码参考</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
