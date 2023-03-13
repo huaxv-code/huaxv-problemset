@@ -390,3 +390,6 @@ nav:
   - 字符串:
     - KMP:
       - KMP: problem/字符串/KMP/KMP.md
+
+  - 最短路径:
+    - 史东薇尔城: problem/最短路径/史东薇尔城.md
