@@ -138,6 +138,7 @@ nav:
   
   - 语言:
     - Java:
+      - 代码片段: problem/语言/Java/代码片段.md
       - 输入: problem/语言/Java/输入.md
       - 输出: problem/语言/Java/输出.md
       - BigInteger: problem/语言/Java/BigInteger.md

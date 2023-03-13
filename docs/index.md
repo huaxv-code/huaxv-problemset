@@ -8,6 +8,101 @@
 
 ---
 
+## **vscode** 刷 **java** 的代码片段
+
+??? note "Java"
+
+    ```java
+    import java.io.* ;
+    import java.math.* ;
+    import java.util.* ;
+
+
+
+    public class Main {
+        final static int N = 3000000;
+        
+        
+        
+        public void solve() throws Exception {
+            
+            
+            
+            cout.flush();
+        }
+        
+        public static void main(String[] args) throws Exception {
+            
+            Main cmd = new Main();
+            cmd.solve();
+            
+        }
+
+        static BufferedReader cin = 
+        new BufferedReader (
+            new InputStreamReader (System.in)
+        );
+
+        static PrintWriter cout = new PrintWriter (
+            new OutputStreamWriter (System.out)
+        );
+        
+        static Scanner next = new Scanner(System.in);
+
+        int nextInt() throws Exception {
+            int x = 0, f = 1;
+            char c = (char)cin.read();
+            while (c > '9' || c < '0') {
+                if (c == '-') f = -1;
+                c = (char)cin.read();
+            }
+            while (c <= '9' && c >= '0') {
+                x = x * 10 + (int)c - (int)'0';
+                c = (char)cin.read();
+            }
+            return x * f;
+        }
+
+        long nextLong() throws Exception {
+            long x = 0, f = 1;
+            char c = (char)cin.read();
+            while (c > '9' || c < '0') {
+                if (c == '-') f = -1L;
+                c = (char)cin.read();
+            }
+            while (c <= '9' && c >= '0') {
+                x = x * 10 + (long)c - (long)'0';
+                c = (char)cin.read();
+            }
+            return x * f;
+        }
+
+        double nextDouble() throws Exception {
+            double x = 0, f = 1;
+            char c = (char)cin.read();
+            while (c > '9' || c < '0') {
+                if (c == '-') f = -1.0;
+                c = (char)cin.read();
+            }
+            long h = 0;
+            while (c <= '9' && c >= '0') {
+                h = h * 10 + (long)c - (long)'0';
+                c = (char)cin.read();
+            }
+            double p = 0.1, e = 0;
+            if (c == '.') {
+                c = (char)cin.read();
+                while (c <= '9' && c >= '0') {
+                    e += p * ((double)c - (double)'0');
+                    p *= 0.1;
+                    c = (char)cin.read();
+                }
+            }
+            return ((double)h + e) * f;
+        }
+    }
+    ```
+
 ## **vscode** 刷题时的默认代码片段：
 
 ??? note "代码片段"
