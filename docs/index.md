@@ -30,7 +30,23 @@
             
             cout.flush();
         }
-        
+
+    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+
+
+    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+
+
+    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+
+
+    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+
+
         public static void main(String[] args) throws Exception {
             
             Main cmd = new Main();
@@ -45,6 +61,12 @@
 
         static PrintWriter cout = new PrintWriter (
             new OutputStreamWriter (System.out)
+        );
+        
+        static StreamTokenizer input = new StreamTokenizer(
+            new BufferedReader(
+                new InputStreamReader(System.in)
+            )
         );
         
         static Scanner next = new Scanner(System.in);
@@ -99,6 +121,110 @@
                 }
             }
             return ((double)h + e) * f;
+        }
+
+        static int sed = (int)System.currentTimeMillis();
+
+        public static void seed(int x) { sed = x; }
+
+        public static int _01_() {
+            sed ^= sed << 13;
+            sed ^= sed >> 17;
+            sed ^= sed << 5;
+            return (sed & 1) == 1 ? 1 : 0;
+        }
+
+        public static boolean nextBoolean() {
+            return _01_() == 1;
+        }
+
+        public static int nextInt(int n) {
+            if (n <= 1) return n;
+
+            int x = n;
+            if ((x & 1) == 1) x ++;
+
+            int k = nextInt(x >> 1);
+
+            int res = 2 * k - 1;
+            if (_01_() == 1) res ++;
+
+            if (res > n) return nextInt(n);
+            return res;
+        }
+
+        public static long nextLong(long n) {
+            if (n <= 1) return n;
+
+            long x = n;
+            if ((x & 1) == 1) x ++;
+
+            long k = nextLong(x >> 1);
+
+            long res = 2 * k - 1;
+            if (_01_() == 1) res ++;
+
+            if (res > n) return nextLong(n);
+            return res;
+        }
+
+        // 获取 1 ~ n 中随机的 m 个
+        public static int[] nextInts(int n, int m) {
+            int[] as, rs;
+            as = new int[n];
+            rs = new int[m];
+
+            for (int i = 0; i < n; i ++) {
+                as[i] = i + 1;
+            }
+
+            for (int i = 0; i < m; i ++) {
+                int t = nextInt(m - i);
+                rs[i] = as[m - 1 - t + 1];
+                int tp = as[m - 1 - t + 1];
+                as[m - 1 - t + 1] = as[i];
+                as[i] = tp;
+            }
+
+            return rs;
+        }
+
+        public static long qpow(long a, long b, long mod) {
+            if (b == 1) return a % mod;
+            if (a == 1) return a;
+
+            long res = qpow(a, b >> 1, mod);
+
+            res = res * res % mod;
+
+            if ((b & 1) > 0) res = res * a % mod;
+
+            return res;
+        }
+
+        public static long gcd(long a, long b) {
+            if (b == 0) return a;
+            return gcd(b, a % b);
+        }
+
+        public static long qmul(long a, long b, long mod) {
+            long p = 1;
+            long res = 0;
+
+            while (b > 0) {
+                if ((b & 1) > 0) {
+                    res += a * p % mod;
+                    res %= mod;
+                }
+                p <<= 1;
+                b >>= 1;
+            }
+
+            return res;
+        }
+
+        public static long qdiv(long a, long b, long mod) {
+            return qmul(a, qpow(b, mod - 2, mod), mod);
         }
     }
     ```
