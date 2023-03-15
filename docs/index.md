@@ -31,20 +31,25 @@
             cout.flush();
         }
 
-    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
-    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+    
+    /*
 
+    · · · · · · · · · ·   .--,       .--,   · · · · · · · · · ·
+    · · · · · · · · · ·  ( (  \.---./  ) )  · · · · · · · · · ·
+    · · · · · · · · · ·   '.__/o   o\__.'   · · · · · · · · · ·
+    · · · · · · · · · ·      {=  ^  =}      · · · · · · · · · ·
+    · · · · · · · · · ·       >  -  <       · · · · · · · · · ·
+    · · · · · · · · · ·      /       \      · · · · · · · · · ·
+    · · · · · · · · · ·     //       \     · · · · · · · · · ·
+    · · · · · · · · · ·    //|   .   |\    · · · · · · · · · ·
+    · · · · · · · · · ·    "'\       /'"_.-~^`'-.   · · · · · ·
+    · · · · · · · · · ·       \  _  /--'         `  · · · · · ·
+    · · · · · · · · · ·     ___)( )(___     · · · · · · · · · ·
+    · · · · · · · · · ·    (((__) (__)))    · · · · · · · · · ·  
 
-    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
-    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+    · · · · · · · 高山仰止,景行行止.虽不能至,心向往之。· · · · · ·  
 
-
-    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
-    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
-
-
-    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
-    /*· · · · · · · · · · · · This is the end · · · · · · · · · · · ·*/
+    */
 
 
         public static void main(String[] args) throws Exception {
@@ -225,6 +230,241 @@
 
         public static long qdiv(long a, long b, long mod) {
             return qmul(a, qpow(b, mod - 2, mod), mod);
+        }
+    }
+    ```
+
+    ```json
+    {
+        // Place your snippets for java here. Each snippet is defined under a snippet name and has a prefix, body and 
+        // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+        // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+        // same ids are connected.
+        // Example:
+        "Print to console": {
+            "prefix": "code",
+            "body": [
+                "import java.io.* ;",
+                "import java.math.* ;",
+                "import java.util.* ;",
+                "",
+                "",
+                "",
+                "public class Main {",
+                "\tfinal static int N = 3000000;",
+                "\t",
+                "\t$0",
+                "\t",
+                "\tpublic void solve() throws Exception {",
+                "\t\t",
+                "\t\t",
+                "\t\t",
+                "\t\tcout.flush();",
+                "\t}",
+                "",
+                " ",
+                "/*",
+                "",
+                "· · · · · · · · · ·   .--,       .--,   · · · · · · · · · ·",
+                "· · · · · · · · · ·  ( (  \\.---./  ) )  · · · · · · · · · ·",
+                "· · · · · · · · · ·   '.__/o   o\\__.'   · · · · · · · · · ·",
+                "· · · · · · · · · ·      {=  ^  =}      · · · · · · · · · ·",
+                "· · · · · · · · · ·       >  -  <       · · · · · · · · · ·",
+                "· · · · · · · · · ·      /       \\      · · · · · · · · · ·",
+                "· · · · · · · · · ·     //       \\\\     · · · · · · · · · ·",
+                "· · · · · · · · · ·    //|   .   |\\\\    · · · · · · · · · ·",
+                "· · · · · · · · · ·    \"'\\       /'\"_.-~^`'-.   · · · · · ·",
+                "· · · · · · · · · ·       \\  _  /--'         `  · · · · · ·",
+                "· · · · · · · · · ·     ___)( )(___     · · · · · · · · · ·",
+                "· · · · · · · · · ·    (((__) (__)))    · · · · · · · · · ·  ",
+                "",
+                "· · · · · · · 高山仰止,景行行止.虽不能至,心向往之。· · · · · ·  ",
+                "",
+                "*/",
+                "",
+                "",
+                "\tpublic static void main(String[] args) throws Exception {",
+                "\t\t",
+                "\t\tMain cmd = new Main();",
+                "\t\tcmd.solve();",
+                "\t\t",
+                "\t}",
+                "",
+                "\tstatic BufferedReader cin = ",
+                "\tnew BufferedReader (",
+                "\t\tnew InputStreamReader (System.in)",
+                "\t);",
+                "",
+                "\tstatic PrintWriter cout = new PrintWriter (",
+                "\t\tnew OutputStreamWriter (System.out)",
+                "\t);",
+                "\t",
+                "\tstatic StreamTokenizer input = new StreamTokenizer(",
+                "\t\tnew BufferedReader(",
+                "\t\t\tnew InputStreamReader(System.in)",
+                "\t\t)",
+                "\t);",
+                "\t",
+                "\tstatic Scanner next = new Scanner(System.in);",
+                "",
+                "\tint nextInt() throws Exception {",
+                "\t\tint x = 0, f = 1;",
+                "\t\tchar c = (char)cin.read();",
+                "\t\twhile (c > '9' || c < '0') {",
+                "\t\t\tif (c == '-') f = -1;",
+                "\t\t\tc = (char)cin.read();",
+                "\t\t}",
+                "\t\twhile (c <= '9' && c >= '0') {",
+                "\t\t\tx = x * 10 + (int)c - (int)'0';",
+                "\t\t\tc = (char)cin.read();",
+                "\t\t}",
+                "\t\treturn x * f;",
+                "\t}",
+                "",
+                "\tlong nextLong() throws Exception {",
+                "\t\tlong x = 0, f = 1;",
+                "\t\tchar c = (char)cin.read();",
+                "\t\twhile (c > '9' || c < '0') {",
+                "\t\t\tif (c == '-') f = -1L;",
+                "\t\t\tc = (char)cin.read();",
+                "\t\t}",
+                "\t\twhile (c <= '9' && c >= '0') {",
+                "\t\t\tx = x * 10 + (long)c - (long)'0';",
+                "\t\t\tc = (char)cin.read();",
+                "\t\t}",
+                "\t\treturn x * f;",
+                "\t}",
+                "",
+                "\tdouble nextDouble() throws Exception {",
+                "\t\tdouble x = 0, f = 1;",
+                "\t\tchar c = (char)cin.read();",
+                "\t\twhile (c > '9' || c < '0') {",
+                "\t\t\tif (c == '-') f = -1.0;",
+                "\t\t\tc = (char)cin.read();",
+                "\t\t}",
+                "\t\tlong h = 0;",
+                "\t\twhile (c <= '9' && c >= '0') {",
+                "\t\t\th = h * 10 + (long)c - (long)'0';",
+                "\t\t\tc = (char)cin.read();",
+                "\t\t}",
+                "\t\tdouble p = 0.1, e = 0;",
+                "\t\tif (c == '.') {",
+                "\t\t\tc = (char)cin.read();",
+                "\t\t\twhile (c <= '9' && c >= '0') {",
+                "\t\t\t\te += p * ((double)c - (double)'0');",
+                "\t\t\t\tp *= 0.1;",
+                "\t\t\t\tc = (char)cin.read();",
+                "\t\t\t}",
+                "\t\t}",
+                "\t\treturn ((double)h + e) * f;",
+                "\t}",
+                "",
+                "\tstatic int sed = (int)System.currentTimeMillis();",
+                "",
+                "\tpublic static void seed(int x) { sed = x; }",
+                "",
+                "\tpublic static int _01_() {",
+                "\t\tsed ^= sed << 13;",
+                "\t\tsed ^= sed >> 17;",
+                "\t\tsed ^= sed << 5;",
+                "\t\treturn (sed & 1) == 1 ? 1 : 0;",
+                "\t}",
+                "",
+                "\tpublic static boolean nextBoolean() {",
+                "\t\treturn _01_() == 1;",
+                "\t}",
+                "",
+                "\tpublic static int nextInt(int n) {",
+                "\t\tif (n <= 1) return n;",
+                "",
+                "\t\tint x = n;",
+                "\t\tif ((x & 1) == 1) x ++;",
+                "",
+                "\t\tint k = nextInt(x >> 1);",
+                "",
+                "\t\tint res = 2 * k - 1;",
+                "\t\tif (_01_() == 1) res ++;",
+                "",
+                "\t\tif (res > n) return nextInt(n);",
+                "\t\treturn res;",
+                "\t}",
+                "",
+                "\tpublic static long nextLong(long n) {",
+                "\t\tif (n <= 1) return n;",
+                "",
+                "\t\tlong x = n;",
+                "\t\tif ((x & 1) == 1) x ++;",
+                "",
+                "\t\tlong k = nextLong(x >> 1);",
+                "",
+                "\t\tlong res = 2 * k - 1;",
+                "\t\tif (_01_() == 1) res ++;",
+                "",
+                "\t\tif (res > n) return nextLong(n);",
+                "\t\treturn res;",
+                "\t}",
+                "",
+                "\t// 获取 1 ~ n 中随机的 m 个",
+                "\tpublic static int[] nextInts(int n, int m) {",
+                "\t\tint[] as, rs;",
+                "\t\tas = new int[n];",
+                "\t\trs = new int[m];",
+                "",
+                "\t\tfor (int i = 0; i < n; i ++) {",
+                "\t\t\tas[i] = i + 1;",
+                "\t\t}",
+                "",
+                "\t\tfor (int i = 0; i < m; i ++) {",
+                "\t\t\tint t = nextInt(m - i);",
+                "\t\t\trs[i] = as[m - 1 - t + 1];",
+                "\t\t\tint tp = as[m - 1 - t + 1];",
+                "\t\t\tas[m - 1 - t + 1] = as[i];",
+                "\t\t\tas[i] = tp;",
+                "\t\t}",
+                "",
+                "\t\treturn rs;",
+                "\t}",
+                "",
+                "\tpublic static long qpow(long a, long b, long mod) {",
+                "\t\tif (b == 1) return a % mod;",
+                "\t\tif (a == 1) return a;",
+                "",
+                "\t\tlong res = qpow(a, b >> 1, mod);",
+                "",
+                "\t\tres = res * res % mod;",
+                "",
+                "\t\tif ((b & 1) > 0) res = res * a % mod;",
+                "",
+                "\t\treturn res;",
+                "\t}",
+                "",
+                "\tpublic static long gcd(long a, long b) {",
+                "\t\tif (b == 0) return a;",
+                "\t\treturn gcd(b, a % b);",
+                "\t}",
+                "",
+                "\tpublic static long qmul(long a, long b, long mod) {",
+                "\t\tlong p = 1;",
+                "\t\tlong res = 0;",
+                "",
+                "\t\twhile (b > 0) {",
+                "\t\t\tif ((b & 1) > 0) {",
+                "\t\t\t\tres += a * p % mod;",
+                "\t\t\t\tres %= mod;",
+                "\t\t\t}",
+                "\t\t\tp <<= 1;",
+                "\t\t\tb >>= 1;",
+                "\t\t}",
+                "",
+                "\t\treturn res;",
+                "\t}",
+                "",
+                "\tpublic static long qdiv(long a, long b, long mod) {",
+                "\t\treturn qmul(a, qpow(b, mod - 2, mod), mod);",
+                "\t}",
+                "}",
+            ],
+            "description": "Log output to console"
         }
     }
     ```
