@@ -286,6 +286,7 @@ nav:
       - 最大连续 1 的个数: problem/区间信息处理/线段树/最大连续 1 的个数.md
       - 单调栈: problem/区间信息处理/线段树/单调栈.md
       - 完成所有任务的最少时间: problem/区间信息处理/线段树/完成所有任务的最少时间.md
+      - F - Double Chance: problem/区间信息处理/线段树/F - Double Chance.md
   
 
   - 倍增法:
