@@ -397,6 +397,8 @@ nav:
       - 单词拆分: problem/动态规划/线性 dp/单词拆分.md
       - 乘积最大子数组: problem/动态规划/线性 dp/乘积最大子数组.md
       - 打家劫舍 2: problem/动态规划/线性 dp/打家劫舍 2.md
+    - 状压 dp:
+      - N 次操作后的最大分数和: problem/动态规划/状压 dp/N 次操作后的最大分数和.md
   - 字符串:
     - KMP:
       - KMP: problem/字符串/KMP/KMP.md
