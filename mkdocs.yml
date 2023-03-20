@@ -167,14 +167,14 @@ nav:
       - 删除数据库: problem/语言/MySQL/删除数据库.md
       - 选择数据库: problem/语言/MySQL/选择数据库.md
       - 数据类型: problem/语言/MySQL/数据类型.md
-      - 数据类型: problem/语言/MySQL/数据类型.md
       - 创建数据表: problem/语言/MySQL/创建数据表.md
       - 删除数据表: problem/语言/MySQL/删除数据表.md
       - 插入数据: problem/语言/MySQL/插入数据.md
       - 查询数据: problem/语言/MySQL/查询数据.md
       - where 子句: problem/语言/MySQL/where 子句.md
+      - 更新数据: problem/语言/MySQL/更新数据.md
 
-      
+
 
     # - SQL Server:
     #   - 创建数据库: problem/语言/SQL Server/创建数据库.md
