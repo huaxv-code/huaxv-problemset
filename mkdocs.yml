@@ -163,6 +163,17 @@ nav:
 
     - MySQL:
       - 入门命令: problem/语言/MySQL/入门命令.md
+      - 创建数据库: problem/语言/MySQL/创建数据库.md
+      - 删除数据库: problem/语言/MySQL/删除数据库.md
+      - 选择数据库: problem/语言/MySQL/选择数据库.md
+      - 数据类型: problem/语言/MySQL/数据类型.md
+      - 数据类型: problem/语言/MySQL/数据类型.md
+      - 创建数据表: problem/语言/MySQL/创建数据表.md
+      - 删除数据表: problem/语言/MySQL/删除数据表.md
+
+    # - SQL Server:
+    #   - 创建数据库: problem/语言/SQL Server/创建数据库.md
+    #   - 新建表: problem/语言/SQL Server/新建表.md
 
 
 
