@@ -176,6 +176,7 @@ nav:
       - 删除数据: problem/语言/MySQL/删除数据.md
       - like 子句: problem/语言/MySQL/like 子句.md
       - union 子句: problem/语言/MySQL/union 子句.md
+      - 排序子句: problem/语言/MySQL/排序子句.md
 
 
 
