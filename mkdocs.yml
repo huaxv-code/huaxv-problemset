@@ -178,6 +178,8 @@ nav:
       - like 子句: problem/语言/MySQL/like 子句.md
       - union 子句: problem/语言/MySQL/union 子句.md
       - 排序子句: problem/语言/MySQL/排序子句.md
+      - 正则表达式: problem/语言/MySQL/正则表达式.md
+      - 删除列: problem/语言/MySQL/删除列.md
 
 
 
