@@ -163,6 +163,7 @@ nav:
 
     - MySQL:
       - 入门命令: problem/语言/MySQL/入门命令.md
+      - PyMySQL: problem/语言/MySQL/PyMySQL.md
       - 创建数据库: problem/语言/MySQL/创建数据库.md
       - 删除数据库: problem/语言/MySQL/删除数据库.md
       - 选择数据库: problem/语言/MySQL/选择数据库.md
