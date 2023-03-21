@@ -184,6 +184,9 @@ nav:
       - 添加第一列: problem/语言/MySQL/添加第一列.md
       - 添加到指定列的右边: problem/语言/MySQL/添加到指定列的右边.md
       - 更换列的数据类型: problem/语言/MySQL/更换列的数据类型.md
+      - 更换列的默认值: problem/语言/MySQL/更换列的默认值.md
+      - 删除列的默认值: problem/语言/MySQL/删除列的默认值.md
+      - 修改表名: problem/语言/MySQL/修改表名.md
 
 
 
