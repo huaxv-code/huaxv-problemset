@@ -563,6 +563,11 @@
         创建表-不允许某列为空
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../%E5%88%9B%E5%BB%BA%E8%A1%A8-%E7%BB%99%E6%9F%90%E5%88%97%E7%9A%84%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%E6%B7%BB%E5%8A%A0%E9%99%90%E5%88%B6/">
+        创建表-给某列的取值范围添加限制
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1948,7 +1953,7 @@
 <article class="md-content__inner md-typeset">
 <h1 id="-">创建表-指定主键</h1>
 <p>=== python</p>
-<div class="highlight"><pre><span></span><code>**方式一**
+<div class="highlight"><pre><span></span><code>**写法一**
 
 ```py
 run = '''
@@ -1962,7 +1967,7 @@ crs.execute(run)
 db.commit()
 ```
 
-**方式二**
+**写法二**
 
 ```py
 run = '''
