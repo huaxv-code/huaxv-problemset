@@ -197,6 +197,8 @@ nav:
       - 新建数据库: problem/语言/SQL Server/新建数据库.md
       - 查询数据库列表: problem/语言/SQL Server/查询数据库列表.md
       - 删除一个或多个数据库: problem/语言/SQL Server/删除一个或多个数据库.md
+      - 创建表-指定主键: problem/语言/SQL Server/创建表-指定主键.md
+      - 创建表-不允许某列为空: problem/语言/SQL Server/创建表-不允许某列为空.md
 
 
 
