@@ -209,6 +209,8 @@ nav:
       - alter-add-primary-key-给某列添加主键: problem/语言/SQL Server/alter-add-primary-key-给某列添加主键.md
 
 
+  - 杂题:
+    - 等差子数组: problem/杂题/等差子数组.md
 
   - 规律模拟:
 
