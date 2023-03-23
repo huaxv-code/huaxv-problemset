@@ -205,6 +205,7 @@ nav:
       - 查看数据表的一些信息: problem/语言/SQL Server/查看数据表的一些信息.md
       - 查看数据表的行数和大小: problem/语言/SQL Server/查看数据表的行数和大小.md
       - alter-add-添加新列到末尾: problem/语言/SQL Server/alter-add-添加新列到末尾.md
+      - alter-alter-column-修改列的数据类型和大小: problem/语言/SQL Server/alter-alter-column-修改列的数据类型和大小.md
 
 
 
