@@ -204,6 +204,7 @@ nav:
       - 创建表-给某列指定默认值: problem/语言/SQL Server/创建表-给某列指定默认值.md
       - 查看数据表的一些信息: problem/语言/SQL Server/查看数据表的一些信息.md
       - 查看数据表的行数和大小: problem/语言/SQL Server/查看数据表的行数和大小.md
+      - alter-add-添加新列到末尾: problem/语言/SQL Server/alter-add-添加新列到末尾.md
 
 
 
