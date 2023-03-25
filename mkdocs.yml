@@ -380,6 +380,7 @@ nav:
     - 农夫找奶牛: problem/搜索/农夫找奶牛.md
     - 验证二叉搜索树: problem/搜索/验证二叉搜索树.md
     - 恢复二叉搜索树: problem/搜索/恢复二叉搜索树.md
+    - 路径总和 II: problem/搜索/路径总和 II.md
 
 
   - 动态规划:
