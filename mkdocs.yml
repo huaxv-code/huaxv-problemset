@@ -471,6 +471,7 @@ nav:
 
   - 最短路径:
     - 史东薇尔城: problem/最短路径/史东薇尔城.md
+    - 网络延迟时间: problem/最短路径/网络延迟时间.md
 
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
