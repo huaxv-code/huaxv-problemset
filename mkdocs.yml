@@ -481,6 +481,7 @@ nav:
     - 网络延迟时间: problem/最短路径/网络延迟时间.md
     - K 站中转内最便宜的航班: problem/数学/矩阵/K 站中转内最便宜的航班.md
     - 细分图中的可到达节点: problem/最短路径/细分图中的可到达节点.md
+    - 阈值距离内邻居最少的城市: problem/最短路径/阈值距离内邻居最少的城市.md
 
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
