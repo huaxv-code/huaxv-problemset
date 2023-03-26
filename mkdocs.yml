@@ -480,6 +480,7 @@ nav:
     - 史东薇尔城: problem/最短路径/史东薇尔城.md
     - 网络延迟时间: problem/最短路径/网络延迟时间.md
     - K 站中转内最便宜的航班: problem/数学/矩阵/K 站中转内最便宜的航班.md
+    - 细分图中的可到达节点: problem/数学/矩阵/细分图中的可到达节点.md
 
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
