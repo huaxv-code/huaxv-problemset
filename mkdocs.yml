@@ -484,6 +484,7 @@ nav:
     - 阈值距离内邻居最少的城市: problem/最短路径/阈值距离内邻居最少的城市.md
     - 有边数限制的最短路: problem/最短路径/有边数限制的最短路.md
     - 概率最大的路径: problem/最短路径/概率最大的路径.md
+    - Dijkstra求最短路 I: problem/最短路径/Dijkstra求最短路 I.md
 
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
