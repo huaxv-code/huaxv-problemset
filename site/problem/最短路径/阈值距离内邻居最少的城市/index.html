@@ -2534,6 +2534,9 @@
 </div>
 <div class="tabbed-block">
 <p>如果贝尔曼·福特算法中在第 <span class="arithmatex">\(i\)</span> 轮的时候，某个节点的最短路径已经不再更新，那么接下来 <span class="arithmatex">\(i \sim n\)</span> 轮的运行过程中，该节点的邻居的最短路的更新都不是因它而起的，所以如果它的最短路没有更新了，就不必用它来更新它的所有邻居，借助队列实现，只有最短路有更新就丢入队列中.</p>
+<p>改成队列或者优先队列都行，如果队列超时，就换优先队列；如果优先队列超时就换普通队列，投机取巧，看看能不能过。</p>
+<p>优先队列的时间复杂度可能到达：<span class="arithmatex">\(O(nlog(n) ~ nmlog(n))\)</span></p>
+<p>玄学算法.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="kt">long</span><span class="o">[]</span><span class="w"> </span><span class="n">on</span><span class="p">;</span>
