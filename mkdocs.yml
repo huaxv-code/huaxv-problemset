@@ -83,6 +83,7 @@ theme:
     - content.tabs.link
     - content.code.copy
     - navigation.tabs.sticky
+    - navigation.path
     
   palette:
 
