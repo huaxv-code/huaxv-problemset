@@ -237,18 +237,21 @@ nav:
     - 逆序对: problem/分治法/逆序对.md
 
 
-  - 双指针:
 
-    - 两数之和: problem/双指针/两数之和.md
-    - 单词背诵: problem/双指针/单词背诵.md
-    - 逛画展: problem/双指针/逛画展.md
-    - 三数之和: problem/双指针/三数之和.md
-    - 移除元素: problem/双指针/移除元素.md
-    - 升序数组去重: problem/双指针/升序数组去重.md
-    - 最长连续不重复子序列: problem/双指针/最长连续不重复子序列.md
-    - 数组元素目标值: problem/双指针/数组元素目标值.md
-    - 砖块: problem/双指针/砖块.md
+
   - 区间信息处理:
+
+    - 双指针:
+
+      - 两数之和: problem/双指针/两数之和.md
+      - 单词背诵: problem/双指针/单词背诵.md
+      - 逛画展: problem/双指针/逛画展.md
+      - 三数之和: problem/双指针/三数之和.md
+      - 移除元素: problem/双指针/移除元素.md
+      - 升序数组去重: problem/双指针/升序数组去重.md
+      - 最长连续不重复子序列: problem/双指针/最长连续不重复子序列.md
+      - 数组元素目标值: problem/双指针/数组元素目标值.md
+      - 砖块: problem/双指针/砖块.md
 
     - 二分法:
 
@@ -349,12 +352,12 @@ nav:
       - 最少刷题数: problem/区间信息处理/线段树/最少刷题数.md
   
 
-  - 倍增法:
+    - 倍增法:
 
-    - 快速幂: problem/倍增法/快速幂.md
-    - 国旗计划: problem/倍增法/国旗计划.md
-    - 跑路: problem/倍增法/跑路.md
-    - 区间最小值: problem/倍增法/区间最小值.md
+      - 快速幂: problem/倍增法/快速幂.md
+      - 国旗计划: problem/倍增法/国旗计划.md
+      - 跑路: problem/倍增法/跑路.md
+      - 区间最小值: problem/倍增法/区间最小值.md
 
 
   - 数学:
@@ -382,18 +385,7 @@ nav:
       - 经过 k 条边的最短路径长度: problem/数学/矩阵/经过 k 条边的最短路径长度.md
       - K 站中转内最便宜的航班: problem/数学/矩阵/K 站中转内最便宜的航班.md
 
-  - 搜索:
 
-    - 迷宫之谜 : problem/搜索/迷宫之谜.md
-    - 全球变暖 : problem/搜索/全球变暖.md
-    - 跳蚱蜢: problem/搜索/跳蚱蜢.md
-    - 农夫找奶牛: problem/搜索/农夫找奶牛.md
-    - 验证二叉搜索树: problem/搜索/验证二叉搜索树.md
-    - 恢复二叉搜索树: problem/搜索/恢复二叉搜索树.md
-    - 路径总和 II: problem/搜索/路径总和 II.md
-    - 二叉树展开为链表: problem/搜索/二叉树展开为链表.md
-    - 填充每个节点的下一个右侧节点指针: problem/搜索/填充每个节点的下一个右侧节点指针.md
-    - 小朋友崇拜圈: problem/搜索/小朋友崇拜圈.md
 
 
   - 动态规划:
@@ -472,11 +464,27 @@ nav:
       - 打家劫舍 2: problem/动态规划/线性 dp/打家劫舍 2.md
     - 状压 dp:
       - N 次操作后的最大分数和: problem/动态规划/状压 dp/N 次操作后的最大分数和.md
+
+      
   - 字符串:
     - KMP:
       - KMP: problem/字符串/KMP/KMP.md
   
   - 图论:
+
+    - 搜索:
+
+      - 迷宫之谜 : problem/搜索/迷宫之谜.md
+      - 全球变暖 : problem/搜索/全球变暖.md
+      - 跳蚱蜢: problem/搜索/跳蚱蜢.md
+      - 农夫找奶牛: problem/搜索/农夫找奶牛.md
+      - 验证二叉搜索树: problem/搜索/验证二叉搜索树.md
+      - 恢复二叉搜索树: problem/搜索/恢复二叉搜索树.md
+      - 路径总和 II: problem/搜索/路径总和 II.md
+      - 二叉树展开为链表: problem/搜索/二叉树展开为链表.md
+      - 填充每个节点的下一个右侧节点指针: problem/搜索/填充每个节点的下一个右侧节点指针.md
+      - 小朋友崇拜圈: problem/搜索/小朋友崇拜圈.md
+
     - 最小生成树:
       - 最小生成树: problem/图论/最小生成树/最小生成树.md
 
