@@ -2214,7 +2214,7 @@
 <p>如果等，就说明又有一条新的最短路径抵达了该点，可以记录下来。</p>
 <hr/>
 <p>写法一：</p>
-<p>如果相等的时候也允许放入队列中，此时虽然可以更新后续的子节点，但是空间复杂度和时间复杂度很有可能达到 <span class="arithmatex">\(m ^ 2\)</span> 级别.</p>
+<p>如果相等的时候也允许放入队列中，此时虽然可以更新后续的子节点，但是空间复杂度和时间复杂度很有可能达到 <span class="arithmatex">\(m ^ 2\)</span> 级别以上，具体的时间复杂度很有可能与答案关联.</p>
 <p>因为有很多冗余项.</p>
 <p>空间复杂度很高！</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
@@ -2311,7 +2311,7 @@
 </div>
 <div class="tabbed-block">
 <p>上述造成时间复杂度和空间复杂度贼高的一大原因：允许最短路长度相同的路径也丢进去，造成了大量的冗余。</p>
-<p>如果我们只记录能造成当前节点 <span class="arithmatex">\(u\)</span> 的父节点呢？将这些父节点丢入一个集合中。</p>
+<p>如果我们只记录能构成当前节点 <span class="arithmatex">\(u\)</span> 最短路的父节点呢？将这些父节点丢入一个集合中。</p>
 <p>我们用迪杰斯特拉遍历完所有顶点的最短路后，用这些父节点构建一副新的图，该图的任意一条以 <span class="arithmatex">\(0\)</span> 为起点 <span class="arithmatex">\(n - 1\)</span> 为终点的路径，都是最短路。</p>
 <p>我们要统计从 <span class="arithmatex">\(0\)</span> 开始到 <span class="arithmatex">\(n - 1\)</span> 总共有多少条路径。</p>
 <p>怎么统计？</p>
