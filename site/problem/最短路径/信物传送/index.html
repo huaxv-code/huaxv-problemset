@@ -2216,6 +2216,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>如果我们已经求出了一些点到起点 <span class="arithmatex">\(st\)</span> 的最短路径，那么这些点向周围辐射后，肯定能确定一个最短的邻居到起点的最短路径。</p>
+<p>这好像就是 <em>迪杰斯特拉</em> ?!!</p>
 <p>算法思想上和 prim 很接近：不断寻找最近的邻居，并从已经遍历的点开始向周围辐射，寻找这些点的所有邻居中最近的邻居。</p>
 <p>代码设计上有点像堆处理的 <span class="arithmatex">\(Spfa\)</span> ???</p>
 <p>时间复杂度：好像是 <span class="arithmatex">\(O(n, m)\)</span> 感觉上。</p>
