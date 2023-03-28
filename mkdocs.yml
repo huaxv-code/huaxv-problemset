@@ -82,6 +82,7 @@ theme:
     - content.code.annotate
     - content.tabs.link
     - content.code.copy
+    - navigation.tabs.sticky
     
   palette:
 
