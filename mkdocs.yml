@@ -485,6 +485,10 @@ nav:
     - 有边数限制的最短路: problem/最短路径/有边数限制的最短路.md
     - 概率最大的路径: problem/最短路径/概率最大的路径.md
     - Dijkstra求最短路 I: problem/最短路径/Dijkstra求最短路 I.md
+  
+  - 图论:
+    - 最小生成树:
+      - 最小生成树: problem/图论/最小生成树/最小生成树.md
 
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
