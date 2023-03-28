@@ -76,7 +76,7 @@ theme:
     # - navigation.expand
     # - navigation.prune
     # - navigation.prune 
-    # - toc.follow
+    - toc.follow
     - navigation.top
     # - toc.integrate
     - content.code.annotate
