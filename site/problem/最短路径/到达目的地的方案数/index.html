@@ -2315,7 +2315,8 @@
 <p>我们用迪杰斯特拉遍历完所有顶点的最短路后，用这些父节点构建一副新的图，该图的任意一条以 <span class="arithmatex">\(0\)</span> 为起点 <span class="arithmatex">\(n - 1\)</span> 为终点的路径，都是最短路。</p>
 <p>我们要统计从 <span class="arithmatex">\(0\)</span> 开始到 <span class="arithmatex">\(n - 1\)</span> 总共有多少条路径。</p>
 <p>怎么统计？</p>
-<p>如果我们可以将该图转换成拓扑序，只有前面的点指向后面的点，那么从拓扑序的前面开始往后面遍历，每遍历一个点 <span class="arithmatex">\(u\)</span> 都将 <span class="arithmatex">\(u\)</span> 的所有子节点的可达路径数递增 <span class="arithmatex">\(1\)</span>，就可以不断的推导出所有节点到 <span class="arithmatex">\(0\)</span> 号节点的可达路径数。</p>
+<p>如果我们可以将该图转换成拓扑序，只有前面的点指向后面的点，那么从拓扑序的前面开始往后面遍历，每遍历一个点 <span class="arithmatex">\(u\)</span> 都将 <span class="arithmatex">\(u\)</span> 的所有子节点的可达路径数递增 <span class="arithmatex">\(dp[u]\)</span>，就可以不断的推导出所有节点到 <span class="arithmatex">\(0\)</span> 号节点的可达路径数。</p>
+<p>将状态往后更新推移，不依赖前面。</p>
 <p>时间复杂度：<span class="arithmatex">\(n ^ 2、mlog(m)\)</span> 取最大.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">inf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="mi">1L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">63</span><span class="p">);</span>
