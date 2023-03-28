@@ -485,6 +485,7 @@ nav:
     - 有边数限制的最短路: problem/最短路径/有边数限制的最短路.md
     - 概率最大的路径: problem/最短路径/概率最大的路径.md
     - Dijkstra求最短路 I: problem/最短路径/Dijkstra求最短路 I.md
+    - Spfa 判断负环: problem/最短路径/Spfa 判断负环.md
   
   - 图论:
     - 最小生成树:
