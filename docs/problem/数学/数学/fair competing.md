@@ -109,7 +109,7 @@
 
     [](./img/%E6%8A%95%E7%A1%AC%E5%B8%813.png)
 
-    以此小题，引以为鉴
+    以此小题，引以为鉴。
 
     ```java
     import java.util.* ;
