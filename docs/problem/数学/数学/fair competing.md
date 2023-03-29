@@ -1,4 +1,4 @@
-# fair competing
+# [fair competing](https://ac.nowcoder.com/acm/contest/17797/L)
 
 === "暴力随机化模拟"
 
@@ -97,17 +97,17 @@
 
     问最后一次出现 $1$ 的概率是多少？
 
-    [](./img/%E6%8A%95%E7%A1%AC%E5%B8%81.png)
+    ![](./img/投硬币.png)
 
     是 $2/3$ 呢？
 
-    [](./img/%E6%8A%95%E7%A1%AC%E5%B8%812.png)
+    ![](./img/投硬币2.png)
 
     还是 $3/4$ 呢？
     
     答案肯定是 $3/4$ ：
 
-    [](./img/%E6%8A%95%E7%A1%AC%E5%B8%813.png)
+    ![](./img/投硬币3.png)
 
     以此小题，引以为鉴。
 
