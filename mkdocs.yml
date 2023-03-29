@@ -505,6 +505,7 @@ nav:
       - 到达目的地的方案数: problem/最短路径/到达目的地的方案数.md
       - 信物传送: problem/最短路径/信物传送.md
       - An Easy Problem: problem/最短路径/An Easy Problem.md
+      - Jerry is a mouse: problem/最短路径/Jerry is a mouse.md
 
     - 二分图:
       - 染色法判断二分图: problem/图论/二分图/染色法判断二分图.md
