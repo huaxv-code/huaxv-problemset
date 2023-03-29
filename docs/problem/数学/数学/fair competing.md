@@ -79,3 +79,116 @@
         }
     }
     ```
+
+=== "很容易思维误区的 “统计次数” "
+
+    今天做题时，很自然而然的就想同 dfs 统计游戏结束时出现 3 轮次的次数和出现 4 轮次的次数，如何用这些轮次乘上各自出现的次数 除以 总次数得到最终概率，这是错误的。
+
+    参考下面的小题：
+
+    **投硬币游戏：**
+
+    一枚硬币只有 $1$ 和 $2$ 两面，并且投掷的概率相同都是 五五开。
+
+    游戏规则如下：
+    
+    - 出现 $1$ 时游戏结束；
+    - 出现两次 $2$ 时游戏结束。
+
+    问最后一次出现 $1$ 的概率是多少？
+
+    [](./img/%E6%8A%95%E7%A1%AC%E5%B8%81.png)
+
+    是 $2/3$ 呢？
+
+    [](./img/%E6%8A%95%E7%A1%AC%E5%B8%812.png)
+
+    还是 $3/4$ 呢？
+    
+    答案肯定是 $3/4$ ：
+
+    [](./img/%E6%8A%95%E7%A1%AC%E5%B8%813.png)
+
+    我就是犯了上面的错误啊！陷入进去，根本没有发现！投掷次数也是有概率的啊。
+
+    ```java
+    import java.util.* ;
+    import java.io.* ;
+    import java.math.* ;
+
+    public class Main {
+
+        int[] st = new int[4];
+
+        double sm, ct;
+
+        boolean ok() {
+            for (int aa : st) {
+                if (aa == 2) return true;
+            }
+            return false;
+        }
+
+        void dfs(long p, int id, int on) {
+            if (ok()) {
+                int a = id + 1;
+                int b = id + 2;
+                if (a == 4) a = 1;
+                if (b == 4) b = 1;
+
+                if (p == 3) {
+                    dfs(p + 1, a, 1);
+                    dfs(p + 1, b, 1);
+                } else {
+                    sm += p; ct ++;
+                    if (on == 1) sm --;
+                }
+
+                return;
+            }
+
+            for (int i = 1; i <= 3; i ++) {
+                if (i == id) continue;
+                st[i] ++;
+                dfs(p + 1, i, 0);
+                st[i] --;
+            }
+        }
+
+        public void solve() throws Exception {
+            for (int i = 1; i <= 3; i ++) {
+                dfs(0, i, 0);
+            }
+
+            // cout.println(sm + " " + ct);
+            cout.printf("%.1f\n", 1.0 * sm / ct);
+        }
+
+        public static void main(String[] args) throws Exception {
+            
+            Main cmd = new Main();
+            cmd.solve();
+            cout.flush();
+            
+        }
+
+        public static BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
+        public static PrintWriter cout = new PrintWriter(new OutputStreamWriter(System.out));
+        public static StreamTokenizer next = new StreamTokenizer(cin);
+
+        int gii() throws Exception {
+            next.nextToken();
+            return (int)next.nval;
+        }
+
+        long gll() throws Exception {
+            next.nextToken();
+            return (long)next.nval;
+        }
+
+        double gff() throws Exception {
+            next.nextToken();
+            return (double)next.nval;
+        }
+    }
+    ```
