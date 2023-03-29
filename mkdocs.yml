@@ -504,6 +504,7 @@ nav:
       - 从第一个节点出发到最后一个节点的受限路径数: problem/最短路径/从第一个节点出发到最后一个节点的受限路径数.md
       - 到达目的地的方案数: problem/最短路径/到达目的地的方案数.md
       - 信物传送: problem/最短路径/信物传送.md
+      - An Easy Problem: problem/最短路径/An Easy Problem.md
 
     - 二分图:
       - 染色法判断二分图: problem/图论/二分图/染色法判断二分图.md
