@@ -200,3 +200,96 @@
         }
     }
     ```
+
+    ---
+
+    写法二
+
+    ```java
+    import java.util.* ;
+    import java.io.* ;
+    import java.math.* ;
+
+    public class Main {
+
+        int[] st = new int[4];
+
+        double res = 0.0;
+
+        boolean ok() {
+            for (int aa : st) {
+                if (aa == 2) return true;
+            }
+            return false;
+        }
+
+        List<int[]> get(int id) {
+            List<int[]> gs = new ArrayList<>();
+
+            for (int i = 1; i <= 3; i ++) {
+                for (int j = i + 1; j <= 3; j ++) {
+                    if (i == id || j == id) continue;
+                    gs.add(new int[]{i, j});
+                }
+            }
+
+            return gs;
+        }
+
+        void dfs(long p, int id, double pp) {
+            if (ok()) {
+                res += 1.0 * p * pp; 
+                // cout.println(p + " " + pp);
+                return;
+            }
+
+            List<int[]> gs = get(id);
+            double fp = 1.0 / gs.size();
+
+            for (int[] aa : gs) {
+                st[aa[0]] ++;
+                dfs(p + 1, aa[0], pp * fp * 0.5);
+                st[aa[0]] --;
+
+                st[aa[1]] ++;
+                dfs(p + 1, aa[1], pp * fp * 0.5);
+                st[aa[1]] --;
+            }
+        }
+
+        public void solve() throws Exception {
+            for (int i = 1; i <= 3; i ++) {
+                dfs(0, i, 1.0 / 3);
+            }
+
+            cout.printf("%.1f\n", res);
+        }
+
+        public static void main(String[] args) throws Exception {
+            
+            Main cmd = new Main();
+            cmd.solve();
+            cout.flush();
+            
+        }
+
+        public static BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
+        public static PrintWriter cout = new PrintWriter(new OutputStreamWriter(System.out));
+        public static StreamTokenizer next = new StreamTokenizer(cin);
+
+        int gii() throws Exception {
+            next.nextToken();
+            return (int)next.nval;
+        }
+
+        long gll() throws Exception {
+            next.nextToken();
+            return (long)next.nval;
+        }
+
+        double gff() throws Exception {
+            next.nextToken();
+            return (double)next.nval;
+        }
+    }
+    ```
