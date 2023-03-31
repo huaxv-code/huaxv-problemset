@@ -2343,7 +2343,8 @@
 <hr/>
 <p><strong>扩展欧几里得求逆元</strong></p>
 <p>若 <span class="arithmatex">\(ax = 1 (mod)\)</span>，则 <span class="arithmatex">\(a * x + mod * y = 1 (mod)\)</span>，如果 <span class="arithmatex">\(gcd(a, mod) = 1\)</span> 时，则 <span class="arithmatex">\(a * x + mod * y = gcd(a, mod)\)</span>，所以 <span class="arithmatex">\(x = exgcd(a, mod)[0]\)</span></p>
-<p>前提是 <span class="arithmatex">\(gcd(a, mod) = 1\)</span>.</p>
+<p>如果要求 <span class="arithmatex">\(x\)</span> 必须是整数，则 <span class="arithmatex">\(gcd(a, mod) = 1\)</span>.</p>
+<p>否则 <span class="arithmatex">\(x = exgcd(a, mod)[0] / gcd(a, mod)\)</span> ??? 这样成立吗？</p>
 </div>
 </div>
 </input></div>
