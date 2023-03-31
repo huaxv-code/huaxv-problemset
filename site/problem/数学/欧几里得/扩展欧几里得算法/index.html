@@ -2339,11 +2339,11 @@
 <p>所以 <span class="arithmatex">\(ax + by = gcd(a, b)\)</span> 一定有解。</p>
 <hr/>
 <p><strong>求 ax + by = c 的一对整数解</strong></p>
-<p>先求出 <span class="arithmatex">\(ax + by = gcd(a, b)\)</span> 的特解，如果 <span class="arithmatex">\(ax + by = c\)</span> 有整数解，那么 <span class="arithmatex">\(gcd(a, b) | c\)</span>.</p>
+<p>先求出 <span class="arithmatex">\(ax + by = gcd(a, b)\)</span> 的特解，如果 <span class="arithmatex">\(ax + by = c\)</span> 有整数解，那么 <span class="arithmatex">\(gcd(a, b) | c\)</span>，因为 <span class="arithmatex">\(gcd(a, b) | ax + by\)</span>.</p>
 <hr/>
 <p><strong>扩展欧几里得求逆元</strong></p>
 <p>若 <span class="arithmatex">\(ax = 1 (mod)\)</span>，则 <span class="arithmatex">\(a * x + mod * y = 1 (mod)\)</span>，如果 <span class="arithmatex">\(gcd(a, mod) = 1\)</span> 时，则 <span class="arithmatex">\(a * x + mod * y = gcd(a, mod)\)</span>，所以 <span class="arithmatex">\(x = exgcd(a, mod)[0]\)</span></p>
-<p>如果要求 <span class="arithmatex">\(x\)</span> 必须是整数，则 <span class="arithmatex">\(gcd(a, mod) = 1\)</span>.</p>
+<p>如果要求 <span class="arithmatex">\(x\)</span> 必须是整数，则大前提是 <span class="arithmatex">\(gcd(a, mod) | 1\)</span>，即 <span class="arithmatex">\(gcd(a, mod) = 1\)</span>，<span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(mod\)</span> 互质.</p>
 <p>否则 <span class="arithmatex">\(x = exgcd(a, mod)[0] / gcd(a, mod)\)</span> ??? 这样成立吗？</p>
 </div>
 </div>
