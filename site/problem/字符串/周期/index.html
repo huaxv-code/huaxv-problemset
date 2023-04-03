@@ -2359,8 +2359,8 @@
 <a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">}</span>
 </code></pre></div>
 <hr/>
-<p>如果该子串是形如：<span class="arithmatex">\(AAAAAAAAA\)</span> 的循环子串，那么最后一个 <span class="arithmatex">\(kmp[len]\)</span> 的长度一定等于 <span class="arithmatex">\(len - kmp[len]\)</span>，逻辑上就是匹配少了个循环节。</p>
-<p>并且 <span class="arithmatex">\(len - kmp[len] &lt; len\)</span> 且 <span class="arithmatex">\((len - kmp[len]) | len\)</span>.</p>
+<p>如果该子串是形如：<span class="arithmatex">\(AAAAAAAAA\)</span> 的循环子串，那么最小循环节的长度一定等于 <span class="arithmatex">\(len - kmp[len]\)</span>，逻辑上就是匹配少了个循环节。</p>
+<p>并且还需要满足 <span class="arithmatex">\(len - kmp[len] &lt; len\)</span> 且 <span class="arithmatex">\((len - kmp[len]) | len\)</span>.</p>
 <hr/>
 <p>另提一嘴，<code>BufferedReader</code> 读取到文件末尾时，<code>readLine</code> 会返回 <code>null</code>，<code>read</code> 会返回 <span class="arithmatex">\(-1\)</span>，不要用 <span class="arithmatex">\(read\)</span> 来判断文件末尾。</p>
 <hr/>
