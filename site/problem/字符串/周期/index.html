@@ -2362,7 +2362,7 @@
 <p>如果该子串是形如：<span class="arithmatex">\(AAAAAAAAA\)</span> 的循环子串，那么最后一个 <span class="arithmatex">\(kmp[len]\)</span> 的长度一定等于 <span class="arithmatex">\(len - kmp[len]\)</span>，逻辑上就是匹配少了个循环节。</p>
 <p>并且 <span class="arithmatex">\(len - kmp[len] &lt; len\)</span> 且 <span class="arithmatex">\((len - kmp[len]) | len\)</span>.</p>
 <hr/>
-<p>另提一嘴，<code>BufferedReader</code> 读取到文件末尾时，会返回 <code>null</code>。</p>
+<p>另提一嘴，<code>BufferedReader</code> 读取到文件末尾时，<code>readLine</code> 会返回 <code>null</code>，<code>read</code> 会返回 <span class="arithmatex">\(-1\)</span>，不要用 <span class="arithmatex">\(read\)</span> 来判断文件末尾。</p>
 <hr/>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="w"> </span><span class="p">;</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.io.*</span><span class="w"> </span><span class="p">;</span>
