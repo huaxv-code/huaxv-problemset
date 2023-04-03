@@ -486,8 +486,8 @@ nav:
 
       
   - 字符串:
-    - KMP:
-      - KMP: problem/字符串/KMP/KMP.md
+    - 周期:
+      - 周期: problem/字符串/周期.md
   
   - 图论:
 
