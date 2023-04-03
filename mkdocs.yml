@@ -509,6 +509,7 @@ nav:
       - 微博转发: problem/搜索/微博转发.md
       - 八数码: problem/搜索/八数码.md
       - 不同路径数: problem/搜索/不同路径数.md
+      - n-皇后问题: problem/搜索/n-皇后问题.md
 
     - 最小生成树:
       - 最小生成树: problem/图论/最小生成树/最小生成树.md
