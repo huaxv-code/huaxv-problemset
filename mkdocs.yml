@@ -534,6 +534,9 @@ nav:
     - 二分图:
       - 染色法判断二分图: problem/图论/二分图/染色法判断二分图.md
 
+    - 拓扑排序:
+      - 构造有向无环图: problem/图论/拓扑排序/构造有向无环图.md
+
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
     - 最大异或和: problem/字典树/最大异或和.md
