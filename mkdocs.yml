@@ -531,6 +531,7 @@ nav:
       - An Easy Problem: problem/最短路径/An Easy Problem.md
       - Jerry is a mouse: problem/最短路径/Jerry is a mouse.md
       - 最短距离: problem/最短路径/最短距离.md
+      - 作物杂交: problem/最短路径/作物杂交.md
 
     - 二分图:
       - 染色法判断二分图: problem/图论/二分图/染色法判断二分图.md
