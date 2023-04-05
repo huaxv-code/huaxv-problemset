@@ -514,6 +514,8 @@ nav:
     - 最小生成树:
       - 最小生成树: problem/图论/最小生成树/最小生成树.md
       - 城市通电: problem/图论/最小生成树/城市通电.md
+      - Kruskal算法求最小生成树: problem/图论/最小生成树/Kruskal算法求最小生成树.md
+      - Prim算法求最小生成树: problem/图论/最小生成树/Prim算法求最小生成树.md
 
       
     - 最短路径:
