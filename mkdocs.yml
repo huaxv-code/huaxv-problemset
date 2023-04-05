@@ -545,6 +545,11 @@ nav:
     - 拓扑排序:
       - 构造有向无环图: problem/图论/拓扑排序/构造有向无环图.md
 
+    - DFS 序:
+
+      - DFS 序笔记: problem/图论/DFS 序/DFS 序笔记.md
+      - DFS 序与最近公共祖先: problem/图论/DFS 序/DFS 序与最近公共祖先.md
+
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
     - 最大异或和: problem/字典树/最大异或和.md
