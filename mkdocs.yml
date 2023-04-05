@@ -534,6 +534,7 @@ nav:
       - 作物杂交: problem/最短路径/作物杂交.md
       - 最优贸易: problem/最短路径/最优贸易.md
       - 铁路和公路: problem/最短路径/铁路和公路.md
+      - Floyd求最短路: problem/最短路径/Floyd求最短路.md
 
     - 二分图:
       - 染色法判断二分图: problem/图论/二分图/染色法判断二分图.md
