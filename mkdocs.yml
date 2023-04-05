@@ -544,11 +544,14 @@ nav:
 
     - 拓扑排序:
       - 构造有向无环图: problem/图论/拓扑排序/构造有向无环图.md
-      - 有向图的拓扑序列: problem/图论/拓扑排序/构造有向无环图.md
+      - 有向图的拓扑序列: problem/图论/拓扑排序/有向图的拓扑序列.md
 
     - DFS序 和 欧拉序:
 
       - DFS 序: problem/图论/DFS序 和 欧拉序/DFS 序.md
+      - 欧拉序: problem/图论/DFS序 和 欧拉序/欧拉序.md
+      - 二叉树的最短路径: problem/图论/DFS序 和 欧拉序/二叉树的最短路径.md
+      - 最近公共祖先: problem/图论/DFS序 和 欧拉序/最近公共祖先.md
 
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
