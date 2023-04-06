@@ -512,7 +512,7 @@ nav:
       - n-皇后问题: problem/搜索/n-皇后问题.md
 
     - 树:
-      - 树的直径: problem/图论/树/树的直径.md
+      - 树的直径: problem/图论/树/树的直径/树的直径.md
       - DFS序 和 欧拉序:
 
         - DFS 序: problem/图论/DFS序 和 欧拉序/DFS 序.md
