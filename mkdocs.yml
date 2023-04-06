@@ -511,6 +511,19 @@ nav:
       - 不同路径数: problem/搜索/不同路径数.md
       - n-皇后问题: problem/搜索/n-皇后问题.md
 
+    - 树:
+      - 树的直径: problem/图论/树/树的直径.md
+      - DFS序 和 欧拉序:
+
+        - DFS 序: problem/图论/DFS序 和 欧拉序/DFS 序.md
+        - 欧拉序: problem/图论/DFS序 和 欧拉序/欧拉序.md
+        - 二叉树的最短路径: problem/图论/DFS序 和 欧拉序/二叉树的最短路径.md
+        - 最近公共祖先: problem/图论/DFS序 和 欧拉序/最近公共祖先.md
+      
+      - 最近公共祖先:
+        - 二叉树的最短路径: problem/图论/DFS序 和 欧拉序/二叉树的最短路径.md
+        - 最近公共祖先: problem/图论/DFS序 和 欧拉序/最近公共祖先.md
+
     - 最小生成树:
       - 最小生成树: problem/图论/最小生成树/最小生成树.md
       - 城市通电: problem/图论/最小生成树/城市通电.md
@@ -546,16 +559,7 @@ nav:
       - 构造有向无环图: problem/图论/拓扑排序/构造有向无环图.md
       - 有向图的拓扑序列: problem/图论/拓扑排序/有向图的拓扑序列.md
 
-    - DFS序 和 欧拉序:
 
-      - DFS 序: problem/图论/DFS序 和 欧拉序/DFS 序.md
-      - 欧拉序: problem/图论/DFS序 和 欧拉序/欧拉序.md
-      - 二叉树的最短路径: problem/图论/DFS序 和 欧拉序/二叉树的最短路径.md
-      - 最近公共祖先: problem/图论/DFS序 和 欧拉序/最近公共祖先.md
-    
-    - 最近公共祖先:
-      - 二叉树的最短路径: problem/图论/DFS序 和 欧拉序/二叉树的最短路径.md
-      - 最近公共祖先: problem/图论/DFS序 和 欧拉序/最近公共祖先.md
 
   - 字典树:
     - A+B Problem again: problem/字典树/A+B Problem again.md
