@@ -511,6 +511,7 @@ nav:
       - 不同路径数: problem/搜索/不同路径数.md
       - n-皇后问题: problem/搜索/n-皇后问题.md
       - IDA 星: problem/搜索/IDA 星.md
+      - A星: problem/搜索/A星.md
 
     - 树:
       - 树的直径:
