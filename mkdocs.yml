@@ -493,6 +493,11 @@ nav:
   - 字符串:
     - 周期: problem/字符串/周期.md
     - KMP字符串: problem/字符串/KMP字符串.md
+    - 字典树:
+      - A+B Problem again: problem/字典树/A+B Problem again.md
+      - 最大异或和: problem/字典树/最大异或和.md
+      - Trie字符串统计: problem/字典树/Trie字符串统计.md
+      - 最大异或对: problem/字典树/最大异或对.md
   
   - 图论:
 
@@ -568,10 +573,7 @@ nav:
       - 构造有向无环图: problem/图论/拓扑排序/构造有向无环图.md
       - 有向图的拓扑序列: problem/图论/拓扑排序/有向图的拓扑序列.md
 
+  - 零食文件夹:
+    - 服务器端密码验证的实现: problem/零食文件夹/服务器端密码验证的实现.md
 
 
-  - 字典树:
-    - A+B Problem again: problem/字典树/A+B Problem again.md
-    - 最大异或和: problem/字典树/最大异或和.md
-    - Trie字符串统计: problem/字典树/Trie字符串统计.md
-    - 最大异或对: problem/字典树/最大异或对.md
