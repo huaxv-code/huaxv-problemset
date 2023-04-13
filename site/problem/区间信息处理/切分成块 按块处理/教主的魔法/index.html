@@ -2605,6 +2605,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="分块" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="分块">分块</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>将原数组按长度 <code>sqrt(n)</code> 切割成 <code>n / sqrt(n)</code> 块，如果还有剩，就切割成 <code>n / sqrt(n) + 1</code> 块</p>
+<p>对每一块排好序，如果我们需要查找区间 <code>[l, r]</code> 内所有比 <code>c</code> 大的元素个数时，先去 <code>[l, r]</code> 中所包含的块中二分查找，最后从剩下的不在块中的元素暴力查找，时间复杂度最大也没有超过 <code>3 * sqrt(n)</code>，所以查找 <code>m</code> 次的时间复杂度为：<span class="arithmatex">\(m\sqrt{n}\)</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
