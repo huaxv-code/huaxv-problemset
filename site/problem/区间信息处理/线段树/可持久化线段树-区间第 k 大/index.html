@@ -2616,7 +2616,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>对于区间 <span class="arithmatex">\([1, n]\)</span>，如果我能求出任意一个区间 <span class="arithmatex">\([1, i]\)</span> 的线段树，那么对于任意的子区间 <span class="arithmatex">\([l, r]\)</span> 是否都可以由上面的线段树推导而出呢？</p>
-<p>是的：<span class="arithmatex">\([l, r]\)</span> 构成的线段树，完全可以由两个线段树 <span class="arithmatex">\([1, r] - [1, l - 1]\)</span> 得来，并且，对于 <span class="arithmatex">\([1, i + 1]\)</span> 够成的线段树来说，该线段树与 <span class="arithmatex">\([1, i]\)</span> 构成的线段树，只会有一条从根节点到叶子节点的路径不同，因为只插入了一个点，只动了其中的一个枝条，那些没动的子树完全可以用指针指向之前未动的子树，我们只需要添加新的子树就行。</p>
+<p>是的：<span class="arithmatex">\([l, r]\)</span> 构成的线段树，完全可以由两个线段树 <span class="arithmatex">\([1, r] - [1, l - 1]\)</span> 得来，并且，对于 <span class="arithmatex">\([1, i + 1]\)</span> 够成的线段树来说，该线段树与 <span class="arithmatex">\([1, i]\)</span> 构成的线段树，只会有一条从根节点到叶子节点的路径不同，因为只插入了一个点，只动了其中的一个枝条，那些没动的子树完全可以用指针指向之前未动的子树，我们只需要添加新的子树就行。【共用点】</p>
 <p>建立一颗线段树需要 <span class="arithmatex">\(4n\)</span> 个节点，总共需要建立 <span class="arithmatex">\(n\)</span> 个分支，并且每个分支的长度大概在 <span class="arithmatex">\(log(4n)\)</span> 内，所以总共需要消耗：<span class="arithmatex">\(4n + nlog(4n)\)</span> 个节点的深度，假设 <span class="arithmatex">\(n = 2000000\)</span>，则 <span class="arithmatex">\(log(4n)\)</span> 趋近于 <span class="arithmatex">\(24\)</span> 个，所以取空间 <span class="arithmatex">\(n &lt;&lt; 5\)</span> 是完全够用的，那么我们创建了多少空间呢？</p>
 <p>大概创建了 <span class="arithmatex">\(500\)</span> MB 的空间！</p>
 <p>为了空间不爆，我牺牲点时间换空间，没有用静态开点，取而代之是用动态开点，借助指针，<code>new</code> 一个对象出来。</p>
