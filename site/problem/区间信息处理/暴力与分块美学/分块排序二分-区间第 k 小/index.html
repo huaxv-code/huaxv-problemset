@@ -2630,6 +2630,8 @@
 <p>先用二分枚举一个数 <code>x</code> 查找该数 <code>x</code> 在区间 <code>[left, right]</code> 内有多少个比该数小的，如果大于 <code>k - 1</code> 说明该数太大了；如果小于等于 <code>k - 1</code> 个说明该数还是小了。</p>
 <p>时间复杂度：查找 <span class="arithmatex">\(m\)</span> 次，数据有 <span class="arithmatex">\(n\)</span> 个时，需要 <span class="arithmatex">\(O(m \times \sqrt{n} \times log(\sqrt{n}) \times log(n))\)</span>.</p>
 <p>假设 <span class="arithmatex">\(m = 10 ^ 5\)</span>，<span class="arithmatex">\(n = 10 ^ 5\)</span>，大概需要 <span class="arithmatex">\(9 * 10 ^ 9\)</span> 次方的计算原子，会超时。</p>
+<p><strong>优点：</strong> 可支持区间修改。</p>
+<p>如果数据量 <span class="arithmatex">\(m = 10 ^ 4\)</span>，<span class="arithmatex">\(n = 10 ^ 4\)</span> ，大概需要 <span class="arithmatex">\(10 ^ 8\)</span> 次方的计算原子，很接近 <span class="arithmatex">\(1\)</span> s.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
