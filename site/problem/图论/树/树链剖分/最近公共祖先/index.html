@@ -2652,7 +2652,7 @@
 <div class="tabbed-block">
 <p>每个非叶子节点，都必定含有重儿子，据此，可以剖分出许许多多的重链.</p>
 <p>如何实现快速跳跃？如果可以将重链上的所有顶点，都指向重链的头，就可以很快的跳跃到链头。</p>
-<p>如果从链头，跳跃到下一条重量？如果我们预处理出一个数组 <span class="arithmatex">\(fa[N]\)</span>，那么对于重链头 <span class="arithmatex">\(i\)</span>，它的父亲 <span class="arithmatex">\(fa[i]\)</span> 一定位于它的下一条重链中。</p>
+<p>如何从链头，跳跃到下一条重链？如果我们预处理出一个数组 <span class="arithmatex">\(fa[N]\)</span>，那么对于重链头 <span class="arithmatex">\(i\)</span>，它的父亲 <span class="arithmatex">\(fa[i]\)</span> 一定位于它的下一条重链中。</p>
 <p>如果顶点 <span class="arithmatex">\(a\)</span> 和顶点 <span class="arithmatex">\(b\)</span> 位于同一条重链中，那么深度小的，就是祖先；</p>
 <p>如果顶点 <span class="arithmatex">\(a\)</span> 和顶点 <span class="arithmatex">\(b\)</span> 不位于同一条重链中，如果 <span class="arithmatex">\(a\)</span> 所在的重链的深度非常浅，那么 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 的最近公共祖先还是很有可能在 <span class="arithmatex">\(a\)</span> 链中，我们需要将 <span class="arithmatex">\(b\)</span> 提上来，判断一下。</p>
 <p>查一次最近公共祖先的时间复杂度：<span class="arithmatex">\(O(log(n))\)</span></p>
