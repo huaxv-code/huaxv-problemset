@@ -2661,7 +2661,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>如果我们能将边权，传递给最下方的节点记录，那么我们应该如何求路径 <span class="arithmatex">\(u \sim v\)</span> 的长度呢？</p>
-<p>如果从 <span class="arithmatex">\(u\)</span> 点往上，点权相加与边权相加的效果是一样的，最怕就是遇到转折点或者最高点，以为最高那个点的点权不输入路径 <span class="arithmatex">\(u \sim v\)</span> 中，这个最高的点其实也就是最近公共祖先，相加或者查询时不能考虑最近公共祖先。</p>
+<p>如果从 <span class="arithmatex">\(u\)</span> 点往上，点权相加与边权相加的效果是一样的，最怕就是遇到转折点或者最高点，因为最高那个点的点权不属于路径 <span class="arithmatex">\(u \sim v\)</span> 中，这个最高的点其实也就是最近公共祖先，相加或者查询时不能考虑最近公共祖先。</p>
 <p>时间复杂度：<span class="arithmatex">\(O(nlog(n) ^ 2)\)</span></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
