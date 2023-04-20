@@ -8,7 +8,7 @@
     
     化简一下：$a*kx + b*ky + aA + bB = k * \gcd(a, b)$，即 $aA + bB = 0$，
     
-    所以：$a * \frac{ab}{\gcd(a, b)} * t + b * \frac{ab}{\gcd(a, b)} * -t = 0$，
+    所以：$a * \frac{b}{\gcd(a, b)} * t + b * \frac{a}{\gcd(a, b)} * -t = 0$，
 
     求出：$(A, B) = (\frac{b}{\gcd(a, b)} * t, -\frac{a}{\gcd(a, b)} * t)$
 

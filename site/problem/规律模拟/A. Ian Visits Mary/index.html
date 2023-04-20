@@ -2693,7 +2693,7 @@
 <p>给定一条直线，问这条直线在区间 <span class="arithmatex">\([l, r]\)</span> 内是否有整数解？</p>
 <p>假设直线为 <span class="arithmatex">\(ax + by = c\)</span>，先求出 <span class="arithmatex">\(ax + by = \gcd(a, b)\)</span> 的一组特解，假设为 <span class="arithmatex">\((x, y)\)</span>，那么通解就可以表示成：<span class="arithmatex">\(a(k * x + A) + b(k * y + B) = k * \gcd(a, b)\)</span>，</p>
 <p>化简一下：<span class="arithmatex">\(a*kx + b*ky + aA + bB = k * \gcd(a, b)\)</span>，即 <span class="arithmatex">\(aA + bB = 0\)</span>，</p>
-<p>所以：<span class="arithmatex">\(a * \frac{ab}{\gcd(a, b)} * t + b * \frac{ab}{\gcd(a, b)} * -t = 0\)</span>，</p>
+<p>所以：<span class="arithmatex">\(a * \frac{b}{\gcd(a, b)} * t + b * \frac{a}{\gcd(a, b)} * -t = 0\)</span>，</p>
 <p>求出：<span class="arithmatex">\((A, B) = (\frac{b}{\gcd(a, b)} * t, -\frac{a}{\gcd(a, b)} * t)\)</span></p>
 <p>用二分枚举 <span class="arithmatex">\(t\)</span>，查找在区间 <span class="arithmatex">\([l, r]\)</span> 内是否真的存在满足条件的 <span class="arithmatex">\(t\)</span>。</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
