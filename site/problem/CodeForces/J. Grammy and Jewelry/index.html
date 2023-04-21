@@ -2773,7 +2773,10 @@
 <p>先求出从 <span class="arithmatex">\(1\)</span> 号点到其他点的最短路径，那么这个最短路径就代表从点 <span class="arithmatex">\(1\)</span> 抵达点 <span class="arithmatex">\(i\)</span> 的消耗。</p>
 <p>一开始 <span class="arithmatex">\(i = 0\)</span> 或者 <span class="arithmatex">\(i = 1\)</span> 时，<span class="arithmatex">\(dp[i] = 0\)</span>，因为无法去到另外的点然后背东西回来。</p>
 <p>假设可走路程 <span class="arithmatex">\(i\)</span> 的最大价值已经求出了，是 <span class="arithmatex">\(dp[i]\)</span>；</p>
-<p>那么对于当前可走 <span class="arithmatex">\(i\)</span> 路程，到底是去哪个点可以获得最大的价值呢？假设是去点 <span class="arithmatex">\(j\)</span>，那么 <span class="arithmatex">\(dp[i] = max(dp[i], dp[i % (a[j] * 2)] + dp[a[j] * 2] + i / (a[j] * 2))\)</span></p>
+<p>那么对于当前可走 <span class="arithmatex">\(i\)</span> 路程，到底是去哪个点可以获得最大的价值呢？假设是去点 <span class="arithmatex">\(j\)</span>，那么:</p>
+<blockquote>
+<p><span class="arithmatex">\(dp[i] = max(dp[i], dp[i % (a[j] * 2)] + dp[a[j] * 2] + i / (a[j] * 2))\)</span></p>
+</blockquote>
 <p>时间复杂度：<span class="arithmatex">\(O(n ^ 2)\)</span>.</p>
 <p>你问我怎么推出来的？我也不知道，就是有一种感觉，牵引我往这方面思考，可能是做多了感觉就上来了？？？</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
