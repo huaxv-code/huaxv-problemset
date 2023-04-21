@@ -2775,7 +2775,7 @@
 <p>假设可走路程 <span class="arithmatex">\(i\)</span> 的最大价值已经求出了，是 <span class="arithmatex">\(dp[i]\)</span>；</p>
 <p>那么对于当前可走 <span class="arithmatex">\(i\)</span> 路程，到底是去哪个点可以获得最大的价值呢？假设是去点 <span class="arithmatex">\(j\)</span>，那么:</p>
 <blockquote>
-<p><span class="arithmatex">\(dp[i] = max(dp[i], dp[i % (a[j] * 2)] + dp[a[j] * 2] + i / (a[j] * 2))\)</span></p>
+<p><span class="arithmatex">\(dp[i] = max(dp[i], dp[i \% (a[j] * 2)] + dp[a[j] * 2] + i / (a[j] * 2))\)</span></p>
 </blockquote>
 <p>时间复杂度：<span class="arithmatex">\(O(n ^ 2)\)</span>.</p>
 <p>你问我怎么推出来的？我也不知道，就是有一种感觉，牵引我往这方面思考，可能是做多了感觉就上来了？？？</p>
