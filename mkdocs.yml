@@ -211,6 +211,9 @@ nav:
       - alter-alter-column-修改列的数据类型和大小: problem/语言/SQL Server/alter-alter-column-修改列的数据类型和大小.md
       - alter-add-primary-key-给某列添加主键: problem/语言/SQL Server/alter-add-primary-key-给某列添加主键.md
 
+  - AtCoder:
+    - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
+
   - CodeForces:
     - A. Coins: problem/CodeForces/A. Coins.md
     - B. Candies: problem/CodeForces/B. Candies.md
