@@ -414,6 +414,8 @@ nav:
       - fair competing : problem/数学/数学/fair competing.md
       - Good Game, GG : problem/数学/数学/Good Game, GG.md
       - 免费午餐 : problem/数学/数学/免费午餐.md
+      - 全错位排列问题 : problem/数学/数学/全错位排列问题.md
+      - 部分错位排列问题 : problem/数学/数学/部分错位排列问题.md
     
     - 素数:
 
@@ -563,6 +565,7 @@ nav:
       - 最近公共祖先:
         - 二叉树的最短路径: problem/图论/DFS序 和 欧拉序/二叉树的最短路径.md
         - 最近公共祖先: problem/图论/DFS序 和 欧拉序/最近公共祖先.md
+        - Tarjan 算法求最近公共祖先: problem/图论/最近公共祖先/Tarjan 算法求最近公共祖先.md
     
       - 树链剖分:
         - 最近公共祖先: problem/图论/树/树链剖分/最近公共祖先.md
