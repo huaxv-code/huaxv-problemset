@@ -578,6 +578,7 @@ nav:
       - 二叉搜索树:
         - 替罪羊树: problem/图论/树/二叉搜索树/替罪羊树.md
         - Treap 堆平衡树: problem/图论/树/二叉搜索树/Treap 堆平衡树.md
+        - FHQ Treap 分裂合并的堆平衡树: problem/图论/树/二叉搜索树/FHQ Treap 分裂合并的堆平衡树.md
 
     - 最小生成树:
       - 最小生成树: problem/图论/最小生成树/最小生成树.md
