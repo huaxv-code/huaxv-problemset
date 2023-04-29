@@ -516,6 +516,7 @@ nav:
       - 乘积最大子数组: problem/动态规划/线性 dp/乘积最大子数组.md
       - 打家劫舍 2: problem/动态规划/线性 dp/打家劫舍 2.md
       - 机器分配: problem/动态规划/线性 dp/机器分配.md
+      - 石子合并: problem/动态规划/线性 dp/石子合并.md
     - 状压 dp:
       - N 次操作后的最大分数和: problem/动态规划/状压 dp/N 次操作后的最大分数和.md
 
