@@ -2620,6 +2620,11 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%A8%A1%E6%8B%9F%E6%90%9C%E7%B4%A2%E6%A0%91/">
+        线段树模拟搜索树
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../%E6%9B%BF%E7%BD%AA%E7%BE%8A%E6%A0%91/">
         替罪羊树
       </a>
@@ -2868,146 +2873,6 @@
 <p>给每一个新插入的值，随机分配一个优先值，先按照普通搜索树的方式，将新值插入到底部的空节点处，插入后就要按照优先值进行一个调整，如果当前节点的优先值比父亲节点的还大，就要往上调，调不是乱调的，要基于旋转，不破坏搜索树的特性的情况下去旋转，将下方的节点旋到上方去。</p>
 <p>删除呢？如果要删除当前节点，那么先获取优先度最高的子节点，将子节点调整到上方，然后删除当前节点，这样就可以不破坏平衡性的情况下，将当前节点不断地推往底部的空节点处，删除。</p>
 <p>查询插入的复杂度都是 <span class="arithmatex">\(O(log(n))\)</span>，与概率随机有关。</p>
-<p>&lt;!-- ```c++</p>
-<h1 id="include">include <bits stdc++.h=""></bits></h1>
-<p>using namespace std;
-typedef long long LL;
-typedef __int128_t HH;
-const LL N = 1000000;</p>
-<p>LL n;</p>
-<p>struct Node {
-    LL ls, rs;
-    LL val, key;
-    LL size; // 统计子树的大小
-} tr[N];</p>
-<p>LL space[N], ant;</p>
-<p>void new_node(LL&amp; root, LL x) {
-    LL t = space[ant --];
-    tr[t].val = x; 
-    tr[t].key = rand();
-    tr[t].size = 1;
-    root = t;
-}</p>
-<p>void del_node(LL&amp; root) {
-    tr[root].val = 0;
-    tr[root].key = 0;
-    tr[root].size = 0;
-    tr[root].ls = 0;
-    tr[root].rs = 0;
-    space[++ ant] = root;
-    root = 0;
-}</p>
-<p>void update_size(LL t) {
-    if (!t) tr[0].size = 0;
-    else tr[t].size = tr[tr[t].ls].size + tr[tr[t].rs].size + 1;
-}</p>
-<p>// 0 表示左-&gt;右旋，1 表示右-&gt;左旋
-void rotate(LL&amp; root, LL mode) {
-    LL t = 0;
-    if (!mode) {
-        t = tr[root].ls;
-        tr[root].ls = tr[t].rs;
-        tr[t].rs = root;
-    }
-    else {
-        t = tr[root].rs;
-        tr[root].rs = tr[t].ls;
-        tr[t].ls = root;
-    }
-    swap(t, root);
-    update_size(t);    // 更新子树大小
-    update_size(root); // 更新子树大小
-}</p>
-<p>void insert(LL&amp; root, LL x) {
-    if (!root) {
-        new_node(root, x);
-        return;
-    }</p>
-<div class="highlight"><pre><span></span><code>if (tr[root].val &gt; x) {
-    insert(tr[root].ls, x);
-    update_size(root);
-    if (tr[root].key &lt; tr[tr[root].ls].key) rotate(root, 0);
-}
-else {
-    insert(tr[root].rs, x);
-    update_size(root);
-    if (tr[root].key &lt; tr[tr[root].rs].key) rotate(root, 1);
-}
-</code></pre></div>
-<p>}</p>
-<p>void erase(LL&amp; root, LL x) {
-    if (!root) return;
-    LL ls = tr[root].ls;
-    LL rs = tr[root].rs;
-    if (tr[root].val == x) {
-        if (!ls &amp;&amp; !rs) {
-            del_node(root);
-            return;
-        }
-        else if (!ls || !rs) {
-            del_node(root);
-            root = ls + rs;
-            return;
-        }
-        else {
-            if (tr[ls].key &gt; tr[rs].key) {
-                rotate(root, 0);
-                erase(tr[root].rs, x);
-            }
-            else {
-                rotate(root, 1);
-                erase(tr[root].ls, x);
-            }
-        }
-    }
-    else if (tr[root].val &gt; x) erase(tr[root].ls, x);
-    else erase(tr[root].rs, x);</p>
-<div class="highlight"><pre><span></span><code>update_size(root);
-</code></pre></div>
-<p>}</p>
-<p>LL number(LL root, LL x) {
-    if (!root) return 0;
-    LL ls = tr[root].ls;
-    LL rs = tr[root].rs;
-    if (tr[root].val &lt; x) return tr[ls].size + 1 + number(rs, x);
-    else return number(ls, x);
-}</p>
-<p>LL get_kth(LL root, LL k) {
-    LL ls = tr[root].ls;
-    LL rs = tr[root].rs;
-    if (k == tr[ls].size + 1) return tr[root].val;
-    else if (k &gt; tr[ls].size + 1) return get_kth(rs, k - tr[ls].size - 1);
-    else return get_kth(ls, k);
-}</p>
-<p>LL root;</p>
-<p>void solve() {</p>
-<div class="highlight"><pre><span></span><code>scanf ("%lld", &amp;n);
-
-srand(time(NULL));
-
-for (LL i = 1; i &lt;= N - 1; i ++) space[++ ant] = i;
-
-while (n --) {
-    LL mo, x;
-    scanf ("%lld%lld", &amp;mo, &amp;x);
-    switch (mo) {
-        case 1: insert(root, x); break;
-        case 2: erase(root, x); break;
-        case 3: printf ("%lld\n", number(root, x) + 1); break;
-        case 4: printf ("%lld\n", get_kth(root, x)); break;
-        case 5: printf ("%lld\n", get_kth(root, number(root, x))); break;
-        default: printf("%lld\n", get_kth(root, number(root, x + 1) + 1)); break;
-    }
-}
-</code></pre></div>
-<p>}</p>
-<p>int main() {</p>
-<div class="highlight"><pre><span></span><code>solve();
-
-return 0;
-</code></pre></div>
-<p>}
-``` --&gt;</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>

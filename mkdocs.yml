@@ -576,6 +576,7 @@ nav:
         - 边权转成点权: problem/图论/树/树链剖分/边权转成点权.md
       
       - 二叉搜索树:
+        - 线段树模拟搜索树: problem/图论/树/二叉搜索树/线段树模拟搜索树.md
         - 替罪羊树: problem/图论/树/二叉搜索树/替罪羊树.md
         - Treap 堆平衡树: problem/图论/树/二叉搜索树/Treap 堆平衡树.md
         - FHQ Treap 分裂合并的堆平衡树: problem/图论/树/二叉搜索树/FHQ Treap 分裂合并的堆平衡树.md
