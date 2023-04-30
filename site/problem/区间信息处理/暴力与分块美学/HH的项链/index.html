@@ -3142,7 +3142,7 @@
 </div>
 <div class="tabbed-block">
 <p>假设区间 <span class="arithmatex">\([1, i]\)</span> 的第 <span class="arithmatex">\(i\)</span> 号线段树已经求出，那么对于当前第 <span class="arithmatex">\(i + 1\)</span> 号线段树应该如何推导出来？</p>
-<p>如果元素 <span class="arithmatex">\(a[i + 1]\)</span> 在区间 <span class="arithmatex">\([1, i]\)</span> 内有出现，那么就需要把之前的位置删除，提前到位置 <span class="arithmatex">\(i + 1\)</span> 处，这样的好处就可以查询所有右区间是 <span class="arithmatex">\(right + 1\)</span> 的询问的区间 <span class="arithmatex">\([x, i + 1]\)</span>，把旧位置提前，就更有可能被查询到。</p>
+<p>如果元素 <span class="arithmatex">\(a[i + 1]\)</span> 在区间 <span class="arithmatex">\([1, i]\)</span> 内有出现，那么就需要把之前的位置删除，提前到位置 <span class="arithmatex">\(i + 1\)</span> 处，这样的好处就可以查询所有右区间是 <span class="arithmatex">\(i + 1\)</span> 的询问区间 <span class="arithmatex">\([x, i + 1]\)</span>，把旧位置提前，就更有可能被查询到。</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="cp">#define LL int</span>
