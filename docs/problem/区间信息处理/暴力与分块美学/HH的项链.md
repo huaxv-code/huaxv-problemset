@@ -269,3 +269,142 @@
         return 0;
     }
     ```
+
+=== "可持久化线段树"
+
+    假设区间 $[1, i]$ 的第 $i$ 号线段树已经求出，那么对于当前第 $i + 1$ 号线段树应该如何推导出来？
+
+    如果元素 $a[i + 1]$ 在区间 $[1, i]$ 内有出现，那么就需要把之前的位置删除，提前到位置 $i + 1$ 处，这样的好处就可以查询所有右区间是 $right + 1$ 的询问的区间 $[x, i + 1]$，把旧位置提前，就更有可能被查询到。
+
+    ```c++
+    #include <stdio.h>
+
+    #define LL int
+
+    #define read(x) \
+    {\
+        x = 0;\
+        char c = getchar();\
+        while (!(c >= '0' && c <= '9'))\
+        {c = getchar();}\
+        while (c >= '0' && c <= '9')\
+        {x = x * 10 + c - '0'; c = getchar();}\
+    }
+
+    const LL N = 1000001;
+    LL position[N];
+
+    struct Node
+    {
+        LL val, ls, rs;
+    } tr[(N << 5) + N];
+    LL ant;
+
+    LL head[N];
+    LL pl, pr;
+
+    LL n, m;
+    LL a[N];
+
+    #define ls(p) tr[p].ls 
+    #define rs(p) tr[p].rs
+
+    inline void push_up(LL rt, LL pl, LL pr)
+    {
+        if (pl == pr) return;
+        tr[rt].val = tr[ls(rt)].val + tr[rs(rt)].val;
+    }
+
+    inline void insert(LL rt1, LL& rt2, LL pl, LL pr, LL pos)
+    {
+        if (rt2 == 0 || rt1 == rt2) { rt2 = ++ ant; tr[rt2].ls = tr[rt1].ls; tr[rt2].rs = tr[rt1].rs; };
+        if (pl == pr) { tr[rt2].val = 1; return; }
+        LL mid = (pl + pr) >> 1;
+        if (pos <= mid) insert(ls(rt1), ls(rt2), pl, mid, pos);
+        else insert(rs(rt1), rs(rt2), mid + 1, pr, pos);
+        push_up(rt2, pl, pr);
+    }
+
+    inline void erase(LL rt1, LL& rt2, LL pl, LL pr, LL pos)
+    {
+        if (rt2 == 0 || rt1 == rt2) { rt2 = ++ ant; tr[rt2].ls = tr[rt1].ls; tr[rt2].rs = tr[rt1].rs; };
+        if (pl == pr) { tr[rt2].val = 0; return; }
+        LL mid = (pl + pr) >> 1;
+        if (pos <= mid) erase(ls(rt1), ls(rt2), pl, mid, pos);
+        else erase(rs(rt1), rs(rt2), mid + 1, pr, pos);
+        push_up(rt2, pl, pr);
+    }
+
+    inline LL query(LL rt, LL pl, LL pr, LL ll, LL rr)
+    {
+        if (ll <= pl && pr <= rr) return tr[rt].val;
+        LL mid = (pl + pr) >> 1, res = 0;
+        if (ll <= mid) res += query(ls(rt), pl, mid, ll, rr);
+        if (rr > mid) res += query(rs(rt), mid + 1, pr, ll, rr);
+        return res;
+    }
+
+    inline void build(LL& rt, LL pl, LL pr, LL pos)
+    {
+        rt = ++ ant;
+        if (pl == pr)
+        {
+            if (pos == pl) tr[rt].val = 1;
+            return;
+        }
+        LL mid = (pl + pr) >> 1;
+        build(ls(rt), pl, mid, pos);
+        build(rs(rt), mid + 1, pr, pos);
+        push_up(rt, pl, pr);
+    }
+
+    LL left, right;
+    char ch[32];
+    LL cur, t;
+
+    #define print(x) \
+    {\
+        while (x) \
+        {ch[++ cur] = x % 10; x /= 10;}\
+        while(cur) \
+        {putchar(ch[cur --] + '0');}\
+        putchar('\n');\
+    }
+
+    inline void solve()
+    {
+        
+        read(n);
+        for (LL i = 1; i <= n; i ++) read(a[i]);
+        
+        pl = 1; pr = n;
+
+        build(head[1], pl, pr, 1);
+        position[a[1]] = 1;
+
+        for (LL i = 2; i <= n; i ++)
+        {
+            if (position[a[i]]) erase(head[i - 1], head[i], pl, pr, position[a[i]]);
+            position[a[i]] = i;
+            insert(head[i - 1], head[i], pl, pr, i);
+        }
+
+        read(m);
+
+        while (m --)
+        {
+            read(left); read(right);
+            t = query(head[right], pl, pr, left, right);
+            print(t);
+        }
+        
+    }
+
+    int main()
+    {
+        
+        solve();
+        
+        return 0;
+    }
+    ```
