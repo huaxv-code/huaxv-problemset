@@ -456,6 +456,7 @@ nav:
     - 动态规划习题:
       - 248 G: problem/动态规划/动态规划习题/248 G.md
       - 能量项链: problem/动态规划/动态规划习题/能量项链.md
+      - Polygon: problem/动态规划/动态规划习题/Polygon.md
 
     - 01 背包问题:
       - 01 背包: problem/动态规划/01 背包问题/01背包.md
