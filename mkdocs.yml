@@ -142,6 +142,8 @@ nav:
     - problem/准备/批处理运行命令.md
   
   - 语言:
+    - C++:
+      - 输入输出: problem/语言/C++/输入输出.md
     - Java:
       - 代码片段: problem/语言/Java/代码片段.md
       - 输入: problem/语言/Java/输入.md
