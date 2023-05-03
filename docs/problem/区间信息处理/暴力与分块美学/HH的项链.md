@@ -277,21 +277,12 @@
     如果元素 $a[i + 1]$ 在区间 $[1, i]$ 内有出现，那么就需要把之前的位置删除，提前到位置 $i + 1$ 处，这样的好处就可以查询所有右区间是 $i + 1$ 的询问区间 $[x, i + 1]$，把旧位置提前，就更有可能被查询到。
 
     ```c++
-    #include <stdio.h>
-
+    #include <iostream>
+    using namespace std;
+    #define endl '\n'
     #define LL int
 
-    #define read(x) \
-    {\
-        x = 0;\
-        char c = getchar();\
-        while (!(c >= '0' && c <= '9'))\
-        {c = getchar();}\
-        while (c >= '0' && c <= '9')\
-        {x = x * 10 + c - '0'; c = getchar();}\
-    }
-
-    const LL N = 1000001;
+    #define N 1000001
     LL position[N];
 
     struct Node
@@ -358,25 +349,12 @@
         push_up(rt, pl, pr);
     }
 
-    LL left, right;
-    char ch[32];
-    LL cur, t;
-
-    #define print(x) \
-    {\
-        while (x) \
-        {ch[++ cur] = x % 10; x /= 10;}\
-        while(cur) \
-        {putchar(ch[cur --] + '0');}\
-        putchar('\n');\
-    }
-
     inline void solve()
     {
-        
-        read(n);
-        for (LL i = 1; i <= n; i ++) read(a[i]);
-        
+
+        cin >> n;
+        for (LL i = 1; i <= n; i ++) cin >> a[i];
+
         pl = 1; pr = n;
 
         build(head[1], pl, pr, 1);
@@ -389,22 +367,25 @@
             insert(head[i - 1], head[i], pl, pr, i);
         }
 
-        read(m);
+        cin >> m;
+
+        register LL left, right, t;
 
         while (m --)
         {
-            read(left); read(right);
+            cin >> left >> right;
             t = query(head[right], pl, pr, left, right);
-            print(t);
+            cout << t << endl;
         }
-        
+
     }
 
     int main()
     {
-        
+        ios::sync_with_stdio(0);
+        cin.tie(0); cout.tie(0);
         solve();
-        
+
         return 0;
     }
     ```
