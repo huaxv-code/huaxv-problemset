@@ -574,6 +574,7 @@ nav:
       - IDA 星: problem/搜索/IDA 星.md
       - A星: problem/搜索/A星.md
       - 双向广搜: problem/搜索/双向广搜.md
+      - Switch the Lamp On: problem/搜索/Switch the Lamp On.md
 
     - 树:
       - 树的直径:
