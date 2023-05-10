@@ -218,8 +218,9 @@ nav:
     - LeetCode:
       - 221. 最大正方形: problem/LeetCode/221. 最大正方形.md
       - 241. 为运算表达式设计优先级: problem/LeetCode/241. 为运算表达式设计优先级.md
-      - 丑数 II: problem/LeetCode/丑数 II.md
+      - 264. 丑数 II: problem/LeetCode/264. 丑数 II.md
       - 279. 完全平方数: problem/LeetCode/279. 完全平方数.md
+      - 309. 最佳买卖股票时机含冷冻期: problem/LeetCode/309. 最佳买卖股票时机含冷冻期.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
