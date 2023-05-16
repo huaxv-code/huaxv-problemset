@@ -222,6 +222,7 @@ nav:
       - 279. 完全平方数: problem/LeetCode/279. 完全平方数.md
       - 309. 最佳买卖股票时机含冷冻期: problem/LeetCode/309. 最佳买卖股票时机含冷冻期.md
       - 313. 超级丑数: problem/LeetCode/313. 超级丑数.md
+      - 322. 零钱兑换: problem/LeetCode/322. 零钱兑换.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
