@@ -224,6 +224,7 @@ nav:
       - 313. 超级丑数: problem/LeetCode/313. 超级丑数.md
       - 322. 零钱兑换: problem/LeetCode/322. 零钱兑换.md
       - 337. 打家劫舍 III: problem/LeetCode/337. 打家劫舍 III.md
+      - 343. 整数拆分: problem/LeetCode/343. 整数拆分.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
