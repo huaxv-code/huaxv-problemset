@@ -228,6 +228,7 @@ nav:
       - 357. 统计各位数字都不同的数字个数: problem/LeetCode/357. 统计各位数字都不同的数字个数.md
       - 151. 反转字符串中的单词: problem/LeetCode/151. 反转字符串中的单词.md
       - 334. 递增的三元子序列: problem/LeetCode/334. 递增的三元子序列.md
+      - 443. 压缩字符串: problem/LeetCode/443. 压缩字符串.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
