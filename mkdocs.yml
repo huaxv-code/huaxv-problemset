@@ -227,6 +227,7 @@ nav:
       - 343. 整数拆分: problem/LeetCode/343. 整数拆分.md
       - 357. 统计各位数字都不同的数字个数: problem/LeetCode/357. 统计各位数字都不同的数字个数.md
       - 151. 反转字符串中的单词: problem/LeetCode/151. 反转字符串中的单词.md
+      - 334. 递增的三元子序列: problem/LeetCode/334. 递增的三元子序列.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
