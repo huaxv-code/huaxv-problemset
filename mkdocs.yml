@@ -148,6 +148,7 @@ nav:
       - 代码片段: problem/语言/Java/代码片段.md
       - 输入: problem/语言/Java/输入.md
       - 输出: problem/语言/Java/输出.md
+      - 数组: problem/语言/Java/数组.md
       - BigInteger: problem/语言/Java/BigInteger.md
       - BigDecimal: problem/语言/Java/BigDecimal.md
       - 排序: problem/语言/Java/排序.md
@@ -229,6 +230,7 @@ nav:
       - 151. 反转字符串中的单词: problem/LeetCode/151. 反转字符串中的单词.md
       - 334. 递增的三元子序列: problem/LeetCode/334. 递增的三元子序列.md
       - 443. 压缩字符串: problem/LeetCode/443. 压缩字符串.md
+      - 238. 除自身以外数组的乘积: problem/LeetCode/238. 除自身以外数组的乘积.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
