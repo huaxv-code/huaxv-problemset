@@ -231,6 +231,7 @@ nav:
       - 334. 递增的三元子序列: problem/LeetCode/334. 递增的三元子序列.md
       - 443. 压缩字符串: problem/LeetCode/443. 压缩字符串.md
       - 238. 除自身以外数组的乘积: problem/LeetCode/238. 除自身以外数组的乘积.md
+      - 1679. K 和数对的最大数目: problem/LeetCode/1679. K 和数对的最大数目.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
