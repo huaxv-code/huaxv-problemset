@@ -235,6 +235,7 @@ nav:
       - 1004. 最大连续1的个数 III: problem/LeetCode/1004. 最大连续1的个数 III.md
       - 1493. 删掉一个元素以后全为 1 的最长子数组: problem/LeetCode/1493. 删掉一个元素以后全为 1 的最长子数组.md
       - 2215. 找出两数组的不同: problem/LeetCode/2215. 找出两数组的不同.md
+      - 1207. 独一无二的出现次数: problem/LeetCode/1207. 独一无二的出现次数.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
