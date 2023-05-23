@@ -236,6 +236,7 @@ nav:
       - 1493. 删掉一个元素以后全为 1 的最长子数组: problem/LeetCode/1493. 删掉一个元素以后全为 1 的最长子数组.md
       - 2215. 找出两数组的不同: problem/LeetCode/2215. 找出两数组的不同.md
       - 1207. 独一无二的出现次数: problem/LeetCode/1207. 独一无二的出现次数.md
+      - 1657. 确定两个字符串是否接近: problem/LeetCode/1657. 确定两个字符串是否接近.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
