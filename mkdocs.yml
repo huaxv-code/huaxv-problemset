@@ -237,6 +237,7 @@ nav:
       - 2215. 找出两数组的不同: problem/LeetCode/2215. 找出两数组的不同.md
       - 1207. 独一无二的出现次数: problem/LeetCode/1207. 独一无二的出现次数.md
       - 1657. 确定两个字符串是否接近: problem/LeetCode/1657. 确定两个字符串是否接近.md
+      - 2352. 相等行列对: problem/LeetCode/2352. 相等行列对.md
 
     - AtCoder:
       - F - Simultaneous Swap: problem/AtCoder/F - Simultaneous Swap.md
