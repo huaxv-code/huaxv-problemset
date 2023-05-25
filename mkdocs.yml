@@ -245,6 +245,7 @@ nav:
       - 328. 奇偶链表: problem/LeetCode/328. 奇偶链表.md
       - 2130. 链表最大孪生和: problem/LeetCode/2130. 链表最大孪生和.md
       - 872. 叶子相似的树: problem/LeetCode/872. 叶子相似的树.md
+      - 1448. 统计二叉树中好节点的数目: problem/LeetCode/1448. 统计二叉树中好节点的数目.md
 
     - ECNU Online Judge:
       - A. 宝石划分: problem/刷题网站/ECNU Online Judge/A. 宝石划分.md
