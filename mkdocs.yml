@@ -250,6 +250,8 @@ nav:
       - 1372. 二叉树中的最长交错路径: problem/LeetCode/1372. 二叉树中的最长交错路径.md
       - 236. 二叉树的最近公共祖先: problem/LeetCode/236. 二叉树的最近公共祖先.md
       - 199. 二叉树的右视图: problem/LeetCode/199. 二叉树的右视图.md
+      - 1161. 最大层内元素和: problem/LeetCode/1161. 最大层内元素和.md
+      - 700. 二叉搜索树中的搜索: problem/LeetCode/700. 二叉搜索树中的搜索.md
 
     - ECNU Online Judge:
       - A. 宝石划分: problem/刷题网站/ECNU Online Judge/A. 宝石划分.md
