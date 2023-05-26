@@ -248,6 +248,7 @@ nav:
       - 1448. 统计二叉树中好节点的数目: problem/LeetCode/1448. 统计二叉树中好节点的数目.md
       - 437. 路径总和 III: problem/LeetCode/437. 路径总和 III.md
       - 1372. 二叉树中的最长交错路径: problem/LeetCode/1372. 二叉树中的最长交错路径.md
+      - 236. 二叉树的最近公共祖先: problem/LeetCode/236. 二叉树的最近公共祖先.md
 
     - ECNU Online Judge:
       - A. 宝石划分: problem/刷题网站/ECNU Online Judge/A. 宝石划分.md
