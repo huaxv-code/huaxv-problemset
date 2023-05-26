@@ -247,6 +247,7 @@ nav:
       - 872. 叶子相似的树: problem/LeetCode/872. 叶子相似的树.md
       - 1448. 统计二叉树中好节点的数目: problem/LeetCode/1448. 统计二叉树中好节点的数目.md
       - 437. 路径总和 III: problem/LeetCode/437. 路径总和 III.md
+      - 1372. 二叉树中的最长交错路径: problem/LeetCode/1372. 二叉树中的最长交错路径.md
 
     - ECNU Online Judge:
       - A. 宝石划分: problem/刷题网站/ECNU Online Judge/A. 宝石划分.md
