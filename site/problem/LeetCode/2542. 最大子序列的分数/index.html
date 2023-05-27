@@ -3292,7 +3292,7 @@
 <div class="tabbed-block">
 <p>一开始脑袋只能想到如何暴力自由组合枚举最大值，但是数据量高达 <span class="arithmatex">\(10 ^ 5\)</span>;</p>
 <p>影响因素有两个：序列的和与最小值。</p>
-<p>无论序列怎么选，都要与概序列的最小值相乘，如果我控制并暴力枚举最小值呢？固定最小值是谁，那么剩下的元素又该如何选取呢？肯定是在比最小值还要大的剩余元素中选取 <span class="arithmatex">\(k - 1\)</span> 个组成最大和；</p>
+<p>无论序列怎么选，都要与该序列的最小值相乘，如果我控制并暴力枚举最小值呢？固定最小值是谁，那么剩下的元素又该如何选取呢？肯定是在比最小值还要大的剩余元素中选取 <span class="arithmatex">\(k - 1\)</span> 个组成最大和；</p>
 <p>不断枚举最小值，并记录先前的最大和，推导出答案。</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
