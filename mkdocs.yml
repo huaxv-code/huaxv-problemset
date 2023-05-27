@@ -255,6 +255,7 @@ nav:
       - 450. 删除二叉搜索树中的节点: problem/LeetCode/450. 删除二叉搜索树中的节点.md
       - 841. 钥匙和房间: problem/LeetCode/841. 钥匙和房间.md
       - 1466. 重新规划路线: problem/LeetCode/1466. 重新规划路线.md
+      - 1926. 迷宫中离入口最近的出口: problem/LeetCode/1926. 迷宫中离入口最近的出口.md
 
     - ECNU Online Judge:
       - A. 宝石划分: problem/刷题网站/ECNU Online Judge/A. 宝石划分.md
