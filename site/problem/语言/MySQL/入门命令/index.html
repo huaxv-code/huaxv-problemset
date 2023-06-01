@@ -443,98 +443,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#mysql">
-    开启 mysql
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    清屏
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    建立数据库
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    显示所有数据库
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    删除数据库
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    选择数据库
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    查看当前数据库中的所有表格
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-    在当前数据库中新建表格
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
-    显示表格的结构
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
-    删除表格
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
-    给表格插入数据
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
-    查询列中的内容
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
-    有条件的查询数据表中的数据
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
-    修改数据表中的数据的某个值
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
-    删除数据表中的数据
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_16">
-    模糊匹配
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_17">
-    复制表的内容
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#select">
-    联接多个 select 语句
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#null">
-    空值 null 查询
+    常见的一些命令
   </a>
 </li>
 </ul>
@@ -3404,74 +3314,105 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="_1">入门命令</h1>
-<h2 id="mysql">开启 mysql</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">net</span><span class="w"> </span><span class="k">start</span><span class="w"> </span><span class="n">mysql</span>
+<h2 id="_2">常见的一些命令</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">source</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="k">sql</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 执行 run.sql 脚本</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">-</span><span class="n">p</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">passward</span><span class="o">&gt;</span><span class="w"> </span><span class="mi">123456</span>
-</code></pre></div>
-<h2 id="_2">清屏</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">system</span><span class="w"> </span><span class="n">cls</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_3">建立数据库</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_4">显示所有数据库</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_5">删除数据库</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">drop</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_6">选择数据库</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">use</span><span class="w"> </span><span class="err">数据库名</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_7">查看当前数据库中的所有表格</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_8">在当前数据库中新建表格</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="err">表格名</span><span class="p">(</span><span class="err">列名</span><span class="w"> </span><span class="err">数据类型</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="w"> </span><span class="err">数据类型</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...);</span>
-</code></pre></div>
-<h2 id="_9">显示表格的结构</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">describe</span><span class="w"> </span><span class="err">表格名</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_10">删除表格</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="err">表格名</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_11">给表格插入数据</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="err">表格名</span><span class="w"> </span><span class="p">(</span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...)</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">            </span><span class="k">values</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">                   </span><span class="p">(</span><span class="err">值</span><span class="p">,</span><span class="w"> </span><span class="err">值</span><span class="p">,</span><span class="w"> </span><span class="err">值</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...);</span>
-</code></pre></div>
-<h2 id="_12">查询列中的内容</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_13">有条件的查询数据表中的数据</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_14">修改数据表中的数据的某个值</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">update</span><span class="w"> </span><span class="err">表格名</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="err">列名</span><span class="o">=</span><span class="err">值</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="o">=</span><span class="err">值</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_15">删除数据表中的数据</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_16">模糊匹配</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">where</span><span class="w"> </span><span class="err">列名</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="err">模糊值</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_17">复制表的内容</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="err">新表</span><span class="w"> </span><span class="p">(</span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">旧表</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="select">联接多个 select 语句</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">union</span><span class="w"> </span><span class="k">all</span>
-<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span>
-<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="k">union</span><span class="w"> </span><span class="k">all</span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="p">...</span><span class="w"> </span><span class="p">...</span>
-<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="k">union</span><span class="w"> </span><span class="k">all</span>
-<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span><span class="p">;</span>
-</code></pre></div>
-<p>会将重复的数据都输出，如果不希望重复，可以删掉 <code>all</code>.</p>
-<h2 id="null">空值 null 查询</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">select</span><span class="w"> </span><span class="err">列名</span><span class="p">,</span><span class="w"> </span><span class="err">列名</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表格名</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">列名</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">system</span><span class="w"> </span><span class="n">cls</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 清屏</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">show</span><span class="w"> </span><span class="n">databases</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 展示所有数据库</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 展示所有表</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="cm">/*</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="cm">create table student </span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="cm">    (name varchar(20), age int, id varchar(50));</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="cm">*/</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">describe</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查看表的结构</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"> </span>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="c1">-- 按照 id、name 的顺序在 student 表中查询</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"> </span>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="c1">-- 检索所有的列 （注意是：列）</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">age</span><span class="w"> </span>
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="p">;</span><span class="w"> </span>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="c1">-- 检索所有种类的年龄，使用 distinct 语句去除重复数据</span>
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">age</span><span class="w"> </span>
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span>
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="c1">-- 先检索所有年龄段，然后只返回前 5 行数据</span>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">age</span><span class="w"> </span>
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="c1">-- 从第 5 行开始，只获取前 10 行数据</span>
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">    </span><span class="c1">-- 注意，mysql 是从第 0 行开始数的</span>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">age</span><span class="w"> </span>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span>
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="c1">-- 查询所有的年龄段，并升序排列</span>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="k">select</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span>
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span>
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span>
+<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="c1">-- 先按照年龄排序，然后相同年龄就按照名字排序，且只获取前 100 行</span>
+<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="k">select</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span>
+<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span>
+<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">desc</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span>
+<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">    </span><span class="c1">-- 先按照年龄降序排，如果年龄相同，就按照名字升序排，只获取前 100 行</span>
+<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a>
+<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span>
+<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span>
+<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="ss">"17"</span>
+<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">id</span>
+<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">    </span><span class="c1">-- 在 student 表中查找 id 大于等于 17 的学生信息</span>
+<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">    </span><span class="c1">-- 查询结果需要按照学号 id 排序，只获取前 100 行数据</span>
+<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span>
+<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span>
+<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">    </span><span class="c1">-- 在 student 表中查找 id 和 name，</span>
+<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">    </span><span class="c1">-- 且 name 不能是空的情况下才能查询成功</span>
+<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">    </span><span class="c1">-- 只选择前 100 行</span>
+<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a>
+<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="w"> </span>
+<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span>
+<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span>
+<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">    </span><span class="c1">-- 在 student 表内查询没有名字的学号 id</span>
+<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a>
+<a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span>
+<a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span>
+<a href="#__codelineno-0-78" id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<a href="#__codelineno-0-79" id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">    </span><span class="c1">-- 在 student 表内查询年龄在 17 到 10 之内的学生信息</span>
+<a href="#__codelineno-0-80" id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="w">    </span><span class="c1">-- between ... and ... 范围限定查询</span>
+<a href="#__codelineno-0-81" id="__codelineno-0-81" name="__codelineno-0-81"></a>
+<a href="#__codelineno-0-82" id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span>
+<a href="#__codelineno-0-83" id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span>
+<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<a href="#__codelineno-0-85" id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="w">    </span><span class="c1">-- 在 student 表内查询年龄在 17 到 10 之内的学生信息</span>
+<a href="#__codelineno-0-86" id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">    </span><span class="c1">-- 和 between ... and ... 语句的功能一样</span>
+<a href="#__codelineno-0-87" id="__codelineno-0-87" name="__codelineno-0-87"></a>
+<a href="#__codelineno-0-88" id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span>
+<a href="#__codelineno-0-89" id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span>
+<a href="#__codelineno-0-90" id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="ss">"林%"</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="ss">"黄%"</span><span class="p">;</span>
+<a href="#__codelineno-0-91" id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="w">    </span><span class="c1">-- 在 student 表中查找姓 林、黄 的学生</span>
+<a href="#__codelineno-0-92" id="__codelineno-0-92" name="__codelineno-0-92"></a>
+<a href="#__codelineno-0-93" id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span>
+<a href="#__codelineno-0-94" id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student</span><span class="w"> </span>
+<a href="#__codelineno-0-95" id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">)</span>
+<a href="#__codelineno-0-96" id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">    </span><span class="c1">-- 查询年龄是 16 或者是 18、20、22 的学生基本信息</span>
+<a href="#__codelineno-0-98" id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">    </span><span class="c1">-- 如果用 not in 就是查找年龄不是 16、18、20、22 的学生信息</span>
 </code></pre></div>
 </article>
 </div>
