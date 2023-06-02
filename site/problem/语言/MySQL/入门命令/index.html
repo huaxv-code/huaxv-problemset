@@ -3476,6 +3476,22 @@
 <a href="#__codelineno-0-154" id="__codelineno-0-154" name="__codelineno-0-154"></a><span class="w">    </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
 <a href="#__codelineno-0-155" id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="w">    </span><span class="c1">-- 按照年龄分组，按照每一组求出组的个数</span>
 <a href="#__codelineno-0-156" id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="w">    </span><span class="c1">-- 并过滤掉年龄小于 20 的组</span>
+<a href="#__codelineno-0-157" id="__codelineno-0-157" name="__codelineno-0-157"></a>
+<a href="#__codelineno-0-158" id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="cm">/*</span>
+<a href="#__codelineno-0-159" id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="cm">create table student </span>
+<a href="#__codelineno-0-160" id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="cm">    (id varchar(50), name varchar(20), age int);</span>
+<a href="#__codelineno-0-161" id="__codelineno-0-161" name="__codelineno-0-161"></a>
+<a href="#__codelineno-0-162" id="__codelineno-0-162" name="__codelineno-0-162"></a><span class="cm">create table student_score</span>
+<a href="#__codelineno-0-163" id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="cm">    (name varchar(20), subject varchar(20), score int);</span>
+<a href="#__codelineno-0-164" id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="cm">*/</span>
+<a href="#__codelineno-0-165" id="__codelineno-0-165" name="__codelineno-0-165"></a>
+<a href="#__codelineno-0-166" id="__codelineno-0-166" name="__codelineno-0-166"></a><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">score</span><span class="w"> </span>
+<a href="#__codelineno-0-167" id="__codelineno-0-167" name="__codelineno-0-167"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">student_score</span>
+<a href="#__codelineno-0-168" id="__codelineno-0-168" name="__codelineno-0-168"></a><span class="w">    </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span>
+<a href="#__codelineno-0-169" id="__codelineno-0-169" name="__codelineno-0-169"></a><span class="w">        </span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">student</span>
+<a href="#__codelineno-0-170" id="__codelineno-0-170" name="__codelineno-0-170"></a><span class="w">    </span><span class="p">)</span>
+<a href="#__codelineno-0-171" id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="w">    </span><span class="k">limit</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<a href="#__codelineno-0-172" id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="w">    </span><span class="c1">-- 查找名字在 student 表中的学生的成绩</span>
 </code></pre></div>
 </article>
 </div>
