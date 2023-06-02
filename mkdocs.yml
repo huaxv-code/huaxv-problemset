@@ -171,6 +171,7 @@ nav:
       - 登录窗体: problem/语言/Java 小界面/登录窗体.md
 
     - MySQL:
+      - python 随机生成数据: problem/语言/MySQL/python 随机生成数据.md
       - 入门命令: problem/语言/MySQL/入门命令.md
       - PyMySQL: problem/语言/MySQL/PyMySQL.md
       - 创建数据库: problem/语言/MySQL/创建数据库.md
