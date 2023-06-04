@@ -474,7 +474,17 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#alter-table">
-    alter table
+    alter table 语句
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#drop">
+    drop 语句
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rename">
+    rename 语句
   </a>
 </li>
 </ul>
@@ -3818,31 +3828,60 @@
 <a href="#__codelineno-3-44" id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="w">    </span><span class="n">age</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">check</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">24</span><span class="p">),</span>
 <a href="#__codelineno-3-45" id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">    </span><span class="n">subject</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">check</span><span class="p">(</span><span class="n">subject</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="ss">"数学"</span><span class="p">,</span><span class="w"> </span><span class="ss">"英语"</span><span class="p">,</span><span class="w"> </span><span class="ss">"语文"</span><span class="p">)),</span>
 <a href="#__codelineno-3-46" id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">    </span><span class="n">score</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">check</span><span class="p">(</span><span class="n">score</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span>
-<a href="#__codelineno-3-47" id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
+<a href="#__codelineno-3-47" id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="c1">-- 组合键，不允许 id 和 name 的组合值重复</span>
 <a href="#__codelineno-3-48" id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="p">);</span>
 <a href="#__codelineno-3-49" id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">    </span><span class="c1">-- auto_increment 叫做自增主键，一定要定义成主键</span>
 </code></pre></div>
-<h2 id="alter-table">alter table</h2>
+<h2 id="alter-table">alter table 语句</h2>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">scores</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">add</span><span class="w"> </span><span class="k">sum</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">check</span><span class="p">(</span><span class="k">sum</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="mi">300</span><span class="p">);</span>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="c1">-- 给 scores 表新增一列代表总分</span>
 <a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">update</span><span class="w"> </span><span class="n">scores</span><span class="w"> </span><span class="n">sc</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">inner</span><span class="w"> </span><span class="k">join</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="p">(</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="n">sm</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">scores</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">name</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">)</span><span class="w"> </span><span class="n">nsm</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="k">on</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nsm</span><span class="p">.</span><span class="n">name</span>
-<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="k">set</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="k">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nsm</span><span class="p">.</span><span class="n">sm</span><span class="p">;</span>
-<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">update</span><span class="w"> </span><span class="n">scores</span><span class="w"> </span><span class="n">sc</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">inner</span><span class="w"> </span><span class="k">join</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="p">(</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="n">sm</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">scores</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">name</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="p">)</span><span class="w"> </span><span class="n">nsm</span>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="k">on</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nsm</span><span class="p">.</span><span class="n">name</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="k">set</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="k">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nsm</span><span class="p">.</span><span class="n">sm</span><span class="p">;</span>
 <a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="c1">-- -----------------------------------</span>
-<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>
-<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">scores</span>
-<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="k">drop</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">sum</span><span class="p">;</span>
-<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">    </span><span class="c1">-- 删除 sum 这一列</span>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="c1">-- -----------------------------------</span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">scores</span>
+<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="k">drop</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">sum</span><span class="p">;</span>
+<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">    </span><span class="c1">-- 删除 sum 这一列</span>
+<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a>
+<a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="c1">-- -----------------------------------</span>
+<a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a>
+<a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">scores</span>
+<a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="k">add</span><span class="w"> </span><span class="k">constraint</span><span class="w"> </span><span class="n">fk_subject</span><span class="w"> </span><span class="c1">-- 外键的名字</span>
+<a href="#__codelineno-4-27" id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span>
+<a href="#__codelineno-4-28" id="__codelineno-4-28" name="__codelineno-4-28"></a><span class="k">references</span><span class="w"> </span><span class="n">subject</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<a href="#__codelineno-4-29" id="__codelineno-4-29" name="__codelineno-4-29"></a><span class="w">    </span><span class="c1">-- 添加外键约束</span>
+<a href="#__codelineno-4-30" id="__codelineno-4-30" name="__codelineno-4-30"></a><span class="w">    </span><span class="c1">-- 外键必须参考其他表的主键</span>
+<a href="#__codelineno-4-31" id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="w">    </span><span class="c1">-- 外键不能再设置成主键</span>
+<a href="#__codelineno-4-32" id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="w">    </span><span class="c1">-- 外键允许重复</span>
+<a href="#__codelineno-4-33" id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="w">    </span><span class="c1">-- 外键约束，是为了添加新值时的范围必须限制在参考表的范围内</span>
+<a href="#__codelineno-4-34" id="__codelineno-4-34" name="__codelineno-4-34"></a><span class="w">    </span><span class="c1">-- 为什么要给外键取名？方便删除</span>
+<a href="#__codelineno-4-35" id="__codelineno-4-35" name="__codelineno-4-35"></a>
+<a href="#__codelineno-4-36" id="__codelineno-4-36" name="__codelineno-4-36"></a>
+<a href="#__codelineno-4-37" id="__codelineno-4-37" name="__codelineno-4-37"></a><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">scores</span>
+<a href="#__codelineno-4-38" id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="k">drop</span><span class="w"> </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">fk_subject</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="drop">drop 语句</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">scores</span><span class="p">;</span><span class="w"> </span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="c1">-- 删除表 scores</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="c1">-- 加上 if exists 是为了防止表不存在而报错</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="k">drop</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">learn</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 删除数据库 learn</span>
+</code></pre></div>
+<h2 id="rename">rename 语句</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">rename</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="err">旧表名</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="err">新表名</span><span class="p">;</span>
 </code></pre></div>
 </article>
 </div>
