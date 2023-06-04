@@ -3944,6 +3944,16 @@
 <a href="#__codelineno-7-53" id="__codelineno-7-53" name="__codelineno-7-53"></a><span class="w">        </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">id</span>
 <a href="#__codelineno-7-54" id="__codelineno-7-54" name="__codelineno-7-54"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">c2</span>
 <a href="#__codelineno-7-55" id="__codelineno-7-55" name="__codelineno-7-55"></a><span class="w">    </span><span class="k">on</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c2</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+<a href="#__codelineno-7-56" id="__codelineno-7-56" name="__codelineno-7-56"></a>
+<a href="#__codelineno-7-57" id="__codelineno-7-57" name="__codelineno-7-57"></a><span class="c1">-- 视图能更好的重用查询语句，</span>
+<a href="#__codelineno-7-58" id="__codelineno-7-58" name="__codelineno-7-58"></a><span class="c1">-- 将查询语句定义成一个视图（变量）的形式查询</span>
+<a href="#__codelineno-7-59" id="__codelineno-7-59" name="__codelineno-7-59"></a>
+<a href="#__codelineno-7-60" id="__codelineno-7-60" name="__codelineno-7-60"></a>
+<a href="#__codelineno-7-61" id="__codelineno-7-61" name="__codelineno-7-61"></a><span class="k">drop</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">double_c1</span><span class="p">;</span><span class="w"> </span>
+<a href="#__codelineno-7-62" id="__codelineno-7-62" name="__codelineno-7-62"></a><span class="w">    </span><span class="c1">-- 删除视图</span>
+<a href="#__codelineno-7-63" id="__codelineno-7-63" name="__codelineno-7-63"></a>
+<a href="#__codelineno-7-64" id="__codelineno-7-64" name="__codelineno-7-64"></a><span class="k">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span><span class="w"> </span>
+<a href="#__codelineno-7-65" id="__codelineno-7-65" name="__codelineno-7-65"></a><span class="w">    </span><span class="c1">-- 查看所有视图</span>
 </code></pre></div>
 </article>
 </div>
