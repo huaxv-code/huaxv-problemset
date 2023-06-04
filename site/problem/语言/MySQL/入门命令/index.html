@@ -3954,6 +3954,13 @@
 <a href="#__codelineno-7-63" id="__codelineno-7-63" name="__codelineno-7-63"></a>
 <a href="#__codelineno-7-64" id="__codelineno-7-64" name="__codelineno-7-64"></a><span class="k">show</span><span class="w"> </span><span class="n">tables</span><span class="p">;</span><span class="w"> </span>
 <a href="#__codelineno-7-65" id="__codelineno-7-65" name="__codelineno-7-65"></a><span class="w">    </span><span class="c1">-- 查看所有视图</span>
+<a href="#__codelineno-7-66" id="__codelineno-7-66" name="__codelineno-7-66"></a>
+<a href="#__codelineno-7-67" id="__codelineno-7-67" name="__codelineno-7-67"></a><span class="k">create</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">replace</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">double_c1</span><span class="w"> </span>
+<a href="#__codelineno-7-68" id="__codelineno-7-68" name="__codelineno-7-68"></a><span class="k">as</span>
+<a href="#__codelineno-7-69" id="__codelineno-7-69" name="__codelineno-7-69"></a><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">class_1</span>
+<a href="#__codelineno-7-70" id="__codelineno-7-70" name="__codelineno-7-70"></a><span class="w">    </span><span class="k">union</span><span class="w"> </span><span class="k">all</span>
+<a href="#__codelineno-7-71" id="__codelineno-7-71" name="__codelineno-7-71"></a><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">class_1</span><span class="p">;</span>
+<a href="#__codelineno-7-72" id="__codelineno-7-72" name="__codelineno-7-72"></a><span class="w">    </span><span class="c1">-- 覆盖视图</span>
 </code></pre></div>
 </article>
 </div>
