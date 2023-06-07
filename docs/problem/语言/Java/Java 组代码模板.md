@@ -590,3 +590,137 @@ void solve() throws Exception
 	}
 }
 ```
+
+## 二维差分
+
+![](./img/二维差分.png)
+
+假设我知道了蓝色框范围内的和、紫色框范围内的和、红色框范围内的和我要如何求得小方块的面积呢？
+
+二维差分：`dv[i][j] = a[i][j] - a[i - 1][j] - a[i][j - 1] + a[i - 1][j - 1]`
+
+**差分数组的前缀和就是原数组**
+
+借助影响范围，实现区域递增.
+
+```java
+int n, m, q;
+long[][] a;
+long[][] dv;
+
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	m = gii(ts[1]);
+	q = gii(ts[2]);
+	
+	a = new long[n + 100][m + 100];
+	dv = new long[n + 100][m + 100];
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		ts = gss();
+		for (int j = 1; j <= m; j ++)
+		{
+			a[i][j] = gii(ts[j - 1]);
+		}
+	}
+	
+	// 求出二维差分数组
+	for (int i = 1; i <= n; i ++)
+	{
+		for (int j = 1; j <= m; j ++)
+		{
+			dv[i][j] = a[i][j] - a[i - 1][j]
+						- a[i][j - 1] + a[i - 1][j - 1];
+		}
+	}
+	
+	while (q -- > 0)
+	{
+		int x1, y1, x2, y2, k;
+		ts = gss();
+		x1 = gii(ts[0]);
+		y1 = gii(ts[1]);
+		x2 = gii(ts[2]);
+		y2 = gii(ts[3]);
+		k = gii(ts[4]);
+		
+		dv[x1][y1] += k;
+		dv[x2 + 1][y1] -= k;
+		dv[x1][y2 + 1] -= k;
+		dv[x2 + 1][y2 + 1] += k;
+	}
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		for (int j = 1; j <= m; j ++)
+		{
+			dv[i][j] += dv[i][j - 1];
+		}
+	}
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		for (int j = 1; j <= m; j ++)
+		{
+			dv[i][j] += dv[i - 1][j];
+		}
+	}
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		for (int j = 1; j <= m; j ++)
+		{
+			cout.print(dv[i][j] + " ");
+		}
+		cout.println();
+	}
+}
+```
+
+## 双指针+哈希：最长不重复子数组
+
+```java
+int n;
+int[] a = new int[N];
+int[] hs = new int[N];
+
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	ts = gss();
+	for (int i = 1; i <= n; i ++)
+	{
+		a[i] = gii(ts[i - 1]);
+	}
+	
+	int i = 1, j = 1;
+	int res = 0;
+	
+	while (j <= n)
+	{
+		if (hs[a[j]] == 0)
+		{
+			hs[a[j ++]] ++;
+		}
+		else
+		{
+			res = Math.max(res, j - i);
+			while (a[i] != a[j]) hs[a[i ++]] --;
+			i ++; j ++;
+		}
+	}
+	
+	res = Math.max(res, j - i);
+	
+	cout.println(res);
+	
+}
+```
