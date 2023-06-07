@@ -146,6 +146,7 @@ nav:
       - 输入输出: problem/语言/C++/输入输出.md
     - Java:
       - 代码片段: problem/语言/Java/代码片段.md
+      - Java 组代码模板: problem/语言/Java/Java 组代码模板.md
       - 输入: problem/语言/Java/输入.md
       - 输出: problem/语言/Java/输出.md
       - 数组: problem/语言/Java/数组.md
