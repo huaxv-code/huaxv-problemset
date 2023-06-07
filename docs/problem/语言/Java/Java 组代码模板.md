@@ -203,5 +203,390 @@ void solve() throws Exception
 ## 归并排序逆序对
 
 ```java
+int n;
+int[] a = new int[N];
+int[] b = new int[N];
 
+long meld(int l, int r)
+{
+	if (l >= r) return 0;
+	int mid = (l + r) >> 1;
+	long res = 0;
+	res += meld(l, mid);
+	res += meld(mid + 1, r);
+	int i = l, j = mid + 1, k = 0;
+	while (i <= mid && j <= r)
+	{
+		if (a[i] <= a[j])
+		{
+			b[k ++] = a[i ++];
+		}
+		else
+		{
+			b[k ++] = a[j ++];
+			res += mid - i + 1;
+		}
+	}
+	while (i <= mid) b[k ++] = a[i ++];
+	while (j <= r) b[k ++] = a[j ++];
+	i = l;
+	j = 0;
+	while (i <= r) a[i ++] = b[j ++];
+	return res;
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	ts = gss();
+	for (int i = 1; i <= n; i ++)
+	{
+		a[i] = gii(ts[i - 1]);
+	}
+	cout.println(meld(1, n));
+}
+```
+
+## 二分查找
+
+```java
+int n, q;
+int[] a = new int[N];
+
+int lf(int x)
+{
+	int l = 1, r = n, mid;
+	while (l < r)
+	{
+		mid = (l + r) >> 1;
+		if (a[mid] < x) l = mid + 1;
+		else r = mid;
+	}
+	if (a[r] == x) return r - 1;
+	else return -1;
+}
+
+int rf(int x)
+{
+	int l = 1, r = n, mid;
+	while (l < r)
+	{
+		mid = (l + r + 1) >> 1;
+		if (a[mid] <= x) l = mid;
+		else r = mid - 1;
+	}
+	if (a[l] == x) return l - 1;
+	else return -1;
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	q = gii(ts[1]);
+	ts = gss();
+	for (int i = 1; i <= n; i ++)
+	{
+		a[i] = gii(ts[i - 1]);
+	}
+	
+	Arrays.sort(a, 1, n + 1);
+	
+	while (q -- > 0)
+	{
+		ts = gss();
+		int x = gii(ts[0]);
+		cout.println(lf(x) + " " + rf(x));
+	}
+	
+}
+```
+
+## 二分查找-数的三次方根
+
+```java
+double n;
+
+double f(double n)
+{
+	double l = Math.min(n, -1);
+	double r = Math.max(1, n);
+	double mid;
+	double ep = 1e-7;
+	while (Math.abs(l - r) > ep)
+	{
+		mid = (l + r) / 2;
+		if (Math.pow(mid, 3) < n) l = mid;
+		else r = mid;
+	}
+	return l;
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gff(ts[0]);
+	
+	cout.printf("%.6f\n", f(n));
+}
+```
+
+## 高精度加法
+
+```java
+int[] a = new int[N];
+int[] b = new int[N];
+int[] c = new int[N];
+int n, m;
+
+int cg(int[] a, String s)
+{
+	if (s.equals("0")) 
+	{
+		a[0] = 0; return 1;
+	}
+	int n = s.length();
+	for (int i = n - 1, j = 0; i >= 0; i --, j ++)
+	{
+		a[j] = (int)(s.charAt(i) - '0');
+	}
+	return n;
+}
+
+
+void solve() throws Exception
+{
+	
+	n = cg(a, gss()[0]);
+	m = cg(b, gss()[0]);
+	
+	int t = 0;
+	int i = 0;
+	
+	for (; i < n || i < m || t > 0; i ++)
+	{
+		if (i < n) t += a[i];
+		if (i < m) t += b[i];
+		c[i] = t % 10;
+		t /= 10;
+	}
+	
+	for (int j = i - 1; j >= 0; j --)
+	{
+		cout.print(c[j]);
+	}
+	cout.println();
+	
+}
+```
+
+## 高精度减法
+
+```java
+int[] a = new int[N];
+int[] b = new int[N];
+int[] c = new int[N];
+int n, m;
+int tp = 1;
+
+int cg(int[] a, String s)
+{
+	int n = s.length();
+	if (s.equals("0")) return n;
+	for (int i = n - 1, j = 0; i >= 0; i --, j ++)
+	{
+		a[j] = (int)(s.charAt(i) - '0');
+	}
+	return n;
+}
+
+void solve() throws Exception
+{
+	
+	n = cg(a, gss()[0]);
+	m = cg(b, gss()[0]);
+	
+	if (n < m) 
+	{
+		int[] t = a;
+		a = b; b = t;
+		tp = -1;
+		int ti = n;
+		n = m; m = ti;
+	}
+	if (n == m)
+	{
+		for (int i = n - 1; i >= 0; i --)
+		{
+			if (a[i] == b[i]) continue;
+			if (a[i] < b[i])
+			{
+				int[] t = a;
+				a = b; b = t;
+				tp = -1;
+				int ti = n;
+				n = m; m = ti;
+			}
+			break;
+		}
+	}
+	
+	int t = 0;
+	for (int i = 0; i < n || t != 0; i ++)
+	{
+		c[i] = a[i] - b[i] + t;
+		t = 0;
+		while (c[i] < 0)
+		{
+			t --;
+			c[i] += 10;
+		}
+	}
+	while (n > 1 && c[n - 1] == 0) n --;
+	if (tp == -1) cout.print("-");
+	for (int i = n - 1; i >= 0; i --) 
+		cout.print(c[i]);
+	cout.println();
+	
+}
+```
+
+
+## 前缀和
+
+```java
+int n, q;
+long[] a = new long[N];
+long[] sm = new long[N];
+
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	q = gii(ts[1]);
+	ts = gss();
+	for (int i = 1; i <= n; i ++)
+	{
+		a[i] = gll(ts[i - 1]);
+		sm[i] = sm[i - 1] + a[i];
+	}
+	while (q -- > 0)
+	{
+		int x, y;
+		ts = gss();
+		x = gii(ts[0]);
+		y = gii(ts[1]);
+		cout.println(sm[y] - sm[x - 1]);
+	}
+	
+}
+```
+
+## 二维前缀和
+
+```java
+int n, m, q;
+long[][] a;
+long[][] sm;
+
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	m = gii(ts[1]);
+	q = gii(ts[2]);
+	
+	a = new long[n + 100][m + 100];
+	sm = new long[n + 100][m + 100];
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		ts = gss();
+		for (int j = 1; j <= m; j ++)
+		{
+			a[i][j] = gll(ts[j - 1]);
+		}
+	}
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		for (int j = 1; j <= m; j ++)
+		{
+			sm[i][j] = sm[i][j - 1] + a[i][j];
+		}
+	}
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		for (int j = 1; j <= m; j ++)
+		{
+			sm[i][j] += sm[i - 1][j];
+		}
+	}
+	
+	while (q -- > 0)
+	{
+		int x1, y1, x2, y2;
+		ts = gss();
+		x1 = gii(ts[0]);
+		y1 = gii(ts[1]);
+		x2 = gii(ts[2]);
+		y2 = gii(ts[3]);
+		
+		long res = sm[x2][y2] + sm[x1 - 1][y1 - 1]
+				- sm[x2][y1 - 1] - sm[x1 - 1][y2];
+		cout.println(res);
+	}
+	
+}
+```
+
+## 差分
+
+```java
+int n, q;
+long[] a = new long[N]; 
+long[] dv = new long[N];
+
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	q = gii(ts[1]);
+	ts = gss();
+	for (int i = 1; i <= n; i ++)
+	{
+		a[i] = gll(ts[i - 1]);
+		dv[i] = a[i] - a[i - 1];
+	}
+	
+	while (q -- > 0)
+	{
+		int x, y, k;
+		ts = gss();
+		x = gii(ts[0]);
+		y = gii(ts[1]);
+		k = gii(ts[2]);
+		dv[x] += k;
+		dv[y + 1] -= k;
+	}
+	
+	for (int i = 1; i <= n; i ++)
+		dv[i] += dv[i - 1];
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		cout.print(dv[i] + " ");
+	}
+}
 ```
