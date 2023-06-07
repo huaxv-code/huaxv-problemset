@@ -724,3 +724,109 @@ void solve() throws Exception
 	
 }
 ```
+
+## 二分形式的双指针
+
+```java
+int n, m;
+long x;
+long[] a = new long[N];
+long[] b = new long[N];
+
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	m = gii(ts[1]);
+	x = gll(ts[2]);
+	ts = gss();
+	for (int i = 1; i <= n; i ++)
+	{
+		a[i] = gll(ts[i - 1]);
+	}
+	ts = gss();
+	for (int i = 1; i <= m; i ++)
+	{
+		b[i] = gll(ts[i - 1]);
+	}
+	
+	int i = 1, j = m;
+	while (i <= n && j > 0)
+	{
+		long t = a[i] + b[j];
+		if (t == x)
+		{
+			cout.println((i - 1) + " " + (j - 1));
+			return;
+		}
+		else if (t < x) i ++;
+		else j --;
+	}
+	
+}
+```
+
+## lowbit
+
+```java
+long lowbit(long x)
+{
+	return -x & x;
+}
+```
+
+## KMP
+
+```java
+int n, m;
+String a, b;
+
+int[] kmp(String s)
+{
+	int n = s.length();
+	int[] ne = new int[n + 100];
+	ne[0] = -1;
+	int i = -1, j = 0;
+	while (j < n)
+	{
+		if (i == - 1 || s.charAt(i) == s.charAt(j))
+		{
+			ne[++ j] = ++ i;
+		}
+		else i = ne[i];
+	}
+	return ne;
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	a = gss()[0];
+	m = gii(gss()[0]);
+	b = gss()[0];
+	
+	int[] ne = kmp(a);
+	
+	int i = 0, j = 0;
+	while (j < m)
+	{
+		if (i == -1 || a.charAt(i) == b.charAt(j))
+		{
+			if (i == n - 1)
+			{
+				cout.print((j - i) + " ");
+				i = ne[i];
+				continue;
+			}
+			i ++; j ++;
+		}
+		else i = ne[i];
+	}
+	cout.println();
+	
+}
+```
