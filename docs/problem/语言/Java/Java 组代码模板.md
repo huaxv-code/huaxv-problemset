@@ -980,3 +980,427 @@ void solve() throws Exception
 	
 }
 ```
+
+## 堆
+
+```java
+int n, m;
+int[] a = new int[N];
+
+int ls(int p)
+{
+	return p << 1;
+}
+
+int rs(int p)
+{
+	return p << 1 | 1;
+}
+
+int fa(int p)
+{
+	return p >> 1;
+}
+
+void down(int p)
+{
+	if (ls(p) > n) return;
+	int t = ls(p);
+	if (rs(p) <= n && a[ls(p)] > a[rs(p)]) t = rs(p);
+	if (a[t] < a[p])
+	{
+		int tmp = a[t];
+		a[t] = a[p];
+		a[p] = tmp;
+		down(t);
+	}
+}
+
+void up(int p)
+{
+	if (p <= 1) return;
+	if (a[fa(p)] > a[p])
+	{
+		int t = a[fa(p)];
+		a[fa(p)] = a[p];
+		a[p] = t;
+		up(fa(p));
+	}
+}
+
+void push(int x)
+{
+	a[++ n] = x;
+	up(n);
+}
+
+int pop()
+{
+	int t = a[1];
+	a[1] = a[n];
+	a[n] = t;
+	n --;
+	down(1);
+	return t;
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	int as = gii(ts[0]);
+	m = gii(ts[1]);
+	ts = gss();
+	for (int i = 1; i <= as; i ++)
+		push(gii(ts[i - 1]));
+	while (m -- > 0)
+	{
+		cout.println(pop() + " ");
+	}
+	
+}
+```
+
+## 字符串哈希
+
+```java
+int n, m;
+String s;
+final long mod = 1000000007;
+final long r = 233;
+
+long[] rp = new long[N];
+long[] hs = new long[N];
+
+long gs(int l, int r)
+{
+	long res = hs[r];
+	res = ((res - hs[l - 1] * rp[(r - l + 1)] % mod) % mod + mod) % mod;
+	return res;
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	m = gii(ts[1]);
+	ts = gss();
+	s = "?" + ts[0];
+	
+	rp[0] = 1;
+	
+	for (int i = 1; i <= n + 10; i ++)
+	{
+		rp[i] = rp[i - 1] * r % mod;
+	}
+	
+	for (int i = 1; i <= n; i ++)
+	{
+		hs[i] = (hs[i - 1] * r % mod + (int)(s.charAt(i))) % mod;
+	}
+	
+	while (m -- > 0)
+	{
+		ts = gss();
+		int l1, r1, l2, r2;
+		l1 = gii(ts[0]);
+		r1 = gii(ts[1]);
+		l2 = gii(ts[2]);
+		r2 = gii(ts[3]);
+		if (gs(l1, r1) == gs(l2, r2)) cout.println("Yes");
+		else cout.println("No");
+	}
+	
+}
+```
+
+## 树的重心
+
+对于每一个节点，它的子树的节点数最大数量，是所有节点的最小值时，该节点就算重心
+
+最大节点数最小
+
+```java
+int n;
+List<Integer>[] g;
+int[] size = new int[N];
+int pot, max = 1000000000;
+
+void add(int x, int y)
+{
+	g[x].add(y);
+}
+
+void dfs(int v, int u)
+{
+	int sm = 0;
+	int mx = 0;
+	for (int x : g[v])
+	{
+		if (x == u) continue;
+		dfs(x, v);
+		sm += size[x];
+		mx = Math.max(mx, size[x]);
+	}
+	size[v] = 1 + sm;
+	mx = Math.max(mx, n - size[v]);
+	if (mx < max)
+	{
+		max = mx; pot = v;
+	}
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	g = new List[n + 10];
+	
+	for (int i = 1; i <= n; i ++)
+		g[i] = new ArrayList<>();
+	
+	for (int i = 1; i < n; i ++)
+	{
+		ts = gss();
+		int x, y;
+		x = gii(ts[0]);
+		y = gii(ts[1]);
+		add(x, y);
+		add(y, x);
+	}
+	
+	dfs(1, 0);
+	
+	cout.println(max);
+	
+}
+```
+
+## 树状数组，单点修改，区间查询
+
+初始化操作可以想象成单点修改
+
+```java
+// 单点修改
+void update(int p, int x)
+{
+	while (p <= n)
+	{
+		tr[p] += x;
+		p += lowbit(p);
+	}
+}
+
+// 查询前缀和
+int sum(int p)
+{
+	int res = 0;
+	while (p > 0)
+	{
+		res += tr[p];
+		p -= lowbit(p);
+	}
+	return res;
+}
+```
+
+## 树状数组，区间修改，区间查询
+
+定义差分数组：`D[i] = a[i] - a[i - 1]`
+
+原数组：`a[i] = D[1] + D[2] + ··· + D[i]`
+
+原数组前缀和：
+
+```
+sm[i] = a[1] + a[2] + ··· + a[i]
+
+	  = D[1]
+	  + D[1] + D[2]
+	  + ···
+	  + D[1] + D[2] + ··· D[i]
+
+	  = i * D[1]
+	  + (i - 1) * D[2]
+	  + ···
+	  + (i - (i - 1)) * D[i]	
+
+	  = i * (D[1] + D[2] + ··· + D[i])
+	  + 0 * D[1] + 1 * D[2] + ··· + (i - 1) * D[i]
+```
+
+所以原数组的前缀和：$sm[i] = i * \sum D[i] + \sum (i - 1)D[i]$
+
+分别用两个树状数组维护 $D[i]$ 和 $(i - 1) * D[i]$
+
+```java
+int n, m;
+long[] a = new long[N];
+long[] d1 = new long[N];
+long[] d2 = new long[N];
+
+int lowbit(int p)
+{
+	return -p & p;
+}
+
+void update(long[] d, int p, long x)
+{
+	while (p <= n)
+	{
+		d[p] += x;
+		p += lowbit(p);
+	}
+}
+
+long query(long[] d, int p)
+{
+	long res = 0;
+	while (p > 0)
+	{
+		res += d[p];
+		p -= lowbit(p);
+	}
+	return res;
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	m = gii(ts[1]);
+	ts = gss();
+	for (int i = 1; i <= n; i ++)
+	{
+		a[i] = gll(ts[i - 1]);
+		update(d1, i, a[i] - a[i - 1]);
+		update(d2, i, (a[i] - a[i - 1]) * (i - 1));
+	}
+	
+	while (m -- > 0)
+	{
+		ts = gss();
+		int mo = gii(ts[0]);
+		if (mo == 1)
+		{
+			int x, y;
+			long k;
+			x = gii(ts[1]);
+			y = gii(ts[2]);
+			k = gll(ts[3]);
+			update(d1, x, k);
+			update(d1, y + 1, -k);
+			
+			update(d2, x, k * (x - 1));
+			update(d2, y + 1, -k * y);
+		}
+		else
+		{
+			int x, y;
+			x = gii(ts[1]);
+			y = gii(ts[2]);
+			long t = y * query(d1, y) - (x - 1) * query(d1, x - 1);
+			t -= query(d2, y) - query(d2, x - 1);
+			cout.println(t);
+		}
+	}
+	
+}
+```
+
+## 树状数组，逆序对问题
+
+从后面往前面插入，区间查找比当前元素小的个数，就是由该点引发的逆序对数量
+
+```java
+int n;
+int[] a = new int[N];
+int[] sr = new int[N];
+int ant;
+long res;
+
+int f(int x)
+{
+	int l = 1, r = ant, mid;
+	while (l < r)
+	{
+		mid = (l + r) >> 1;
+		if (sr[mid] < x) l = mid + 1;
+		else r = mid;
+	}
+	
+	return r;
+}
+
+int unique()
+{
+	int i = 1, j = 2;
+	while (j <= n)
+	{
+		if (sr[i] != sr[j])
+		{
+			sr[++ i] = sr[j];
+		}
+		j ++;
+	}
+	return i;
+}
+
+int[] tr = new int[N];
+
+int lowbit(int p)
+{
+	return -p & p;
+}
+
+void update(int p, int x)
+{
+	while (p <= ant)
+	{
+		tr[p] += x;
+		p += lowbit(p);
+	}
+}
+
+int sum(int p)
+{
+	int res = 0;
+	while (p > 0)
+	{
+		res += tr[p];
+		p -= lowbit(p);
+	}
+	return res;
+}
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	ts = gss();
+	for (int i = 1; i <= n; i ++)
+	{
+		a[i] = gii(ts[i - 1]);
+		sr[i] = a[i];
+	}
+	
+	Arrays.sort(sr, 1, n + 1);
+	
+	ant = unique();
+	
+	for (int i = n; i > 0; i --)
+	{
+		int t = f(a[i]);
+		res += sum(t - 1);
+		update(t, 1);
+	}
+	
+	cout.println(res);
+	
+	
+}
+```
