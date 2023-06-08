@@ -830,3 +830,153 @@ void solve() throws Exception
 	
 }
 ```
+
+## 字典树
+
+```java
+class Node
+{
+	int cnt;
+	boolean end;
+	Node[] s = new Node[26];
+}
+
+Node r = new Node();
+
+Node gt()
+{
+	return new Node();
+}
+
+void add(Node r, String s, int n, int cur)
+{
+	int p = (int)(s.charAt(cur) - 'a');
+	if (r.s[p] == null) r.s[p] = gt();
+	if (cur == n - 1)
+	{
+		r.s[p].end = true;
+		r.s[p].cnt ++;
+		return;
+	}
+	add(r.s[p], s, n, cur + 1);
+}
+
+void del(Node r, String s, int n, int cur)
+{
+	int p = (int)(s.charAt(cur) - 'a');
+	if (r.s[p] == null) return;
+	if (cur == n - 1)
+	{
+		if (r.s[p].end) r.s[p].cnt --;
+		if (r.s[p].cnt == 0) r.s[p].end = false;
+		return;
+	}
+	del(r.s[p], s, n, cur + 1);
+}
+
+int query(Node r, String s, int n, int cur)
+{
+	int p = (int)(s.charAt(cur) - 'a');
+	if (r.s[p] == null) return 0;
+	if (cur == n - 1)
+	{
+		if (r.s[p].end == true) return r.s[p].cnt;
+		else return 0;
+	}
+	return query(r.s[p], s, n, cur + 1);
+}
+
+void solve() throws Exception
+{
+	
+	int n = gii(gss()[0]);
+	String[] ts;
+	String t, s;
+	while (n -- > 0)
+	{
+		ts = gss();
+		t = ts[0];
+		s = ts[1];
+		if (t.equals("I")) add(r, s, s.length(), 0);
+		else cout.println(query(r, s, s.length(), 0));
+	}
+	
+}
+```
+
+## 并查集合并路径长度
+
+如果我知道了当前节点到父节点的路径长度，那么路径压缩时，就能求出当前节点到根节点的路径长度。
+
+有点类似：并查集上的差分
+
+```java
+int n, k, res;
+int[] a = new int[N];
+int[] b = new int[N];
+
+int find(int x)
+{
+	if (x == a[x]) return x;
+	int fa = a[x];
+	a[x] = find(a[x]);
+	b[x] += b[fa];
+	b[x] = calc(b[x]);
+	return a[x];
+}
+
+int calc(int x)
+{
+	return (x % 3 + 3) % 3;
+}
+
+int type(int x)
+{
+	find(x); return calc(b[x]);
+}
+
+void meld(int x, int y, int mo)
+{
+	int i = find(x);
+	int j = find(y);
+	
+	if (i == j) return;
+	
+	int t = b[x] + mo - b[y];
+	a[j] = i;
+	b[j] = t;
+}
+
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	k = gii(ts[1]);
+	
+	for (int i = 1; i <= n; i ++) a[i] = i;
+	
+	int mo, x, y;
+	while (k -- > 0)
+	{
+		ts = gss();
+		mo = gii(ts[0]);
+		x = gii(ts[1]);
+		y = gii(ts[2]);
+		if (x < 1 || x > n || y < 1 || y > n) res ++;
+		else if (mo == 1)
+		{
+			if (find(x) == find(y) && type(x) != type(y)) res ++;
+			else meld(x, y, 0);
+		}
+		else
+		{
+			if (find(x) == find(y) && calc(type(x) + 1) != type(y)) res ++;
+			else meld(x, y, 1);
+		}
+	}
+	cout.println(res);
+	
+}
+```
