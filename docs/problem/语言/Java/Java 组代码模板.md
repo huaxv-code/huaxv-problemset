@@ -1404,3 +1404,201 @@ void solve() throws Exception
 	
 }
 ```
+
+## FHQ Treap 树
+
+要时刻回想起是怎么分裂的？是怎么合并的？
+
+这里的分裂基于权值分裂
+
+整体上是一棵搜索树，也是一棵大顶堆，基于随机值的大顶堆
+
+```java
+class Node
+{
+	int key;
+	int val;
+	int size;
+	Node ls, rs;
+}
+
+// 获取节点个数
+int get_size(Node r)
+{
+	if (r == null) return 0;
+	else return r.size;
+} 
+
+// 更新节点
+void update_size(Node r)
+{
+	if (r == null) return;
+	r.size = 1 + get_size(r.ls) + get_size(r.rs);
+}
+
+// 分裂
+void split(Node r, int x, Node[] lr)
+{
+	if (r == null) 
+	{
+		lr[0] = null;
+		lr[1] = null;
+		return;
+	}
+	
+	if (r.val <= x)
+	{
+		lr[0] = r;
+		Node[] t = new Node[2];
+		split(r.rs, x, t);
+		lr[0].rs = t[0];
+		lr[1] = t[1];
+	}
+	else
+	{
+		lr[1] = r;
+		Node[] t = new Node[2];
+		split(r.ls, x, t);
+		lr[1].ls = t[1];
+		lr[0] = t[0];
+	}
+	update_size(lr[0]);
+	update_size(lr[1]);
+}
+
+// 合并
+Node meld(Node l, Node r)
+{
+	if (l == null) return r;
+	if (r == null) return l;
+	if (l.key >= r.key)
+	{
+		l.rs = meld(l.rs, r);
+		update_size(l);
+		return l;
+	}
+	else
+	{
+		r.ls = meld(l, r.ls);
+		update_size(r);
+		return r;
+	}
+}
+
+Random rr = new Random();
+
+// 基于分裂、合并的插入
+Node insert(Node r, int x)
+{
+	Node[] t = new Node[2];
+	
+	Node nd = new Node();
+	nd.size = 1;
+	nd.key = rr.nextInt();
+	nd.val = x;
+	
+	split(r, x, t);
+	r = meld(t[0], nd);
+	r = meld(r, t[1]);
+	return r;
+}
+
+// 基于分裂、合并的删除
+Node erase(Node r, int x)
+{
+	Node[] t1 = new Node[2];
+	Node[] t2 = new Node[2];
+	split(r, x, t1);
+	split(t1[0], x - 1, t2);
+	if (t2[1] == null) r = null;
+	else r = meld(t2[1].ls, t2[1].rs);
+	r = meld(t2[0], r);
+	r = meld(r, t1[1]);
+	return r;
+}
+
+// 基于分裂、合并
+Node smaller(Node r, int x, int[] ans)
+{
+	Node[] t = new Node[2];
+	split(r, x - 1, t);
+	ans[0] = get_size(t[0]);
+	return meld(t[0], t[1]);
+}
+
+// 查找第 k 个数
+int get_kth(Node r, int k)
+{
+	int t = get_size(r.ls);
+	if (t + 1 == k) return r.val;
+	else if (t + 1 < k) return get_kth(r.rs, k - t - 1);
+	else return get_kth(r.ls, k);
+}
+
+// 基于分裂、合并的查找前驱
+Node get_pre(Node r, int x, int[] ans)
+{
+	Node[] t = new Node[2];
+	split(r, x - 1, t);
+	ans[0] = get_kth(t[0], get_size(t[0]));
+	return meld(t[0], t[1]);
+}
+
+// 基于分裂、合并的查找后继
+Node get_post(Node r, int x, int[] ans)
+{
+	Node[] t = new Node[2];
+	split(r, x, t);
+	ans[0] = get_kth(t[1], 1);
+	return meld(t[0], t[1]);
+}
+
+Node r;
+int n;
+
+void solve() throws Exception
+{
+	
+	String[] ts = gss();
+	n = gii(ts[0]);
+	
+	int[] ans;
+	
+	while (n -- > 0)
+	{
+		ts = gss();
+		int mo, x;
+		mo = gii(ts[0]);
+		x = gii(ts[1]);
+		
+		switch(mo)
+		{
+		case 1:
+			r = insert(r, x);
+			break;
+		case 2:
+			r = erase(r, x);
+			break;
+		case 3:
+			ans = new int[1];
+			r = smaller(r, x, ans);
+			cout.println(ans[0] + 1);
+			break;
+		case 4:
+			cout.println(get_kth(r, x));
+			break;
+		case 5:
+			ans = new int[1];
+			r = get_pre(r, x, ans);
+			cout.println(ans[0]);
+			break;
+		case 6:
+			ans = new int[1];
+			r = get_post(r, x, ans);
+			cout.println(ans[0]);
+			break;
+		}
+	}
+	
+}
+```
