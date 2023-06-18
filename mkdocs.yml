@@ -135,11 +135,11 @@ nav:
 
     - index.md
   
-  - 准备:
+  # - 准备:
 
-    - problem/准备/代码片段.md
-    - problem/准备/配置sublime.md
-    - problem/准备/批处理运行命令.md
+  #   - problem/准备/代码片段.md
+  #   - problem/准备/配置sublime.md
+  #   - problem/准备/批处理运行命令.md
   
   - 语言:
     - C++:
@@ -308,8 +308,8 @@ nav:
       - M. Different Billing: problem/CodeForces/M. Different Billing.md
 
 
-  - 杂题:
-    - 等差子数组: problem/杂题/等差子数组.md
+  # - 杂题:
+  #   - 等差子数组: problem/杂题/等差子数组.md
 
   - 规律模拟:
 
