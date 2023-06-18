@@ -174,50 +174,50 @@ nav:
     - MySQL:
       - python 随机生成数据: problem/语言/MySQL/python 随机生成数据.md
       - 入门命令: problem/语言/MySQL/入门命令.md
-      - 实验一: problem/语言/MySQL/实验一.md
-      - 实验二: problem/语言/MySQL/实验二.md
-      - 实验三: problem/语言/MySQL/实验三.md
-      - PyMySQL: problem/语言/MySQL/PyMySQL.md
-      - 创建数据库: problem/语言/MySQL/创建数据库.md
-      - 删除数据库: problem/语言/MySQL/删除数据库.md
-      - 选择数据库: problem/语言/MySQL/选择数据库.md
-      - 数据类型: problem/语言/MySQL/数据类型.md
-      - 创建数据表: problem/语言/MySQL/创建数据表.md
-      - 删除数据表: problem/语言/MySQL/删除数据表.md
-      - 插入数据: problem/语言/MySQL/插入数据.md
-      - 查询数据: problem/语言/MySQL/查询数据.md
-      - where 子句: problem/语言/MySQL/where 子句.md
-      - 更新数据: problem/语言/MySQL/更新数据.md
-      - 删除数据: problem/语言/MySQL/删除数据.md
-      - like 子句: problem/语言/MySQL/like 子句.md
-      - union 子句: problem/语言/MySQL/union 子句.md
-      - 排序子句: problem/语言/MySQL/排序子句.md
-      - 正则表达式: problem/语言/MySQL/正则表达式.md
-      - 删除列: problem/语言/MySQL/删除列.md
-      - 添加列: problem/语言/MySQL/添加列.md
-      - 添加第一列: problem/语言/MySQL/添加第一列.md
-      - 添加到指定列的右边: problem/语言/MySQL/添加到指定列的右边.md
-      - 更换列的数据类型: problem/语言/MySQL/更换列的数据类型.md
-      - 更换列的默认值: problem/语言/MySQL/更换列的默认值.md
-      - 删除列的默认值: problem/语言/MySQL/删除列的默认值.md
-      - 修改表名: problem/语言/MySQL/修改表名.md
+      # - 实验一: problem/语言/MySQL/实验一.md
+      # - 实验二: problem/语言/MySQL/实验二.md
+      # - 实验三: problem/语言/MySQL/实验三.md
+      # - PyMySQL: problem/语言/MySQL/PyMySQL.md
+      # - 创建数据库: problem/语言/MySQL/创建数据库.md
+      # - 删除数据库: problem/语言/MySQL/删除数据库.md
+      # - 选择数据库: problem/语言/MySQL/选择数据库.md
+      # - 数据类型: problem/语言/MySQL/数据类型.md
+      # - 创建数据表: problem/语言/MySQL/创建数据表.md
+      # - 删除数据表: problem/语言/MySQL/删除数据表.md
+      # - 插入数据: problem/语言/MySQL/插入数据.md
+      # - 查询数据: problem/语言/MySQL/查询数据.md
+      # - where 子句: problem/语言/MySQL/where 子句.md
+      # - 更新数据: problem/语言/MySQL/更新数据.md
+      # - 删除数据: problem/语言/MySQL/删除数据.md
+      # - like 子句: problem/语言/MySQL/like 子句.md
+      # - union 子句: problem/语言/MySQL/union 子句.md
+      # - 排序子句: problem/语言/MySQL/排序子句.md
+      # - 正则表达式: problem/语言/MySQL/正则表达式.md
+      # - 删除列: problem/语言/MySQL/删除列.md
+      # - 添加列: problem/语言/MySQL/添加列.md
+      # - 添加第一列: problem/语言/MySQL/添加第一列.md
+      # - 添加到指定列的右边: problem/语言/MySQL/添加到指定列的右边.md
+      # - 更换列的数据类型: problem/语言/MySQL/更换列的数据类型.md
+      # - 更换列的默认值: problem/语言/MySQL/更换列的默认值.md
+      # - 删除列的默认值: problem/语言/MySQL/删除列的默认值.md
+      # - 修改表名: problem/语言/MySQL/修改表名.md
 
 
 
-    - SQL Server:
-      - 新建数据库: problem/语言/SQL Server/新建数据库.md
-      - 查询数据库列表: problem/语言/SQL Server/查询数据库列表.md
-      - 删除一个或多个数据库: problem/语言/SQL Server/删除一个或多个数据库.md
-      - 创建表-指定主键: problem/语言/SQL Server/创建表-指定主键.md
-      - 创建表-不允许某列为空: problem/语言/SQL Server/创建表-不允许某列为空.md
-      - 创建表-给某列的取值范围添加限制: problem/语言/SQL Server/创建表-给某列的取值范围添加限制.md
-      - 创建表-不允许某列有重复值: problem/语言/SQL Server/创建表-不允许某列有重复值.md
-      - 创建表-给某列指定默认值: problem/语言/SQL Server/创建表-给某列指定默认值.md
-      - 查看数据表的一些信息: problem/语言/SQL Server/查看数据表的一些信息.md
-      - 查看数据表的行数和大小: problem/语言/SQL Server/查看数据表的行数和大小.md
-      - alter-add-添加新列到末尾: problem/语言/SQL Server/alter-add-添加新列到末尾.md
-      - alter-alter-column-修改列的数据类型和大小: problem/语言/SQL Server/alter-alter-column-修改列的数据类型和大小.md
-      - alter-add-primary-key-给某列添加主键: problem/语言/SQL Server/alter-add-primary-key-给某列添加主键.md
+    # - SQL Server:
+    #   - 新建数据库: problem/语言/SQL Server/新建数据库.md
+    #   - 查询数据库列表: problem/语言/SQL Server/查询数据库列表.md
+    #   - 删除一个或多个数据库: problem/语言/SQL Server/删除一个或多个数据库.md
+    #   - 创建表-指定主键: problem/语言/SQL Server/创建表-指定主键.md
+    #   - 创建表-不允许某列为空: problem/语言/SQL Server/创建表-不允许某列为空.md
+    #   - 创建表-给某列的取值范围添加限制: problem/语言/SQL Server/创建表-给某列的取值范围添加限制.md
+    #   - 创建表-不允许某列有重复值: problem/语言/SQL Server/创建表-不允许某列有重复值.md
+    #   - 创建表-给某列指定默认值: problem/语言/SQL Server/创建表-给某列指定默认值.md
+    #   - 查看数据表的一些信息: problem/语言/SQL Server/查看数据表的一些信息.md
+    #   - 查看数据表的行数和大小: problem/语言/SQL Server/查看数据表的行数和大小.md
+    #   - alter-add-添加新列到末尾: problem/语言/SQL Server/alter-add-添加新列到末尾.md
+    #   - alter-alter-column-修改列的数据类型和大小: problem/语言/SQL Server/alter-alter-column-修改列的数据类型和大小.md
+    #   - alter-add-primary-key-给某列添加主键: problem/语言/SQL Server/alter-add-primary-key-给某列添加主键.md
 
   - 刷题网站:
 
